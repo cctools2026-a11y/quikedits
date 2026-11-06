@@ -46,7 +46,7 @@ export function ToolArt({ to }: { to: string }) {
       <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/40 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
 
       {/* square stage; the frame shows only its lower part so the subject pops out above it */}
-      <div className="absolute bottom-[6%] left-1/2 aspect-square w-[68%] -translate-x-1/2">
+      <div className="absolute bottom-[10%] left-1/2 aspect-square w-[72%] -translate-x-1/2">
         <svg aria-hidden className={`pointer-events-none absolute -inset-[5%] top-[13%] h-[92%] w-[110%] overflow-visible opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} viewBox="0 0 110 92" preserveAspectRatio="none">
           <rect x="1" y="1" width="108" height="90" rx="9" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" className="march text-foreground/40" />
         </svg>
