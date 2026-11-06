@@ -25,7 +25,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
     <div className="mt-24 space-y-24">
       <Reveal>
         <section aria-labelledby="how">
-          <Heading id="how" kicker="Three steps">How it works</Heading>
+          <Heading id="how">How it works</Heading>
           <ol className="relative mt-10 grid gap-6 sm:grid-cols-3">
             <span aria-hidden className="cut-line absolute left-[16%] right-[16%] top-7 hidden h-0.5 sm:block" />
             {c.steps.map((s, i) => {
@@ -142,7 +142,7 @@ export function ToolPicker() {
   return (
     <Reveal>
       <section aria-labelledby="pick-tool" className="mt-24">
-        <Heading id="pick-tool" kicker="Eight free tools">Pick the tool for your job</Heading>
+        <Heading id="pick-tool">Pick the tool for your job</Heading>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map((t) => <ToolCard key={t.to} to={t.to} label={t.task} blurb={t.label} />)}
         </div>
