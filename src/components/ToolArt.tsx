@@ -3,7 +3,7 @@ import { ICONS } from "@/components/SiteHeader";
 import home from "@/assets/cards/home.webp";
 import homeCut from "@/assets/cards/home-cut.webp";
 import colour from "@/assets/cards/colour.webp";
-import colourCut from "@/assets/cards/colour-cut.webp";
+import colourCut from "@/assets/cards/colour-refined-cut.webp.asset.json";
 import product from "@/assets/cards/product.webp";
 import productCut from "@/assets/cards/product-cut.webp";
 import passport from "@/assets/cards/passport.webp";
@@ -11,7 +11,7 @@ import passportCut from "@/assets/cards/passport-cut.webp";
 import profile from "@/assets/cards/profile.webp";
 import profileCut from "@/assets/cards/profile-cut.webp";
 import sticker from "@/assets/cards/sticker.webp";
-import stickerCut from "@/assets/cards/sticker-cut.webp";
+import stickerCut from "@/assets/cards/sticker-refined-cut.webp.asset.json";
 import photobg from "@/assets/tools/photobg-summer-before.webp";
 import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
 import logo from "@/assets/cards/logo.webp";
@@ -23,11 +23,11 @@ type Art = { before: string; cut: string; tile: string; result: string; resultIm
 /** Card art per tool: photo before, cut-out after (made with the site's own remover), and the backdrop the tool adds. */
 const ART: Record<string, Art> = {
   "/": { before: home, cut: homeCut, tile: "bg-tile-peach", result: "checker-sm" },
-  "/colour-background": { before: colour, cut: colourCut, tile: "bg-tile-lilac", result: "bg-art-coral" },
+  "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-tile-lilac", result: "bg-art-coral" },
   "/product-photo": { before: product, cut: productCut, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:-translate-x-[13%] group-hover:scale-[0.92]", extra: "floor" },
   "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
   "/profile-picture": { before: profile, cut: profileCut, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
-  "/sticker-maker": { before: sticker, cut: stickerCut, tile: "bg-tile-peach", result: "checker-sm", outline: true },
+  "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-tile-peach", result: "checker-sm", outline: true },
   "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
   "/logo-cleaner": { before: logo, cut: logoCut, tile: "bg-tile-butter", result: "checker-sm" },
 };
@@ -41,7 +41,8 @@ const OUTLINE = "drop-shadow(3px 0 0 var(--card)) drop-shadow(-3px 0 0 var(--car
  * fades into the tool's result while the cut-out lifts and a dotted cut line traces the frame.
  */
 export function ToolArt({ to }: { to: string }) {
-  const a = ART[to] ?? ART["/"]!;
+  const a = ART[to] ?? ART["/"];
+  if (!a) return null;
   const Icon = ICONS[to] ?? Eraser;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>
