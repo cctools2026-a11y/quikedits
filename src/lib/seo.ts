@@ -1,4 +1,5 @@
 import { TOOL_CONTENT } from "@/lib/tool-content";
+import { subtool } from "@/lib/tools";
 
 export const SITE_URL = "https://quikedits.com";
 export const SITE_NAME = "QuikEdits";
@@ -23,7 +24,13 @@ export function toolHead(path: string) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: SITE_NAME, item: `${SITE_URL}/` },
-      ...(path === "/" ? [] : [{ "@type": "ListItem", position: 2, name: c.name, item: url }]),
+      ...(() => {
+        const sub = subtool(path);
+        const p = sub && TOOL_CONTENT[sub.parent];
+        if (path === "/") return [];
+        if (sub && p) return [{ "@type": "ListItem", position: 2, name: p.name, item: `${SITE_URL}${sub.parent === "/" ? "/" : sub.parent}` }, { "@type": "ListItem", position: 3, name: c.name, item: url }];
+        return [{ "@type": "ListItem", position: 2, name: c.name, item: url }];
+      })(),
     ],
   };
   const site = { "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, url: `${SITE_URL}/` };
