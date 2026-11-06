@@ -11,7 +11,7 @@ const PALETTES = [
   { id: "cloud", name: "Lilac cloud", colors: ["#f9fafe", "#d2bdf0", "#f9eec4", "#cfdcf8", "#2f3654"] },
 ] as const;
 
-const KEY = "qe-palette";
+const KEY = "qe-palette-v2";
 
 function apply(id: string) {
   if (id === "riso") document.documentElement.removeAttribute("data-palette");
@@ -20,7 +20,7 @@ function apply(id: string) {
 
 export function PaletteSwitcher() {
   const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState("riso");
+  const [current, setCurrent] = useState("mint");
 
   useEffect(() => {
     const saved = localStorage.getItem(KEY);
