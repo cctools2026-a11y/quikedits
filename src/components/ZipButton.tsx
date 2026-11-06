@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FileArchive, Loader2 } from "lucide-react";
 import { zipUrls } from "@/lib/zip";
 
@@ -22,4 +22,11 @@ export function ZipButton({ files, name }: { files: { url: string | null; name: 
       {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : <FileArchive className="h-5 w-5" />} Download all ({files.length}) as ZIP
     </button>
   );
+}
+
+/** Collect each batch item's finished URL so they can be zipped together. */
+export function useUrlMap() {
+  const [urls, setUrls] = useState<Record<number, string | null>>({});
+  const report = useCallback((i: number, url: string | null) => setUrls((m) => (m[i] === url ? m : { ...m, [i]: url })), []);
+  return [urls, report] as const;
 }
