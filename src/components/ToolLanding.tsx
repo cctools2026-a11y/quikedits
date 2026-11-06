@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, ChevronDown, Download, ImagePlus, ShieldCheck, SlidersHorizontal, X } from "lucide-react";
 import { TOOL_CONTENT } from "@/lib/tool-content";
-import { TOOL_MEDIA } from "@/lib/tool-media";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { TOOLS } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
