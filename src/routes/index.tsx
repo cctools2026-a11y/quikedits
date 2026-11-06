@@ -58,6 +58,8 @@ function Index() {
       const { removeBackground } = await import("@imgly/background-removal");
       const input = await prepareImage(f);
       const blob = await removeBackground(input, {
+        // Model files are self-hosted (verified against IMG.LY's published SHA-256 hashes).
+        publicPath: `${window.location.origin}/imgly/`,
         model: fast ? "isnet_quint8" : "isnet_fp16",
         output: { format: "image/png" },
         progress: (key, current, total) => {
