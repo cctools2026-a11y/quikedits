@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName } from "@/components/ToolPage";
@@ -5,16 +7,7 @@ import { ctx2d, makeCanvas } from "@/lib/compose";
 import { PASSPORT_SIZES, passportPx, sheetLayout, SHEET } from "@/lib/tool-sizes";
 
 export const Route = createFileRoute("/passport-photo")({
-  head: () => ({
-    meta: [
-      { title: "Free Passport & ID Photo Maker — White Background, Print Sheet" },
-      { name: "description", content: "Make passport, visa and ID photos on a white or light grey background in official sizes, plus a 6×4 in print sheet. Free and private." },
-      { property: "og:title", content: "Free Passport Photo Maker" },
-      { property: "og:description", content: "Passport and ID photos in official sizes, made privately in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/passport-photo"),
   component: PassportPhoto,
 });
 
@@ -30,6 +23,7 @@ function PassportPhoto() {
 
   return (
     <ToolPage
+      below={<ToolLanding path="/passport-photo" />}
       crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
       title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
       intro="Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."

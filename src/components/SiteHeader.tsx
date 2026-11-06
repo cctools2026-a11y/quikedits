@@ -4,7 +4,7 @@ import { TOOLS } from "@/lib/tools";
 export function SiteHeader() {
   return (
     <header className="mx-auto max-w-5xl px-4 py-5">
-      <Link to="/" className="font-display text-xl font-bold tracking-tight">cutout<span className="text-primary">.</span></Link>
+      <Link to="/" className="font-display text-xl font-bold tracking-tight">quikedits<span className="text-primary">.</span></Link>
       <nav aria-label="Tools" className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 text-sm">
         {TOOLS.map((t) => (
           <Link

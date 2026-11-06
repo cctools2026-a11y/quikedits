@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ImagePlus } from "lucide-react";
@@ -6,22 +8,14 @@ import { blobToCanvas, ctx2d, makeCanvas } from "@/lib/compose";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 
 export const Route = createFileRoute("/photo-background")({
-  head: () => ({
-    meta: [
-      { title: "Change Photo Background to Another Picture — Free" },
-      { name: "description", content: "Cut out a person or object and place it on any background photo you choose. Free, private, in your browser." },
-      { property: "og:title", content: "Free Photo Background Changer" },
-      { property: "og:description", content: "Swap a photo's background for another picture, privately in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/photo-background"),
   component: PhotoBackground,
 });
 
 function PhotoBackground() {
   return (
     <ToolPage
+      below={<ToolLanding path="/photo-background" />}
       title={<>Put yourself <span className="text-primary">anywhere</span>.</>}
       intro="Upload the photo you want to cut out first. Then choose a second photo to use as the new background."
     >

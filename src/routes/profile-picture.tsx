@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName } from "@/components/ToolPage";
@@ -6,16 +8,7 @@ import { ctx2d, makeCanvas } from "@/lib/compose";
 import { PROFILE_SIZE } from "@/lib/tool-sizes";
 
 export const Route = createFileRoute("/profile-picture")({
-  head: () => ({
-    meta: [
-      { title: "Free Profile Picture Maker — LinkedIn & CV Headshots" },
-      { name: "description", content: "Turn any photo into a clean profile picture on a solid colour, in a circle or square. Free, private, in your browser." },
-      { property: "og:title", content: "Free Profile Picture Maker" },
-      { property: "og:description", content: "Professional headshots on a solid colour for LinkedIn, CVs and team pages." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/profile-picture"),
   component: ProfilePicture,
 });
 
@@ -28,6 +21,7 @@ function ProfilePicture() {
 
   return (
     <ToolPage
+      below={<ToolLanding path="/profile-picture" />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
       title={<>A sharp <span className="text-primary">profile picture</span> in seconds.</>}
       intro="Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages."

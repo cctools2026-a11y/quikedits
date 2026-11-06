@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Download } from "lucide-react";
@@ -7,16 +9,7 @@ import { ctx2d, makeCanvas } from "@/lib/compose";
 import { fitContain, PRODUCT_SIZES } from "@/lib/tool-sizes";
 
 export const Route = createFileRoute("/product-photo")({
-  head: () => ({
-    meta: [
-      { title: "Free Product Photo Maker — White Background for Amazon, eBay & Etsy" },
-      { name: "description", content: "Put product photos on a clean white background in marketplace sizes. Several at once, free, processed in your browser." },
-      { property: "og:title", content: "Free Product Photo Maker" },
-      { property: "og:description", content: "White-background product photos for online stores, made privately in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/product-photo"),
   component: ProductPhoto,
 });
 
@@ -30,6 +23,7 @@ function ProductPhoto() {
 
   return (
     <ToolPage
+      below={<ToolLanding path="/product-photo" />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       multiple
       title={<>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}

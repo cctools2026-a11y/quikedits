@@ -1,9 +1,16 @@
 import { Link } from "@tanstack/react-router";
 import { IMGLY_URL, SOURCE_URL } from "@/lib/site";
+import { TOOLS } from "@/lib/tools";
 
 export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-border py-6 text-sm text-muted-foreground">
+      <nav aria-label="All tools" className="mx-auto mb-6 max-w-5xl px-4">
+        <p className="mb-2 font-medium text-foreground">Free tools</p>
+        <ul className="flex flex-wrap gap-x-5 gap-y-2">
+          {TOOLS.map((t) => <li key={t.to}><Link to={t.to} className="hover:text-foreground">{t.label}</Link></li>)}
+        </ul>
+      </nav>
       <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 sm:flex-row sm:items-center sm:justify-between">
         <p>
           Free software under{" "}

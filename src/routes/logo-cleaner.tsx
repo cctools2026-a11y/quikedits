@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
 import { ToolPage, useRenderedUrl, Field, Range, ResultActions, baseName } from "@/components/ToolPage";
@@ -5,16 +7,7 @@ import { ctx2d, makeCanvas, trim } from "@/lib/compose";
 import { alphaForDistance } from "@/lib/tool-sizes";
 
 export const Route = createFileRoute("/logo-cleaner")({
-  head: () => ({
-    meta: [
-      { title: "Remove Background from Logo or Signature — Free Transparent PNG" },
-      { name: "description", content: "Make logos, signatures and stamps transparent. Sharp edges, instant, no AI download, nothing uploaded." },
-      { property: "og:title", content: "Free Logo & Signature Background Remover" },
-      { property: "og:description", content: "Transparent logos and signatures in seconds, right in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/logo-cleaner"),
   component: LogoCleaner,
 });
 
@@ -22,6 +15,7 @@ function LogoCleaner() {
   const [tol, setTol] = useState(60);
   return (
     <ToolPage
+      below={<ToolLanding path="/logo-cleaner" />}
       raw
       title={<>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
       intro="Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."
