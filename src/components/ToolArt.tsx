@@ -23,13 +23,13 @@ type Art = { before: string; cut: string; tile: string; result: string; resultIm
 /** Card art per tool: photo before, cut-out after (made with the site's own remover), and the backdrop the tool adds. */
 const ART: Record<string, Art> = {
   "/": { before: home, cut: homeCut, tile: "bg-art-yellow", result: "checker-sm" },
-  "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-cobalt", result: "bg-art-coral" },
+  "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-tile-sky", result: "bg-art-coral" },
   "/product-photo": { before: product, cut: productCut.url, tile: "bg-primary", result: "bg-card", move: "group-hover:scale-[0.92]", extra: "floor" },
   "/passport-photo": { before: passport, cut: passportCut, tile: "bg-art-yellow", result: "bg-muted", extra: "oval" },
-  "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-cobalt", result: "bg-card", extra: "circle" },
+  "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-tile-sky", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-primary", result: "checker-sm", outline: true },
   "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-art-yellow", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
-  "/logo-cleaner": { before: logo, cut: logoCut.url, tile: "bg-cobalt", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
+  "/logo-cleaner": { before: logo, cut: logoCut.url, tile: "bg-tile-sky", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
 };
 
 const EASE = "duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
