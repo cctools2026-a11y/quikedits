@@ -286,3 +286,4 @@ html[data-palette="milk"], html[data-palette="sorbet"] { --accent: oklch(0.95 0.
 html[data-palette="mint"] { --accent: oklch(0.95 0.04 170); --popover: oklch(1 0 0); }
 html[data-palette="cloud"] { --accent: oklch(0.95 0.04 300); --popover: oklch(1 0 0); }
 html[data-palette="candy"] { --accent: oklch(0.94 0.05 355); }
+body { overflow-x: clip; }
