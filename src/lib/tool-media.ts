@@ -1,5 +1,5 @@
-import homeB from "@/assets/tools/home-before.webp";
-import homeA from "@/assets/tools/home-after.webp";
+import homeB from "@/assets/tools/home-expressive-puppy-original.jpg";
+import homeA from "@/assets/tools/home-expressive-puppy-after.webp.asset.json";
 import colourB from "@/assets/tools/colour-sleek-bob-original.jpg";
 import colourA from "@/assets/tools/colour-sleek-bob-after.webp.asset.json";
 import productB from "@/assets/tools/product-before.webp";
@@ -19,7 +19,7 @@ export type ToolMedia = { before: string; after: string; subject: string; badge:
 
 /** Example before/after pairs. The "after" images were made with the site's own tools. */
 export const TOOL_MEDIA: Record<string, ToolMedia> = {
-  "/": { before: homeB, after: homeA, subject: "corgi in a park", badge: "Transparent PNG", tilt: -2 },
+  "/": { before: homeB, after: homeA.url, subject: "an expressive puppy in a messy craft room", badge: "Transparent PNG", tilt: -2 },
   "/colour-background": { before: colourB, after: colourA.url, subject: "woman with a sleek bob at a café", badge: "Any solid colour", tilt: 2 },
   "/product-photo": { before: productB, after: productA, subject: "trainer on a kitchen table", badge: "2000 × 2000 · Amazon ready", tilt: -1.5 },
   "/passport-photo": { before: passportB, after: passportA, subject: "man in a living room", badge: "35 × 45 mm · print sheet", tilt: 1.5 },
