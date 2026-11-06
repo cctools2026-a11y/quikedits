@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- All image processing runs client-side via @imgly/background-removal, dynamically imported in handlers; no backend/database/serverless — keeps it free and static.
+- Every page is prerendered (vite.config.ts `pages`); add new static routes there so Cloudflare Pages can serve them.
+- App is AGPL-3.0 (LICENSE); keep the footer/license page attribution and source link (src/lib/site.ts) intact.
