@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { ShareButton } from "@/components/ShareButton";
 import { Download, Loader2, RotateCcw } from "lucide-react";
 import { ToolHero, TrustStrip } from "@/components/ToolHero";
 import { UploadZone } from "@/components/UploadZone";
@@ -207,6 +208,7 @@ export function ResultActions({ url, name, onReset, label = "Download PNG" }: { 
       >
         <Download className="h-5 w-5" /> {label}
       </a>
+      <ShareButton url={url} name={name} />
       {onReset && (
         <button onClick={onReset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
           <RotateCcw className="h-4 w-4" /> New image
