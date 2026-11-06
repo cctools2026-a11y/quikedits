@@ -39,11 +39,11 @@ export function TrustStrip() {
     { label: "Never uploaded", sub: "Your photo stays on your device" },
     { label: "No sign-up", sub: "Just open and use" },
   ];
-  const tints = ["bg-tile-peach", "bg-tile-butter", "bg-tile-sky"];
+  const tints = ["", "", ""];
   return (
-    <ul className="mt-14 grid gap-3 sm:grid-cols-3">
+    <ul className="mt-14 grid gap-6 border-y border-border py-6 sm:grid-cols-3">
       {items.map(({ label, sub }, i) => (
-        <li key={label} className={`${tints[i]} rounded-[1.5rem] px-6 py-5 transition-transform duration-300 hover:-translate-y-1`}>
+        <li key={label} className={`${tints[i]} sm:px-2`}>
           <span className="font-display block text-3xl leading-none tracking-wide text-foreground">{label}</span>
           <span className="mt-1.5 block text-sm text-foreground/70">{sub}</span>
         </li>
