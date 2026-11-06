@@ -8,8 +8,8 @@ import passportB from "@/assets/tools/passport-before.webp";
 import passportA from "@/assets/tools/passport-after.webp";
 import profileB from "@/assets/tools/profile-before.webp";
 import profileA from "@/assets/tools/profile-after.webp";
-import stickerB from "@/assets/tools/sticker-before.webp";
-import stickerA from "@/assets/tools/sticker-after.webp";
+import stickerB from "@/assets/tools/sticker-calico-original.jpg";
+import stickerA from "@/assets/tools/sticker-calico-after.webp.asset.json";
 import photobgB from "@/assets/tools/photobg-summer-before.webp";
 import photobgA from "@/assets/tools/photobg-coastal-after.webp";
 import logoB from "@/assets/tools/logo-before.webp";
@@ -24,7 +24,7 @@ export const TOOL_MEDIA: Record<string, ToolMedia> = {
   "/product-photo": { before: productB, after: productA, subject: "trainer on a kitchen table", badge: "2000 × 2000 · Amazon ready", tilt: -1.5 },
   "/passport-photo": { before: passportB, after: passportA, subject: "man in a living room", badge: "35 × 45 mm · print sheet", tilt: 1.5 },
   "/profile-picture": { before: profileB, after: profileA, subject: "headshot in an office", badge: "LinkedIn ready", tilt: -2 },
-  "/sticker-maker": { before: stickerB, after: stickerA, subject: "surprised cat on a sofa", badge: "512 × 512 sticker", tilt: 3 },
+  "/sticker-maker": { before: stickerB, after: stickerA.url, subject: "calico kitten on a sofa", badge: "512 × 512 sticker", tilt: 3 },
   "/photo-background": { before: photobgB, after: photobgA, subject: "woman in summer clothes on a patio", badge: "Patio → seaside terrace", tilt: -1.5 },
   "/logo-cleaner": { before: logoB, after: logoA, subject: "signature on paper", badge: "Transparent signature", tilt: 1 },
 };
