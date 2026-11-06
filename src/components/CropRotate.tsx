@@ -8,8 +8,8 @@ export type CropAspect = { id: string; label: string; ratio: number | null };
 type Corner = "nw" | "ne" | "sw" | "se";
 
 export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }: {
-  file: File; aspects: CropAspect[]; heading?: string;
-  onDone: (f: File) => void; onSkip: () => void; onSkipAll?: () => void;
+  file: File; aspects: CropAspect[]; heading?: string | undefined;
+  onDone: (f: File) => void; onSkip: () => void; onSkipAll?: (() => void) | undefined;
 }) {
   const [bmp, setBmp] = useState<ImageBitmap | null>(null);
   const [quarter, setQuarter] = useState(0);
