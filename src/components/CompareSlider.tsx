@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from "react";
 
-export function CompareSlider({ before, after }: { before: string; after: string }) {
+export function CompareSlider({ before, after, afterAlt = "Background removed", beforeAlt = "Original" }: { before: string; after: string; afterAlt?: string; beforeAlt?: string }) {
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -23,10 +23,10 @@ export function CompareSlider({ before, after }: { before: string; after: string
       onPointerMove={(e) => dragging.current && move(e.clientX)}
       onPointerUp={() => (dragging.current = false)}
     >
-      <img src={after} alt="Background removed" className="block max-h-[70vh] w-full object-contain" draggable={false} />
+      <img src={after} alt={afterAlt} className="block max-h-[70vh] w-full object-contain" draggable={false} />
       <img
         src={before}
-        alt="Original"
+        alt={beforeAlt}
         draggable={false}
         className="absolute inset-0 h-full w-full object-contain bg-background"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}

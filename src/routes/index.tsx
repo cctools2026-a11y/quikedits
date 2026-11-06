@@ -9,6 +9,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 import { blobToCanvas, canvasToBlob } from "@/lib/compose";
 import { PhotoTips } from "@/components/PhotoTips";
+import { ToolHero, TrustStrip } from "@/components/ToolHero";
+import { UploadZone } from "@/components/UploadZone";
 import { CutoutCues } from "@/components/CutoutCues";
 
 export const Route = createFileRoute("/")({
@@ -31,9 +33,7 @@ function Index() {
   const [cut, setCut] = useState<HTMLCanvasElement | null>(null);
   const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [elapsed, setElapsed] = useState(0);
-  const [drag, setDrag] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (stage.kind !== "working") return;
@@ -104,42 +104,22 @@ function Index() {
   const downloadName = file ? file.name.replace(/\.[^.]+$/, "") + "-cutout.png" : "cutout.png";
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-mat min-h-screen">
       <SiteHeader />
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <section className="pt-6 sm:pt-12">
-            <h1 className="font-display max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-              Remove backgrounds. <span className="text-primary">Free</span>, private, instant.
-            </h1>
-            <p className="mt-4 max-w-xl text-muted-foreground">
-              AI runs right in your browser. No sign-up, no uploads, no limits.
-            </p>
-            <button
-              type="button"
-              onClick={() => inputRef.current?.click()}
-              onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
-              onDragLeave={() => setDrag(false)}
-              onDrop={(e) => { e.preventDefault(); setDrag(false); pick(e.dataTransfer.files[0]); }}
-              className={`mt-8 flex w-full flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed px-6 py-16 text-center transition-colors sm:py-24 ${drag ? "border-primary bg-accent" : "border-border bg-card hover:border-primary/60"}`}
-            >
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                <ImagePlus className="h-8 w-8" />
-              </span>
-              <span className="font-display text-xl font-semibold">Drop an image or click to upload</span>
-              <span className="text-sm text-muted-foreground">JPG, PNG or WebP · up to 25 MB</span>
-            </button>
-            <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { pick(e.target.files?.[0]); e.target.value = ""; }} />
+          <ToolHero path="/" title={<>Remove any background. <span className="text-primary">Free</span>, private, instant.</>} intro="The AI runs right in your browser. No sign-up, no uploads, no limits.">
+            <UploadZone tool="/" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             <PhotoTips tool="/" />
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
               Faster mode for older phones and laptops (slightly lower quality)
             </label>
-          </section>
+          </ToolHero>
         )}
-
+        {stage.kind === "idle" && <TrustStrip />}
         {stage.kind === "idle" && <ToolPicker />}
         {stage.kind === "idle" && <HowItsFree />}
         {stage.kind === "idle" && <ToolLanding path="/" home />}

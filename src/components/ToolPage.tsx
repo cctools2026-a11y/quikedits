@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { Download, ImagePlus, Loader2, RotateCcw } from "lucide-react";
+import { Download, Loader2, RotateCcw } from "lucide-react";
+import { ToolHero, TrustStrip } from "@/components/ToolHero";
+import { UploadZone } from "@/components/UploadZone";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { validateImageFile, prepareImage } from "@/lib/image-file";
@@ -38,8 +40,6 @@ export function ToolPage({
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [items, setItems] = useState<Item[]>([]);
   const [fileError, setFileError] = useState<string | null>(null);
-  const [drag, setDrag] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   async function run(list: Item[]) {
     const out = [...list];
@@ -69,8 +69,8 @@ export function ToolPage({
     setStage({ kind: "ready" });
   }
 
-  function pick(files: FileList | null | undefined) {
-    const arr = Array.from(files ?? []).slice(0, multiple ? MAX_BATCH : 1);
+  function pick(files: File[]) {
+    const arr = files.slice(0, multiple ? MAX_BATCH : 1);
     if (!arr.length) return;
     const bad = arr.map(validateImageFile).find(Boolean) ?? null;
     const ok = arr.filter((f) => !validateImageFile(f));
@@ -100,30 +100,19 @@ export function ToolPage({
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-mat min-h-screen">
       <SiteHeader />
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <section className="pt-4 sm:pt-8">
-            <h1 className="font-display max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">{title}</h1>
-            <p className="mt-4 max-w-xl text-muted-foreground">{intro}</p>
-            <button
-              type="button"
-              onClick={() => inputRef.current?.click()}
-              onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
-              onDragLeave={() => setDrag(false)}
-              onDrop={(e) => { e.preventDefault(); setDrag(false); pick(e.dataTransfer.files); }}
-              className={`mt-8 flex w-full flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed px-6 py-14 text-center transition-colors sm:py-20 ${drag ? "border-primary bg-accent" : "border-border bg-card hover:border-primary/60"}`}
-            >
-              <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground"><ImagePlus className="h-8 w-8" /></span>
-              <span className="font-display text-xl font-semibold">{multiple ? "Drop images or click to upload" : "Drop an image or click to upload"}</span>
-              <span className="text-sm text-muted-foreground">JPG, PNG or WebP · up to 25 MB{multiple ? ` · up to ${MAX_BATCH} at once` : ""}</span>
-            </button>
-            <input ref={inputRef} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { pick(e.target.files); e.target.value = ""; }} />
-            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
-            {tool && <PhotoTips tool={tool} />}
+          <>
+            <ToolHero path={tool ?? "/"} title={title} intro={intro}>
+              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
+              {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+              {tool && <PhotoTips tool={tool} />}
+            </ToolHero>
+            <TrustStrip />
             {below}
-          </section>
+          </>
         )}
 
         {stage.kind === "adjust" && crop && items[stage.index] && (
@@ -210,7 +199,7 @@ export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unk
 
 export function ResultActions({ url, name, onReset, label = "Download PNG" }: { url: string | null; name: string; onReset?: () => void; label?: string }) {
   return (
-    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+    <div className="sticky bottom-3 z-20 mt-6 flex flex-col gap-3 sm:static sm:flex-row">
       <a
         href={url ?? undefined}
         download={name}
