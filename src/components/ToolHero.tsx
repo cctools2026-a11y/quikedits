@@ -34,18 +34,12 @@ function HeroStage({ children }: { children: ReactNode }) {
 }
 
 export function TrustStrip() {
-  const items = [
-    { label: "Free forever", sub: "No watermark, no limits" },
-    { label: "Never uploaded", sub: "Your photo stays on your device" },
-    { label: "No sign-up", sub: "Just open and use" },
-  ];
-  const tints = ["", "", ""];
+  const items = ["Free forever", "Never uploaded", "No sign-up"];
   return (
-    <ul className="mt-14 grid gap-6 border-y border-border py-6 sm:grid-cols-3">
-      {items.map(({ label, sub }, i) => (
-        <li key={label} className={`${tints[i]} sm:px-2`}>
-          <span className="font-display block text-3xl leading-none tracking-wide text-foreground">{label}</span>
-          <span className="mt-1.5 block text-sm text-foreground/70">{sub}</span>
+    <ul className="mt-8 flex flex-wrap gap-2">
+      {items.map((label) => (
+        <li key={label} className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-semibold text-foreground">
+          {label}
         </li>
       ))}
     </ul>
