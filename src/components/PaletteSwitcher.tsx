@@ -38,7 +38,7 @@ export function PaletteSwitcher() {
       {open ? (
         <div className="w-[min(16rem,calc(100vw-1.5rem))] rounded-2xl border-4 border-foreground bg-card p-3 text-card-foreground shadow-xl">
           <div className="mb-2 flex items-center justify-between">
-            <span className="hidden font-display text-xl tracking-wide sm:inline">Palette</span>
+            <span className="font-display text-xl tracking-wide">Palette</span>
             <button aria-label="Close palette switcher" onClick={() => setOpen(false)} className="rounded-full p-1 hover:bg-muted"><X className="size-4" /></button>
           </div>
           <ul className="space-y-1.5">
