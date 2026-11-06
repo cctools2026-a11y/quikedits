@@ -301,8 +301,3 @@ html[data-palette="mint"] { --primary-strong: oklch(0.45 0.1 175); }
   .tool-split .result-actions { order: 3; margin-top: 0; position: static; }
   .tool-split > :not(aside) img { max-height: 42vh; width: auto; max-width: 100%; margin-inline: auto; object-fit: contain; }
 }
-:root { --yarn: var(--art-pink); --yarn-2: var(--art-yellow); --kitten: oklch(0.86 0.09 65); }
-@media (prefers-reduced-motion: reduce) { .kitten-corner { display: none; } }
-.kitten-tail { transform-origin: 14px 62px; animation: kitten-tail 1.6s ease-in-out infinite alternate; }
-.kitten[data-pounce="1"] .kitten-tail { animation-duration: .25s; }
-@keyframes kitten-tail { from { transform: rotate(-10deg); } to { transform: rotate(14deg); } }
