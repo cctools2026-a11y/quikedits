@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -124,7 +125,7 @@ function Composer({ cut, name, reset }: { cut: HTMLCanvasElement | null; name: s
         <Field label="Up / down"><Range label="Vertical position" value={y} min={0} max={100} onChange={setY} /></Field>
       </aside>
       <div>
-        {url ? <img src={url} alt="Combined photo" className="w-full rounded-2xl border border-border" /> : (
+        {url ? <ZoomView><img src={url} alt="Combined photo" className="w-full rounded-2xl border border-border" /></ZoomView> : (
           <div className="checkerboard flex min-h-64 items-center justify-center rounded-2xl p-6">
             {cut && <img src={cut.toDataURL()} alt="Your cutout" className="max-h-80" />}
           </div>

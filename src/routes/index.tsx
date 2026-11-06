@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { ShareButton } from "@/components/ShareButton";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding, ToolPicker } from "@/components/ToolLanding";
@@ -165,7 +166,7 @@ function Index() {
               <CutoutCues tool="/" cut={cut} source={src} onRetry={reset}
                 onChange={(c) => { setCut(c); void canvasToBlob(c).then((b) => setResult(URL.createObjectURL(b))); }} />
             )}
-            <CompareSlider before={original} after={result} />
+            <ZoomView><CompareSlider before={original} after={result} /></ZoomView>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href={result} download={downloadName} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01]">
                 <Download className="h-5 w-5" /> Download transparent PNG

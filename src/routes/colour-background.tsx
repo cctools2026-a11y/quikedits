@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { ShareButton } from "@/components/ShareButton";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -189,7 +190,7 @@ function ColourTool() {
                   setResult(URL.createObjectURL(await compositeOnColour(b, colour)));
                 }} />
             )}
-            <CompareSlider before={original} after={result} />
+            <ZoomView><CompareSlider before={original} after={result} /></ZoomView>
             <div className="mt-6">
               <p className="mb-3 text-sm font-medium">Try another colour</p>
               {palette}

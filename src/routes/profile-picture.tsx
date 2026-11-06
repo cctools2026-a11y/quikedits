@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -66,7 +67,7 @@ function ProfileResult({ cut, name, colour, shape, zoom, reset }: { cut: HTMLCan
   return (
     <div>
       <div className="checkerboard mx-auto max-w-md rounded-2xl p-4">
-        {url && <img src={url} alt="Profile picture" className="w-full" />}
+        {url && <ZoomView><img src={url} alt="Profile picture" className="w-full" /></ZoomView>}
       </div>
       <ResultActions url={url} name={`${name}-profile.png`} onReset={reset} />
     </div>

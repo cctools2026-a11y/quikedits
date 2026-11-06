@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -66,7 +67,7 @@ function ProductResult({ item, colour, w, h, pad }: { item: Item; colour: string
   if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {item.error}</p>;
   return (
     <figure className="rounded-2xl border border-border bg-card p-3">
-      {url ? <img src={url} alt={`${item.file.name} on new background`} className="w-full rounded-xl" /> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}
+      {url ? <ZoomView><img src={url} alt={`${item.file.name} on new background`} className="w-full rounded-xl" /></ZoomView> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
         <a href={url ?? undefined} download={`${baseName(item.file)}-product.png`} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
