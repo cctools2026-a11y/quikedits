@@ -20,7 +20,7 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
 /** Outlined, slightly tilted photo card — the same language as the top banner. */
 export function PosterCard({ tilt = 0, className = "", children }: { tilt?: number; className?: string; children: React.ReactNode }) {
   return (
-    <div
+    <div data-reveal data-tilt
       className={`rounded-[1.25rem] border-4 border-foreground bg-card p-1.5 shadow-float transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform:rotate(var(--tilt))] hover:[transform:rotate(0deg)_translateY(-4px)] ${className}`}
       style={{ ["--tilt" as string]: `${tilt}deg` }}
     >
@@ -146,7 +146,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <Link to={to} data-reveal data-tilt className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full border-2 border-foreground bg-primary px-2.5 py-0.5 text-xs font-bold text-primary-foreground">{tag}</span>}
