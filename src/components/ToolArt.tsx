@@ -57,13 +57,13 @@ export function ToolArt({ to }: { to: string }) {
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
             {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] rounded-full bg-art-blue" />}
-            {a.extra === "floor" && <div className="absolute bottom-[10%] left-[22%] h-[6%] w-[56%] rounded-[50%] bg-foreground/15 blur-md" />}
+            {a.extra === "floor" && <div className="absolute bottom-[6%] left-[24%] h-[7%] w-[52%] rounded-[50%] bg-foreground/25 blur-md" />}
             {a.resultImg && <img src={a.resultImg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
             <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-[opacity,filter] ${EASE} group-hover:opacity-0 group-hover:blur-sm`} />
           </div>
         </div>
         {a.extra === "oval" && (
-          <div aria-hidden className={`pointer-events-none absolute left-1/2 top-[14%] h-[52%] w-[40%] -translate-x-1/2 rounded-[50%] border-2 border-dashed border-primary/70 opacity-0 transition-opacity delay-150 ${EASE} group-hover:opacity-100`} style={{ zIndex: 2 }} />
+          <div aria-hidden className={`pointer-events-none absolute left-1/2 top-[3%] h-[66%] w-[48%] -translate-x-1/2 rounded-[50%] border-[1.5px] border-dashed border-primary/80 opacity-0 transition-opacity delay-150 ${EASE} group-hover:opacity-100`} style={{ zIndex: 2 }} />
         )}
         {a.outline && (
           <img src={a.cut} alt="" loading="lazy" style={{ filter: OUTLINE, clipPath: "inset(-60% 0 3px 0)" }} className={`absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} />
