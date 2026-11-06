@@ -19,7 +19,7 @@ export function ZoomView({ children, className = "" }: { children: ReactNode; cl
         wheel={{ activationKeys: ["Control", "Meta"], step: 0.15 }}
         panning={{ disabled: !zoomed, excluded: ["no-pan"] }}
         pinch={{ step: 5 }}
-        onTransformed={(_, s) => setZoomed(s.scale > 1.01)}
+        onTransform={(_, s) => setZoomed(s.scale > 1.01)}
       >
         {({ zoomIn, zoomOut, resetTransform }) => (
           <div className={`relative ${className}`}>
