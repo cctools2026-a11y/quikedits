@@ -27,3 +27,7 @@ npm run dev
 - TypeScript
 - React
 - Tailwind CSS
+
+## Deploying to Cloudflare Pages (free)
+- Build command: `bun run build` — prerendered HTML and assets are written to the client output folder (`dist/client`); set that as the Pages output directory.
+- Update `SOURCE_URL` in `src/lib/site.ts` to your public repo (AGPL-3.0 requirement).
