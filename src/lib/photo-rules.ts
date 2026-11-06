@@ -13,7 +13,7 @@ export const PHOTO_RULES: Record<string, PhotoRules> = {
 
 export const SMALL_EDGE = 300;
 
-export type Analysis = { coverage: number; pieces: number; largestShare: number; touchesTop: boolean };
+export type Analysis = { coverage: number; pieces: number; largestShare: number; touchesTop: boolean; holes: number; softShare: number };
 
 /** Look at a cutout's alpha (0-255 per pixel) and describe what was kept. */
 export function analyseAlpha(alpha: ArrayLike<number>, w: number, h: number, threshold = 40): Analysis {
@@ -26,7 +26,22 @@ export function analyseAlpha(alpha: ArrayLike<number>, w: number, h: number, thr
   const largest = Math.max(0, ...sizes);
   let top = 0;
   for (let x = 0; x < w; x++) top += on[x]!;
-  return { coverage: count / (w * h), pieces: real.length, largestShare: count ? largest / count : 0, touchesTop: top > w * 0.08 };
+  let soft = 0;
+  for (let i = 0; i < on.length; i++) if (on[i] && alpha[i]! < 200) soft++;
+  return { coverage: count / (w * h), pieces: real.length, largestShare: count ? largest / count : 0, touchesTop: top > w * 0.08, holes: findHoles(on, w, h, minPiece).count, softShare: count ? soft / count : 0 };
+}
+
+/** Empty areas fully enclosed by the subject (not touching the photo edge). */
+export function findHoles(on: Uint8Array, w: number, h: number, minSize: number) {
+  const off = new Uint8Array(w * h);
+  for (let i = 0; i < on.length; i++) off[i] = on[i] ? 0 : 1;
+  const { labels, labelsSize } = componentSizes(off, w, h);
+  const edge = new Set<number>();
+  for (let x = 0; x < w; x++) { edge.add(labels[x]!); edge.add(labels[(h - 1) * w + x]!); }
+  for (let y = 0; y < h; y++) { edge.add(labels[y * w]!); edge.add(labels[y * w + w - 1]!); }
+  const ids = new Set<number>();
+  labelsSize.forEach((size, i) => { if (!edge.has(i + 1) && size >= minSize) ids.add(i + 1); });
+  return { count: ids.size, labels, ids };
 }
 
 /** 4-connected component labelling. Returns label per pixel (0 = empty) and size per label (index = label-1). */
@@ -52,7 +67,7 @@ export function componentSizes(on: Uint8Array, w: number, h: number) {
   return { labels, labelsSize };
 }
 
-export type Cue = { id: "empty" | "full" | "stray" | "top" | "small"; text: string };
+export type Cue = { id: "empty" | "full" | "stray" | "top" | "small" | "hole" | "soft"; text: string };
 
 export function cuesFor(tool: string, a: Analysis, small: boolean): Cue[] {
   const out: Cue[] = [];
@@ -60,6 +75,8 @@ export function cuesFor(tool: string, a: Analysis, small: boolean): Cue[] {
   else if (a.coverage > 0.9) out.push({ id: "full", text: "The background looks too similar to the subject, so little was removed. Try a plainer background." });
   if (a.coverage >= 0.03 && a.pieces > 1 && a.largestShare < 0.995) out.push({ id: "stray", text: "We found a few stray bits. Tap “Clean up stray bits” to keep only the main subject." });
   if (PHOTO_RULES[tool]?.checkTop && a.touchesTop && a.coverage >= 0.03) out.push({ id: "top", text: "Your head looks cut off at the top. Use a photo with space above your head." });
+  if (a.coverage >= 0.03 && a.holes > 0) out.push({ id: "hole", text: "There are gaps inside your subject. Tap “Fix it” and paint Keep over the green areas if they should be filled." });
+  if (a.coverage >= 0.03 && a.softShare > 0.12) out.push({ id: "soft", text: "Some edges are uncertain, often hair, fur or see-through parts. Zoom in and paint Keep or Remove to tidy them." });
   if (small) out.push({ id: "small", text: "This photo is small, so the result may look soft." });
   return out;
 }

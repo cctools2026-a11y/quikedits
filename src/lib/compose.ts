@@ -1,5 +1,5 @@
 import { pass, refineAlpha } from "@/lib/colour-background";
-import { analyseAlpha, componentSizes } from "@/lib/photo-rules";
+import { analyseAlpha, componentSizes, findHoles } from "@/lib/photo-rules";
 
 export function makeCanvas(w: number, h: number) {
   const c = document.createElement("canvas");
@@ -103,6 +103,30 @@ export function keepLargest(src: HTMLCanvasElement) {
   }
   ctx.putImageData(img, 0, 0);
   return out;
+}
+
+/** Overlay showing likely mistakes: stray bits in red (remove), enclosed gaps in green (keep). */
+export function suggestionOverlay(src: HTMLCanvasElement) {
+  const { a, w, h } = alphaGrid(src);
+  const on = new Uint8Array(w * h);
+  let count = 0;
+  for (let i = 0; i < on.length; i++) if ((on[i] = a[i]! > 40 ? 1 : 0)) count++;
+  const { labels, labelsSize } = componentSizes(on, w, h);
+  const big = labelsSize.indexOf(Math.max(0, ...labelsSize)) + 1;
+  const holes = findHoles(on, w, h, Math.max(2, count * 0.002));
+  const g = makeCanvas(w, h);
+  const ctx = ctx2d(g);
+  const img = ctx.createImageData(w, h);
+  let any = false;
+  for (let i = 0; i < on.length; i++) {
+    const stray = on[i] && labels[i] !== big;
+    const hole = !on[i] && holes.ids.has(holes.labels[i]!);
+    if (!stray && !hole) continue;
+    any = true;
+    img.data.set(stray ? [239, 68, 68, 170] : [34, 197, 94, 170], i * 4);
+  }
+  ctx.putImageData(img, 0, 0);
+  return any ? g : null;
 }
 
 /** Add a solid outline (sticker style) around a transparent cutout. */
