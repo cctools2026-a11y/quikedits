@@ -65,14 +65,14 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.985 0.016 80);
-  --foreground: oklch(0.18 0 0);
-  --card: oklch(0.995 0.008 80);
-  --card-foreground: oklch(0.18 0.01 60);
+  --background: oklch(0.96 0.015 85);
+  --foreground: oklch(0.29 0.09 268);
+  --card: oklch(0.985 0.01 85);
+  --card-foreground: oklch(0.29 0.09 268);
   --popover: oklch(0.99 0.005 85);
-  --popover-foreground: oklch(0.18 0.01 60);
-  --primary: oklch(0.7 0.2 355);
-  --primary-foreground: oklch(0.18 0 0);
+  --popover-foreground: oklch(0.29 0.09 268);
+  --primary: oklch(0.66 0.24 360);
+  --primary-foreground: oklch(0.29 0.09 268);
   --secondary: oklch(0.93 0.012 85);
   --secondary-foreground: oklch(0.18 0.01 60);
   --muted: oklch(0.93 0.012 85);
@@ -83,7 +83,7 @@
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.88 0.012 85);
   --input: oklch(0.88 0.012 85);
-  --ring: oklch(0.7 0.2 355);
+  --ring: oklch(0.66 0.24 360);
   --checker: oklch(0.9 0.006 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -188,7 +188,7 @@
   --mat-line: oklch(0.18 0.01 60 / 0.045);
   --shadow-lift: 0 1px 0 oklch(0.18 0.01 60 / 0.06), 0 12px 28px -14px oklch(0.18 0.01 60 / 0.28);
   --shadow-float: 0 2px 0 oklch(0.18 0.01 60 / 0.05), 0 30px 60px -24px oklch(0.4 0.12 40 / 0.45);
-  --cut-line: oklch(0.7 0.2 355 / 0.6);
+  --cut-line: oklch(0.66 0.24 360 / 0.6);
 }
 .dark {
   --mat-line: oklch(1 0 0 / 0.05);
@@ -246,7 +246,7 @@
 }
 
 /* Card art result backdrops */
-:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); --art-pink: oklch(0.7 0.2 350); --art-yellow: oklch(0.9 0.18 98); --art-teal: oklch(0.75 0.12 185); }
+:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); --art-pink: oklch(0.7 0.2 350); --art-yellow: oklch(0.86 0.17 85); --art-teal: oklch(0.75 0.12 185); }
 .dark { --art-coral: oklch(0.62 0.14 30); --art-blue: oklch(0.5 0.14 255); --art-ink: oklch(0.9 0.01 60); }
 @theme inline { --color-art-coral: var(--art-coral); --color-art-blue: var(--art-blue); --color-art-pink: var(--art-pink); --color-art-yellow: var(--art-yellow); --color-art-teal: var(--art-teal); }
 @keyframes march { to { stroke-dashoffset: -24; } }
@@ -270,5 +270,5 @@
 @media (prefers-reduced-motion: reduce) { .hero-stage * { animation: none !important; } }
 @media (max-width: 1023px) { .hero-stage .splash-sun { right: 0; } .hero-stage .splash-star { right: 0; } }
 
-:root { --cobalt: oklch(0.52 0.24 265); }
+:root { --cobalt: oklch(0.68 0.17 245); }
 @theme inline { --color-cobalt: var(--cobalt); }
