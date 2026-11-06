@@ -12,11 +12,11 @@ import profile from "@/assets/cards/profile.webp";
 import profileCut from "@/assets/cards/profile-cut.webp";
 import sticker from "@/assets/cards/sticker.webp";
 import stickerCut from "@/assets/cards/sticker-cut.webp";
-import photobg from "@/assets/cards/photobg.webp";
-import photobgCut from "@/assets/cards/photobg-cut.webp";
+import photobg from "@/assets/tools/photobg-summer-before.webp";
+import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
 import logo from "@/assets/cards/logo.webp";
 import logoCut from "@/assets/cards/logo-cut.webp";
-import beach from "@/assets/cards/beach.webp";
+import beach from "@/assets/tools/photobg-summer-backdrop.webp";
 
 type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
 
