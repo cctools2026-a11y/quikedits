@@ -223,3 +223,11 @@
   --color-tile-butter: var(--tile-butter);
   --color-tile-lilac: var(--tile-lilac);
 }
+
+/* Card art result backdrops */
+:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); }
+.dark { --art-coral: oklch(0.62 0.14 30); --art-blue: oklch(0.5 0.14 255); --art-ink: oklch(0.9 0.01 60); }
+@theme inline { --color-art-coral: var(--art-coral); --color-art-blue: var(--art-blue); }
+@keyframes march { to { stroke-dashoffset: -24; } }
+@utility march { animation: march 1.2s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .march { animation: none; } }
