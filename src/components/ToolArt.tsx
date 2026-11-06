@@ -16,9 +16,9 @@ import photobg from "@/assets/tools/photobg-summer-before.webp";
 import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
 import logo from "@/assets/cards/logo.webp";
 import logoCut from "@/assets/cards/logo-cut.webp";
-import beach from "@/assets/tools/photobg-summer-backdrop.webp";
+import coastalResult from "@/assets/tools/photobg-coastal-after.webp";
 
-type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
+type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; flatPhoto?: boolean; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
 
 /** Card art per tool: photo before, cut-out after (made with the site's own remover), and the backdrop the tool adds. */
 const ART: Record<string, Art> = {
@@ -28,7 +28,7 @@ const ART: Record<string, Art> = {
   "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
   "/profile-picture": { before: profile, cut: profileCut, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut, tile: "bg-tile-peach", result: "checker-sm", outline: true },
-  "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: beach },
+  "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
   "/logo-cleaner": { before: logo, cut: logoCut, tile: "bg-tile-butter", result: "checker-sm" },
 };
 
@@ -53,13 +53,13 @@ export function ToolArt({ to }: { to: string }) {
         <svg aria-hidden className={`pointer-events-none absolute -inset-[5%] top-[13%] h-[92%] w-[110%] overflow-visible opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} viewBox="0 0 110 92" preserveAspectRatio="none">
           <rect x="1" y="1" width="108" height="90" rx="9" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" className="march text-foreground/40" />
         </svg>
-        <div className={`absolute inset-x-0 bottom-0 top-[18%] overflow-hidden rounded-xl border-[3px] border-card shadow-lift transition-shadow ${EASE} group-hover:shadow-float`}>
+        <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-card shadow-lift transition-shadow ${EASE} group-hover:shadow-float`}>
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
             {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] rounded-full bg-art-blue" />}
             {a.extra === "floor" && <div className="absolute bottom-[6%] left-[24%] h-[7%] w-[52%] rounded-[50%] bg-foreground/25 blur-md" />}
             {a.resultImg && <img src={a.resultImg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
-            <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-[opacity,filter] ${EASE} group-hover:opacity-0 group-hover:blur-sm`} />
+            <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover ${a.flatPhoto ? "transition-opacity" : "transition-[opacity,filter]"} ${EASE} group-hover:opacity-0 ${a.flatPhoto ? "" : "group-hover:blur-sm"}`} />
           </div>
         </div>
         {a.extra === "oval" && (
@@ -68,13 +68,13 @@ export function ToolArt({ to }: { to: string }) {
         {a.outline && (
           <img src={a.cut} alt="" loading="lazy" style={{ filter: OUTLINE, clipPath: "inset(-60% 0 3px 0)" }} className={`absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} />
         )}
-        <img
+        {!a.flatPhoto && <img
           src={a.cut}
           alt=""
           loading="lazy"
           style={{ "--b": LIFT.replace("22%", "0%"), "--o": LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
           className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter,transform] ${EASE} ${a.move ?? ""} [filter:var(--b)] group-hover:[filter:var(--o)]`}
-        />
+        />}
       </div>
 
       <span className="absolute bottom-3 left-3 grid overflow-hidden rounded-full bg-card/90 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground shadow-lift">
