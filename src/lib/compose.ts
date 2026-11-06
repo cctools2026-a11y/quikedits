@@ -154,6 +154,15 @@ export function withOutline(src: HTMLCanvasElement, r: number, colour: string) {
   return out;
 }
 
-export function canvasToBlob(c: HTMLCanvasElement, type = "image/png") {
-  return new Promise<Blob>((res, rej) => c.toBlob((b) => (b ? res(b) : rej(new Error("Could not create image"))), type, 0.95));
+export function canvasToBlob(c: HTMLCanvasElement, type = "image/png", quality = 0.95) {
+  return new Promise<Blob>((res, rej) => c.toBlob((b) => (b ? res(b) : rej(new Error("Could not create image"))), type, quality));
+}
+
+/** Lossy formats only: lower the quality step by step until the file fits under maxBytes. */
+export async function canvasUnder(c: HTMLCanvasElement, type = "image/png", maxBytes?: number) {
+  let q = 0.95;
+  let b = await canvasToBlob(c, type, q);
+  if (!maxBytes || type === "image/png") return b;
+  while (b.size > maxBytes && q > 0.2) { q = Math.round((q - 0.1) * 100) / 100; b = await canvasToBlob(c, type, q); }
+  return b;
 }

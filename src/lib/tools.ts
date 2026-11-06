@@ -21,6 +21,16 @@ export const TOOL_GROUPS = [
 export type Preset = {
   title?: ReactNode; intro?: string; colour?: string; pad?: number; sizeId?: string;
   shape?: "circle" | "square"; outline?: "#FFFFFF" | "#000000"; format?: "image/png" | "image/webp"; tol?: number;
+  /** Product: soft shadow under the item. */ shadow?: boolean;
+  /** Profile: outline ring colour. */ ring?: string;
+  /** Profile/cutouts: accept several photos. */ multiple?: boolean;
+  /** Sticker: output size in px and padding. */ size?: number; stickerPad?: number;
+  /** Sticker: lay copies out on a printable page. */ sheet?: boolean;
+  /** Photo background: only these backdrop ids, fixed output size, blur own scene, gradients. */
+  backdrops?: string[]; canvas?: { w: number; h: number }; blur?: boolean; gradients?: boolean;
+  /** Logo: keep coloured ink only, recolour, and max width. */
+  ink?: boolean; recolour?: "original" | "black" | "white"; maxWidth?: number;
+  /** Cutouts: AI-free flat-graphic mode. */ raw?: boolean; maxSide?: number;
 };
 
 /** Focused pages for one specific job, each built on a parent tool. */
