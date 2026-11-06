@@ -36,8 +36,6 @@ function ColourTool() {
   const [cutCanvas, setCutCanvas] = useState<HTMLCanvasElement | null>(null);
   const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
-  const [drag, setDrag] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => () => { if (original) URL.revokeObjectURL(original); }, [original]);
   useEffect(() => () => { if (result) URL.revokeObjectURL(result); }, [result]);

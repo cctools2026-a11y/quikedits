@@ -33,9 +33,7 @@ function Index() {
   const [cut, setCut] = useState<HTMLCanvasElement | null>(null);
   const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [elapsed, setElapsed] = useState(0);
-  const [drag, setDrag] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (stage.kind !== "working") return;
