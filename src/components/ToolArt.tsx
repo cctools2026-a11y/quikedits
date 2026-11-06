@@ -22,14 +22,14 @@ type Art = { before: string; cut: string; tile: string; result: string; resultIm
 
 /** Card art per tool: photo before, cut-out after (made with the site's own remover), and the backdrop the tool adds. */
 const ART: Record<string, Art> = {
-  "/": { before: home, cut: homeCut, tile: "bg-tile-peach", result: "checker-sm" },
-  "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-tile-lilac", result: "bg-art-coral" },
-  "/product-photo": { before: product, cut: productCut.url, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:scale-[0.92]", extra: "floor" },
-  "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
-  "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
-  "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-tile-peach", result: "checker-sm", outline: true },
-  "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
-  "/logo-cleaner": { before: logo, cut: logoCut.url, tile: "bg-tile-butter", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
+  "/": { before: home, cut: homeCut, tile: "bg-art-yellow", result: "checker-sm" },
+  "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-cobalt", result: "bg-art-coral" },
+  "/product-photo": { before: product, cut: productCut.url, tile: "bg-primary", result: "bg-card", move: "group-hover:scale-[0.92]", extra: "floor" },
+  "/passport-photo": { before: passport, cut: passportCut, tile: "bg-art-yellow", result: "bg-muted", extra: "oval" },
+  "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-cobalt", result: "bg-card", extra: "circle" },
+  "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-primary", result: "checker-sm", outline: true },
+  "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-art-yellow", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
+  "/logo-cleaner": { before: logo, cut: logoCut.url, tile: "bg-cobalt", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
 };
 
 const EASE = "duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
@@ -46,8 +46,7 @@ export function ToolArt({ to }: { to: string }) {
   const Icon = ICONS[to] ?? Eraser;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>
-      <div className="bg-mat absolute inset-0 opacity-50" />
-      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/40 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
+      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/10 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
 
       {/* square stage; the frame shows only its lower part so the subject pops out above it */}
       <div className="absolute bottom-[7%] left-1/2 aspect-square w-[58%] -translate-x-1/2">
@@ -81,11 +80,11 @@ export function ToolArt({ to }: { to: string }) {
         />}
       </div>
 
-      <span className="absolute bottom-3 left-3 grid overflow-hidden rounded-full bg-card/90 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground shadow-lift">
+      <span className="absolute bottom-3 left-3 grid overflow-hidden rounded-full border-2 border-foreground bg-card px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-foreground">
         <span className={`col-start-1 row-start-1 transition-all ${EASE} group-hover:-translate-y-full group-hover:opacity-0`}>Before</span>
         <span className={`col-start-1 row-start-1 translate-y-full text-primary opacity-0 transition-all ${EASE} group-hover:translate-y-0 group-hover:opacity-100`}>After</span>
       </span>
-      <span className={`absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-card text-primary shadow-lift transition-transform ${EASE} group-hover:rotate-[-12deg] group-hover:scale-110`}>
+      <span className={`absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border-[3px] border-foreground bg-card text-foreground transition-transform ${EASE} group-hover:rotate-[-12deg] group-hover:scale-110`}>
         <Icon className="h-4 w-4" />
       </span>
     </div>

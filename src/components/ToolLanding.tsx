@@ -149,10 +149,10 @@ function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb:
     <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card shadow-float transition-transform duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
       <div className="relative">
         <ToolArt to={to} />
-        {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
+        {tag && <span className="absolute left-3 top-3 rounded-full border-2 border-foreground bg-primary px-2.5 py-0.5 text-xs font-bold text-primary-foreground">{tag}</span>}
       </div>
-      <div className="p-4">
-        <span className="flex items-center justify-between font-semibold">{label}<ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" /></span>
+      <div className="border-t-4 border-foreground p-4">
+        <span className="font-display flex items-center justify-between text-3xl leading-none">{label}<ArrowRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" /></span>
         <p className="mt-1 text-sm text-muted-foreground">{blurb}</p>
       </div>
     </Link>
