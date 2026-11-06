@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ColourBackgroundRouteImport } from './routes/colour-background'
 import { Route as LicenseRouteImport } from './routes/license'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColourBackgroundRoute = ColourBackgroundRouteImport.update({
+  id: '/colour-background',
+  path: '/colour-background',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LicenseRoute = LicenseRouteImport.update({
@@ -25,27 +31,31 @@ const LicenseRoute = LicenseRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/license'
+  fullPaths: '/' | '/colour-background' | '/license'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/license'
-  id: '__root__' | '/' | '/license'
+  to: '/' | '/colour-background' | '/license'
+  id: '__root__' | '/' | '/colour-background' | '/license'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ColourBackgroundRoute: typeof ColourBackgroundRoute
   LicenseRoute: typeof LicenseRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colour-background': {
+      id: '/colour-background'
+      path: '/colour-background'
+      fullPath: '/colour-background'
+      preLoaderRoute: typeof ColourBackgroundRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/license': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ColourBackgroundRoute: ColourBackgroundRoute,
   LicenseRoute: LicenseRoute,
 }
 export const routeTree = rootRouteImport
