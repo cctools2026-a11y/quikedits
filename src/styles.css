@@ -268,3 +268,4 @@
 @keyframes splash-drift { to { translate: 0 -14px; } }
 @keyframes splash-spin { to { rotate: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .hero-stage * { animation: none !important; } }
+@media (max-width: 1023px) { .hero-stage .splash-sun { right: 0; } .hero-stage .splash-star { right: 0; } }
