@@ -75,7 +75,7 @@ function PassportResult({ cut, name, size, bg, zoom, top, reset, controls }: {
   }, [cut, size.w, size.h, bg, zoom, top]);
 
   return (
-    <div className="grid gap-8 md:grid-cols-[300px_1fr]">
+    <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">{controls}</aside>
       <div>
         <div className="grid items-start gap-6 sm:grid-cols-[1fr_2fr]">
