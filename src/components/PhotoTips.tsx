@@ -1,7 +1,7 @@
 import { Check, Info, X } from "lucide-react";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger, DrawerClose } from "@/components/ui/drawer";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 function TipsBody({ tool }: { tool: string }) {
@@ -45,16 +45,13 @@ export function PhotoTips({ tool }: { tool: string }) {
 
   if (isMobile) {
     return (
-      <Drawer>
-        <DrawerTrigger asChild>{trigger}</DrawerTrigger>
-        <DrawerContent className="bg-mat px-5 pb-8">
-          <div className="mt-4 flex items-center justify-between">
-            <DrawerTitle className="font-display text-3xl">Photo tips</DrawerTitle>
-            <DrawerClose aria-label="Close" className="rounded-full p-2 text-muted-foreground hover:text-foreground"><X className="h-5 w-5" /></DrawerClose>
-          </div>
+      <Sheet>
+        <SheetTrigger asChild>{trigger}</SheetTrigger>
+        <SheetContent side="bottom" className="bg-mat rounded-t-2xl px-5 pb-8">
+          <SheetTitle className="mt-2 font-display text-3xl">Photo tips</SheetTitle>
           <div className="mt-3"><TipsBody tool={tool} /></div>
-        </DrawerContent>
-      </Drawer>
+        </SheetContent>
+      </Sheet>
     );
   }
 
