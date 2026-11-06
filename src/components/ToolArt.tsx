@@ -1,5 +1,3 @@
-import { Eraser } from "lucide-react";
-import { ICONS } from "@/components/SiteHeader";
 import home from "@/assets/cards/home.webp";
 import homeCut from "@/assets/cards/home-cut.webp";
 import colour from "@/assets/cards/colour.webp";
