@@ -44,7 +44,7 @@ export function YarnTrail() {
       });
       const lead = state[0];
       cool = Math.max(0, cool - 1);
-      if (!pounce && !cool && Math.hypot(lead.vx, lead.vy) > 2.2) { pounce = 1; face = lead.vx >= 0 ? 1 : -1; }
+      if (!pounce && !cool && Math.hypot(lead.vx, lead.vy) > 1.1) { pounce = 1; face = lead.vx >= 0 ? 1 : -1; }
       if (pounce) { pounce += 0.045; if (pounce >= 2) { pounce = 0; cool = 50; } }
       catX += ((lead.x * 0.6) - catX) * 0.08;
       const p = pounce ? pounce - 1 : 0;
