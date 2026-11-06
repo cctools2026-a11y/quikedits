@@ -1,5 +1,3 @@
-import { Eraser } from "lucide-react";
-import { ICONS } from "@/components/SiteHeader";
 import home from "@/assets/cards/home.webp";
 import homeCut from "@/assets/cards/home-cut.webp";
 import colour from "@/assets/cards/colour.webp";
@@ -43,7 +41,6 @@ const OUTLINE = "drop-shadow(3px 0 0 var(--card)) drop-shadow(-3px 0 0 var(--car
 export function ToolArt({ to }: { to: string }) {
   const a = ART[to] ?? ART["/"];
   if (!a) return null;
-  const Icon = ICONS[to] ?? Eraser;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>
       <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/10 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
@@ -80,13 +77,6 @@ export function ToolArt({ to }: { to: string }) {
         />}
       </div>
 
-      <span className="absolute bottom-3 left-3 grid overflow-hidden rounded-full border-2 border-foreground bg-card px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider text-foreground">
-        <span className={`col-start-1 row-start-1 transition-all ${EASE} group-hover:-translate-y-full group-hover:opacity-0`}>Before</span>
-        <span className={`col-start-1 row-start-1 translate-y-full text-primary opacity-0 transition-all ${EASE} group-hover:translate-y-0 group-hover:opacity-100`}>After</span>
-      </span>
-      <span className={`absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full border-[3px] border-foreground bg-card text-foreground transition-transform ${EASE} group-hover:rotate-[-12deg] group-hover:scale-110`}>
-        <Icon className="h-4 w-4" />
-      </span>
     </div>
   );
 }
