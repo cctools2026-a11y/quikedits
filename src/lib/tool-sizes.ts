@@ -12,6 +12,7 @@ export const PASSPORT_SIZES = [
   { id: "uk", label: "UK, EU, Australia (35 × 45 mm)", wMm: 35, hMm: 45 },
   { id: "ca", label: "Canada (50 × 70 mm)", wMm: 50, hMm: 70 },
   { id: "cn", label: "China (33 × 48 mm)", wMm: 33, hMm: 48 },
+  { id: "id", label: "ID photo (30 × 40 mm)", wMm: 30, hMm: 40 },
 ] as const;
 
 export const passportPx = (s: { wMm: number; hMm: number }) => ({ w: mmToPx(s.wMm), h: mmToPx(s.hMm) });
