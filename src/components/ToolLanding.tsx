@@ -40,11 +40,18 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="great-for">
           <Heading id="great-for">Great for</Heading>
-          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-2xl font-medium sm:text-3xl">
-            {c.greatFor.map((g, i) => (
-              <li key={g} className="flex items-center gap-6">{i > 0 && <span aria-hidden className="h-2 w-2 rounded-full bg-primary" />}{g}</li>
-            ))}
-          </ul>
+          <div className="mt-8 rounded-2xl border-2 border-foreground bg-card p-2 shadow-lift">
+            <ul className="flex flex-wrap gap-2">
+              {c.greatFor.map((g, i) => (
+                <li
+                  key={g}
+                  className={`rounded-xl px-4 py-2.5 text-base font-semibold sm:text-lg ${i === 0 ? "bg-foreground text-background" : "bg-muted text-foreground"}`}
+                >
+                  {g}
+                </li>
+              ))}
+            </ul>
+          </div>
         </section>
       </Reveal>
 
