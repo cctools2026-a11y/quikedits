@@ -26,10 +26,10 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
   return (
     <div className="relative isolate mt-20 space-y-20">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <span className="glow-orb left-[-10%] top-0 h-96 w-96 bg-primary/40" />
-        <span className="glow-orb right-[-8%] top-[22%] h-[28rem] w-[28rem] bg-tile-sky" style={{ animationDelay: "-6s" }} />
-        <span className="glow-orb left-[20%] top-[50%] h-96 w-96 bg-tile-lilac" style={{ animationDelay: "-12s" }} />
-        <span className="glow-orb right-[10%] bottom-0 h-80 w-80 bg-tile-mint" style={{ animationDelay: "-3s" }} />
+        <span className="glow-orb left-[-10%] top-0 h-96 w-96 bg-glow-a/60" />
+        <span className="glow-orb right-[-8%] top-[22%] h-[28rem] w-[28rem] bg-glow-b/60" style={{ animationDelay: "-6s" }} />
+        <span className="glow-orb left-[20%] top-[50%] h-96 w-96 bg-glow-c/55" style={{ animationDelay: "-12s" }} />
+        <span className="glow-orb right-[10%] bottom-0 h-80 w-80 bg-glow-d/55" style={{ animationDelay: "-3s" }} />
       </div>
       <Reveal>
         <section aria-labelledby="how">
