@@ -61,8 +61,8 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
   }
   const before = useRenderedUrl(() => draw(0), [photos, size.w, size.h, zoom, x, y]);
   const after = useRenderedUrl(() => draw(1), [photos, size.w, size.h, zoom, x, y]);
-  return <div className="mx-auto w-full max-w-md space-y-4">
-    <div className="mx-auto max-w-xs">
+  return <div className="mx-auto w-full max-w-sm space-y-4 rounded-[1.75rem] border-4 border-foreground bg-card p-4 shadow-float">
+    <div className="overflow-hidden rounded-2xl">
       {before && after ? <CompareSlider before={before} after={after} beforeAlt="Asian teenage girl before document crop" afterAlt="Asian teenage girl with white background" /> : <div className="flex min-h-80 items-center justify-center bg-muted text-sm text-muted-foreground">{error ? "Example could not load" : "Loading example…"}</div>}
     </div>
     <PassportSizeSelect value={sizeId} onChange={onSizeChange} />
