@@ -22,7 +22,7 @@ type Stage =
 export const MAX_BATCH = 20;
 
 export function ToolPage({
-  title, intro, multiple = false, raw = false, children, below, crop, tool,
+  title, intro, multiple = false, raw = false, children, below, crop, tool, example,
 }: {
   /** Tool path, used for photo tips and result checks. */
   tool?: string;
@@ -35,6 +35,7 @@ export function ToolPage({
   raw?: boolean;
   children: (items: Item[], reset: () => void) => ReactNode;
   below?: ReactNode;
+  example?: ReactNode;
 }) {
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [items, setItems] = useState<Item[]>([]);
@@ -104,7 +105,7 @@ export function ToolPage({
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
           <>
-            <ToolHero path={tool ?? "/"} title={title} intro={intro}>
+            <ToolHero path={tool ?? "/"} title={title} intro={intro} example={example}>
               <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             </ToolHero>

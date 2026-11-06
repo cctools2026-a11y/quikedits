@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName } from "@/components/ToolPage";
 import { ctx2d, makeCanvas } from "@/lib/compose";
 import { PASSPORT_SIZES, passportPx, sheetLayout, SHEET } from "@/lib/tool-sizes";
+import { PassportExample, PassportSizeSelect } from "@/components/PassportExample";
 
 export const Route = createFileRoute("/passport-photo")({
   head: () => toolHead("/passport-photo"),
@@ -19,11 +20,12 @@ function PassportPhoto() {
   const [bg, setBg] = useState<(typeof BGS)[number]["id"]>("#FFFFFF");
   const [zoom, setZoom] = useState(100);
   const [top, setTop] = useState(8);
-  const size = passportPx(PASSPORT_SIZES.find((s) => s.id === sizeId)!);
+  const size = passportPx(PASSPORT_SIZES.find((s) => s.id === sizeId) ?? PASSPORT_SIZES[1]);
 
   return (
     <ToolPage
       tool="/passport-photo"
+      example={<PassportExample sizeId={sizeId} onSizeChange={setSizeId} />}
       below={<ToolLanding path="/passport-photo" />}
       crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
       title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
@@ -32,7 +34,7 @@ function PassportPhoto() {
       {(items, reset) => <PassportResult cut={items[0]?.cutout ?? null} name={items[0] ? baseName(items[0].file) : "photo"} {...{ size, bg, zoom, top, reset }}
         controls={
           <>
-            <Field label="Country / size"><Choice value={sizeId} onChange={setSizeId} options={PASSPORT_SIZES.map((s) => ({ id: s.id, label: s.label }))} /></Field>
+            <PassportSizeSelect value={sizeId} onChange={setSizeId} />
             <Field label="Background"><Choice value={bg} onChange={setBg} options={BGS} /></Field>
             <Field label={`Size of person: ${zoom}%`}><Range label="Zoom" value={zoom} min={60} max={160} onChange={setZoom} /></Field>
             <Field label={`Space above head: ${top}%`}><Range label="Space above head" value={top} min={0} max={30} onChange={setTop} /></Field>

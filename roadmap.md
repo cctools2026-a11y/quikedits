@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add shared passport size presets and crop framing for example and processed images; verify downloads.
 - [x] Recommend backgrounds using on-device foreground colour analysis and verify selection and download.
 - [x] Replace the home comparison with an emotive puppy against a messy background and check the comparison.
 - [x] Replace the product page example with a fun mug reading "not my circus, not my monkeys" and check the comparison.

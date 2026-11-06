@@ -4,7 +4,7 @@ import { CompareSlider } from "@/components/CompareSlider";
 import { TOOL_MEDIA } from "@/lib/tool-media";
 
 /** Two-column hero: copy + upload on the left, a draggable example on the right. */
-export function ToolHero({ path, title, intro, children }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode }) {
+export function ToolHero({ path, title, intro, children, example }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode; example?: ReactNode }) {
   const m = TOOL_MEDIA[path];
   return (
     <section className="grid items-center gap-10 pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
@@ -13,14 +13,14 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
         <div className="mt-7">{children}</div>
       </div>
-      {m && (
+      {example ?? (m && (
         <figure className="settle relative mx-auto w-full max-w-md lg:max-w-none" style={{ ["--tilt" as string]: `${m.tilt}deg` }}>
           <div aria-hidden className="checker-sm absolute -inset-3 -z-10 rotate-[-3deg] rounded-[2rem] opacity-70" />
           <div className="rounded-[1.75rem] border border-border bg-card p-2.5 shadow-float">
             <CompareSlider before={m.before} after={m.after} beforeAlt={`Example photo: ${m.subject}`} afterAlt={`Example result: ${m.subject}`} />
           </div>
         </figure>
-      )}
+      ))}
     </section>
   );
 }
