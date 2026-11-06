@@ -1,3 +1,4 @@
+import { HowItsFree } from "@/components/HowItsFree";
 import { Link } from "@tanstack/react-router";
 import { IMGLY_URL, SOURCE_URL } from "@/lib/site";
 import { TOOL_GROUPS, TOOLS } from "@/lib/tools";
@@ -5,6 +6,7 @@ import { TOOL_GROUPS, TOOLS } from "@/lib/tools";
 export function SiteFooter() {
   return (
     <footer className="mt-24 border-t border-border bg-card text-sm text-muted-foreground">
+      <div className="px-4 pt-12 text-foreground"><HowItsFree /></div>
       <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">quikedits<span className="text-primary">.</span></Link>

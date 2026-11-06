@@ -84,9 +84,6 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
               <h2 className="font-display text-2xl font-bold">Free and private, for real</h2>
               <p className="mt-1 opacity-80">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
             </div>
-            <Link to="/" hash="how-free" className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 font-semibold text-primary-foreground">
-              How it's free <ArrowRight className="h-4 w-4" />
-            </Link>
           </section>
         </Reveal>
       )}
