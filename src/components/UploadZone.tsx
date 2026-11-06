@@ -1,8 +1,9 @@
 import { useRef, useState } from "react";
 import { ImagePlus } from "lucide-react";
+import { PhotoTips } from "@/components/PhotoTips";
 
 /** Large photo upload and drop zone. */
-export function UploadZone({ onFiles, multiple = false, maxNote }: {
+export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
   onFiles: (files: File[]) => void; multiple?: boolean; tool: string; maxNote?: string | undefined;
 }) {
   const [drag, setDrag] = useState(false);
@@ -26,6 +27,7 @@ export function UploadZone({ onFiles, multiple = false, maxNote }: {
       </button>
       <input ref={input} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden"
         onChange={(e) => { onFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />
+      <PhotoTips tool={tool} />
     </div>
   );
 }
