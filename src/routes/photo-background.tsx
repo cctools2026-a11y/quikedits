@@ -90,7 +90,7 @@ function Composer({ cut, name, reset }: { cut: HTMLCanvasElement | null; name: s
   }, [cut, backdrop, scale, x, y]);
 
   return (
-    <div className="grid gap-8 md:grid-cols-[300px_1fr]">
+    <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
         {suggested && <section aria-label="Background recommendation" className="space-y-2 border-b border-border pb-5">
           <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> Suggested: {suggested.name}</h2>

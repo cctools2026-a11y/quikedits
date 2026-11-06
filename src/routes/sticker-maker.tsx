@@ -30,7 +30,7 @@ function StickerMaker() {
       {(items, reset) => {
         const it = items[0];
         return (
-          <div className="grid gap-8 md:grid-cols-[300px_1fr]">
+          <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
               <Field label="Outline colour"><Choice value={outline} onChange={setOutline} options={OUTLINES} /></Field>
               <Field label={`Outline thickness: ${width}`}><Range label="Outline thickness" value={width} min={0} max={30} onChange={setWidth} /></Field>

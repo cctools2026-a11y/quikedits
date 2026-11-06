@@ -25,7 +25,7 @@ function LogoCleaner() {
       {(items, reset) => {
         const it = items[0];
         return (
-          <div className="grid gap-8 md:grid-cols-[300px_1fr]">
+          <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
               <Field label={`Strength: ${tol}`}><Range label="Strength" value={tol} min={15} max={180} onChange={setTol} /></Field>
               <p className="text-sm text-muted-foreground">Raise it if paper shadows remain; lower it if thin lines disappear.</p>

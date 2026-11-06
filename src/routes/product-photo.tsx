@@ -32,7 +32,7 @@ function ProductPhoto() {
       intro="Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."
     >
       {(items, reset) => (
-        <div className="grid gap-8 md:grid-cols-[280px_1fr]">
+        <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[280px_1fr]">
           <aside className="space-y-6">
             <Field label="Background"><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
             <Field label="Size">
