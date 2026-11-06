@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { IMGLY_URL, SOURCE_URL } from "@/lib/site";
 
 export const Route = createFileRoute("/license")({
@@ -19,9 +20,7 @@ export const Route = createFileRoute("/license")({
 function LicensePage() {
   return (
     <div className="min-h-screen bg-background">
-      <header className="mx-auto max-w-3xl px-4 py-5">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight">cutout<span className="text-primary">.</span></Link>
-      </header>
+      <SiteHeader />
       <main className="prose-page mx-auto max-w-3xl space-y-6 px-4 pt-6">
         <h1 className="font-display text-4xl font-bold tracking-tight">License &amp; source code</h1>
         <section>
