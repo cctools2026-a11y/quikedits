@@ -19,8 +19,6 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
           <div className="rounded-[1.75rem] border border-border bg-card p-2.5 shadow-float">
             <CompareSlider before={m.before} after={m.after} beforeAlt={`Example photo: ${m.subject}`} afterAlt={`Example result: ${m.subject}`} />
           </div>
-          <figcaption className="absolute -bottom-4 left-6 rounded-full bg-foreground px-4 py-1.5 text-xs font-semibold text-background shadow-lift">{m.badge}</figcaption>
-          <span className="absolute -top-3 right-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-lift">Drag to compare</span>
         </figure>
       )}
     </section>
