@@ -30,6 +30,7 @@ export type Preset = {
   backdrops?: string[]; canvas?: { w: number; h: number }; blur?: boolean; gradients?: boolean;
   /** Logo: keep coloured ink only, recolour, and max width. */
   ink?: boolean; recolour?: "original" | "black" | "white"; maxWidth?: number;
+  /** Colour: hex box remembered on this device. */ brand?: boolean;
   /** Cutouts: AI-free flat-graphic mode. */ raw?: boolean; maxSide?: number;
 };
 
