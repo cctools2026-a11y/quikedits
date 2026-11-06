@@ -18,7 +18,7 @@ function pass(src: Float32Array, w: number, h: number, r: number, mode: "min" | 
       let acc = mode === "min" ? Infinity : 0;
       let n = 0;
       for (let k = Math.max(0, i - r); k <= Math.min(len - 1, i + r); k++) {
-        const v = src[horiz ? l * w + k : k * w + l];
+        const v = src[horiz ? l * w + k : k * w + l]!;
         if (mode === "min") acc = Math.min(acc, v);
         else acc += v;
         n++;
@@ -55,7 +55,7 @@ export async function compositeOnColour(cutout: Blob, colour: string): Promise<B
   const img = ctx.getImageData(0, 0, w, h);
   const d = img.data;
   const alpha = new Float32Array(w * h);
-  for (let i = 0; i < alpha.length; i++) alpha[i] = d[i * 4 + 3] / 255;
+  for (let i = 0; i < alpha.length; i++) alpha[i] = d[i * 4 + 3]! / 255;
   const scale = Math.max(w, h) / 1000;
   const a = refineAlpha(alpha, w, h, Math.max(1, Math.round(1.5 * scale)), Math.max(1, Math.round(scale)));
 
@@ -64,11 +64,11 @@ export async function compositeOnColour(cutout: Blob, colour: string): Promise<B
   const bb = parseInt(colour.slice(5, 7), 16);
   for (let i = 0; i < a.length; i++) {
     // Hardens mid-tones a little so stray semi-transparent fringe disappears.
-    const t = Math.min(1, Math.max(0, (a[i] - 0.1) / 0.8));
+    const t = Math.min(1, Math.max(0, (a[i]! - 0.1) / 0.8));
     const p = i * 4;
-    d[p] = d[p] * t + br * (1 - t);
-    d[p + 1] = d[p + 1] * t + bg * (1 - t);
-    d[p + 2] = d[p + 2] * t + bb * (1 - t);
+    d[p] = d[p]! * t + br * (1 - t);
+    d[p + 1] = d[p + 1]! * t + bg * (1 - t);
+    d[p + 2] = d[p + 2]! * t + bb * (1 - t);
     d[p + 3] = 255;
   }
   ctx.putImageData(img, 0, 0);
