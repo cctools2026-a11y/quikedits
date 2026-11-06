@@ -6,7 +6,7 @@ import { validateImageFile, prepareImage } from "@/lib/image-file";
 import { friendlyError, removeBg, type Phase } from "@/lib/remove";
 import { blobToCanvas, canvasToBlob, refinedCutout } from "@/lib/compose";
 
-export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string };
+export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined };
 
 type Stage =
   | { kind: "idle" }
