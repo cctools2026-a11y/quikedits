@@ -16,7 +16,7 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
   );
 }
 
-const panel = "rounded-2xl border border-border bg-card shadow-lift";
+const panel = "glass rounded-3xl";
 const STEP_ICONS = [Upload, Wand2, Download];
 
 /** Readable landing content shown under the upload box: how it works, uses, tips, FAQs, other tools. */
@@ -24,7 +24,13 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
   const c = TOOL_CONTENT[path]!;
   const rules = PHOTO_RULES[path];
   return (
-    <div className="mt-20 space-y-20">
+    <div className="relative mt-20 space-y-20">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <span className="glow-orb left-[-10%] top-0 h-96 w-96 bg-primary/40" />
+        <span className="glow-orb right-[-8%] top-[22%] h-[28rem] w-[28rem] bg-tile-sky" style={{ animationDelay: "-6s" }} />
+        <span className="glow-orb left-[20%] top-[50%] h-96 w-96 bg-tile-lilac" style={{ animationDelay: "-12s" }} />
+        <span className="glow-orb right-[10%] bottom-0 h-80 w-80 bg-tile-mint" style={{ animationDelay: "-3s" }} />
+      </div>
       <Reveal>
         <section aria-labelledby="how">
           <Heading id="how">How it works</Heading>
@@ -32,10 +38,10 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
             {c.steps.map((s, i) => {
               const Icon = STEP_ICONS[i] ?? Wand2;
               return (
-                <li key={s.title} className={`${panel} group relative p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40`}>
+                <li key={s.title} className={`${panel} group relative p-6 transition-all duration-300 hover:-translate-y-1`}>
                   <div className="flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="h-5 w-5" /></span>
-                    <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">Step {i + 1}</span>
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 text-primary-foreground shadow-[0_8px_24px_-8px_var(--primary)]"><Icon className="h-5 w-5" /></span>
+                    <span className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 font-mono text-[11px] tracking-wider text-muted-foreground">STEP {i + 1}</span>
                   </div>
                   <h3 className="mt-5 text-lg font-semibold leading-snug">{s.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
@@ -51,7 +57,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
           <Heading id="great-for">Great for</Heading>
           <ul className="mt-6 flex flex-wrap gap-2">
             {c.greatFor.map((g) => (
-              <li key={g} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold">{g}</li>
+              <li key={g} className="glass rounded-full px-4 py-2 text-sm font-semibold">{g}</li>
             ))}
           </ul>
         </section>
@@ -94,9 +100,9 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
           <Heading id="faq">Common questions</Heading>
           <div className={`${panel} mt-8 divide-y divide-border overflow-hidden`}>
             {c.faqs.map((f) => (
-              <details key={f.q} className="group px-6 py-4 open:bg-muted/40">
+              <details key={f.q} className="group px-6 py-4 open:bg-background/30">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
-                  {f.q}<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-muted transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
+                  {f.q}<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-background/50 transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
                 </summary>
                 <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
@@ -112,7 +118,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-lift transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
+    <Link to={to} className="group block overflow-hidden glass rounded-3xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
