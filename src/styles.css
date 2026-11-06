@@ -65,25 +65,25 @@
 
 :root {
   --radius: 0.75rem;
-  --background: oklch(0.975 0.008 85);
-  --foreground: oklch(0.18 0.01 60);
-  --card: oklch(0.99 0.005 85);
+  --background: oklch(0.985 0.016 80);
+  --foreground: oklch(0.18 0 0);
+  --card: oklch(0.995 0.008 80);
   --card-foreground: oklch(0.18 0.01 60);
   --popover: oklch(0.99 0.005 85);
   --popover-foreground: oklch(0.18 0.01 60);
-  --primary: oklch(0.64 0.21 35);
-  --primary-foreground: oklch(0.99 0.005 85);
+  --primary: oklch(0.7 0.2 355);
+  --primary-foreground: oklch(0.18 0 0);
   --secondary: oklch(0.93 0.012 85);
   --secondary-foreground: oklch(0.18 0.01 60);
   --muted: oklch(0.93 0.012 85);
   --muted-foreground: oklch(0.48 0.015 60);
-  --accent: oklch(0.94 0.04 45);
+  --accent: oklch(0.94 0.05 355);
   --accent-foreground: oklch(0.18 0.01 60);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
   --border: oklch(0.88 0.012 85);
   --input: oklch(0.88 0.012 85);
-  --ring: oklch(0.64 0.21 35);
+  --ring: oklch(0.7 0.2 355);
   --checker: oklch(0.9 0.006 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -188,7 +188,7 @@
   --mat-line: oklch(0.18 0.01 60 / 0.045);
   --shadow-lift: 0 1px 0 oklch(0.18 0.01 60 / 0.06), 0 12px 28px -14px oklch(0.18 0.01 60 / 0.28);
   --shadow-float: 0 2px 0 oklch(0.18 0.01 60 / 0.05), 0 30px 60px -24px oklch(0.4 0.12 40 / 0.45);
-  --cut-line: oklch(0.64 0.21 35 / 0.55);
+  --cut-line: oklch(0.7 0.2 355 / 0.6);
 }
 .dark {
   --mat-line: oklch(1 0 0 / 0.05);
@@ -246,7 +246,7 @@
 }
 
 /* Card art result backdrops */
-:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); --art-pink: oklch(0.7 0.2 350); --art-yellow: oklch(0.92 0.17 95); --art-teal: oklch(0.75 0.12 185); }
+:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); --art-pink: oklch(0.7 0.2 350); --art-yellow: oklch(0.9 0.18 98); --art-teal: oklch(0.75 0.12 185); }
 .dark { --art-coral: oklch(0.62 0.14 30); --art-blue: oklch(0.5 0.14 255); --art-ink: oklch(0.9 0.01 60); }
 @theme inline { --color-art-coral: var(--art-coral); --color-art-blue: var(--art-blue); --color-art-pink: var(--art-pink); --color-art-yellow: var(--art-yellow); --color-art-teal: var(--art-teal); }
 @keyframes march { to { stroke-dashoffset: -24; } }
@@ -259,8 +259,8 @@
 
 /* Splashy hero stage behind banner examples */
 .hero-stage { position: relative; isolation: isolate; }
-.hero-stage .splash-sun { position: absolute; z-index: -2; width: 78%; aspect-ratio: 1; right: -10%; top: -10%; border-radius: 9999px; background: var(--primary); animation: splash-pop 900ms cubic-bezier(.2,.8,.2,1.2) both, splash-drift 9s ease-in-out 900ms infinite alternate; }
-.hero-stage .splash-block { position: absolute; z-index: -3; inset: 12% 18% -6% -8%; border-radius: 2.5rem; background: var(--tile-butter); transform: rotate(-7deg); animation: splash-pop 900ms 120ms cubic-bezier(.2,.8,.2,1.2) both; }
+.hero-stage .splash-sun { position: absolute; z-index: -2; width: 78%; aspect-ratio: 1; right: -10%; top: -10%; border-radius: 9999px; background: var(--cobalt); animation: splash-pop 900ms cubic-bezier(.2,.8,.2,1.2) both, splash-drift 9s ease-in-out 900ms infinite alternate; }
+.hero-stage .splash-block { position: absolute; z-index: -3; inset: 12% 18% -6% -8%; border-radius: 2.5rem; background: var(--art-yellow); transform: rotate(-7deg); animation: splash-pop 900ms 120ms cubic-bezier(.2,.8,.2,1.2) both; }
 .hero-stage .splash-ring { position: absolute; z-index: -1; width: 22%; aspect-ratio: 1; left: -6%; bottom: 6%; border-radius: 9999px; border: 10px solid var(--tile-sky); animation: splash-pop 900ms 240ms cubic-bezier(.2,.8,.2,1.2) both, splash-drift 7s ease-in-out 1s infinite alternate-reverse; }
 .hero-stage .splash-star { position: absolute; z-index: 2; width: 13%; right: -3%; bottom: 14%; color: var(--foreground); animation: splash-pop 900ms 360ms cubic-bezier(.2,.8,.2,1.2) both, splash-spin 14s linear 1.2s infinite; }
 .hero-stage .splash-dots { position: absolute; z-index: -1; width: 30%; aspect-ratio: 1; left: 4%; top: -6%; background-image: radial-gradient(var(--foreground) 2px, transparent 2.5px); background-size: 14px 14px; opacity: .25; }
@@ -269,3 +269,6 @@
 @keyframes splash-spin { to { rotate: 360deg; } }
 @media (prefers-reduced-motion: reduce) { .hero-stage * { animation: none !important; } }
 @media (max-width: 1023px) { .hero-stage .splash-sun { right: 0; } .hero-stage .splash-star { right: 0; } }
+
+:root { --cobalt: oklch(0.52 0.24 265); }
+@theme inline { --color-cobalt: var(--cobalt); }
