@@ -60,7 +60,7 @@ export function YarnTrail() {
   return (
     <div aria-hidden className="yarn-trail pointer-events-none fixed inset-y-0 right-0 z-10 w-6 sm:w-10 xl:w-16">
       <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" className="h-full w-full overflow-visible">
-        <path ref={path} d={PATH} fill="none" stroke="var(--yarn)" strokeWidth="2" strokeLinecap="round" vectorEffect="non-scaling-stroke" strokeDasharray="1" strokeDashoffset="1" />
+        <path ref={path} d={PATH} fill="none" stroke="var(--yarn)" strokeWidth="2.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" strokeDasharray="1" strokeDashoffset="1" />
       </svg>
       <div ref={paw} className="absolute left-0 top-0 origin-bottom">
         <svg viewBox="0 0 20 24" className="h-4 w-3.5 sm:h-5 sm:w-4"><path d="M10 24 C3 24 2 16 4 10 C5 6 15 6 16 10 C18 16 17 24 10 24Z" fill="var(--foreground)" /><circle cx="5" cy="5" r="2.2" fill="var(--foreground)" /><circle cx="10" cy="3" r="2.2" fill="var(--foreground)" /><circle cx="15" cy="5" r="2.2" fill="var(--foreground)" /></svg>
