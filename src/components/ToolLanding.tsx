@@ -146,7 +146,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card transition-colors hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full border-2 border-foreground bg-primary px-2.5 py-0.5 text-xs font-bold text-primary-foreground">{tag}</span>}
