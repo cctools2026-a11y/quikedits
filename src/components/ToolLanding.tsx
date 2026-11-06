@@ -146,7 +146,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card shadow-float transition-transform duration-500 hover:-translate-y-1 hover:rotate-0" transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
+    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card shadow-float transition-transform duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
@@ -165,7 +165,7 @@ function OtherTools({ path }: { path: string }) {
   return (
     <section aria-labelledby="more-tools">
       <Heading id="more-tools">More free tools</Heading>
-      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? "Try next" : undefined} />)}
       </div>
     </section>
@@ -178,7 +178,7 @@ export function ToolPicker() {
     <Reveal>
       <section aria-labelledby="pick-tool" className="mt-24">
         <Heading id="pick-tool">Pick the tool for your job</Heading>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map((t) => <ToolCard key={t.to} to={t.to} label={t.task} blurb={t.label} />)}
         </div>
       </section>

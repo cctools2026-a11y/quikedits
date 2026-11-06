@@ -38,7 +38,7 @@ export function TrustStrip() {
   return (
     <ul className="mt-8 flex flex-wrap gap-2">
       {items.map((label) => (
-        <li key={label} className="rounded-full border border-border bg-card px-3.5 py-1.5 text-sm font-semibold text-foreground">
+        <li key={label} className="rounded-full border-[3px] border-foreground bg-card px-3.5 py-1 text-sm font-bold text-foreground">
           {label}
         </li>
       ))}
