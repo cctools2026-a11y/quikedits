@@ -7,7 +7,7 @@ import { TOOL_MEDIA } from "@/lib/tool-media";
 export function ToolHero({ path, title, intro, children, example }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode; example?: ReactNode }) {
   const m = TOOL_MEDIA[path];
   return (
-    <section className="grid items-center gap-10 pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+    <section className="grid items-center gap-10 overflow-x-clip pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
         <h1 className="page-title">{title}</h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
@@ -27,7 +27,7 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
 
 function HeroStage({ children }: { children: ReactNode }) {
   return (
-    <div className="hero-stage mx-auto w-full max-w-md px-4 py-6 sm:px-6 lg:max-w-none lg:scale-105">
+    <div className="hero-stage mx-auto w-full max-w-md px-4 py-6 sm:px-6 lg:max-w-none">
       <span aria-hidden className="splash-block" />
       <span aria-hidden className="splash-sun" />
       <span aria-hidden className="splash-dots" />
