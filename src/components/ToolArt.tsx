@@ -46,8 +46,8 @@ export function ToolArt({ to }: { to: string }) {
   const Icon = ICONS[to] ?? Eraser;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>
-      <div className="bg-mat absolute inset-0 opacity-50" />
-      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/40 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
+      <div className="bg-mat absolute inset-0 opacity-25" />
+      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/15 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
 
       {/* square stage; the frame shows only its lower part so the subject pops out above it */}
       <div className="absolute bottom-[7%] left-1/2 aspect-square w-[58%] -translate-x-1/2">
