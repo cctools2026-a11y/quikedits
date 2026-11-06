@@ -11,7 +11,7 @@ import profileA from "@/assets/tools/profile-after.webp";
 import stickerB from "@/assets/tools/sticker-before.webp";
 import stickerA from "@/assets/tools/sticker-after.webp";
 import photobgB from "@/assets/tools/photobg-summer-before.webp";
-import photobgA from "@/assets/tools/photobg-summer-after.webp";
+import photobgA from "@/assets/tools/photobg-coastal-after.webp";
 import logoB from "@/assets/tools/logo-before.webp";
 import logoA from "@/assets/tools/logo-after.webp";
 
@@ -25,7 +25,7 @@ export const TOOL_MEDIA: Record<string, ToolMedia> = {
   "/passport-photo": { before: passportB, after: passportA, subject: "man in a living room", badge: "35 × 45 mm · print sheet", tilt: 1.5 },
   "/profile-picture": { before: profileB, after: profileA, subject: "headshot in an office", badge: "LinkedIn ready", tilt: -2 },
   "/sticker-maker": { before: stickerB, after: stickerA, subject: "surprised cat on a sofa", badge: "512 × 512 sticker", tilt: 3 },
-  "/photo-background": { before: photobgB, after: photobgA, subject: "woman in summer clothes on a patio", badge: "Patio → beach", tilt: -1.5 },
+  "/photo-background": { before: photobgB, after: photobgA, subject: "woman in summer clothes on a patio", badge: "Patio → seaside terrace", tilt: -1.5 },
   "/logo-cleaner": { before: logoB, after: logoA, subject: "signature on paper", badge: "Transparent signature", tilt: 1 },
 };
 
