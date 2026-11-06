@@ -8,8 +8,8 @@ import product from "@/assets/cards/product.webp";
 import productCut from "@/assets/cards/product-cut.webp";
 import passport from "@/assets/cards/passport.webp";
 import passportCut from "@/assets/cards/passport-cut.webp";
-import profile from "@/assets/cards/profile.webp";
-import profileCut from "@/assets/cards/profile-cut.webp";
+import profile from "@/assets/cards/profile-short-hair-original.jpg";
+import profileCut from "@/assets/cards/profile-short-hair-cut.webp.asset.json";
 import sticker from "@/assets/cards/sticker.webp";
 import stickerCut from "@/assets/cards/sticker-refined-cut.webp.asset.json";
 import photobg from "@/assets/tools/photobg-summer-before.webp";
@@ -26,7 +26,7 @@ const ART: Record<string, Art> = {
   "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-tile-lilac", result: "bg-art-coral" },
   "/product-photo": { before: product, cut: productCut, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:-translate-x-[13%] group-hover:scale-[0.92]", extra: "floor" },
   "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
-  "/profile-picture": { before: profile, cut: profileCut, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
+  "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-tile-peach", result: "checker-sm", outline: true },
   "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
   "/logo-cleaner": { before: logo, cut: logoCut, tile: "bg-tile-butter", result: "checker-sm" },
@@ -57,7 +57,10 @@ export function ToolArt({ to }: { to: string }) {
         <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-card shadow-lift transition-shadow ${EASE} group-hover:shadow-float`}>
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
-            {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] rounded-full bg-art-blue" />}
+            {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] overflow-hidden rounded-full bg-art-pink">
+              <div className="absolute -left-[10%] top-[14%] h-[18%] w-[68%] -rotate-[28deg] rounded-full bg-art-yellow" />
+              <div className="absolute -right-[18%] bottom-[14%] h-[22%] w-[70%] -rotate-[28deg] rounded-full bg-art-teal" />
+            </div>}
             {a.extra === "floor" && <div className="absolute bottom-[6%] left-[24%] h-[7%] w-[52%] rounded-[50%] bg-foreground/25 blur-md" />}
             {a.resultImg && <img src={a.resultImg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
             <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover ${a.flatPhoto ? "transition-opacity" : "transition-[opacity,filter]"} ${EASE} group-hover:opacity-0 ${a.flatPhoto ? "" : "group-hover:blur-sm"}`} />

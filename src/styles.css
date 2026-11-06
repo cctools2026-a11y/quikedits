@@ -225,9 +225,9 @@
 }
 
 /* Card art result backdrops */
-:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); }
+:root { --art-coral: oklch(0.72 0.15 30); --art-blue: oklch(0.6 0.15 255); --art-ink: oklch(0.2 0.01 60); --art-pink: oklch(0.7 0.2 350); --art-yellow: oklch(0.92 0.17 95); --art-teal: oklch(0.75 0.12 185); }
 .dark { --art-coral: oklch(0.62 0.14 30); --art-blue: oklch(0.5 0.14 255); --art-ink: oklch(0.9 0.01 60); }
-@theme inline { --color-art-coral: var(--art-coral); --color-art-blue: var(--art-blue); }
+@theme inline { --color-art-coral: var(--art-coral); --color-art-blue: var(--art-blue); --color-art-pink: var(--art-pink); --color-art-yellow: var(--art-yellow); --color-art-teal: var(--art-teal); }
 @keyframes march { to { stroke-dashoffset: -24; } }
 @utility march { animation: march 1.2s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .march { animation: none; } }
