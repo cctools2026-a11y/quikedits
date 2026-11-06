@@ -2,6 +2,7 @@ import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { ShareButton } from "@/components/ShareButton";
 import { Download } from "lucide-react";
 import { ToolPage, useRenderedUrl, Field, Range, Choice, baseName, type Item } from "@/components/ToolPage";
 import { ColourSwatches } from "@/components/ColourSwatches";
@@ -71,6 +72,7 @@ function ProductResult({ item, colour, w, h, pad }: { item: Item; colour: string
         <a href={url ?? undefined} download={`${baseName(item.file)}-product.png`} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
           <Download className="h-4 w-4" /> PNG
         </a>
+        <ShareButton compact url={url} name={`${baseName(item.file)}-product.png`} />
       </figcaption>
     </figure>
   );

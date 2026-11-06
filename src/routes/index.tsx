@@ -1,3 +1,4 @@
+import { ShareButton } from "@/components/ShareButton";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding, ToolPicker } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -169,6 +170,7 @@ function Index() {
               <a href={result} download={downloadName} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01]">
                 <Download className="h-5 w-5" /> Download transparent PNG
               </a>
+              <ShareButton url={result} name={downloadName} />
               <button onClick={reset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
                 <RotateCcw className="h-4 w-4" /> New image
               </button>
