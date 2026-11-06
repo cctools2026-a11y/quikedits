@@ -252,3 +252,7 @@
 @keyframes march { to { stroke-dashoffset: -24; } }
 @utility march { animation: march 1.2s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .march { animation: none; } }
+
+/* Bebas Neue ships one weight; stop faux-bold and open the tracking slightly. */
+.font-display, h1, h2 { font-synthesis: none; }
+.font-display { font-weight: 400 !important; letter-spacing: 0.02em; }
