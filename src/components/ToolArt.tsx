@@ -33,7 +33,8 @@ const ART: Record<string, Art> = {
 };
 
 const EASE = "duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
-const OUTLINE = "drop-shadow(2px 0 0 var(--card)) drop-shadow(-2px 0 0 var(--card)) drop-shadow(0 2px 0 var(--card)) drop-shadow(0 -2px 0 var(--card))";
+const LIFT = "drop-shadow(0 10px 14px color-mix(in oklab, var(--foreground) 22%, transparent))";
+const OUTLINE = "drop-shadow(3px 0 0 var(--card)) drop-shadow(-3px 0 0 var(--card)) drop-shadow(0 3px 0 var(--card)) drop-shadow(0 -3px 0 var(--card))";
 
 /**
  * The subject breaks out of the top of its photo frame. On hover the old background
@@ -63,8 +64,8 @@ export function ToolArt({ to }: { to: string }) {
           src={a.cut}
           alt=""
           loading="lazy"
-          style={a.outline ? ({ "--o": OUTLINE } as React.CSSProperties) : undefined}
-          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[transform,filter] ${EASE} group-hover:scale-[1.05] group-hover:[filter:var(--o,none)]`}
+          style={{ "--o": a.outline ? `${OUTLINE} ${LIFT}` : LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
+          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter] ${EASE} group-hover:[filter:var(--o)]`}
         />
       </div>
 
