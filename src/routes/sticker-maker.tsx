@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -57,7 +58,7 @@ function StickerResult({ cut, name, outline, width, format, reset }: { cut: HTML
 
   return (
     <div>
-      <div className="checkerboard mx-auto max-w-md rounded-2xl p-4">{url && <img src={url} alt="Sticker" className="w-full" />}</div>
+      <div className="checkerboard mx-auto max-w-md rounded-2xl p-4">{url && <ZoomView><img src={url} alt="Sticker" className="w-full" /></ZoomView>}</div>
       <ResultActions url={url} name={`${name}-sticker.${format === "image/webp" ? "webp" : "png"}`} label="Download sticker" onReset={reset} />
     </div>
   );

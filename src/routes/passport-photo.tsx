@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -79,8 +80,8 @@ function PassportResult({ cut, name, size, bg, zoom, top, reset, controls }: {
       <aside className="space-y-6">{controls}</aside>
       <div>
         <div className="grid items-start gap-6 sm:grid-cols-[1fr_2fr]">
-          {single && <img src={single} alt="Passport photo" className="w-full rounded-lg border border-border" />}
-          {sheet && <img src={sheet} alt="Print sheet" className="w-full rounded-lg border border-border" />}
+          {single && <ZoomView><img src={single} alt="Passport photo" className="w-full rounded-lg border border-border" /></ZoomView>}
+          {sheet && <ZoomView><img src={sheet} alt="Print sheet" className="w-full rounded-lg border border-border" /></ZoomView>}
         </div>
         <p className="mt-3 text-xs text-muted-foreground">
           The sheet prints at 6 × 4 in (10 × 15 cm), 300 dpi. Always check your country's official photo rules before submitting.

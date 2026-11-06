@@ -1,9 +1,11 @@
+import { useZoomed } from "@/components/ZoomView";
 import { useCallback, useRef, useState } from "react";
 
 export function CompareSlider({ before, after, afterAlt = "Background removed", beforeAlt = "Original" }: { before: string; after: string; afterAlt?: string; beforeAlt?: string }) {
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
+  const zoomed = useZoomed();
 
   const move = useCallback((clientX: number) => {
     const r = ref.current?.getBoundingClientRect();
@@ -14,8 +16,9 @@ export function CompareSlider({ before, after, afterAlt = "Background removed", 
   return (
     <div
       ref={ref}
-      className="checkerboard relative w-full select-none overflow-hidden rounded-2xl border border-border touch-none"
+      className={`checkerboard relative w-full select-none overflow-hidden rounded-2xl border border-border ${zoomed ? "" : "touch-none"}`}
       onPointerDown={(e) => {
+        if (zoomed && !(e.target as HTMLElement).closest(".no-pan")) return;
         dragging.current = true;
         (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
         move(e.clientX);
@@ -33,7 +36,7 @@ export function CompareSlider({ before, after, afterAlt = "Background removed", 
       />
       <span className="absolute left-3 top-3 rounded-full bg-foreground/80 px-2.5 py-1 text-xs font-medium text-background">Before</span>
       <span className="absolute right-3 top-3 rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground">After</span>
-      <div className="absolute inset-y-0" style={{ left: `${pos}%` }}>
+      <div className="no-pan absolute inset-y-0" style={{ left: `${pos}%` }}>
         <div className="absolute inset-y-0 -ml-px w-0.5 bg-primary" />
         <button
           type="button"
@@ -46,7 +49,7 @@ export function CompareSlider({ before, after, afterAlt = "Background removed", 
             if (e.key === "ArrowLeft") setPos((p) => Math.max(0, p - 5));
             if (e.key === "ArrowRight") setPos((p) => Math.min(100, p + 5));
           }}
-          className="absolute top-1/2 -ml-5 -mt-5 flex h-10 w-10 cursor-ew-resize items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-ring"
+          className="no-pan absolute top-1/2 -ml-5 -mt-5 flex h-10 w-10 cursor-ew-resize items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-ring"
         >
           ⇆
         </button>

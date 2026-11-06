@@ -1,3 +1,4 @@
+import { ZoomView } from "@/components/ZoomView";
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
@@ -77,7 +78,7 @@ function LogoResult({ src, name, tol, reset }: { src: HTMLCanvasElement | null; 
           The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.
         </p>
       )}
-      <div className="checkerboard rounded-2xl p-4">{url && <img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" />}</div>
+      <div className="checkerboard rounded-2xl p-4">{url && <ZoomView><img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
       <ResultActions url={url} name={`${name}-transparent.png`} label="Download transparent PNG" onReset={reset} />
     </div>
   );
