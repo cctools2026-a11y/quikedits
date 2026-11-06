@@ -22,3 +22,23 @@ describe("sub-tool presets", () => {
     }
   });
 });
+
+import { inkAlpha } from "@/lib/tool-sizes";
+import { gridOnPage, PAGES } from "@/lib/sheets";
+import { uniqueNames } from "@/lib/zip";
+
+describe("phase 2 and 3 rules", () => {
+  it("stamp cleaner keeps red ink and drops grey paper and black text", () => {
+    expect(inkAlpha(200, 30, 40, 60)).toBe(1);
+    expect(inkAlpha(240, 238, 235, 60)).toBe(0);
+    expect(inkAlpha(20, 20, 22, 60)).toBe(0);
+  });
+  it("A4 sticker sheet fits 2 in stickers in a grid of 3 × 5", () => {
+    const a4 = PAGES.find((p) => p.id === "a4")!;
+    const g = gridOnPage(a4.w, a4.h, 600, 120, 60);
+    expect([g.cols, g.rows]).toEqual([3, 5]);
+  });
+  it("batch downloads never repeat a file name", () => {
+    expect(uniqueNames(["a.png", "a.png", "b.png", "a.png"])).toEqual(["a.png", "a-2.png", "b.png", "a-3.png"]);
+  });
+});

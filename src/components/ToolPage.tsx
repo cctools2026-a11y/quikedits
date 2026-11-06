@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { validateImageFile, prepareImage } from "@/lib/image-file";
 import { friendlyError, removeBg, type Phase } from "@/lib/remove";
-import { blobToCanvas, canvasToBlob, refinedFull, trim } from "@/lib/compose";
+import { blobToCanvas, canvasToBlob, canvasUnder, refinedFull, trim } from "@/lib/compose";
 import { CutoutCues } from "@/components/CutoutCues";
 import { CropRotate, type CropAspect } from "@/components/CropRotate";
 
@@ -181,21 +181,21 @@ export function ToolPage({
 }
 
 /** Re-renders a canvas whenever inputs change and returns a downloadable URL. */
-export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unknown[], type = "image/png") {
+export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unknown[], type = "image/png", maxBytes?: number) {
   const [url, setUrl] = useState<string | null>(null);
   useEffect(() => {
     let cancelled = false;
     let made: string | null = null;
     const c = render();
     if (!c) { setUrl(null); return; }
-    canvasToBlob(c, type).then((b) => {
+    canvasUnder(c, type, maxBytes).then((b) => {
       if (cancelled) return;
       made = URL.createObjectURL(b);
       setUrl(made);
     });
     return () => { cancelled = true; if (made) URL.revokeObjectURL(made); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [...deps, type]);
+  }, [...deps, type, maxBytes]);
   return url;
 }
 

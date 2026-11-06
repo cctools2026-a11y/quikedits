@@ -16,6 +16,13 @@ export const PASSPORT_SIZES = [
   { id: "id", label: "ID photo (30 × 40 mm)", wMm: 30, hMm: 40 },
 ] as const;
 
+/** Stamp mode: how strongly a pixel counts as coloured ink (0..1) from its chroma (max-min channel). */
+export const inkAlpha = (r: number, g: number, b: number, tol: number) => {
+  const chroma = Math.max(r, g, b) - Math.min(r, g, b);
+  const lo = tol * 0.25, hi = lo + 40;
+  return chroma <= lo ? 0 : chroma >= hi ? 1 : (chroma - lo) / (hi - lo);
+};
+
 /** Padding per side (percent) so the subject's longest side fills `fill` percent of the frame. */
 export const padForFill = (fill: number) => (100 - fill) / 2;
 

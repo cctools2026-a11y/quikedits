@@ -11,19 +11,51 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AmazonProductPhotoRouteImport } from './routes/amazon-product-photo'
+import { Route as AustraliaPassportPhotoRouteImport } from './routes/australia-passport-photo'
+import { Route as BatchRemoveBackgroundRouteImport } from './routes/batch-remove-background'
+import { Route as BlackBackgroundRouteImport } from './routes/black-background'
+import { Route as BlurBackgroundRouteImport } from './routes/blur-background'
+import { Route as BrandColourBackgroundRouteImport } from './routes/brand-colour-background'
+import { Route as ClothingPhotoRouteImport } from './routes/clothing-photo'
 import { Route as ColourBackgroundRouteImport } from './routes/colour-background'
+import { Route as CutOutHairRouteImport } from './routes/cut-out-hair'
+import { Route as CutOutPetRouteImport } from './routes/cut-out-pet'
+import { Route as CvPhotoRouteImport } from './routes/cv-photo'
+import { Route as DiscordAvatarRouteImport } from './routes/discord-avatar'
+import { Route as EbayEtsyProductPhotoRouteImport } from './routes/ebay-etsy-product-photo'
+import { Route as EmailSignatureRouteImport } from './routes/email-signature'
+import { Route as GradientBackgroundRouteImport } from './routes/gradient-background'
+import { Route as HolidayBackgroundRouteImport } from './routes/holiday-background'
+import { Route as IdCardPhotoRouteImport } from './routes/id-card-photo'
 import { Route as IndiaPassportPhotoRouteImport } from './routes/india-passport-photo'
+import { Route as InstagramProfilePictureRouteImport } from './routes/instagram-profile-picture'
 import { Route as LicenseRouteImport } from './routes/license'
 import { Route as LinkedinProfilePhotoRouteImport } from './routes/linkedin-profile-photo'
 import { Route as LogoCleanerRouteImport } from './routes/logo-cleaner'
+import { Route as LogoToPngRouteImport } from './routes/logo-to-png'
+import { Route as PartyBackgroundRouteImport } from './routes/party-background'
 import { Route as PassportPhotoRouteImport } from './routes/passport-photo'
+import { Route as PassportPhotoPrintSheetRouteImport } from './routes/passport-photo-print-sheet'
+import { Route as PetStickerRouteImport } from './routes/pet-sticker'
 import { Route as PhotoBackgroundRouteImport } from './routes/photo-background'
+import { Route as PrintableStickerSheetRouteImport } from './routes/printable-sticker-sheet'
 import { Route as ProductPhotoRouteImport } from './routes/product-photo'
+import { Route as ProductPhotoShadowRouteImport } from './routes/product-photo-shadow'
 import { Route as ProfilePictureRouteImport } from './routes/profile-picture'
+import { Route as RecolourLogoRouteImport } from './routes/recolour-logo'
+import { Route as RemoveBackgroundFromGraphicRouteImport } from './routes/remove-background-from-graphic'
+import { Route as SchengenVisaPhotoRouteImport } from './routes/schengen-visa-photo'
+import { Route as ShopifyProductPhotosRouteImport } from './routes/shopify-product-photos'
+import { Route as SlackEmojiRouteImport } from './routes/slack-emoji'
+import { Route as StampCleanerRouteImport } from './routes/stamp-cleaner'
 import { Route as StickerMakerRouteImport } from './routes/sticker-maker'
+import { Route as TeamHeadshotsRouteImport } from './routes/team-headshots'
+import { Route as TelegramStickerRouteImport } from './routes/telegram-sticker'
+import { Route as TransparentPngForSlidesRouteImport } from './routes/transparent-png-for-slides'
 import { Route as TransparentSignatureRouteImport } from './routes/transparent-signature'
 import { Route as UkPassportPhotoRouteImport } from './routes/uk-passport-photo'
 import { Route as UsPassportPhotoRouteImport } from './routes/us-passport-photo'
+import { Route as VirtualBackgroundRouteImport } from './routes/virtual-background'
 import { Route as WhatsappStickerRouteImport } from './routes/whatsapp-sticker'
 import { Route as WhiteBackgroundRouteImport } from './routes/white-background'
 
@@ -37,14 +69,94 @@ const AmazonProductPhotoRoute = AmazonProductPhotoRouteImport.update({
   path: '/amazon-product-photo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AustraliaPassportPhotoRoute = AustraliaPassportPhotoRouteImport.update({
+  id: '/australia-passport-photo',
+  path: '/australia-passport-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BatchRemoveBackgroundRoute = BatchRemoveBackgroundRouteImport.update({
+  id: '/batch-remove-background',
+  path: '/batch-remove-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlackBackgroundRoute = BlackBackgroundRouteImport.update({
+  id: '/black-background',
+  path: '/black-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlurBackgroundRoute = BlurBackgroundRouteImport.update({
+  id: '/blur-background',
+  path: '/blur-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandColourBackgroundRoute = BrandColourBackgroundRouteImport.update({
+  id: '/brand-colour-background',
+  path: '/brand-colour-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClothingPhotoRoute = ClothingPhotoRouteImport.update({
+  id: '/clothing-photo',
+  path: '/clothing-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ColourBackgroundRoute = ColourBackgroundRouteImport.update({
   id: '/colour-background',
   path: '/colour-background',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CutOutHairRoute = CutOutHairRouteImport.update({
+  id: '/cut-out-hair',
+  path: '/cut-out-hair',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CutOutPetRoute = CutOutPetRouteImport.update({
+  id: '/cut-out-pet',
+  path: '/cut-out-pet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CvPhotoRoute = CvPhotoRouteImport.update({
+  id: '/cv-photo',
+  path: '/cv-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiscordAvatarRoute = DiscordAvatarRouteImport.update({
+  id: '/discord-avatar',
+  path: '/discord-avatar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbayEtsyProductPhotoRoute = EbayEtsyProductPhotoRouteImport.update({
+  id: '/ebay-etsy-product-photo',
+  path: '/ebay-etsy-product-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmailSignatureRoute = EmailSignatureRouteImport.update({
+  id: '/email-signature',
+  path: '/email-signature',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GradientBackgroundRoute = GradientBackgroundRouteImport.update({
+  id: '/gradient-background',
+  path: '/gradient-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HolidayBackgroundRoute = HolidayBackgroundRouteImport.update({
+  id: '/holiday-background',
+  path: '/holiday-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IdCardPhotoRoute = IdCardPhotoRouteImport.update({
+  id: '/id-card-photo',
+  path: '/id-card-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndiaPassportPhotoRoute = IndiaPassportPhotoRouteImport.update({
   id: '/india-passport-photo',
   path: '/india-passport-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstagramProfilePictureRoute = InstagramProfilePictureRouteImport.update({
+  id: '/instagram-profile-picture',
+  path: '/instagram-profile-picture',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LicenseRoute = LicenseRouteImport.update({
@@ -62,9 +174,29 @@ const LogoCleanerRoute = LogoCleanerRouteImport.update({
   path: '/logo-cleaner',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LogoToPngRoute = LogoToPngRouteImport.update({
+  id: '/logo-to-png',
+  path: '/logo-to-png',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartyBackgroundRoute = PartyBackgroundRouteImport.update({
+  id: '/party-background',
+  path: '/party-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PassportPhotoRoute = PassportPhotoRouteImport.update({
   id: '/passport-photo',
   path: '/passport-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PassportPhotoPrintSheetRoute = PassportPhotoPrintSheetRouteImport.update({
+  id: '/passport-photo-print-sheet',
+  path: '/passport-photo-print-sheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PetStickerRoute = PetStickerRouteImport.update({
+  id: '/pet-sticker',
+  path: '/pet-sticker',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PhotoBackgroundRoute = PhotoBackgroundRouteImport.update({
@@ -72,9 +204,19 @@ const PhotoBackgroundRoute = PhotoBackgroundRouteImport.update({
   path: '/photo-background',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrintableStickerSheetRoute = PrintableStickerSheetRouteImport.update({
+  id: '/printable-sticker-sheet',
+  path: '/printable-sticker-sheet',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductPhotoRoute = ProductPhotoRouteImport.update({
   id: '/product-photo',
   path: '/product-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductPhotoShadowRoute = ProductPhotoShadowRouteImport.update({
+  id: '/product-photo-shadow',
+  path: '/product-photo-shadow',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProfilePictureRoute = ProfilePictureRouteImport.update({
@@ -82,9 +224,55 @@ const ProfilePictureRoute = ProfilePictureRouteImport.update({
   path: '/profile-picture',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RecolourLogoRoute = RecolourLogoRouteImport.update({
+  id: '/recolour-logo',
+  path: '/recolour-logo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RemoveBackgroundFromGraphicRoute =
+  RemoveBackgroundFromGraphicRouteImport.update({
+    id: '/remove-background-from-graphic',
+    path: '/remove-background-from-graphic',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SchengenVisaPhotoRoute = SchengenVisaPhotoRouteImport.update({
+  id: '/schengen-visa-photo',
+  path: '/schengen-visa-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShopifyProductPhotosRoute = ShopifyProductPhotosRouteImport.update({
+  id: '/shopify-product-photos',
+  path: '/shopify-product-photos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SlackEmojiRoute = SlackEmojiRouteImport.update({
+  id: '/slack-emoji',
+  path: '/slack-emoji',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StampCleanerRoute = StampCleanerRouteImport.update({
+  id: '/stamp-cleaner',
+  path: '/stamp-cleaner',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StickerMakerRoute = StickerMakerRouteImport.update({
   id: '/sticker-maker',
   path: '/sticker-maker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamHeadshotsRoute = TeamHeadshotsRouteImport.update({
+  id: '/team-headshots',
+  path: '/team-headshots',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TelegramStickerRoute = TelegramStickerRouteImport.update({
+  id: '/telegram-sticker',
+  path: '/telegram-sticker',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TransparentPngForSlidesRoute = TransparentPngForSlidesRouteImport.update({
+  id: '/transparent-png-for-slides',
+  path: '/transparent-png-for-slides',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TransparentSignatureRoute = TransparentSignatureRouteImport.update({
@@ -102,6 +290,11 @@ const UsPassportPhotoRoute = UsPassportPhotoRouteImport.update({
   path: '/us-passport-photo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VirtualBackgroundRoute = VirtualBackgroundRouteImport.update({
+  id: '/virtual-background',
+  path: '/virtual-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WhatsappStickerRoute = WhatsappStickerRouteImport.update({
   id: '/whatsapp-sticker',
   path: '/whatsapp-sticker',
@@ -116,38 +309,102 @@ const WhiteBackgroundRoute = WhiteBackgroundRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/amazon-product-photo': typeof AmazonProductPhotoRoute
+  '/australia-passport-photo': typeof AustraliaPassportPhotoRoute
+  '/batch-remove-background': typeof BatchRemoveBackgroundRoute
+  '/black-background': typeof BlackBackgroundRoute
+  '/blur-background': typeof BlurBackgroundRoute
+  '/brand-colour-background': typeof BrandColourBackgroundRoute
+  '/clothing-photo': typeof ClothingPhotoRoute
   '/colour-background': typeof ColourBackgroundRoute
+  '/cut-out-hair': typeof CutOutHairRoute
+  '/cut-out-pet': typeof CutOutPetRoute
+  '/cv-photo': typeof CvPhotoRoute
+  '/discord-avatar': typeof DiscordAvatarRoute
+  '/ebay-etsy-product-photo': typeof EbayEtsyProductPhotoRoute
+  '/email-signature': typeof EmailSignatureRoute
+  '/gradient-background': typeof GradientBackgroundRoute
+  '/holiday-background': typeof HolidayBackgroundRoute
+  '/id-card-photo': typeof IdCardPhotoRoute
   '/india-passport-photo': typeof IndiaPassportPhotoRoute
+  '/instagram-profile-picture': typeof InstagramProfilePictureRoute
   '/license': typeof LicenseRoute
   '/linkedin-profile-photo': typeof LinkedinProfilePhotoRoute
   '/logo-cleaner': typeof LogoCleanerRoute
+  '/logo-to-png': typeof LogoToPngRoute
+  '/party-background': typeof PartyBackgroundRoute
   '/passport-photo': typeof PassportPhotoRoute
+  '/passport-photo-print-sheet': typeof PassportPhotoPrintSheetRoute
+  '/pet-sticker': typeof PetStickerRoute
   '/photo-background': typeof PhotoBackgroundRoute
+  '/printable-sticker-sheet': typeof PrintableStickerSheetRoute
   '/product-photo': typeof ProductPhotoRoute
+  '/product-photo-shadow': typeof ProductPhotoShadowRoute
   '/profile-picture': typeof ProfilePictureRoute
+  '/recolour-logo': typeof RecolourLogoRoute
+  '/remove-background-from-graphic': typeof RemoveBackgroundFromGraphicRoute
+  '/schengen-visa-photo': typeof SchengenVisaPhotoRoute
+  '/shopify-product-photos': typeof ShopifyProductPhotosRoute
+  '/slack-emoji': typeof SlackEmojiRoute
+  '/stamp-cleaner': typeof StampCleanerRoute
   '/sticker-maker': typeof StickerMakerRoute
+  '/team-headshots': typeof TeamHeadshotsRoute
+  '/telegram-sticker': typeof TelegramStickerRoute
+  '/transparent-png-for-slides': typeof TransparentPngForSlidesRoute
   '/transparent-signature': typeof TransparentSignatureRoute
   '/uk-passport-photo': typeof UkPassportPhotoRoute
   '/us-passport-photo': typeof UsPassportPhotoRoute
+  '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/amazon-product-photo': typeof AmazonProductPhotoRoute
+  '/australia-passport-photo': typeof AustraliaPassportPhotoRoute
+  '/batch-remove-background': typeof BatchRemoveBackgroundRoute
+  '/black-background': typeof BlackBackgroundRoute
+  '/blur-background': typeof BlurBackgroundRoute
+  '/brand-colour-background': typeof BrandColourBackgroundRoute
+  '/clothing-photo': typeof ClothingPhotoRoute
   '/colour-background': typeof ColourBackgroundRoute
+  '/cut-out-hair': typeof CutOutHairRoute
+  '/cut-out-pet': typeof CutOutPetRoute
+  '/cv-photo': typeof CvPhotoRoute
+  '/discord-avatar': typeof DiscordAvatarRoute
+  '/ebay-etsy-product-photo': typeof EbayEtsyProductPhotoRoute
+  '/email-signature': typeof EmailSignatureRoute
+  '/gradient-background': typeof GradientBackgroundRoute
+  '/holiday-background': typeof HolidayBackgroundRoute
+  '/id-card-photo': typeof IdCardPhotoRoute
   '/india-passport-photo': typeof IndiaPassportPhotoRoute
+  '/instagram-profile-picture': typeof InstagramProfilePictureRoute
   '/license': typeof LicenseRoute
   '/linkedin-profile-photo': typeof LinkedinProfilePhotoRoute
   '/logo-cleaner': typeof LogoCleanerRoute
+  '/logo-to-png': typeof LogoToPngRoute
+  '/party-background': typeof PartyBackgroundRoute
   '/passport-photo': typeof PassportPhotoRoute
+  '/passport-photo-print-sheet': typeof PassportPhotoPrintSheetRoute
+  '/pet-sticker': typeof PetStickerRoute
   '/photo-background': typeof PhotoBackgroundRoute
+  '/printable-sticker-sheet': typeof PrintableStickerSheetRoute
   '/product-photo': typeof ProductPhotoRoute
+  '/product-photo-shadow': typeof ProductPhotoShadowRoute
   '/profile-picture': typeof ProfilePictureRoute
+  '/recolour-logo': typeof RecolourLogoRoute
+  '/remove-background-from-graphic': typeof RemoveBackgroundFromGraphicRoute
+  '/schengen-visa-photo': typeof SchengenVisaPhotoRoute
+  '/shopify-product-photos': typeof ShopifyProductPhotosRoute
+  '/slack-emoji': typeof SlackEmojiRoute
+  '/stamp-cleaner': typeof StampCleanerRoute
   '/sticker-maker': typeof StickerMakerRoute
+  '/team-headshots': typeof TeamHeadshotsRoute
+  '/telegram-sticker': typeof TelegramStickerRoute
+  '/transparent-png-for-slides': typeof TransparentPngForSlidesRoute
   '/transparent-signature': typeof TransparentSignatureRoute
   '/uk-passport-photo': typeof UkPassportPhotoRoute
   '/us-passport-photo': typeof UsPassportPhotoRoute
+  '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
 }
@@ -155,19 +412,51 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/amazon-product-photo': typeof AmazonProductPhotoRoute
+  '/australia-passport-photo': typeof AustraliaPassportPhotoRoute
+  '/batch-remove-background': typeof BatchRemoveBackgroundRoute
+  '/black-background': typeof BlackBackgroundRoute
+  '/blur-background': typeof BlurBackgroundRoute
+  '/brand-colour-background': typeof BrandColourBackgroundRoute
+  '/clothing-photo': typeof ClothingPhotoRoute
   '/colour-background': typeof ColourBackgroundRoute
+  '/cut-out-hair': typeof CutOutHairRoute
+  '/cut-out-pet': typeof CutOutPetRoute
+  '/cv-photo': typeof CvPhotoRoute
+  '/discord-avatar': typeof DiscordAvatarRoute
+  '/ebay-etsy-product-photo': typeof EbayEtsyProductPhotoRoute
+  '/email-signature': typeof EmailSignatureRoute
+  '/gradient-background': typeof GradientBackgroundRoute
+  '/holiday-background': typeof HolidayBackgroundRoute
+  '/id-card-photo': typeof IdCardPhotoRoute
   '/india-passport-photo': typeof IndiaPassportPhotoRoute
+  '/instagram-profile-picture': typeof InstagramProfilePictureRoute
   '/license': typeof LicenseRoute
   '/linkedin-profile-photo': typeof LinkedinProfilePhotoRoute
   '/logo-cleaner': typeof LogoCleanerRoute
+  '/logo-to-png': typeof LogoToPngRoute
+  '/party-background': typeof PartyBackgroundRoute
   '/passport-photo': typeof PassportPhotoRoute
+  '/passport-photo-print-sheet': typeof PassportPhotoPrintSheetRoute
+  '/pet-sticker': typeof PetStickerRoute
   '/photo-background': typeof PhotoBackgroundRoute
+  '/printable-sticker-sheet': typeof PrintableStickerSheetRoute
   '/product-photo': typeof ProductPhotoRoute
+  '/product-photo-shadow': typeof ProductPhotoShadowRoute
   '/profile-picture': typeof ProfilePictureRoute
+  '/recolour-logo': typeof RecolourLogoRoute
+  '/remove-background-from-graphic': typeof RemoveBackgroundFromGraphicRoute
+  '/schengen-visa-photo': typeof SchengenVisaPhotoRoute
+  '/shopify-product-photos': typeof ShopifyProductPhotosRoute
+  '/slack-emoji': typeof SlackEmojiRoute
+  '/stamp-cleaner': typeof StampCleanerRoute
   '/sticker-maker': typeof StickerMakerRoute
+  '/team-headshots': typeof TeamHeadshotsRoute
+  '/telegram-sticker': typeof TelegramStickerRoute
+  '/transparent-png-for-slides': typeof TransparentPngForSlidesRoute
   '/transparent-signature': typeof TransparentSignatureRoute
   '/uk-passport-photo': typeof UkPassportPhotoRoute
   '/us-passport-photo': typeof UsPassportPhotoRoute
+  '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
 }
@@ -176,57 +465,153 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/amazon-product-photo'
+    | '/australia-passport-photo'
+    | '/batch-remove-background'
+    | '/black-background'
+    | '/blur-background'
+    | '/brand-colour-background'
+    | '/clothing-photo'
     | '/colour-background'
+    | '/cut-out-hair'
+    | '/cut-out-pet'
+    | '/cv-photo'
+    | '/discord-avatar'
+    | '/ebay-etsy-product-photo'
+    | '/email-signature'
+    | '/gradient-background'
+    | '/holiday-background'
+    | '/id-card-photo'
     | '/india-passport-photo'
+    | '/instagram-profile-picture'
     | '/license'
     | '/linkedin-profile-photo'
     | '/logo-cleaner'
+    | '/logo-to-png'
+    | '/party-background'
     | '/passport-photo'
+    | '/passport-photo-print-sheet'
+    | '/pet-sticker'
     | '/photo-background'
+    | '/printable-sticker-sheet'
     | '/product-photo'
+    | '/product-photo-shadow'
     | '/profile-picture'
+    | '/recolour-logo'
+    | '/remove-background-from-graphic'
+    | '/schengen-visa-photo'
+    | '/shopify-product-photos'
+    | '/slack-emoji'
+    | '/stamp-cleaner'
     | '/sticker-maker'
+    | '/team-headshots'
+    | '/telegram-sticker'
+    | '/transparent-png-for-slides'
     | '/transparent-signature'
     | '/uk-passport-photo'
     | '/us-passport-photo'
+    | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/amazon-product-photo'
+    | '/australia-passport-photo'
+    | '/batch-remove-background'
+    | '/black-background'
+    | '/blur-background'
+    | '/brand-colour-background'
+    | '/clothing-photo'
     | '/colour-background'
+    | '/cut-out-hair'
+    | '/cut-out-pet'
+    | '/cv-photo'
+    | '/discord-avatar'
+    | '/ebay-etsy-product-photo'
+    | '/email-signature'
+    | '/gradient-background'
+    | '/holiday-background'
+    | '/id-card-photo'
     | '/india-passport-photo'
+    | '/instagram-profile-picture'
     | '/license'
     | '/linkedin-profile-photo'
     | '/logo-cleaner'
+    | '/logo-to-png'
+    | '/party-background'
     | '/passport-photo'
+    | '/passport-photo-print-sheet'
+    | '/pet-sticker'
     | '/photo-background'
+    | '/printable-sticker-sheet'
     | '/product-photo'
+    | '/product-photo-shadow'
     | '/profile-picture'
+    | '/recolour-logo'
+    | '/remove-background-from-graphic'
+    | '/schengen-visa-photo'
+    | '/shopify-product-photos'
+    | '/slack-emoji'
+    | '/stamp-cleaner'
     | '/sticker-maker'
+    | '/team-headshots'
+    | '/telegram-sticker'
+    | '/transparent-png-for-slides'
     | '/transparent-signature'
     | '/uk-passport-photo'
     | '/us-passport-photo'
+    | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
   id:
     | '__root__'
     | '/'
     | '/amazon-product-photo'
+    | '/australia-passport-photo'
+    | '/batch-remove-background'
+    | '/black-background'
+    | '/blur-background'
+    | '/brand-colour-background'
+    | '/clothing-photo'
     | '/colour-background'
+    | '/cut-out-hair'
+    | '/cut-out-pet'
+    | '/cv-photo'
+    | '/discord-avatar'
+    | '/ebay-etsy-product-photo'
+    | '/email-signature'
+    | '/gradient-background'
+    | '/holiday-background'
+    | '/id-card-photo'
     | '/india-passport-photo'
+    | '/instagram-profile-picture'
     | '/license'
     | '/linkedin-profile-photo'
     | '/logo-cleaner'
+    | '/logo-to-png'
+    | '/party-background'
     | '/passport-photo'
+    | '/passport-photo-print-sheet'
+    | '/pet-sticker'
     | '/photo-background'
+    | '/printable-sticker-sheet'
     | '/product-photo'
+    | '/product-photo-shadow'
     | '/profile-picture'
+    | '/recolour-logo'
+    | '/remove-background-from-graphic'
+    | '/schengen-visa-photo'
+    | '/shopify-product-photos'
+    | '/slack-emoji'
+    | '/stamp-cleaner'
     | '/sticker-maker'
+    | '/team-headshots'
+    | '/telegram-sticker'
+    | '/transparent-png-for-slides'
     | '/transparent-signature'
     | '/uk-passport-photo'
     | '/us-passport-photo'
+    | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
   fileRoutesById: FileRoutesById
@@ -234,19 +619,51 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AmazonProductPhotoRoute: typeof AmazonProductPhotoRoute
+  AustraliaPassportPhotoRoute: typeof AustraliaPassportPhotoRoute
+  BatchRemoveBackgroundRoute: typeof BatchRemoveBackgroundRoute
+  BlackBackgroundRoute: typeof BlackBackgroundRoute
+  BlurBackgroundRoute: typeof BlurBackgroundRoute
+  BrandColourBackgroundRoute: typeof BrandColourBackgroundRoute
+  ClothingPhotoRoute: typeof ClothingPhotoRoute
   ColourBackgroundRoute: typeof ColourBackgroundRoute
+  CutOutHairRoute: typeof CutOutHairRoute
+  CutOutPetRoute: typeof CutOutPetRoute
+  CvPhotoRoute: typeof CvPhotoRoute
+  DiscordAvatarRoute: typeof DiscordAvatarRoute
+  EbayEtsyProductPhotoRoute: typeof EbayEtsyProductPhotoRoute
+  EmailSignatureRoute: typeof EmailSignatureRoute
+  GradientBackgroundRoute: typeof GradientBackgroundRoute
+  HolidayBackgroundRoute: typeof HolidayBackgroundRoute
+  IdCardPhotoRoute: typeof IdCardPhotoRoute
   IndiaPassportPhotoRoute: typeof IndiaPassportPhotoRoute
+  InstagramProfilePictureRoute: typeof InstagramProfilePictureRoute
   LicenseRoute: typeof LicenseRoute
   LinkedinProfilePhotoRoute: typeof LinkedinProfilePhotoRoute
   LogoCleanerRoute: typeof LogoCleanerRoute
+  LogoToPngRoute: typeof LogoToPngRoute
+  PartyBackgroundRoute: typeof PartyBackgroundRoute
   PassportPhotoRoute: typeof PassportPhotoRoute
+  PassportPhotoPrintSheetRoute: typeof PassportPhotoPrintSheetRoute
+  PetStickerRoute: typeof PetStickerRoute
   PhotoBackgroundRoute: typeof PhotoBackgroundRoute
+  PrintableStickerSheetRoute: typeof PrintableStickerSheetRoute
   ProductPhotoRoute: typeof ProductPhotoRoute
+  ProductPhotoShadowRoute: typeof ProductPhotoShadowRoute
   ProfilePictureRoute: typeof ProfilePictureRoute
+  RecolourLogoRoute: typeof RecolourLogoRoute
+  RemoveBackgroundFromGraphicRoute: typeof RemoveBackgroundFromGraphicRoute
+  SchengenVisaPhotoRoute: typeof SchengenVisaPhotoRoute
+  ShopifyProductPhotosRoute: typeof ShopifyProductPhotosRoute
+  SlackEmojiRoute: typeof SlackEmojiRoute
+  StampCleanerRoute: typeof StampCleanerRoute
   StickerMakerRoute: typeof StickerMakerRoute
+  TeamHeadshotsRoute: typeof TeamHeadshotsRoute
+  TelegramStickerRoute: typeof TelegramStickerRoute
+  TransparentPngForSlidesRoute: typeof TransparentPngForSlidesRoute
   TransparentSignatureRoute: typeof TransparentSignatureRoute
   UkPassportPhotoRoute: typeof UkPassportPhotoRoute
   UsPassportPhotoRoute: typeof UsPassportPhotoRoute
+  VirtualBackgroundRoute: typeof VirtualBackgroundRoute
   WhatsappStickerRoute: typeof WhatsappStickerRoute
   WhiteBackgroundRoute: typeof WhiteBackgroundRoute
 }
@@ -267,6 +684,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AmazonProductPhotoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/australia-passport-photo': {
+      id: '/australia-passport-photo'
+      path: '/australia-passport-photo'
+      fullPath: '/australia-passport-photo'
+      preLoaderRoute: typeof AustraliaPassportPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/batch-remove-background': {
+      id: '/batch-remove-background'
+      path: '/batch-remove-background'
+      fullPath: '/batch-remove-background'
+      preLoaderRoute: typeof BatchRemoveBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/black-background': {
+      id: '/black-background'
+      path: '/black-background'
+      fullPath: '/black-background'
+      preLoaderRoute: typeof BlackBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blur-background': {
+      id: '/blur-background'
+      path: '/blur-background'
+      fullPath: '/blur-background'
+      preLoaderRoute: typeof BlurBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-colour-background': {
+      id: '/brand-colour-background'
+      path: '/brand-colour-background'
+      fullPath: '/brand-colour-background'
+      preLoaderRoute: typeof BrandColourBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clothing-photo': {
+      id: '/clothing-photo'
+      path: '/clothing-photo'
+      fullPath: '/clothing-photo'
+      preLoaderRoute: typeof ClothingPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/colour-background': {
       id: '/colour-background'
       path: '/colour-background'
@@ -274,11 +733,81 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ColourBackgroundRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cut-out-hair': {
+      id: '/cut-out-hair'
+      path: '/cut-out-hair'
+      fullPath: '/cut-out-hair'
+      preLoaderRoute: typeof CutOutHairRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cut-out-pet': {
+      id: '/cut-out-pet'
+      path: '/cut-out-pet'
+      fullPath: '/cut-out-pet'
+      preLoaderRoute: typeof CutOutPetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cv-photo': {
+      id: '/cv-photo'
+      path: '/cv-photo'
+      fullPath: '/cv-photo'
+      preLoaderRoute: typeof CvPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/discord-avatar': {
+      id: '/discord-avatar'
+      path: '/discord-avatar'
+      fullPath: '/discord-avatar'
+      preLoaderRoute: typeof DiscordAvatarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebay-etsy-product-photo': {
+      id: '/ebay-etsy-product-photo'
+      path: '/ebay-etsy-product-photo'
+      fullPath: '/ebay-etsy-product-photo'
+      preLoaderRoute: typeof EbayEtsyProductPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/email-signature': {
+      id: '/email-signature'
+      path: '/email-signature'
+      fullPath: '/email-signature'
+      preLoaderRoute: typeof EmailSignatureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gradient-background': {
+      id: '/gradient-background'
+      path: '/gradient-background'
+      fullPath: '/gradient-background'
+      preLoaderRoute: typeof GradientBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/holiday-background': {
+      id: '/holiday-background'
+      path: '/holiday-background'
+      fullPath: '/holiday-background'
+      preLoaderRoute: typeof HolidayBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/id-card-photo': {
+      id: '/id-card-photo'
+      path: '/id-card-photo'
+      fullPath: '/id-card-photo'
+      preLoaderRoute: typeof IdCardPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/india-passport-photo': {
       id: '/india-passport-photo'
       path: '/india-passport-photo'
       fullPath: '/india-passport-photo'
       preLoaderRoute: typeof IndiaPassportPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instagram-profile-picture': {
+      id: '/instagram-profile-picture'
+      path: '/instagram-profile-picture'
+      fullPath: '/instagram-profile-picture'
+      preLoaderRoute: typeof InstagramProfilePictureRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/license': {
@@ -302,11 +831,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LogoCleanerRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/logo-to-png': {
+      id: '/logo-to-png'
+      path: '/logo-to-png'
+      fullPath: '/logo-to-png'
+      preLoaderRoute: typeof LogoToPngRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/party-background': {
+      id: '/party-background'
+      path: '/party-background'
+      fullPath: '/party-background'
+      preLoaderRoute: typeof PartyBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/passport-photo': {
       id: '/passport-photo'
       path: '/passport-photo'
       fullPath: '/passport-photo'
       preLoaderRoute: typeof PassportPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passport-photo-print-sheet': {
+      id: '/passport-photo-print-sheet'
+      path: '/passport-photo-print-sheet'
+      fullPath: '/passport-photo-print-sheet'
+      preLoaderRoute: typeof PassportPhotoPrintSheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pet-sticker': {
+      id: '/pet-sticker'
+      path: '/pet-sticker'
+      fullPath: '/pet-sticker'
+      preLoaderRoute: typeof PetStickerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/photo-background': {
@@ -316,11 +873,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PhotoBackgroundRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/printable-sticker-sheet': {
+      id: '/printable-sticker-sheet'
+      path: '/printable-sticker-sheet'
+      fullPath: '/printable-sticker-sheet'
+      preLoaderRoute: typeof PrintableStickerSheetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/product-photo': {
       id: '/product-photo'
       path: '/product-photo'
       fullPath: '/product-photo'
       preLoaderRoute: typeof ProductPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-photo-shadow': {
+      id: '/product-photo-shadow'
+      path: '/product-photo-shadow'
+      fullPath: '/product-photo-shadow'
+      preLoaderRoute: typeof ProductPhotoShadowRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/profile-picture': {
@@ -330,11 +901,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProfilePictureRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/recolour-logo': {
+      id: '/recolour-logo'
+      path: '/recolour-logo'
+      fullPath: '/recolour-logo'
+      preLoaderRoute: typeof RecolourLogoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/remove-background-from-graphic': {
+      id: '/remove-background-from-graphic'
+      path: '/remove-background-from-graphic'
+      fullPath: '/remove-background-from-graphic'
+      preLoaderRoute: typeof RemoveBackgroundFromGraphicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/schengen-visa-photo': {
+      id: '/schengen-visa-photo'
+      path: '/schengen-visa-photo'
+      fullPath: '/schengen-visa-photo'
+      preLoaderRoute: typeof SchengenVisaPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/shopify-product-photos': {
+      id: '/shopify-product-photos'
+      path: '/shopify-product-photos'
+      fullPath: '/shopify-product-photos'
+      preLoaderRoute: typeof ShopifyProductPhotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/slack-emoji': {
+      id: '/slack-emoji'
+      path: '/slack-emoji'
+      fullPath: '/slack-emoji'
+      preLoaderRoute: typeof SlackEmojiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stamp-cleaner': {
+      id: '/stamp-cleaner'
+      path: '/stamp-cleaner'
+      fullPath: '/stamp-cleaner'
+      preLoaderRoute: typeof StampCleanerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sticker-maker': {
       id: '/sticker-maker'
       path: '/sticker-maker'
       fullPath: '/sticker-maker'
       preLoaderRoute: typeof StickerMakerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team-headshots': {
+      id: '/team-headshots'
+      path: '/team-headshots'
+      fullPath: '/team-headshots'
+      preLoaderRoute: typeof TeamHeadshotsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/telegram-sticker': {
+      id: '/telegram-sticker'
+      path: '/telegram-sticker'
+      fullPath: '/telegram-sticker'
+      preLoaderRoute: typeof TelegramStickerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/transparent-png-for-slides': {
+      id: '/transparent-png-for-slides'
+      path: '/transparent-png-for-slides'
+      fullPath: '/transparent-png-for-slides'
+      preLoaderRoute: typeof TransparentPngForSlidesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/transparent-signature': {
@@ -358,6 +992,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UsPassportPhotoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/virtual-background': {
+      id: '/virtual-background'
+      path: '/virtual-background'
+      fullPath: '/virtual-background'
+      preLoaderRoute: typeof VirtualBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/whatsapp-sticker': {
       id: '/whatsapp-sticker'
       path: '/whatsapp-sticker'
@@ -378,19 +1019,51 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AmazonProductPhotoRoute: AmazonProductPhotoRoute,
+  AustraliaPassportPhotoRoute: AustraliaPassportPhotoRoute,
+  BatchRemoveBackgroundRoute: BatchRemoveBackgroundRoute,
+  BlackBackgroundRoute: BlackBackgroundRoute,
+  BlurBackgroundRoute: BlurBackgroundRoute,
+  BrandColourBackgroundRoute: BrandColourBackgroundRoute,
+  ClothingPhotoRoute: ClothingPhotoRoute,
   ColourBackgroundRoute: ColourBackgroundRoute,
+  CutOutHairRoute: CutOutHairRoute,
+  CutOutPetRoute: CutOutPetRoute,
+  CvPhotoRoute: CvPhotoRoute,
+  DiscordAvatarRoute: DiscordAvatarRoute,
+  EbayEtsyProductPhotoRoute: EbayEtsyProductPhotoRoute,
+  EmailSignatureRoute: EmailSignatureRoute,
+  GradientBackgroundRoute: GradientBackgroundRoute,
+  HolidayBackgroundRoute: HolidayBackgroundRoute,
+  IdCardPhotoRoute: IdCardPhotoRoute,
   IndiaPassportPhotoRoute: IndiaPassportPhotoRoute,
+  InstagramProfilePictureRoute: InstagramProfilePictureRoute,
   LicenseRoute: LicenseRoute,
   LinkedinProfilePhotoRoute: LinkedinProfilePhotoRoute,
   LogoCleanerRoute: LogoCleanerRoute,
+  LogoToPngRoute: LogoToPngRoute,
+  PartyBackgroundRoute: PartyBackgroundRoute,
   PassportPhotoRoute: PassportPhotoRoute,
+  PassportPhotoPrintSheetRoute: PassportPhotoPrintSheetRoute,
+  PetStickerRoute: PetStickerRoute,
   PhotoBackgroundRoute: PhotoBackgroundRoute,
+  PrintableStickerSheetRoute: PrintableStickerSheetRoute,
   ProductPhotoRoute: ProductPhotoRoute,
+  ProductPhotoShadowRoute: ProductPhotoShadowRoute,
   ProfilePictureRoute: ProfilePictureRoute,
+  RecolourLogoRoute: RecolourLogoRoute,
+  RemoveBackgroundFromGraphicRoute: RemoveBackgroundFromGraphicRoute,
+  SchengenVisaPhotoRoute: SchengenVisaPhotoRoute,
+  ShopifyProductPhotosRoute: ShopifyProductPhotosRoute,
+  SlackEmojiRoute: SlackEmojiRoute,
+  StampCleanerRoute: StampCleanerRoute,
   StickerMakerRoute: StickerMakerRoute,
+  TeamHeadshotsRoute: TeamHeadshotsRoute,
+  TelegramStickerRoute: TelegramStickerRoute,
+  TransparentPngForSlidesRoute: TransparentPngForSlidesRoute,
   TransparentSignatureRoute: TransparentSignatureRoute,
   UkPassportPhotoRoute: UkPassportPhotoRoute,
   UsPassportPhotoRoute: UsPassportPhotoRoute,
+  VirtualBackgroundRoute: VirtualBackgroundRoute,
   WhatsappStickerRoute: WhatsappStickerRoute,
   WhiteBackgroundRoute: WhiteBackgroundRoute,
 }

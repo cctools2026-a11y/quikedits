@@ -94,8 +94,28 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
   const downloadName = file ? file.name.replace(/\.[^.]+$/, "") + "-colour.png" : "colour-background.png";
 
+  const [hex, setHex] = useState("");
+  useEffect(() => {
+    if (!preset.brand) return;
+    const saved = localStorage.getItem("quikedits-brand-colour");
+    if (saved && isSolidHex(saved)) { setColour(saved); setHex(saved); }
+  }, [preset.brand]);
+  function applyHex(v: string) {
+    const h = v.trim().startsWith("#") ? v.trim() : `#${v.trim()}`;
+    setHex(v);
+    if (/^#[0-9a-f]{6}$/i.test(h)) { setColour(h.toUpperCase()); localStorage.setItem("quikedits-brand-colour", h.toUpperCase()); void apply(h.toUpperCase()); }
+  }
+
   const palette = (
     <div>
+      {preset.brand && (
+        <label className="mb-4 flex items-center gap-3 text-sm font-semibold">
+          Brand colour
+          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder="#1A73E8" maxLength={7} spellCheck={false}
+            className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label="Brand colour hex code" />
+          <span aria-hidden className="h-8 w-8 rounded-full border-2 border-foreground" style={{ backgroundColor: colour }} />
+        </label>
+      )}
       <div className="flex flex-wrap gap-3" role="radiogroup" aria-label="Background colour">
         {PALETTE.map((c) => (
           <button

@@ -2,14 +2,15 @@ import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
 import { useMemo, useState } from "react";
-import { ToolPage, useRenderedUrl, Field, Range, ResultActions, baseName } from "@/components/ToolPage";
+import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName } from "@/components/ToolPage";
 import { ctx2d, makeCanvas, trim } from "@/lib/compose";
-import { alphaForDistance } from "@/lib/tool-sizes";
+import { alphaForDistance, inkAlpha } from "@/lib/tool-sizes";
 import { cornersUneven } from "@/lib/photo-rules";
 
 
 export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: string; preset?: Preset }) {
   const [tol, setTol] = useState(preset.tol ?? 60);
+  const [recolour, setRecolour] = useState<"original" | "black" | "white">(preset.recolour ?? "original");
   return (
     <ToolPage
       tool="/logo-cleaner"
@@ -26,8 +27,9 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
             <aside className="space-y-6">
               <Field label={`Strength: ${tol}`}><Range label="Strength" value={tol} min={15} max={180} onChange={setTol} /></Field>
               <p className="text-sm text-muted-foreground">Raise it if paper shadows remain; lower it if thin lines disappear.</p>
+              <Field label="Colour"><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: "Original" }, { id: "black", label: "All black" }, { id: "white", label: "All white" }]} /></Field>
             </aside>
-            <LogoResult src={it?.cutout ?? null} name={it ? baseName(it.file) : "logo"} tol={tol} reset={reset} />
+            <LogoResult src={it?.cutout ?? null} name={it ? baseName(it.file) : "logo"} tol={tol} reset={reset} recolour={recolour} ink={!!preset.ink} maxWidth={preset.maxWidth} />
           </div>
         );
       }}
@@ -35,7 +37,7 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
   );
 }
 
-function LogoResult({ src, name, tol, reset }: { src: HTMLCanvasElement | null; name: string; tol: number; reset: () => void }) {
+function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: HTMLCanvasElement | null; name: string; tol: number; reset: () => void; recolour: string; ink: boolean; maxWidth?: number | undefined }) {
   const bgColour = useMemo(() => {
     if (!src) return [255, 255, 255];
     const { width: w, height: h } = src;
@@ -54,11 +56,19 @@ function LogoResult({ src, name, tol, reset }: { src: HTMLCanvasElement | null; 
     const [br, bg, bb] = bgColour as [number, number, number];
     for (let p = 0; p < d.length; p += 4) {
       const dist = Math.hypot(d[p]! - br, d[p + 1]! - bg, d[p + 2]! - bb);
-      d[p + 3] = d[p + 3]! * alphaForDistance(dist, tol);
+      const a = ink ? Math.min(alphaForDistance(dist, tol), inkAlpha(d[p]!, d[p + 1]!, d[p + 2]!, tol)) : alphaForDistance(dist, tol);
+      d[p + 3] = d[p + 3]! * a;
+      if (recolour !== "original") { const v = recolour === "white" ? 255 : 0; d[p] = v; d[p + 1] = v; d[p + 2] = v; }
     }
     ctx.putImageData(img, 0, 0);
-    return trim(c);
-  }, [src, tol, bgColour]);
+    const t = trim(c);
+    if (!maxWidth || t.width <= maxWidth) return t;
+    const out = makeCanvas(maxWidth, Math.round((t.height / t.width) * maxWidth));
+    const o = ctx2d(out);
+    o.imageSmoothingQuality = "high";
+    o.drawImage(t, 0, 0, out.width, out.height);
+    return out;
+  }, [src, tol, bgColour, recolour, ink, maxWidth]);
 
   const uneven = useMemo(() => {
     if (!src) return false;
@@ -74,7 +84,7 @@ function LogoResult({ src, name, tol, reset }: { src: HTMLCanvasElement | null; 
           The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.
         </p>
       )}
-      <div className="checkerboard rounded-2xl p-4">{url && <ZoomView><img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
+      <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
       <ResultActions url={url} name={`${name}-transparent.png`} label="Download transparent PNG" onReset={reset} />
     </div>
   );
