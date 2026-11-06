@@ -81,8 +81,8 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       </Reveal>
 
       <Reveal>
-        <section aria-labelledby="tips" className="relative">
-          <span aria-hidden className="absolute -right-24 top-16 -z-10 h-72 w-72 rotate-12 rounded-[2rem] bg-[var(--art-yellow)] opacity-70" />
+        <section aria-labelledby="tips" className="relative isolate">
+          <span aria-hidden className="absolute -right-24 top-16 -z-10 h-72 w-72 rotate-12 rounded-[2rem] bg-art-yellow opacity-70" />
           <Heading id="tips">Tips for the best photo</Heading>
           <div className="mt-12 grid gap-14 md:grid-cols-2 md:gap-10">
             <div className="grid grid-cols-[7rem_1fr] items-start gap-6 sm:grid-cols-[10rem_1fr]">
