@@ -10,7 +10,7 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
     <section className="grid items-center gap-10 pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
         <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-lift">
-          <Sparkles className="h-3.5 w-3.5 text-primary" /> Free · runs on your device
+          <Sparkles className="h-3.5 w-3.5 text-foreground" /> Free · runs on your device
         </span>
         <h1 className="font-display mt-4 text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.6rem]">{title}</h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
@@ -40,7 +40,7 @@ export function TrustStrip() {
     <ul className="mt-14 grid gap-3 sm:grid-cols-3">
       {items.map(({ icon: Icon, label, sub }) => (
         <li key={label} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-lift">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-primary"><Icon className="h-5 w-5" /></span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-foreground"><Icon className="h-5 w-5" /></span>
           <span className="min-w-0"><span className="block text-sm font-semibold">{label}</span><span className="block text-xs text-muted-foreground">{sub}</span></span>
         </li>
       ))}

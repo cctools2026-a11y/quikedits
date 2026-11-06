@@ -19,7 +19,7 @@ function LogoCleaner() {
       tool="/logo-cleaner"
       below={<ToolLanding path="/logo-cleaner" />}
       raw
-      title={<>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
+      title={<>Transparent <span className="text-foreground">logos &amp; signatures</span>.</>}
       intro="Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."
     >
       {(items, reset) => {

@@ -24,7 +24,7 @@ function ProfilePicture() {
       tool="/profile-picture"
       below={<ToolLanding path="/profile-picture" />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
-      title={<>A sharp <span className="text-primary">profile picture</span> in seconds.</>}
+      title={<>A sharp <span className="text-foreground">profile picture</span> in seconds.</>}
       intro="Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages."
     >
       {(items, reset) => {

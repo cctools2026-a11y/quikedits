@@ -131,7 +131,7 @@ export function ToolPage({
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
             <img src={items[stage.index]?.original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+              <Loader2 className="h-8 w-8 animate-spin text-foreground" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
                 {raw ? "Preparing image" : stage.phase === "download" ? "Downloading AI model" : "Removing background"}
               </h2>
