@@ -41,11 +41,14 @@ export function TrustStrip() {
     { icon: UserX, label: "No sign-up", sub: "Just open and use" },
   ];
   return (
-    <ul className="mt-14 grid gap-3 sm:grid-cols-3">
-      {items.map(({ icon: Icon, label, sub }) => (
-        <li key={label} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-lift">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-primary"><Icon className="h-5 w-5" /></span>
-          <span className="min-w-0"><span className="block text-sm font-semibold">{label}</span><span className="block text-xs text-muted-foreground">{sub}</span></span>
+    <ul className="mt-14 grid overflow-hidden rounded-[1.75rem] bg-foreground text-background sm:grid-cols-3">
+      {items.map(({ icon: Icon, label, sub }, i) => (
+        <li key={label} className={`group flex items-center gap-4 px-6 py-5 sm:py-6 ${i ? "border-t border-background/15 sm:border-l sm:border-t-0" : ""}`}>
+          <Icon className="h-7 w-7 shrink-0 text-primary transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" strokeWidth={2.25} />
+          <span className="min-w-0">
+            <span className="font-display block text-2xl leading-none tracking-wide">{label}</span>
+            <span className="mt-1 block text-sm opacity-70">{sub}</span>
+          </span>
         </li>
       ))}
     </ul>
