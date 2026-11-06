@@ -8,11 +8,11 @@ import { ToolArt } from "@/components/ToolArt";
 
 const STEP_ICONS = [ImagePlus, SlidersHorizontal, Download];
 
-function Heading({ id, kicker, children }: { id: string; kicker: string; children: React.ReactNode }) {
+function Heading({ id, kicker, children }: { id: string; kicker?: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>
-      <h2 id={id} className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{children}</h2>
+      {kicker && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>}
+      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-3xl font-bold tracking-tight sm:text-4xl`}>{children}</h2>
     </div>
   );
 }
@@ -46,7 +46,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="great-for" className="rounded-[2rem] border border-border bg-card p-6 shadow-lift sm:p-10">
-          <Heading id="great-for" kicker="Made for">Great for</Heading>
+          <Heading id="great-for">Great for</Heading>
           <ul className="mt-6 flex flex-wrap gap-3">
             {c.greatFor.map((g, i) => (
               <li key={g} style={{ transform: `rotate(${[-1.5, 1, -0.5, 1.5, -1][i % 5]}deg)` }}
@@ -58,7 +58,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="tips">
-          <Heading id="tips" kicker="Better results">Tips for the best photo</Heading>
+          <Heading id="tips">Tips for the best photo</Heading>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-border bg-card p-6 shadow-lift">
               <p className="flex items-center gap-2 font-semibold"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="h-4 w-4" /></span>Do</p>
@@ -93,7 +93,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="faq">
-          <Heading id="faq" kicker="Good to know">Common questions</Heading>
+          <Heading id="faq">Common questions</Heading>
           <div className="mt-8 grid gap-3 md:grid-cols-2">
             {c.faqs.map((f) => (
               <details key={f.q} className="group h-fit rounded-2xl border border-border bg-card p-5 shadow-lift">
@@ -132,7 +132,7 @@ function OtherTools({ path }: { path: string }) {
   const others = TOOLS.filter((t) => t.to !== path).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
   return (
     <section aria-labelledby="more-tools">
-      <Heading id="more-tools" kicker="Same idea, free and private">More free tools</Heading>
+      <Heading id="more-tools">More free tools</Heading>
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? "Try next" : undefined} />)}
       </div>

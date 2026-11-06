@@ -1,5 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { BadgeCheck, Lock, Sparkles, UserX } from "lucide-react";
+import { BadgeCheck, Lock, UserX } from "lucide-react";
 import { CompareSlider } from "@/components/CompareSlider";
 import { TOOL_MEDIA } from "@/lib/tool-media";
 
@@ -9,10 +9,7 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
   return (
     <section className="grid items-center gap-10 pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-lift">
-          <Sparkles className="h-3.5 w-3.5 text-primary" /> Free · runs on your device
-        </span>
-        <h1 className="page-title mt-5">{title}</h1>
+        <h1 className="page-title">{title}</h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
         <div className="mt-7">{children}</div>
       </div>
