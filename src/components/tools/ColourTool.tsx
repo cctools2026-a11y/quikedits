@@ -103,7 +103,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
   function applyHex(v: string) {
     const h = v.trim().startsWith("#") ? v.trim() : `#${v.trim()}`;
     setHex(v);
-    if (/^#[0-9a-f]{6}$/i.test(h)) { localStorage.setItem("quikedits-brand-colour", h.toUpperCase()); void apply(h.toUpperCase()); }
+    if (/^#[0-9a-f]{6}$/i.test(h)) { setColour(h.toUpperCase()); localStorage.setItem("quikedits-brand-colour", h.toUpperCase()); void apply(h.toUpperCase()); }
   }
 
   const palette = (
