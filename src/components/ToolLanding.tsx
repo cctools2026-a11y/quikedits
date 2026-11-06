@@ -1,18 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronDown, Download, ImagePlus, ShieldCheck, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, Check, Plus, X } from "lucide-react";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { TOOLS } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
 import { ToolArt } from "@/components/ToolArt";
 
-const STEP_ICONS = [ImagePlus, SlidersHorizontal, Download];
+const TINTS = ["bg-tile-peach", "bg-tile-butter", "bg-tile-sky"];
 
 function Heading({ id, kicker, children }: { id: string; kicker?: string; children: React.ReactNode }) {
   return (
     <div>
       {kicker && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>}
-      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-3xl font-bold tracking-tight sm:text-4xl`}>{children}</h2>
+      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-5xl leading-none sm:text-6xl`}>{children}</h2>
     </div>
   );
 }
@@ -26,31 +26,23 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="how">
           <Heading id="how">How it works</Heading>
-          <ol className="relative mt-10 grid gap-6 sm:grid-cols-3">
-            <span aria-hidden className="cut-line absolute left-[16%] right-[16%] top-7 hidden h-0.5 sm:block" />
-            {c.steps.map((s, i) => {
-              const Icon = STEP_ICONS[i]!;
-              return (
-                <li key={s} className="relative text-center">
-                  <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-card shadow-lift">
-                    <Icon className="h-6 w-6 text-primary" />
-                    <span className="font-display absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{i + 1}</span>
-                  </span>
-                  <p className="mx-auto mt-4 max-w-[16rem] font-medium">{s}</p>
-                </li>
-              );
-            })}
+          <ol className="mt-8 grid gap-3 sm:grid-cols-3">
+            {c.steps.map((s, i) => (
+              <li key={s} className={`${TINTS[i % 3]} rounded-[1.5rem] p-6 transition-transform duration-300 hover:-translate-y-1`}>
+                <span className="font-display block text-6xl leading-none text-foreground/90">{i + 1}</span>
+                <p className="mt-4 text-lg font-medium leading-snug">{s}</p>
+              </li>
+            ))}
           </ol>
         </section>
       </Reveal>
 
       <Reveal>
-        <section aria-labelledby="great-for" className="rounded-[2rem] border border-border bg-card p-6 shadow-lift sm:p-10">
+        <section aria-labelledby="great-for">
           <Heading id="great-for">Great for</Heading>
-          <ul className="mt-6 flex flex-wrap gap-3">
+          <ul className="mt-6 flex flex-wrap gap-2.5">
             {c.greatFor.map((g, i) => (
-              <li key={g} style={{ transform: `rotate(${[-1.5, 1, -0.5, 1.5, -1][i % 5]}deg)` }}
-                className="rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium shadow-lift">{g}</li>
+              <li key={g} className={`${TINTS[i % 3]} rounded-full px-5 py-2.5 font-medium`}>{g}</li>
             ))}
           </ul>
         </section>
@@ -59,16 +51,16 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="tips">
           <Heading id="tips">Tips for the best photo</Heading>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-border bg-card p-6 shadow-lift">
-              <p className="flex items-center gap-2 font-semibold"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="h-4 w-4" /></span>Do</p>
-              <ul className="mt-4 space-y-2.5 text-muted-foreground">
-                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
+          <div className="mt-8 grid gap-3 md:grid-cols-2">
+            <div className="rounded-[1.5rem] bg-tile-mint p-6 sm:p-8">
+              <p className="font-display text-3xl leading-none">Do</p>
+              <ul className="mt-4 space-y-2.5 text-foreground/80">
+                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
               </ul>
             </div>
-            <div className="rounded-2xl border border-dashed border-border bg-background p-6">
-              <p className="flex items-center gap-2 font-semibold"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-muted"><X className="h-4 w-4" /></span>Avoid</p>
-              <ul className="mt-4 space-y-2.5 text-muted-foreground">
+            <div className="rounded-[1.5rem] bg-tile-peach p-6 sm:p-8">
+              <p className="font-display text-3xl leading-none">Avoid</p>
+              <ul className="mt-4 space-y-2.5 text-foreground/80">
                 {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
               </ul>
             </div>
@@ -78,12 +70,9 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       {!home && (
         <Reveal>
-          <section className="flex flex-col gap-4 rounded-[2rem] bg-foreground p-8 text-background sm:flex-row sm:items-center sm:p-10">
-            <ShieldCheck className="h-10 w-10 shrink-0 text-primary" />
-            <div className="min-w-0 flex-1">
-              <h2 className="font-display text-2xl font-bold">Free and private, for real</h2>
-              <p className="mt-1 opacity-80">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
-            </div>
+          <section className="rounded-[1.5rem] bg-tile-lilac p-8 sm:p-10">
+            <h2 className="font-display text-4xl leading-none sm:text-5xl">Free and private, for real</h2>
+            <p className="mt-3 max-w-xl text-foreground/75">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
           </section>
         </Reveal>
       )}
@@ -91,13 +80,13 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="faq">
           <Heading id="faq">Common questions</Heading>
-          <div className="mt-8 grid gap-3 md:grid-cols-2">
+          <div className="mt-6 divide-y divide-border border-y border-border">
             {c.faqs.map((f) => (
-              <details key={f.q} className="group h-fit rounded-2xl border border-border bg-card p-5 shadow-lift">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold">
-                  {f.q}<ChevronDown className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180" />
+              <details key={f.q} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
+                  {f.q}<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tile-butter transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
                 </summary>
-                <p className="mt-3 text-muted-foreground">{f.a}</p>
+                <p className="mt-3 max-w-3xl text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
@@ -111,7 +100,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-lift transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-float">
+    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] bg-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
