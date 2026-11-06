@@ -14,8 +14,8 @@ import sticker from "@/assets/cards/sticker-blue-heeler-original.jpg";
 import stickerCut from "@/assets/cards/sticker-blue-heeler-cut.webp.asset.json";
 import photobg from "@/assets/tools/photobg-summer-before.webp";
 import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
-import logo from "@/assets/cards/signature-paper.webp.asset.json";
-import logoCut from "@/assets/cards/signature-transparent.webp.asset.json";
+import logo from "@/assets/cards/signature-quikedits-paper.jpg";
+import logoCut from "@/assets/cards/signature-quikedits-transparent.webp.asset.json";
 import coastalResult from "@/assets/tools/photobg-coastal-after.webp";
 
 type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; flatPhoto?: boolean; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
@@ -29,7 +29,7 @@ const ART: Record<string, Art> = {
   "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-tile-peach", result: "checker-sm", outline: true },
   "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: coastalResult, flatPhoto: true },
-  "/logo-cleaner": { before: logo.url, cut: logoCut.url, tile: "bg-tile-butter", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
+  "/logo-cleaner": { before: logo, cut: logoCut.url, tile: "bg-tile-butter", result: "checker-sm", resultImg: logoCut.url, flatPhoto: true },
 };
 
 const EASE = "duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
