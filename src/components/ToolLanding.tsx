@@ -6,7 +6,6 @@ import { TOOLS } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
 import { ToolArt } from "@/components/ToolArt";
 
-const TINTS = ["bg-tile-peach", "bg-tile-butter", "bg-tile-sky"];
 
 function Heading({ id, kicker, children }: { id: string; kicker?: string; children: React.ReactNode }) {
   return (
@@ -26,10 +25,10 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="how">
           <Heading id="how">How it works</Heading>
-          <ol className="mt-8 grid gap-3 sm:grid-cols-3">
+          <ol className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
             {c.steps.map((s, i) => (
-              <li key={s} className={`${TINTS[i % 3]} rounded-[1.5rem] p-6 transition-transform duration-300 hover:-translate-y-1`}>
-                <span className="font-display block text-6xl leading-none text-foreground/90">{i + 1}</span>
+              <li key={s} className="border-t-2 border-foreground pt-5">
+                <span className="font-display block text-7xl leading-none text-primary">0{i + 1}</span>
                 <p className="mt-4 text-lg font-medium leading-snug">{s}</p>
               </li>
             ))}
@@ -40,9 +39,9 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="great-for">
           <Heading id="great-for">Great for</Heading>
-          <ul className="mt-6 flex flex-wrap gap-2.5">
+          <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-2xl font-medium sm:text-3xl">
             {c.greatFor.map((g, i) => (
-              <li key={g} className={`${TINTS[i % 3]} rounded-full px-5 py-2.5 font-medium`}>{g}</li>
+              <li key={g} className="flex items-center gap-6">{i > 0 && <span aria-hidden className="h-2 w-2 rounded-full bg-primary" />}{g}</li>
             ))}
           </ul>
         </section>
@@ -51,14 +50,14 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="tips">
           <Heading id="tips">Tips for the best photo</Heading>
-          <div className="mt-8 grid gap-3 md:grid-cols-2">
-            <div className="rounded-[1.5rem] bg-tile-mint p-6 sm:p-8">
+          <div className="mt-10 grid gap-10 md:grid-cols-2">
+            <div className="border-t-2 border-foreground pt-5">
               <p className="font-display text-3xl leading-none">Do</p>
               <ul className="mt-4 space-y-2.5 text-foreground/80">
-                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
+                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
               </ul>
             </div>
-            <div className="rounded-[1.5rem] bg-tile-peach p-6 sm:p-8">
+            <div className="border-t-2 border-border pt-5">
               <p className="font-display text-3xl leading-none">Avoid</p>
               <ul className="mt-4 space-y-2.5 text-foreground/80">
                 {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
@@ -70,7 +69,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       {!home && (
         <Reveal>
-          <section className="rounded-[1.5rem] bg-tile-lilac p-8 sm:p-10">
+          <section className="rounded-[1.75rem] bg-card p-8 shadow-lift sm:p-12">
             <h2 className="font-display text-4xl leading-none sm:text-5xl">Free and private, for real</h2>
             <p className="mt-3 max-w-xl text-foreground/75">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
           </section>
@@ -84,7 +83,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
             {c.faqs.map((f) => (
               <details key={f.q} className="group py-5">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
-                  {f.q}<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-tile-butter transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
+                  {f.q}<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-foreground transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
                 </summary>
                 <p className="mt-3 max-w-3xl text-muted-foreground">{f.a}</p>
               </details>
