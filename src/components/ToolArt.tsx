@@ -50,7 +50,7 @@ export function ToolArt({ to }: { to: string }) {
         <svg aria-hidden className={`pointer-events-none absolute -inset-[5%] top-[13%] h-[92%] w-[110%] overflow-visible opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} viewBox="0 0 110 92" preserveAspectRatio="none">
           <rect x="1" y="1" width="108" height="90" rx="9" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" className="march text-foreground/40" />
         </svg>
-        <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-foreground bg-card shadow-[6px_6px_0_0_var(--foreground)] transition-shadow ${EASE} group-hover:shadow-[9px_9px_0_0_var(--foreground)]`}>
+        <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-foreground bg-card group-hover:border-primary group-active:border-primary shadow-[6px_6px_0_0_var(--foreground)] transition-[box-shadow,border-color] ${EASE} group-hover:shadow-[9px_9px_0_0_var(--foreground)]`}>
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
             {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] overflow-hidden rounded-full bg-art-pink">
