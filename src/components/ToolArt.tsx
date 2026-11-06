@@ -76,7 +76,7 @@ export function ToolArt({ to }: { to: string }) {
         <span className={`col-start-1 row-start-1 transition-all ${EASE} group-hover:-translate-y-full group-hover:opacity-0`}>Before</span>
         <span className={`col-start-1 row-start-1 translate-y-full text-primary opacity-0 transition-all ${EASE} group-hover:translate-y-0 group-hover:opacity-100`}>After</span>
       </span>
-      <span className={`absolute bottom-3 right-3 grid h-9 w-9 place-items-center rounded-full bg-card text-primary shadow-lift transition-transform ${EASE} group-hover:rotate-[-12deg] group-hover:scale-110`}>
+      <span className={`absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-card text-primary shadow-lift transition-transform ${EASE} group-hover:rotate-[-12deg] group-hover:scale-110`}>
         <Icon className="h-4 w-4" />
       </span>
     </div>
