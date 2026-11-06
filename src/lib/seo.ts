@@ -28,7 +28,7 @@ export function toolHead(path: string) {
         const sub = subtool(path);
         const p = sub && TOOL_CONTENT[sub.parent];
         if (path === "/") return [];
-        if (sub && p) return [{ "@type": "ListItem", position: 2, name: p.name, item: `${SITE_URL}${sub.parent === "/" ? "/" : sub.parent}` }, { "@type": "ListItem", position: 3, name: c.name, item: url }];
+        if (sub && p) return [{ "@type": "ListItem", position: 2, name: p.name, item: `${SITE_URL}${sub.parent}` }, { "@type": "ListItem", position: 3, name: c.name, item: url }];
         return [{ "@type": "ListItem", position: 2, name: c.name, item: url }];
       })(),
     ],
