@@ -23,7 +23,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
   return (
     <ToolPage
       tool="/profile-picture"
-      multiple={preset.multiple}
+      multiple={!!preset.multiple}
       page={page}
       below={<ToolLanding path={page} />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}

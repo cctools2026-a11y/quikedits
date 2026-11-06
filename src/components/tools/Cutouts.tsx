@@ -16,8 +16,8 @@ export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }
     <ToolPage
       tool="/"
       page={page}
-      raw={preset.raw}
-      multiple={preset.multiple}
+      raw={!!preset.raw}
+      multiple={!!preset.multiple}
       below={<ToolLanding path={page} />}
       title={preset.title ?? "Remove the background"}
       intro={preset.intro ?? "Upload a photo and get a transparent PNG."}
@@ -46,7 +46,7 @@ function CutoutList({ items, names, reset, preset }: { items: Item[]; names: str
   );
 }
 
-function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: string; preset: Preset; onUrl: (u: string | null) => void; reset?: () => void; compact?: boolean }) {
+function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: string; preset: Preset; onUrl: (u: string | null) => void; reset?: (() => void) | undefined; compact?: boolean }) {
   const url = useRenderedUrl(() => {
     let cut = item.cutout;
     if (!cut) return null;
@@ -76,7 +76,7 @@ function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: 
   return (
     <div>
       <div className="checkerboard rounded-2xl p-4">{url && <ZoomView><img src={url} alt="Your cut-out" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
-      <ResultActions url={url} name={name} label="Download transparent PNG" onReset={reset} />
+      <ResultActions url={url} name={name} label="Download transparent PNG" {...(reset ? { onReset: reset } : {})} />
     </div>
   );
 }
