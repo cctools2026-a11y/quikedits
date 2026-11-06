@@ -9,7 +9,8 @@ import { useEffect, useRef } from "react";
 const RANGE = 34; // how far (px) a ball can roll from its resting spot
 
 export function YarnTrail() {
-  const balls = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
+  const ball0 = useRef<HTMLDivElement>(null);
+  const ball1 = useRef<HTMLDivElement>(null);
   const cat = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -40,9 +41,9 @@ export function YarnTrail() {
         b.vx = (b.vx + (tx - b.x) * k) * 0.82;
         b.vy = (b.vy + (ty - b.y) * k) * 0.82;
         b.x += b.vx; b.y += b.vy; b.spin += b.vx * 6;
-        balls[i].current!.style.transform = `translate(${b.x}px, ${b.y}px) rotate(${b.spin}deg)`;
+        (i ? ball1 : ball0).current!.style.transform = `translate(${b.x}px, ${b.y}px) rotate(${b.spin}deg)`;
       });
-      const lead = state[0];
+      const lead = state[0]!;
       cool = Math.max(0, cool - 1);
       if (!pounce && !cool && Math.hypot(lead.vx, lead.vy) > 1.1) { pounce = 1; face = lead.vx >= 0 ? 1 : -1; }
       if (pounce) { pounce += 0.045; if (pounce >= 2) { pounce = 0; cool = 50; } }
@@ -52,7 +53,7 @@ export function YarnTrail() {
       const lunge = pounce ? Math.sin(p * Math.PI) * 14 * face : 0;
       const tilt = pounce ? Math.sin(p * Math.PI) * -12 * face : 0;
       cat.current!.style.transform = `translate(${catX + lunge}px, ${-hop}px) rotate(${tilt}deg) scaleX(${face})`;
-      cat.current!.dataset.pounce = pounce ? "1" : "0";
+      cat.current!.dataset["pounce"] = pounce ? "1" : "0";
       raf = requestAnimationFrame(tick);
     };
 
@@ -77,8 +78,8 @@ export function YarnTrail() {
           <ellipse cx="26" cy="74" rx="6" ry="4" fill="var(--kitten)" stroke="var(--foreground)" strokeWidth="2.5" />
         </svg>
       </div>
-      <Ball ref={balls[0]} className="bottom-1 right-10 h-9 w-9 sm:h-11 sm:w-11" colour="var(--yarn)" />
-      <Ball ref={balls[1]} className="bottom-1 right-0 h-7 w-7 sm:h-8 sm:w-8" colour="var(--yarn-2)" />
+      <Ball ref={ball0} className="bottom-1 right-10 h-9 w-9 sm:h-11 sm:w-11" colour="var(--yarn)" />
+      <Ball ref={ball1} className="bottom-1 right-0 h-7 w-7 sm:h-8 sm:w-8" colour="var(--yarn-2)" />
     </div>
   );
 }
