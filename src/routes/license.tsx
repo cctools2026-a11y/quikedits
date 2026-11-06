@@ -22,7 +22,7 @@ function LicensePage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="prose-page mx-auto max-w-3xl space-y-6 px-4 pt-6">
-        <h1 className="font-display text-4xl font-bold tracking-tight">License &amp; source code</h1>
+        <h1 className="page-title">License &amp; source code</h1>
         <section>
           <h2>GNU Affero General Public License v3.0</h2>
           <p>
