@@ -12,7 +12,7 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
         <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-lift">
           <Sparkles className="h-3.5 w-3.5 text-primary" /> Free · runs on your device
         </span>
-        <h1 className="font-display mt-4 text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.6rem]">{title}</h1>
+        <h1 className="page-title mt-5">{title}</h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
         <div className="mt-7">{children}</div>
       </div>
