@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check, Plus, X } from "lucide-react";
+import { ArrowRight, Check, Download, Plus, ShieldCheck, Upload, Wand2, X } from "lucide-react";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { TOOLS } from "@/lib/tools";
@@ -11,28 +11,37 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
   return (
     <div>
       {kicker && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>}
-      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-5xl leading-none sm:text-6xl`}>{children}</h2>
+      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-4xl leading-none sm:text-5xl`}>{children}</h2>
     </div>
   );
 }
+
+const panel = "rounded-2xl border border-border bg-card shadow-lift";
+const STEP_ICONS = [Upload, Wand2, Download];
 
 /** Readable landing content shown under the upload box: how it works, uses, tips, FAQs, other tools. */
 export function ToolLanding({ path, home = false }: { path: string; home?: boolean }) {
   const c = TOOL_CONTENT[path]!;
   const rules = PHOTO_RULES[path];
   return (
-    <div className="mt-24 space-y-24">
+    <div className="mt-20 space-y-20">
       <Reveal>
         <section aria-labelledby="how">
           <Heading id="how">How it works</Heading>
-          <ol className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
-            {c.steps.map((s, i) => (
-              <li key={s.title} className="border-t-2 border-foreground pt-5">
-                <span className="font-display block text-7xl leading-none text-primary">0{i + 1}</span>
-                <h3 className="mt-4 text-xl font-semibold leading-snug">{s.title}</h3>
-                <p className="mt-2 text-base leading-relaxed text-muted-foreground">{s.text}</p>
-              </li>
-            ))}
+          <ol className="mt-8 grid gap-4 sm:grid-cols-3">
+            {c.steps.map((s, i) => {
+              const Icon = STEP_ICONS[i] ?? Wand2;
+              return (
+                <li key={s.title} className={`${panel} group relative p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40`}>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="h-5 w-5" /></span>
+                    <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-semibold text-muted-foreground">Step {i + 1}</span>
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold leading-snug">{s.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{s.text}</p>
+                </li>
+              );
+            })}
           </ol>
         </section>
       </Reveal>
@@ -40,35 +49,28 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="great-for">
           <Heading id="great-for">Great for</Heading>
-          <div className="mt-8 rounded-2xl border-2 border-foreground bg-card p-2 shadow-lift">
-            <ul className="flex flex-wrap gap-2">
-              {c.greatFor.map((g, i) => (
-                <li
-                  key={g}
-                  className={`rounded-xl px-4 py-2.5 text-base font-semibold sm:text-lg ${i === 0 ? "bg-foreground text-background" : "bg-muted text-foreground"}`}
-                >
-                  {g}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="mt-6 flex flex-wrap gap-2">
+            {c.greatFor.map((g) => (
+              <li key={g} className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold">{g}</li>
+            ))}
+          </ul>
         </section>
       </Reveal>
 
       <Reveal>
         <section aria-labelledby="tips">
           <Heading id="tips">Tips for the best photo</Heading>
-          <div className="mt-10 grid gap-10 md:grid-cols-2">
-            <div className="border-t-2 border-foreground pt-5">
-              <p className="font-display text-3xl leading-none">Do</p>
-              <ul className="mt-4 space-y-2.5 text-foreground/80">
-                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            <div className={`${panel} p-6`}>
+              <p className="flex items-center gap-2 text-sm font-semibold"><span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary"><Check className="h-3.5 w-3.5" /></span>Do</p>
+              <ul className="mt-4 space-y-2.5 text-sm text-foreground/80">
+                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
               </ul>
             </div>
-            <div className="border-t-2 border-border pt-5">
-              <p className="font-display text-3xl leading-none">Avoid</p>
-              <ul className="mt-4 space-y-2.5 text-foreground/80">
-                {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
+            <div className={`${panel} p-6`}>
+              <p className="flex items-center gap-2 text-sm font-semibold"><span className="flex h-6 w-6 items-center justify-center rounded-full bg-muted text-muted-foreground"><X className="h-3.5 w-3.5" /></span>Avoid</p>
+              <ul className="mt-4 space-y-2.5 text-sm text-foreground/80">
+                {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />{t}</li>)}
               </ul>
             </div>
           </div>
@@ -77,9 +79,12 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       {!home && (
         <Reveal>
-          <section className="rounded-[1.75rem] bg-card p-8 shadow-lift sm:p-12">
-            <h2 className="font-display text-4xl leading-none sm:text-5xl">Free and private, for real</h2>
-            <p className="mt-3 max-w-xl text-foreground/75">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
+          <section className={`${panel} flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:p-8`}>
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"><ShieldCheck className="h-6 w-6" /></span>
+            <div>
+              <h2 className="text-xl font-semibold">Free and private, for real</h2>
+              <p className="mt-1 text-sm text-muted-foreground">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
+            </div>
           </section>
         </Reveal>
       )}
@@ -87,13 +92,13 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="faq">
           <Heading id="faq">Common questions</Heading>
-          <div className="mt-6 divide-y divide-border border-y border-border">
+          <div className={`${panel} mt-8 divide-y divide-border overflow-hidden`}>
             {c.faqs.map((f) => (
-              <details key={f.q} className="group py-5">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold [&::-webkit-details-marker]:hidden">
-                  {f.q}<span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-foreground transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
+              <details key={f.q} className="group px-6 py-4 open:bg-muted/40">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
+                  {f.q}<span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-muted transition-transform group-open:rotate-45"><Plus className="h-4 w-4" /></span>
                 </summary>
-                <p className="mt-3 max-w-3xl text-muted-foreground">{f.a}</p>
+                <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
@@ -107,7 +112,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
   return (
-    <Link to={to} className="group block overflow-hidden rounded-[1.5rem] bg-card transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
+    <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-lift transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
@@ -126,7 +131,7 @@ function OtherTools({ path }: { path: string }) {
   return (
     <section aria-labelledby="more-tools">
       <Heading id="more-tools">More free tools</Heading>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? "Try next" : undefined} />)}
       </div>
     </section>
@@ -139,7 +144,7 @@ export function ToolPicker() {
     <Reveal>
       <section aria-labelledby="pick-tool" className="mt-24">
         <Heading id="pick-tool">Pick the tool for your job</Heading>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map((t) => <ToolCard key={t.to} to={t.to} label={t.task} blurb={t.label} />)}
         </div>
       </section>
