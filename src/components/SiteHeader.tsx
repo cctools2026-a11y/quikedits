@@ -30,7 +30,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link to="/" className="font-display shrink-0 text-xl font-bold tracking-tight">quikedits<span className="text-primary">.</span></Link>
+        <Link to="/" className="font-display shrink-0 text-xl font-bold tracking-tight">quikedits<span className="text-primary">.</span><span className="ml-2 rounded-full bg-accent px-2 py-0.5 align-middle font-sans text-[10px] font-semibold uppercase tracking-wider text-primary">Free</span></Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           <div onPointerEnter={enter} onPointerLeave={leave}>
