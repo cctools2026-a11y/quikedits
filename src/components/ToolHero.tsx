@@ -7,13 +7,15 @@ import { TOOL_MEDIA } from "@/lib/tool-media";
 export function ToolHero({ path, title, intro, children }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode }) {
   const m = TOOL_MEDIA[path];
   return (
-    <section className="grid items-center gap-10 pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+    <section className="relative mt-6 overflow-hidden rounded-[2rem] bg-primary px-5 py-10 text-primary-foreground sm:px-10 sm:py-14 lg:px-14">
+      <span aria-hidden className="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 select-none whitespace-nowrap text-[9rem] font-extrabold leading-none tracking-tighter text-primary-foreground/[0.06] sm:text-[13rem]">QUIKEDITS</span>
+      <div className="relative grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
         <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-lift">
-          <Sparkles className="h-3.5 w-3.5 text-primary" /> Free · runs on your device
+          <Sparkles className="h-3.5 w-3.5 text-foreground" /> Free · runs on your device
         </span>
-        <h1 className="font-display mt-4 text-4xl font-bold leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.6rem]">{title}</h1>
-        <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
+        <h1 className="font-display mt-4 text-4xl font-extrabold leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.6rem]">{title}</h1>
+        <p className="mt-4 max-w-xl text-lg text-primary-foreground/75">{intro}</p>
         <div className="mt-7">{children}</div>
       </div>
       {m && (
@@ -23,9 +25,10 @@ export function ToolHero({ path, title, intro, children }: { path: string; title
             <CompareSlider before={m.before} after={m.after} beforeAlt={`Example photo: ${m.subject}`} afterAlt={`Example result: ${m.subject}`} />
           </div>
           <figcaption className="absolute -bottom-4 left-6 rounded-full bg-foreground px-4 py-1.5 text-xs font-semibold text-background shadow-lift">{m.badge}</figcaption>
-          <span className="absolute -top-3 right-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground shadow-lift">Drag to compare</span>
+          <span className="absolute -top-3 right-6 rounded-full bg-card px-3 py-1 text-xs font-semibold text-foreground shadow-lift">Drag to compare</span>
         </figure>
       )}
+      </div>
     </section>
   );
 }
@@ -40,7 +43,7 @@ export function TrustStrip() {
     <ul className="mt-14 grid gap-3 sm:grid-cols-3">
       {items.map(({ icon: Icon, label, sub }) => (
         <li key={label} className="flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3 shadow-lift">
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-primary"><Icon className="h-5 w-5" /></span>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-foreground"><Icon className="h-5 w-5" /></span>
           <span className="min-w-0"><span className="block text-sm font-semibold">{label}</span><span className="block text-xs text-muted-foreground">{sub}</span></span>
         </li>
       ))}

@@ -38,7 +38,7 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
         <button type="button" onClick={trySample} disabled={loading}
           className="mt-3 inline-flex items-center gap-2 rounded-full border border-border bg-card py-1.5 pl-1.5 pr-4 text-sm font-medium shadow-lift transition-colors hover:border-primary/60 disabled:opacity-60">
           <img src={sample.before} alt="" width={28} height={28} className="h-7 w-7 rounded-full object-cover" />
-          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4 text-primary" />}
+          {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4 text-foreground" />}
           No photo handy? Try ours
         </button>
       )}
