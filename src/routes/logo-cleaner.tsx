@@ -15,6 +15,7 @@ function LogoCleaner() {
   const [tol, setTol] = useState(60);
   return (
     <ToolPage
+      tool="/logo-cleaner"
       below={<ToolLanding path="/logo-cleaner" />}
       raw
       title={<>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}

@@ -4,10 +4,12 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { validateImageFile, prepareImage } from "@/lib/image-file";
 import { friendlyError, removeBg, type Phase } from "@/lib/remove";
-import { blobToCanvas, canvasToBlob, refinedCutout } from "@/lib/compose";
+import { blobToCanvas, canvasToBlob, refinedFull, trim } from "@/lib/compose";
+import { PhotoTips } from "@/components/PhotoTips";
+import { CutoutCues } from "@/components/CutoutCues";
 import { CropRotate, type CropAspect } from "@/components/CropRotate";
 
-export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined };
+export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined; full?: HTMLCanvasElement | undefined; source?: HTMLCanvasElement | undefined };
 
 type Stage =
   | { kind: "idle" }
@@ -19,8 +21,10 @@ type Stage =
 export const MAX_BATCH = 20;
 
 export function ToolPage({
-  title, intro, multiple = false, raw = false, children, below, crop,
+  title, intro, multiple = false, raw = false, children, below, crop, tool,
 }: {
+  /** Tool path, used for photo tips and result checks. */
+  tool?: string;
   /** Show crop & rotate before processing, with these crop shapes. */
   crop?: CropAspect[];
   title: ReactNode;
@@ -44,13 +48,14 @@ export function ToolPage({
       if (it.cutout) continue;
       setStage({ kind: "working", index: i, total: out.length, phase: raw ? "process" : "download", pct: 0 });
       try {
-        out[i] = {
-          ...it,
-          error: undefined,
-          cutout: raw
-            ? await blobToCanvas(await prepareImage(it.file))
-            : await refinedCutout(await removeBg(it.file, (phase, pct) => setStage({ kind: "working", index: i, total: out.length, phase, pct }))),
-        };
+        if (raw) {
+          out[i] = { ...it, error: undefined, cutout: await blobToCanvas(await prepareImage(it.file)) };
+        } else {
+          const blob = await removeBg(it.file, (phase, pct) => setStage({ kind: "working", index: i, total: out.length, phase, pct }));
+          const full = await refinedFull(blob);
+          const source = await blobToCanvas(await prepareImage(it.file));
+          out[i] = { ...it, error: undefined, full, source, cutout: trim(full) };
+        }
       } catch (e) {
         console.error(e);
         if (out.length === 1) {
@@ -116,6 +121,7 @@ export function ToolPage({
             </button>
             <input ref={inputRef} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { pick(e.target.files); e.target.value = ""; }} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            {tool && <PhotoTips tool={tool} />}
             {below}
           </section>
         )}
@@ -167,7 +173,16 @@ export function ToolPage({
           </section>
         )}
 
-        {stage.kind === "ready" && <section className="pt-2">{children(items, reset)}</section>}
+        {stage.kind === "ready" && (
+          <section className="pt-2">
+            {tool && items.map((it, i) => it.full && it.source && (
+              <CutoutCues key={i} tool={tool} cut={it.full} source={it.source} label={items.length > 1 ? it.file.name : undefined}
+                onRetry={items.length === 1 ? reset : undefined}
+                onChange={(c) => setItems((prev) => prev.map((p, j) => (j === i ? { ...p, full: c, cutout: trim(c) } : p)))} />
+            ))}
+            {children(items, reset)}
+          </section>
+        )}
       </main>
       <SiteFooter />
     </div>
