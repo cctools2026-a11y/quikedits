@@ -6,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 function TipsBody({ tool }: { tool: string }) {
   const r = PHOTO_RULES[tool];
+  if (!r) return null;
   return (
     <div className="text-sm">
       <p className="font-medium leading-relaxed text-foreground">{r.best}</p>
