@@ -8,7 +8,7 @@
  * Design system definition.
  *
  * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-foreground).
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
  *
  * The :root and .dark blocks define the actual color values using oklch.
  * All colors MUST use oklch format.
@@ -19,8 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat", ui-sans-serif, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -64,27 +64,27 @@
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(0.985 0 0);
-  --foreground: oklch(0.15 0 0);
-  --card: oklch(1 0 0);
+  --radius: 0.75rem;
+  --background: oklch(0.975 0.008 85);
+  --foreground: oklch(0.18 0.01 60);
+  --card: oklch(0.99 0.005 85);
   --card-foreground: oklch(0.18 0.01 60);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.99 0.005 85);
   --popover-foreground: oklch(0.18 0.01 60);
-  --primary: oklch(0.94 0.15 104);
-  --primary-foreground: oklch(0.15 0 0);
-  --secondary: oklch(0.955 0 0);
+  --primary: oklch(0.64 0.21 35);
+  --primary-foreground: oklch(0.99 0.005 85);
+  --secondary: oklch(0.93 0.012 85);
   --secondary-foreground: oklch(0.18 0.01 60);
-  --muted: oklch(0.955 0 0);
-  --muted-foreground: oklch(0.5 0 0);
-  --accent: oklch(0.97 0.07 104);
+  --muted: oklch(0.93 0.012 85);
+  --muted-foreground: oklch(0.48 0.015 60);
+  --accent: oklch(0.94 0.04 45);
   --accent-foreground: oklch(0.18 0.01 60);
   --destructive: oklch(0.55 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(0.92 0 0);
-  --input: oklch(0.92 0 0);
-  --ring: oklch(0.15 0 0);
-  --checker: oklch(0.93 0 0);
+  --border: oklch(0.88 0.012 85);
+  --input: oklch(0.88 0.012 85);
+  --ring: oklch(0.64 0.21 35);
+  --checker: oklch(0.9 0.006 85);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -164,10 +164,10 @@
 
 /* "Cut-out" visual direction */
 :root {
-  --mat-line: oklch(0.15 0 0 / 0.0);
-  --shadow-lift: 0 1px 2px oklch(0.15 0 0 / 0.04), 0 10px 30px -12px oklch(0.15 0 0 / 0.14);
-  --shadow-float: 0 2px 4px oklch(0.15 0 0 / 0.04), 0 30px 60px -24px oklch(0.15 0 0 / 0.3);
-  --cut-line: oklch(0.15 0 0 / 0.35);
+  --mat-line: oklch(0.18 0.01 60 / 0.045);
+  --shadow-lift: 0 1px 0 oklch(0.18 0.01 60 / 0.06), 0 12px 28px -14px oklch(0.18 0.01 60 / 0.28);
+  --shadow-float: 0 2px 0 oklch(0.18 0.01 60 / 0.05), 0 30px 60px -24px oklch(0.4 0.12 40 / 0.45);
+  --cut-line: oklch(0.64 0.21 35 / 0.55);
 }
 .dark {
   --mat-line: oklch(1 0 0 / 0.05);
@@ -203,11 +203,11 @@
 
 /* Tool card art tiles */
 :root {
-  --tile-peach: oklch(0.96 0.1 104);
-  --tile-sky: oklch(0.93 0.04 235);
-  --tile-mint: oklch(0.94 0.05 160);
-  --tile-butter: oklch(0.95 0.12 100);
-  --tile-lilac: oklch(0.94 0.04 300);
+  --tile-peach: oklch(0.9 0.06 45);
+  --tile-sky: oklch(0.9 0.05 235);
+  --tile-mint: oklch(0.91 0.06 160);
+  --tile-butter: oklch(0.93 0.08 95);
+  --tile-lilac: oklch(0.9 0.05 300);
 }
 .dark {
   --tile-peach: oklch(0.35 0.06 45);
@@ -231,8 +231,3 @@
 @keyframes march { to { stroke-dashoffset: -24; } }
 @utility march { animation: march 1.2s linear infinite; }
 @media (prefers-reduced-motion: reduce) { .march { animation: none; } }
-
-/* Refina UI kit: bold Montserrat headings, pill buttons */
-@layer base {
-  h1, h2, h3 { letter-spacing: -0.02em; font-weight: 800; }
-}

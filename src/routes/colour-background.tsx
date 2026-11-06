@@ -129,7 +129,7 @@ function ColourTool() {
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path="/colour-background" title={<>Put any photo on a <span className="text-foreground">solid colour</span>.</>} intro="Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.">
+          <ToolHero path="/colour-background" title={<>Put any photo on a <span className="text-primary">solid colour</span>.</>} intro="Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.">
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             <PhotoTips tool="/colour-background" />
@@ -154,7 +154,7 @@ function ColourTool() {
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
             <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
-              <Loader2 className="h-8 w-8 animate-spin text-foreground" />
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
                 {stage.phase === "download" ? "Downloading AI model" : "Removing background"}
               </h2>

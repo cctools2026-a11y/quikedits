@@ -17,7 +17,7 @@ function PhotoBackground() {
     <ToolPage
       tool="/photo-background"
       below={<ToolLanding path="/photo-background" />}
-      title={<>Put yourself <span className="text-foreground">anywhere</span>.</>}
+      title={<>Put yourself <span className="text-primary">anywhere</span>.</>}
       intro="Upload the photo you want to cut out first. Then choose a second photo to use as the new background."
     >
       {(items, reset) => <Composer cut={items[0]?.cutout ?? null} name={items[0] ? baseName(items[0].file) : "photo"} reset={reset} />}

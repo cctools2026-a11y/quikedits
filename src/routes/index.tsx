@@ -109,7 +109,7 @@ function Index() {
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path="/" title={<>Remove any background. <span className="text-foreground">Free</span>, private, instant.</>} intro="The AI runs right in your browser. No sign-up, no uploads, no limits.">
+          <ToolHero path="/" title={<>Remove any background. <span className="text-primary">Free</span>, private, instant.</>} intro="The AI runs right in your browser. No sign-up, no uploads, no limits.">
             <UploadZone tool="/" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             <PhotoTips tool="/" />
@@ -128,7 +128,7 @@ function Index() {
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
             <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
-              <Loader2 className="h-8 w-8 animate-spin text-foreground" />
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
                 {stage.phase === "download" ? "Downloading AI model" : "Removing background"}
               </h2>
@@ -208,7 +208,7 @@ function HowItsFree() {
   return (
     <section aria-labelledby="how-free" className="mt-16 rounded-3xl border border-border bg-card p-6 sm:p-10">
       <h2 id="how-free" className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
-        How is this <span className="text-foreground">actually free?</span>
+        How is this <span className="text-primary">actually free?</span>
       </h2>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         No catch, no trial, no hidden fees. Your own device does the work, so each image costs us nothing to process. Here's what happens:

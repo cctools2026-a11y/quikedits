@@ -30,7 +30,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-40 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link to="/" className="font-display shrink-0 text-xl font-bold tracking-tight">quikedits<span className="text-foreground">.</span><span className="ml-2 rounded-full bg-accent px-2 py-0.5 align-middle font-sans text-[10px] font-semibold uppercase tracking-wider text-foreground">Free</span></Link>
+        <Link to="/" className="font-display shrink-0 text-xl font-bold tracking-tight">quikedits<span className="text-primary">.</span><span className="ml-2 rounded-full bg-accent px-2 py-0.5 align-middle font-sans text-[10px] font-semibold uppercase tracking-wider text-primary">Free</span></Link>
 
         <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
           <div onPointerEnter={enter} onPointerLeave={leave}>
@@ -41,7 +41,7 @@ export function SiteHeader() {
               onClick={() => setOpen((o) => !o)}
               className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium transition-colors hover:bg-accent ${open ? "bg-accent" : ""}`}
             >
-              {current ? <>Tools<span className="text-muted-foreground">·</span><span className="text-foreground">{current.label}</span></> : "All tools"}
+              {current ? <>Tools<span className="text-muted-foreground">·</span><span className="text-primary">{current.label}</span></> : "All tools"}
               <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
             </button>
             {open && (

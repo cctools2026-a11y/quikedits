@@ -26,7 +26,7 @@ function PassportPhoto() {
       tool="/passport-photo"
       below={<ToolLanding path="/passport-photo" />}
       crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
-      title={<>Passport &amp; ID photos, <span className="text-foreground">done at home</span>.</>}
+      title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
       intro="Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."
     >
       {(items, reset) => <PassportResult cut={items[0]?.cutout ?? null} name={items[0] ? baseName(items[0].file) : "photo"} {...{ size, bg, zoom, top, reset }}

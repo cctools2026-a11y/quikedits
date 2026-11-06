@@ -11,7 +11,7 @@ const STEP_ICONS = [ImagePlus, SlidersHorizontal, Download];
 function Heading({ id, kicker, children }: { id: string; kicker: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-foreground">{kicker}</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>
       <h2 id={id} className="font-display mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{children}</h2>
     </div>
   );
@@ -33,7 +33,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
               return (
                 <li key={s} className="relative text-center">
                   <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-border bg-card shadow-lift">
-                    <Icon className="h-6 w-6 text-foreground" />
+                    <Icon className="h-6 w-6 text-primary" />
                     <span className="font-display absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{i + 1}</span>
                   </span>
                   <p className="mx-auto mt-4 max-w-[16rem] font-medium">{s}</p>
@@ -63,7 +63,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
             <div className="rounded-2xl border border-border bg-card p-6 shadow-lift">
               <p className="flex items-center gap-2 font-semibold"><span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground"><Check className="h-4 w-4" /></span>Do</p>
               <ul className="mt-4 space-y-2.5 text-muted-foreground">
-                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-foreground" />{t}</li>)}
+                {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
               </ul>
             </div>
             <div className="rounded-2xl border border-dashed border-border bg-background p-6">
@@ -79,7 +79,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       {!home && (
         <Reveal>
           <section className="flex flex-col gap-4 rounded-[2rem] bg-foreground p-8 text-background sm:flex-row sm:items-center sm:p-10">
-            <ShieldCheck className="h-10 w-10 shrink-0 text-foreground" />
+            <ShieldCheck className="h-10 w-10 shrink-0 text-primary" />
             <div className="min-w-0 flex-1">
               <h2 className="font-display text-2xl font-bold">Free and private, for real</h2>
               <p className="mt-1 opacity-80">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>

@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-border bg-card text-sm text-muted-foreground">
       <div className="mx-auto grid max-w-5xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">quikedits<span className="text-foreground">.</span></Link>
+          <Link to="/" className="font-display text-xl font-bold tracking-tight text-foreground">quikedits<span className="text-primary">.</span></Link>
           <p className="mt-3 max-w-xs">Made to run on your device. Your photos never leave it, which is why it's free.</p>
         </div>
         {TOOL_GROUPS.map((g) => (
