@@ -20,7 +20,7 @@ function TipsBody({ tool }: { tool: string }) {
         <div>
           <p className="mb-2 text-xs font-semibold text-foreground">Avoid</p>
           <ul className="space-y-2 text-muted-foreground">
-            {r.avoid.map((g) => <li key={g} className="flex items-start gap-2"><X className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />{g}</li>)}
+            {r.avoid.map((g) => <li key={g} className="flex items-start gap-2"><X className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden />{g}</li>)}
           </ul>
         </div>
       </div>

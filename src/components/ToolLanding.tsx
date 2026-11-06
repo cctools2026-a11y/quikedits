@@ -98,13 +98,13 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
               {m && (
                 <PosterCard tilt={2.5} className="relative">
                   <div className="overflow-hidden rounded-[0.8rem]"><img src={m.before} alt="A photo to avoid: far away and blurry" loading="lazy" className="aspect-square w-full scale-50 object-cover blur-[3px]" /></div>
-                  <span className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full border-[3px] border-foreground bg-primary text-primary-foreground"><X className="h-4 w-4" /></span>
+                  <span className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full border-[3px] border-foreground bg-destructive text-destructive-foreground"><X className="h-4 w-4" /></span>
                 </PosterCard>
               )}
               <div>
                 <p className="font-display text-4xl leading-none">Avoid</p>
                 <ul className="mt-4 space-y-2.5 text-foreground/80">
-                  {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0" />{t}</li>)}
+                  {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0 text-destructive" />{t}</li>)}
                 </ul>
               </div>
             </div>
