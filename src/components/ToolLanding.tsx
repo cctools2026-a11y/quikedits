@@ -25,8 +25,8 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
   const rules = PHOTO_RULES[path];
   return (
     <div className="relative isolate mt-20 space-y-20">
-      <div aria-hidden className="pointer-events-none absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2 overflow-hidden">
-        <span className="glow-orb left-[-10%] top-0 h-96 w-96 bg-glow-a/60" />
+      <div aria-hidden className="pointer-events-none absolute -top-40 bottom-0 left-1/2 -z-10 w-screen -translate-x-1/2 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_12rem)]">
+        <span className="glow-orb left-[-10%] top-40 h-96 w-96 bg-glow-a/60" />
         <span className="glow-orb right-[-8%] top-[22%] h-[28rem] w-[28rem] bg-glow-b/60" style={{ animationDelay: "-6s" }} />
         <span className="glow-orb left-[20%] top-[50%] h-96 w-96 bg-glow-c/55" style={{ animationDelay: "-12s" }} />
         <span className="glow-orb right-[10%] bottom-0 h-80 w-80 bg-glow-d/55" style={{ animationDelay: "-3s" }} />
