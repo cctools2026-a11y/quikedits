@@ -14,7 +14,8 @@ export default defineConfig({
     // Static output for Cloudflare Pages: every page is prerendered to HTML.
     pages: [{ path: "/" }, { path: "/license" }, { path: "/colour-background" },
       { path: "/product-photo" }, { path: "/passport-photo" }, { path: "/profile-picture" },
-      { path: "/sticker-maker" }, { path: "/photo-background" }, { path: "/logo-cleaner" }],
+      { path: "/sticker-maker" }, { path: "/photo-background" }, { path: "/logo-cleaner" },
+      { path: "/white-background" }, { path: "/amazon-product-photo" }, { path: "/us-passport-photo" }, { path: "/uk-passport-photo" }, { path: "/india-passport-photo" }, { path: "/linkedin-profile-photo" }, { path: "/whatsapp-sticker" }, { path: "/transparent-signature" }],
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });

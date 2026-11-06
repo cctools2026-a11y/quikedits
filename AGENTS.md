@@ -44,3 +44,4 @@ use the editor.
 - Background preset assets are registered in src/lib/background-presets.ts and composed client-side in Photo background; keep Colour background solid-only to preserve its purpose.
 - Background recommendations rank preset colour contrast against alpha-masked dominant foreground colour in src/lib/background-recommendations.ts; no remote analysis or semantic subject-identification claims.
 - Passport example and processed export share PASSPORT_SIZES; ToolPage/ToolHero accept an optional example view so document cropping stays passport-specific, with pure crop geometry in passport-crop.ts.
+- Sub-tools (specific jobs) are registered in SUBTOOLS (src/lib/tools.ts) as flat routes that render a parent tool component from src/components/tools/ with a `page` and `preset`; media falls back to the parent, content/SEO is their own — keeps one implementation per tool.

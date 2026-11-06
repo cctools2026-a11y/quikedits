@@ -1,3 +1,4 @@
+import { SUBTOOLS } from "@/lib/tools";
 import homeB from "@/assets/tools/home-expressive-puppy-original.jpg";
 import homeA from "@/assets/tools/home-expressive-puppy-after.webp.asset.json";
 import colourB from "@/assets/tools/colour-sleek-bob-original.jpg";
@@ -28,6 +29,8 @@ export const TOOL_MEDIA: Record<string, ToolMedia> = {
   "/photo-background": { before: photobgB, after: photobgA, subject: "woman in summer clothes on a patio", badge: "Patio → seaside terrace", tilt: -1.5 },
   "/logo-cleaner": { before: logoB, after: logoA, subject: "signature on paper", badge: "Transparent signature", tilt: 1 },
 };
+
+for (const s of SUBTOOLS) TOOL_MEDIA[s.to] ??= TOOL_MEDIA[s.parent]!;
 
 /** Load an example photo as a File so it can go through the normal tool flow. */
 export async function sampleFile(path: string) {

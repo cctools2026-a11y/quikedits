@@ -1,13 +1,24 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { CompareSlider } from "@/components/CompareSlider";
 import { TOOL_MEDIA } from "@/lib/tool-media";
+import { Link } from "@tanstack/react-router";
+import { ChevronRight } from "lucide-react";
+import { TOOLS, subtool } from "@/lib/tools";
 
 /** Two-column hero: copy + upload on the left, a draggable example on the right. */
 export function ToolHero({ path, title, intro, children, example }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode; example?: ReactNode }) {
   const m = TOOL_MEDIA[path];
+  const sub = subtool(path);
+  const parent = sub && TOOLS.find((t) => t.to === sub.parent);
   return (
     <section className="grid items-center gap-10 overflow-x-clip pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
+        {sub && parent && (
+          <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-1 text-sm font-semibold text-muted-foreground">
+            <Link to={parent.to} className="underline-offset-4 hover:text-foreground hover:underline">{parent.label}</Link>
+            <ChevronRight className="h-4 w-4" aria-hidden /><span className="text-foreground">{sub.label}</span>
+          </nav>
+        )}
         <h1 className="page-title">{title}</h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">{intro}</p>
         <div className="mt-7">{children}</div>

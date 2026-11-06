@@ -3,7 +3,7 @@ import { ArrowRight, Check, Plus, X } from "lucide-react";
 import { TOOL_MEDIA } from "@/lib/tool-media";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { PHOTO_RULES } from "@/lib/photo-rules";
-import { TOOLS } from "@/lib/tools";
+import { TOOLS, subtool, subtoolsOf } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
 import { ToolArt } from "@/components/ToolArt";
 
@@ -139,6 +139,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
         </section>
       </Reveal>
 
+      {!home && subtoolsOf(path).length > 0 && <Reveal><SpecificJobs path={path} /></Reveal>}
       {!home && <Reveal><OtherTools path={path} /></Reveal>}
     </div>
   );
@@ -159,9 +160,29 @@ function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb:
   );
 }
 
+function SpecificJobs({ path }: { path: string }) {
+  return (
+    <section aria-labelledby="specific-jobs">
+      <Heading id="specific-jobs">More specific jobs</Heading>
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {subtoolsOf(path).map((s) => (
+          <Link key={s.to} to={s.to} data-reveal data-tilt className="group flex items-center justify-between gap-4 rounded-[1.25rem] border-4 border-foreground bg-card p-5 shadow-float transition-[transform,border-color] duration-500 hover:border-primary active:border-primary focus-visible:border-primary">
+            <span>
+              <span className="font-display block text-3xl leading-none">{s.label}</span>
+              <span className="mt-1 block text-sm text-muted-foreground">{s.blurb}</span>
+            </span>
+            <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function OtherTools({ path }: { path: string }) {
   const rel = TOOL_CONTENT[path]!.related;
-  const others = TOOLS.filter((t) => t.to !== path).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
+  const parent = subtool(path)?.parent ?? path;
+  const others = TOOLS.filter((t) => t.to !== parent).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
   return (
     <section aria-labelledby="more-tools">
       <Heading id="more-tools">More free tools</Heading>

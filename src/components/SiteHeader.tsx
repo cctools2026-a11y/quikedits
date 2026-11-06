@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   ChevronDown, Eraser, IdCard, Image, Menu, PenLine, Palette, ShoppingBag, Sticker, UserRound, X, type LucideIcon,
 } from "lucide-react";
-import { TOOL_GROUPS, TOOLS } from "@/lib/tools";
+import { TOOL_GROUPS, TOOLS, subtool, subtoolsOf } from "@/lib/tools";
 
 export const ICONS: Record<string, LucideIcon> = {
   "/": Eraser, "/colour-background": Palette, "/photo-background": Image, "/product-photo": ShoppingBag,
@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [mobile, setMobile] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const current = TOOLS.find((t) => t.to === path);
+  const current = TOOLS.find((t) => t.to === (subtool(path)?.parent ?? path));
 
   useEffect(() => { setOpen(false); setMobile(false); }, [path]);
   useEffect(() => {
@@ -89,6 +89,16 @@ function ToolGrid({ path }: { path: string }) {
                       <span className="block text-xs text-muted-foreground">{t.blurb}</span>
                     </span>
                   </Link>
+                  {subtoolsOf(t.to).length > 0 && (
+                    <ul aria-label={`Popular jobs for ${t.label}`} className="ml-14 mt-1 mb-2 flex flex-wrap gap-1.5">
+                      {subtoolsOf(t.to).slice(0, 4).map((s) => (
+                        <li key={s.to}>
+                          <Link to={s.to} aria-current={s.to === path ? "page" : undefined}
+                            className={`block rounded-full border-2 px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-foreground hover:bg-card ${s.to === path ? "border-foreground bg-card" : "border-border"}`}>{s.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               );
             })}
