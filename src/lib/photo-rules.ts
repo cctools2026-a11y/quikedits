@@ -58,7 +58,7 @@ export function cuesFor(tool: string, a: Analysis, small: boolean): Cue[] {
   const out: Cue[] = [];
   if (a.coverage < 0.03) out.push({ id: "empty", text: "We couldn't find a clear subject. Try a photo where the person or object stands out from the background." });
   else if (a.coverage > 0.9) out.push({ id: "full", text: "The background looks too similar to the subject, so little was removed. Try a plainer background." });
-  if (a.coverage >= 0.03 && a.pieces > 1 && a.largestShare < 0.97) out.push({ id: "stray", text: "We found a few stray bits. Tap “Clean up stray bits” to keep only the main subject." });
+  if (a.coverage >= 0.03 && a.pieces > 1 && a.largestShare < 0.995) out.push({ id: "stray", text: "We found a few stray bits. Tap “Clean up stray bits” to keep only the main subject." });
   if (PHOTO_RULES[tool]?.checkTop && a.touchesTop && a.coverage >= 0.03) out.push({ id: "top", text: "Your head looks cut off at the top. Use a photo with space above your head." });
   if (small) out.push({ id: "small", text: "This photo is small, so the result may look soft." });
   return out;
