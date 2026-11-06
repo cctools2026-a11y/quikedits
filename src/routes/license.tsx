@@ -47,7 +47,7 @@ function LicensePage() {
           <p>
             Background removal is powered by{" "}
             <a href={IMGLY_URL} target="_blank" rel="noreferrer">@imgly/background-removal</a> © IMG.LY GmbH, licensed
-            under AGPL-3.0. Its AI model files are downloaded from IMG.LY's public CDN and cached in your browser.
+            under AGPL-3.0. Its AI model files (© IMG.LY, AGPL-3.0) are hosted on this site, checked against IMG.LY's published SHA-256 fingerprints, and cached in your browser.
             Commercial use without AGPL obligations requires a separate licence from IMG.LY.
           </p>
         </section>

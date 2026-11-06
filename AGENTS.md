@@ -33,3 +33,5 @@ use the editor.
 - All image processing runs client-side via @imgly/background-removal, dynamically imported in handlers; no backend/database/serverless — keeps it free and static.
 - Every page is prerendered (vite.config.ts `pages`); add new static routes there so Cloudflare Pages can serve them.
 - App is AGPL-3.0 (LICENSE); keep the footer/license page attribution and source link (src/lib/site.ts) intact.
+- AI model/runtime files are self-hosted in public/imgly (publicPath in src/routes/index.tsx), copied from IMG.LY's data CDN for the installed package version and SHA-256 verified; re-download them when upgrading @imgly/background-removal.
+- Don't override zod to v4: @imgly/background-removal and TanStack depend on the v3 API.
