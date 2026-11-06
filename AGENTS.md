@@ -35,3 +35,4 @@ use the editor.
 - App is AGPL-3.0 (LICENSE); keep the footer/license page attribution and source link (src/lib/site.ts) intact.
 - AI model/runtime files are self-hosted in public/imgly (publicPath in src/routes/index.tsx), copied from IMG.LY's data CDN for the installed package version and SHA-256 verified; re-download them when upgrading @imgly/background-removal.
 - Don't override zod to v4: @imgly/background-removal and TanStack depend on the v3 API.
+- Tool pages share src/components/ToolPage.tsx (upload, progress, errors) and src/lib/compose.ts (edge refinement, compositing); new tools should reuse them and register in src/lib/tools.ts so they appear in the header and home page.
