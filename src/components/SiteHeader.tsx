@@ -50,7 +50,6 @@ export function SiteHeader() {
               </div>
             )}
           </div>
-          <Link to="/" hash="how-free" className="rounded-full px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground">How it's free</Link>
         </nav>
 
         <button type="button" aria-label={mobile ? "Close menu" : "Open menu"} aria-expanded={mobile} onClick={() => setMobile((m) => !m)}
@@ -62,7 +61,6 @@ export function SiteHeader() {
       {mobile && (
         <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-4 py-6 md:hidden">
           <ToolGrid path={path} />
-          <Link to="/" hash="how-free" className="mt-6 block text-sm font-medium underline underline-offset-2">How is this free?</Link>
         </div>
       )}
     </header>
