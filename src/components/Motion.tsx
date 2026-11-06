@@ -29,8 +29,8 @@ export function Motion() {
       if (!el) return;
       const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width - 0.5, py = (e.clientY - r.top) / r.height - 0.5;
-      el.style.transition = "transform 120ms ease-out, border-color 300ms";
-      el.style.transform = `perspective(900px) rotateX(${(-py * 7).toFixed(2)}deg) rotateY(${(px * 9).toFixed(2)}deg) translateY(-6px)`;
+      el.style.transition = "transform 450ms cubic-bezier(0.22,1,0.36,1), opacity .9s ease-out, translate 1.1s cubic-bezier(0.16,1,0.3,1), border-color 300ms";
+      el.style.transform = `perspective(900px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 6).toFixed(2)}deg) translateY(-4px)`;
     };
     const onLeave = () => { if (active) { active.style.transform = ""; active.style.transition = ""; active = null; } };
     if (fine) { addEventListener("pointermove", onMove, { passive: true }); document.addEventListener("pointerleave", onLeave); }
