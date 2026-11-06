@@ -74,7 +74,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
           <Heading id="great-for">Great for</Heading>
           <ul className="mt-6 flex flex-wrap gap-x-12 gap-y-2">
             {c.greatFor.map((g) => (
-              <li key={g} className="font-display text-4xl leading-tight decoration-primary decoration-4 underline-offset-8 transition-colors hover:text-primary hover:underline sm:text-5xl">{g}</li>
+              <li key={g} className="font-display text-4xl leading-tight decoration-primary-strong decoration-4 underline-offset-8 transition-colors hover:text-primary-strong hover:underline sm:text-5xl">{g}</li>
             ))}
           </ul>
         </section>
