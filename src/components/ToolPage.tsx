@@ -5,11 +5,13 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { validateImageFile, prepareImage } from "@/lib/image-file";
 import { friendlyError, removeBg, type Phase } from "@/lib/remove";
 import { blobToCanvas, canvasToBlob, refinedCutout } from "@/lib/compose";
+import { CropRotate, type CropAspect } from "@/components/CropRotate";
 
 export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined };
 
 type Stage =
   | { kind: "idle" }
+  | { kind: "adjust"; index: number }
   | { kind: "working"; index: number; total: number; phase: Phase; pct: number }
   | { kind: "ready" }
   | { kind: "error"; message: string };
@@ -17,8 +19,10 @@ type Stage =
 export const MAX_BATCH = 20;
 
 export function ToolPage({
-  title, intro, multiple = false, raw = false, children, below,
+  title, intro, multiple = false, raw = false, children, below, crop,
 }: {
+  /** Show crop & rotate before processing, with these crop shapes. */
+  crop?: CropAspect[];
   title: ReactNode;
   intro: string;
   multiple?: boolean;
@@ -69,7 +73,19 @@ export function ToolPage({
     if (!ok.length) return;
     const list = ok.map((f) => ({ file: f, original: URL.createObjectURL(f), cutout: null }));
     setItems(list);
-    void run(list);
+    if (crop) setStage({ kind: "adjust", index: 0 });
+    else void run(list);
+  }
+
+  function nextAdjust(index: number, file?: File) {
+    const list = [...items];
+    if (file) {
+      URL.revokeObjectURL(list[index]!.original);
+      list[index] = { file, original: URL.createObjectURL(file), cutout: null };
+    }
+    setItems(list);
+    if (index + 1 < list.length) setStage({ kind: "adjust", index: index + 1 });
+    else void run(list);
   }
 
   function reset() {
@@ -102,6 +118,18 @@ export function ToolPage({
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             {below}
           </section>
+        )}
+
+        {stage.kind === "adjust" && crop && items[stage.index] && (
+          <CropRotate
+            key={stage.index}
+            file={items[stage.index]!.file}
+            aspects={crop}
+            heading={items.length > 1 ? `Image ${stage.index + 1} of ${items.length}. Drag the box to frame it.` : undefined}
+            onDone={(f) => nextAdjust(stage.index, f)}
+            onSkip={() => nextAdjust(stage.index)}
+            onSkipAll={items.length > 1 ? () => void run(items) : undefined}
+          />
         )}
 
         {stage.kind === "working" && (

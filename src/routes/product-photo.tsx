@@ -30,6 +30,7 @@ function ProductPhoto() {
 
   return (
     <ToolPage
+      crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       multiple
       title={<>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}
       intro="Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."

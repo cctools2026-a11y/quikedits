@@ -30,6 +30,7 @@ function PassportPhoto() {
 
   return (
     <ToolPage
+      crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
       title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
       intro="Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."
     >
