@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { ImagePlus } from "lucide-react";
+import { Camera, ImagePlus } from "lucide-react";
+import { CameraCapture } from "@/components/CameraCapture";
 import { PhotoTips } from "@/components/PhotoTips";
 
 /** Large photo upload and drop zone. */
@@ -8,6 +9,7 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
 }) {
   const [drag, setDrag] = useState(false);
   const input = useRef<HTMLInputElement>(null);
+  const [camera, setCamera] = useState(false);
 
   return (
     <div>
@@ -27,6 +29,11 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
       </button>
       <input ref={input} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden"
         onChange={(e) => { onFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />
+      <button type="button" onClick={() => setCamera(true)}
+        className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border-4 border-foreground bg-card px-5 py-2.5 font-display text-xl tracking-wide transition-colors hover:border-primary hover:bg-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary">
+        <Camera className="h-5 w-5" /> Or take a photo
+      </button>
+      <CameraCapture open={camera} onOpenChange={setCamera} onCapture={(f) => onFiles([f])} />
       <PhotoTips tool={tool} />
     </div>
   );
