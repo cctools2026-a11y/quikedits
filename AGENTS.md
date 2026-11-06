@@ -38,3 +38,4 @@ use the editor.
 - Tool pages share src/components/ToolPage.tsx (upload, progress, errors) and src/lib/compose.ts (edge refinement, compositing); new tools should reuse them and register in src/lib/tools.ts so they appear in the header and home page.
 - Pre-processing crop/rotate lives in src/components/CropRotate.tsx, enabled per tool via ToolPage `crop` prop (list of crop shapes); math in src/lib/crop.ts is unit-tested.
 - Per-tool landing copy and search metadata live in src/lib/tool-content.ts; routes use toolHead() from src/lib/seo.ts and render <ToolLanding>; add new tools there and to public/sitemap.xml.
+- Photo rules, upload tips and result checks live in src/lib/photo-rules.ts (pure, unit-tested); ToolPage `tool` prop enables PhotoTips and CutoutCues/TouchUp, which need the full-frame cutout aligned with the source photo.

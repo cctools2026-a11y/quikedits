@@ -1,4 +1,5 @@
 import { pass, refineAlpha } from "@/lib/colour-background";
+import { analyseAlpha, componentSizes } from "@/lib/photo-rules";
 
 export function makeCanvas(w: number, h: number) {
   const c = document.createElement("canvas");
@@ -38,6 +39,11 @@ export function trim(src: HTMLCanvasElement) {
 
 /** Cutout with cleaned edges (old-background halo removed), trimmed to the subject. */
 export async function refinedCutout(blob: Blob) {
+  return trim(await refinedFull(blob));
+}
+
+/** Same as refinedCutout but keeps the full frame, aligned with the source photo. */
+export async function refinedFull(blob: Blob) {
   const c = await blobToCanvas(blob);
   const { width: w, height: h } = c;
   const ctx = ctx2d(c);
@@ -49,7 +55,54 @@ export async function refinedCutout(blob: Blob) {
   const a = refineAlpha(alpha, w, h, Math.max(1, Math.round(1.5 * scale)), Math.max(1, Math.round(scale)));
   for (let i = 0; i < a.length; i++) d[i * 4 + 3] = Math.min(1, Math.max(0, (a[i]! - 0.1) / 0.8)) * 255;
   ctx.putImageData(img, 0, 0);
-  return trim(c);
+  return c;
+}
+
+/** Shrink alpha to a small grid for fast checks. */
+function alphaGrid(src: HTMLCanvasElement, max = 200) {
+  const s = Math.min(1, max / Math.max(src.width, src.height));
+  const g = makeCanvas(src.width * s, src.height * s);
+  const ctx = ctx2d(g);
+  ctx.drawImage(src, 0, 0, g.width, g.height);
+  const d = ctx.getImageData(0, 0, g.width, g.height).data;
+  const a = new Uint8Array(g.width * g.height);
+  for (let i = 0; i < a.length; i++) a[i] = d[i * 4 + 3]!;
+  return { a, w: g.width, h: g.height };
+}
+
+export function analyseCanvas(src: HTMLCanvasElement) {
+  const { a, w, h } = alphaGrid(src);
+  return analyseAlpha(a, w, h);
+}
+
+/** Keep only the biggest connected piece of a cutout. */
+export function keepLargest(src: HTMLCanvasElement) {
+  const { a, w, h } = alphaGrid(src);
+  const on = new Uint8Array(w * h);
+  for (let i = 0; i < on.length; i++) on[i] = a[i]! > 40 ? 1 : 0;
+  const { labels, labelsSize } = componentSizes(on, w, h);
+  if (!labelsSize.length) return src;
+  const big = labelsSize.indexOf(Math.max(...labelsSize)) + 1;
+  const keep = new Uint8Array(w * h);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    let k = 0;
+    for (let dy = -1; dy <= 1 && !k; dy++) for (let dx = -1; dx <= 1; dx++) {
+      const xx = x + dx, yy = y + dy;
+      if (xx >= 0 && yy >= 0 && xx < w && yy < h && labels[yy * w + xx] === big) { k = 1; break; }
+    }
+    keep[y * w + x] = k;
+  }
+  const out = makeCanvas(src.width, src.height);
+  const ctx = ctx2d(out);
+  ctx.drawImage(src, 0, 0);
+  const img = ctx.getImageData(0, 0, out.width, out.height);
+  const sx = w / out.width, sy = h / out.height;
+  for (let y = 0; y < out.height; y++) {
+    const gy = Math.min(h - 1, Math.floor(y * sy));
+    for (let x = 0; x < out.width; x++) if (!keep[gy * w + Math.min(w - 1, Math.floor(x * sx))]) img.data[(y * out.width + x) * 4 + 3] = 0;
+  }
+  ctx.putImageData(img, 0, 0);
+  return out;
 }
 
 /** Add a solid outline (sticker style) around a transparent cutout. */

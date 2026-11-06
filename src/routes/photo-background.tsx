@@ -15,6 +15,7 @@ export const Route = createFileRoute("/photo-background")({
 function PhotoBackground() {
   return (
     <ToolPage
+      tool="/photo-background"
       below={<ToolLanding path="/photo-background" />}
       title={<>Put yourself <span className="text-primary">anywhere</span>.</>}
       intro="Upload the photo you want to cut out first. Then choose a second photo to use as the new background."

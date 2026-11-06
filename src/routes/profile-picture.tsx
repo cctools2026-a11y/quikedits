@@ -21,6 +21,7 @@ function ProfilePicture() {
 
   return (
     <ToolPage
+      tool="/profile-picture"
       below={<ToolLanding path="/profile-picture" />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
       title={<>A sharp <span className="text-primary">profile picture</span> in seconds.</>}

@@ -23,6 +23,7 @@ function ProductPhoto() {
 
   return (
     <ToolPage
+      tool="/product-photo"
       below={<ToolLanding path="/product-photo" />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       multiple

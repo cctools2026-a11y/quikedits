@@ -21,6 +21,7 @@ function StickerMaker() {
 
   return (
     <ToolPage
+      tool="/sticker-maker"
       below={<ToolLanding path="/sticker-maker" />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       title={<>Turn any photo into a <span className="text-primary">sticker</span>.</>}

@@ -23,6 +23,7 @@ function PassportPhoto() {
 
   return (
     <ToolPage
+      tool="/passport-photo"
       below={<ToolLanding path="/passport-photo" />}
       crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
       title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}

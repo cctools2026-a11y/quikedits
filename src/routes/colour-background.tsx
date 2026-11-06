@@ -7,6 +7,9 @@ import { CompareSlider } from "@/components/CompareSlider";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
+import { blobToCanvas, canvasToBlob } from "@/lib/compose";
+import { PhotoTips } from "@/components/PhotoTips";
+import { CutoutCues } from "@/components/CutoutCues";
 import { compositeOnColour, isSolidHex, PALETTE } from "@/lib/colour-background";
 
 export const Route = createFileRoute("/colour-background")({
@@ -28,6 +31,8 @@ function ColourTool() {
   const [cutout, setCutout] = useState<Blob | null>(null);
   const [result, setResult] = useState<string | null>(null);
   const [colour, setColour] = useState<string>("#FFFFFF");
+  const [cutCanvas, setCutCanvas] = useState<HTMLCanvasElement | null>(null);
+  const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
   const [drag, setDrag] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -54,6 +59,8 @@ function ColourTool() {
           },
         });
         setCutout(cut);
+        setCutCanvas(await blobToCanvas(cut));
+        setSrc(await blobToCanvas(input));
       }
       const out = await compositeOnColour(cut, c);
       setResult(URL.createObjectURL(out));
@@ -145,6 +152,7 @@ function ColourTool() {
             </button>
             <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { pick(e.target.files?.[0]); e.target.value = ""; }} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            <PhotoTips tool="/colour-background" />
           </section>
         )}
         {stage.kind === "idle" && <ToolLanding path="/colour-background" />}
@@ -193,6 +201,14 @@ function ColourTool() {
 
         {stage.kind === "done" && original && result && (
           <section className="pt-4">
+            {cutCanvas && src && (
+              <CutoutCues tool="/colour-background" cut={cutCanvas} source={src} onRetry={reset}
+                onChange={async (c) => {
+                  const b = await canvasToBlob(c);
+                  setCutCanvas(c); setCutout(b);
+                  setResult(URL.createObjectURL(await compositeOnColour(b, colour)));
+                }} />
+            )}
             <CompareSlider before={original} after={result} />
             <div className="mt-6">
               <p className="mb-3 text-sm font-medium">Try another colour</p>
