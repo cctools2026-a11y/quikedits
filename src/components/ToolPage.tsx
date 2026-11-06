@@ -7,7 +7,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { validateImageFile, prepareImage } from "@/lib/image-file";
 import { friendlyError, removeBg, type Phase } from "@/lib/remove";
 import { blobToCanvas, canvasToBlob, refinedFull, trim } from "@/lib/compose";
-import { PhotoTips } from "@/components/PhotoTips";
 import { CutoutCues } from "@/components/CutoutCues";
 import { CropRotate, type CropAspect } from "@/components/CropRotate";
 
@@ -108,7 +107,6 @@ export function ToolPage({
             <ToolHero path={tool ?? "/"} title={title} intro={intro}>
               <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
-              {tool && <PhotoTips tool={tool} />}
             </ToolHero>
             <TrustStrip />
             {below}

@@ -8,7 +8,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 import { blobToCanvas, canvasToBlob } from "@/lib/compose";
-import { PhotoTips } from "@/components/PhotoTips";
 import { ToolHero, TrustStrip } from "@/components/ToolHero";
 import { UploadZone } from "@/components/UploadZone";
 import { CutoutCues } from "@/components/CutoutCues";
@@ -112,7 +111,6 @@ function Index() {
           <ToolHero path="/" title={<>Remove any background. <span className="text-primary">Free</span>, private, instant.</>} intro="The AI runs right in your browser. No sign-up, no uploads, no limits.">
             <UploadZone tool="/" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
-            <PhotoTips tool="/" />
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
               Faster mode for older phones and laptops (slightly lower quality)
