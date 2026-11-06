@@ -43,14 +43,14 @@ export function ToolArt({ to }: { to: string }) {
   if (!a) return null;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>
-      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/10 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
+      <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/40 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
 
       {/* square stage; the frame shows only its lower part so the subject pops out above it */}
-      <div className="absolute bottom-[7%] left-1/2 aspect-square w-[58%] -translate-x-1/2">
+      <div className="absolute bottom-[6%] left-1/2 aspect-square w-[68%] -translate-x-1/2">
         <svg aria-hidden className={`pointer-events-none absolute -inset-[5%] top-[13%] h-[92%] w-[110%] overflow-visible opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} viewBox="0 0 110 92" preserveAspectRatio="none">
           <rect x="1" y="1" width="108" height="90" rx="9" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" className="march text-foreground/40" />
         </svg>
-        <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-card shadow-lift transition-shadow ${EASE} group-hover:shadow-float`}>
+        <div className={`absolute inset-x-0 bottom-0 ${a.flatPhoto ? "top-0" : "top-[18%]"} overflow-hidden rounded-xl border-[3px] border-foreground bg-card shadow-[6px_6px_0_0_var(--foreground)] transition-shadow ${EASE} group-hover:shadow-[9px_9px_0_0_var(--foreground)]`}>
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
             {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] overflow-hidden rounded-full bg-art-pink">
