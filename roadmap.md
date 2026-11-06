@@ -1,10 +1,8 @@
-# Tasks
-- [x] Add shared passport size presets and crop framing for example and processed images; verify downloads.
-- [x] Recommend backgrounds using on-device foreground colour analysis and verify selection and download.
-- [x] Replace the home comparison with an emotive puppy against a messy background and check the comparison.
-- [x] Replace the product page example with a fun mug reading "not my circus, not my monkeys" and check the comparison.
-- [x] Change the signature card to a thicker handwritten "QuikEdits" and verify its transition.
-- [x] Add a playful preset gallery to Photo background, preserving the solid-only Colour background tool, and verify applying and downloading.
-- [x] Replace the sticker-maker card puppy with a super cute blue heeler and verify its transition.
-- [x] Replace the sticker-maker page's orange cat example with a cute calico kitten and verify the comparison.
-- [x] Replace the product-photo card mug with a bright cat-patterned water bottle and verify its transition.- [x] Switch fonts to Bebas Neue + Barlow and restyle the passport document size picker.
+# Roadmap — sub-tools
+
+- [x] Phase 1: white background, Amazon, US/UK/India passport, LinkedIn, WhatsApp sticker, transparent signature; menu "popular jobs", "More specific jobs" row, breadcrumbs
+- [ ] Own sharing images per sub-tool (currently reuse parent's)
+- [ ] WhatsApp sticker: guarantee WebP under 100 KB
+- [ ] Phase 1 extras: black background, eBay/Etsy, Shopify, Depop/Vinted, Australia/Schengen/ID, CV, Instagram, Discord, Telegram, emoji, email signature, logo to PNG, slides PNG, screenshot, pet, hair
+- [ ] Phase 2: Zoom/Teams background, blur background, product shadow, gradient, recolour logo, brand colour
+- [ ] Phase 3: batch ZIP, printable sticker sheet, team headshots, stamp cleaner
