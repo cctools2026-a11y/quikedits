@@ -8,7 +8,6 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 import { blobToCanvas, canvasToBlob } from "@/lib/compose";
-import { PhotoTips } from "@/components/PhotoTips";
 import { ToolHero, TrustStrip } from "@/components/ToolHero";
 import { UploadZone } from "@/components/UploadZone";
 import { CutoutCues } from "@/components/CutoutCues";
@@ -132,7 +131,6 @@ function ColourTool() {
           <ToolHero path="/colour-background" title={<>Put any photo on a <span className="text-primary">solid colour</span>.</>} intro="Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.">
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
-            <PhotoTips tool="/colour-background" />
           </ToolHero>
         )}
         {stage.kind === "idle" && <TrustStrip />}
