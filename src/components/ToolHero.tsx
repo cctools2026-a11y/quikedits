@@ -32,7 +32,6 @@ function HeroStage({ children }: { children: ReactNode }) {
       <span aria-hidden className="splash-sun" />
       <span aria-hidden className="splash-dots" />
       <span aria-hidden className="splash-ring" />
-      <svg aria-hidden className="splash-star" viewBox="0 0 100 100" fill="currentColor"><path d="M50 0 61 39 100 50 61 61 50 100 39 61 0 50 39 39Z" /></svg>
       {children}
     </div>
   );
