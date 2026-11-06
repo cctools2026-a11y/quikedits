@@ -12,6 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ColourBackgroundRouteImport } from './routes/colour-background'
 import { Route as LicenseRouteImport } from './routes/license'
+import { Route as LogoCleanerRouteImport } from './routes/logo-cleaner'
+import { Route as PassportPhotoRouteImport } from './routes/passport-photo'
+import { Route as PhotoBackgroundRouteImport } from './routes/photo-background'
+import { Route as ProductPhotoRouteImport } from './routes/product-photo'
+import { Route as ProfilePictureRouteImport } from './routes/profile-picture'
+import { Route as StickerMakerRouteImport } from './routes/sticker-maker'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +34,117 @@ const LicenseRoute = LicenseRouteImport.update({
   path: '/license',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LogoCleanerRoute = LogoCleanerRouteImport.update({
+  id: '/logo-cleaner',
+  path: '/logo-cleaner',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PassportPhotoRoute = PassportPhotoRouteImport.update({
+  id: '/passport-photo',
+  path: '/passport-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotoBackgroundRoute = PhotoBackgroundRouteImport.update({
+  id: '/photo-background',
+  path: '/photo-background',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductPhotoRoute = ProductPhotoRouteImport.update({
+  id: '/product-photo',
+  path: '/product-photo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilePictureRoute = ProfilePictureRouteImport.update({
+  id: '/profile-picture',
+  path: '/profile-picture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StickerMakerRoute = StickerMakerRouteImport.update({
+  id: '/sticker-maker',
+  path: '/sticker-maker',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
+  '/logo-cleaner': typeof LogoCleanerRoute
+  '/passport-photo': typeof PassportPhotoRoute
+  '/photo-background': typeof PhotoBackgroundRoute
+  '/product-photo': typeof ProductPhotoRoute
+  '/profile-picture': typeof ProfilePictureRoute
+  '/sticker-maker': typeof StickerMakerRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
+  '/logo-cleaner': typeof LogoCleanerRoute
+  '/passport-photo': typeof PassportPhotoRoute
+  '/photo-background': typeof PhotoBackgroundRoute
+  '/product-photo': typeof ProductPhotoRoute
+  '/profile-picture': typeof ProfilePictureRoute
+  '/sticker-maker': typeof StickerMakerRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/colour-background': typeof ColourBackgroundRoute
   '/license': typeof LicenseRoute
+  '/logo-cleaner': typeof LogoCleanerRoute
+  '/passport-photo': typeof PassportPhotoRoute
+  '/photo-background': typeof PhotoBackgroundRoute
+  '/product-photo': typeof ProductPhotoRoute
+  '/profile-picture': typeof ProfilePictureRoute
+  '/sticker-maker': typeof StickerMakerRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/colour-background' | '/license'
+  fullPaths:
+    | '/'
+    | '/colour-background'
+    | '/license'
+    | '/logo-cleaner'
+    | '/passport-photo'
+    | '/photo-background'
+    | '/product-photo'
+    | '/profile-picture'
+    | '/sticker-maker'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/colour-background' | '/license'
-  id: '__root__' | '/' | '/colour-background' | '/license'
+  to:
+    | '/'
+    | '/colour-background'
+    | '/license'
+    | '/logo-cleaner'
+    | '/passport-photo'
+    | '/photo-background'
+    | '/product-photo'
+    | '/profile-picture'
+    | '/sticker-maker'
+  id:
+    | '__root__'
+    | '/'
+    | '/colour-background'
+    | '/license'
+    | '/logo-cleaner'
+    | '/passport-photo'
+    | '/photo-background'
+    | '/product-photo'
+    | '/profile-picture'
+    | '/sticker-maker'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ColourBackgroundRoute: typeof ColourBackgroundRoute
   LicenseRoute: typeof LicenseRoute
+  LogoCleanerRoute: typeof LogoCleanerRoute
+  PassportPhotoRoute: typeof PassportPhotoRoute
+  PhotoBackgroundRoute: typeof PhotoBackgroundRoute
+  ProductPhotoRoute: typeof ProductPhotoRoute
+  ProfilePictureRoute: typeof ProfilePictureRoute
+  StickerMakerRoute: typeof StickerMakerRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +170,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LicenseRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/logo-cleaner': {
+      id: '/logo-cleaner'
+      path: '/logo-cleaner'
+      fullPath: '/logo-cleaner'
+      preLoaderRoute: typeof LogoCleanerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passport-photo': {
+      id: '/passport-photo'
+      path: '/passport-photo'
+      fullPath: '/passport-photo'
+      preLoaderRoute: typeof PassportPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-background': {
+      id: '/photo-background'
+      path: '/photo-background'
+      fullPath: '/photo-background'
+      preLoaderRoute: typeof PhotoBackgroundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-photo': {
+      id: '/product-photo'
+      path: '/product-photo'
+      fullPath: '/product-photo'
+      preLoaderRoute: typeof ProductPhotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profile-picture': {
+      id: '/profile-picture'
+      path: '/profile-picture'
+      fullPath: '/profile-picture'
+      preLoaderRoute: typeof ProfilePictureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sticker-maker': {
+      id: '/sticker-maker'
+      path: '/sticker-maker'
+      fullPath: '/sticker-maker'
+      preLoaderRoute: typeof StickerMakerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +219,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ColourBackgroundRoute: ColourBackgroundRoute,
   LicenseRoute: LicenseRoute,
+  LogoCleanerRoute: LogoCleanerRoute,
+  PassportPhotoRoute: PassportPhotoRoute,
+  PhotoBackgroundRoute: PhotoBackgroundRoute,
+  ProductPhotoRoute: ProductPhotoRoute,
+  ProfilePictureRoute: ProfilePictureRoute,
+  StickerMakerRoute: StickerMakerRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

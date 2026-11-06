@@ -1,8 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Check, Download, ImagePlus, Loader2, RotateCcw } from "lucide-react";
 import { CompareSlider } from "@/components/CompareSlider";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 import { compositeOnColour, isSolidHex, PALETTE } from "@/lib/colour-background";
 
@@ -124,13 +125,7 @@ function ColourTool() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight">cutout<span className="text-primary">.</span></Link>
-        <nav className="flex gap-4 text-sm">
-          <Link to="/" className="text-muted-foreground hover:text-foreground">Remove background</Link>
-          <Link to="/colour-background" className="font-medium text-foreground">Colour background</Link>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
