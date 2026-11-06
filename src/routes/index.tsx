@@ -141,6 +141,8 @@ function Index() {
           </section>
         )}
 
+        {stage.kind === "idle" && <HowItsFree />}
+
         {stage.kind === "working" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
             <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
