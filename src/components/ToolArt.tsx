@@ -18,15 +18,15 @@ import logo from "@/assets/cards/logo.webp";
 import logoCut from "@/assets/cards/logo-cut.webp";
 import beach from "@/assets/cards/beach.webp";
 
-type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; outline?: boolean };
+type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
 
 /** Card art per tool: photo before, cut-out after (made with the site's own remover), and the backdrop the tool adds. */
 const ART: Record<string, Art> = {
   "/": { before: home, cut: homeCut, tile: "bg-tile-peach", result: "checker-sm" },
   "/colour-background": { before: colour, cut: colourCut, tile: "bg-tile-lilac", result: "bg-art-coral" },
-  "/product-photo": { before: product, cut: productCut, tile: "bg-tile-butter", result: "bg-card" },
-  "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-card" },
-  "/profile-picture": { before: profile, cut: profileCut, tile: "bg-tile-mint", result: "bg-art-blue" },
+  "/product-photo": { before: product, cut: productCut, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:-translate-x-[13%] group-hover:scale-[0.92]", extra: "floor" },
+  "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
+  "/profile-picture": { before: profile, cut: profileCut, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut, tile: "bg-tile-peach", result: "checker-sm", outline: true },
   "/photo-background": { before: photobg, cut: photobgCut, tile: "bg-tile-sky", result: "bg-card", resultImg: beach },
   "/logo-cleaner": { before: logo, cut: logoCut, tile: "bg-tile-butter", result: "checker-sm" },
@@ -56,10 +56,15 @@ export function ToolArt({ to }: { to: string }) {
         <div className={`absolute inset-x-0 bottom-0 top-[18%] overflow-hidden rounded-xl border-[3px] border-card shadow-lift transition-shadow ${EASE} group-hover:shadow-float`}>
           <div className="absolute inset-x-0 bottom-0 aspect-square">
             <div className={`absolute inset-0 ${a.result}`} />
+            {a.extra === "circle" && <div className="absolute inset-[8%] top-[14%] rounded-full bg-art-blue" />}
+            {a.extra === "floor" && <div className="absolute bottom-[6%] left-[24%] h-[7%] w-[52%] rounded-[50%] bg-foreground/25 blur-md" />}
             {a.resultImg && <img src={a.resultImg} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />}
             <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-[opacity,filter] ${EASE} group-hover:opacity-0 group-hover:blur-sm`} />
           </div>
         </div>
+        {a.extra === "oval" && (
+          <div aria-hidden className={`pointer-events-none absolute left-1/2 top-[3%] h-[66%] w-[48%] -translate-x-1/2 rounded-[50%] border-[1.5px] border-dashed border-primary/80 opacity-0 transition-opacity delay-150 ${EASE} group-hover:opacity-100`} style={{ zIndex: 2 }} />
+        )}
         {a.outline && (
           <img src={a.cut} alt="" loading="lazy" style={{ filter: OUTLINE, clipPath: "inset(-60% 0 3px 0)" }} className={`absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} />
         )}
@@ -68,7 +73,7 @@ export function ToolArt({ to }: { to: string }) {
           alt=""
           loading="lazy"
           style={{ "--b": LIFT.replace("22%", "0%"), "--o": LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
-          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter] ${EASE} [filter:var(--b)] group-hover:[filter:var(--o)]`}
+          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter,transform] ${EASE} ${a.move ?? ""} [filter:var(--b)] group-hover:[filter:var(--o)]`}
         />
       </div>
 
