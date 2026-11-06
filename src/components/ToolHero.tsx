@@ -1,5 +1,4 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { BadgeCheck, Lock, UserX } from "lucide-react";
 import { CompareSlider } from "@/components/CompareSlider";
 import { TOOL_MEDIA } from "@/lib/tool-media";
 
@@ -36,19 +35,17 @@ function HeroStage({ children }: { children: ReactNode }) {
 
 export function TrustStrip() {
   const items = [
-    { icon: BadgeCheck, label: "Free forever", sub: "No watermark, no limits" },
-    { icon: Lock, label: "Never uploaded", sub: "Your photo stays on your device" },
-    { icon: UserX, label: "No sign-up", sub: "Just open and use" },
+    { label: "Free forever", sub: "No watermark, no limits" },
+    { label: "Never uploaded", sub: "Your photo stays on your device" },
+    { label: "No sign-up", sub: "Just open and use" },
   ];
+  const tints = ["bg-tile-peach", "bg-tile-butter", "bg-tile-sky"];
   return (
-    <ul className="mt-14 grid overflow-hidden rounded-[1.75rem] bg-foreground text-background sm:grid-cols-3">
-      {items.map(({ icon: Icon, label, sub }, i) => (
-        <li key={label} className={`group flex items-center gap-4 px-6 py-5 sm:py-6 ${i ? "border-t border-background/15 sm:border-l sm:border-t-0" : ""}`}>
-          <Icon className="h-7 w-7 shrink-0 text-primary transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" strokeWidth={2.25} />
-          <span className="min-w-0">
-            <span className="font-display block text-2xl leading-none tracking-wide">{label}</span>
-            <span className="mt-1 block text-sm opacity-70">{sub}</span>
-          </span>
+    <ul className="mt-14 grid gap-3 sm:grid-cols-3">
+      {items.map(({ label, sub }, i) => (
+        <li key={label} className={`${tints[i]} rounded-[1.5rem] px-6 py-5 transition-transform duration-300 hover:-translate-y-1`}>
+          <span className="font-display block text-3xl leading-none tracking-wide text-foreground">{label}</span>
+          <span className="mt-1.5 block text-sm text-foreground/70">{sub}</span>
         </li>
       ))}
     </ul>
