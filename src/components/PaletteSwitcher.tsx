@@ -34,9 +34,9 @@ export function PaletteSwitcher() {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 z-50">
+    <div className="fixed bottom-3 left-3 z-50 sm:bottom-4 sm:left-4">
       {open ? (
-        <div className="w-64 rounded-2xl border-4 border-foreground bg-card p-3 text-card-foreground shadow-xl">
+        <div className="w-[min(16rem,calc(100vw-1.5rem))] rounded-2xl border-4 border-foreground bg-card p-3 text-card-foreground shadow-xl">
           <div className="mb-2 flex items-center justify-between">
             <span className="font-display text-xl tracking-wide">Palette</span>
             <button aria-label="Close palette switcher" onClick={() => setOpen(false)} className="rounded-full p-1 hover:bg-muted"><X className="size-4" /></button>
@@ -62,8 +62,8 @@ export function PaletteSwitcher() {
           <p className="mt-2 text-xs text-muted-foreground">Your choice is remembered on this device.</p>
         </div>
       ) : (
-        <button onClick={() => setOpen(true)} aria-label="Change colour palette" className="flex items-center gap-2 rounded-full border-4 border-foreground bg-primary px-4 py-2 text-sm font-bold text-primary-foreground shadow-lg">
-          <Palette className="size-4" /> Palette
+        <button onClick={() => setOpen(true)} aria-label="Change colour palette" className="flex items-center gap-2 rounded-full border-4 border-foreground bg-primary p-2.5 text-sm font-bold text-primary-foreground shadow-lg sm:px-4 sm:py-2">
+          <Palette className="size-4" /> <span className="hidden sm:inline">Palette</span>
         </button>
       )}
     </div>
