@@ -22,7 +22,7 @@ export function PosterCard({ tilt = 0, delay = 0, className = "", children }: { 
   return (
     <div data-reveal data-tilt
       className={`rounded-[1.25rem] border-4 border-foreground bg-card p-1.5 shadow-float transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform:rotate(var(--tilt))] hover:[transform:rotate(0deg)_translateY(-4px)] ${className}`}
-      style={{ ["--tilt" as string]: `${tilt}deg` }}
+      style={{ ["--tilt" as string]: `${tilt}deg`, ["--reveal-delay" as string]: `${delay}ms` }}
     >
       {children}
     </div>
