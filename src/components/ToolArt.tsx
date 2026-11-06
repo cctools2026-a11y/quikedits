@@ -48,7 +48,7 @@ export function ToolArt({ to }: { to: string }) {
       <div className={`absolute left-1/2 top-[62%] h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-card/40 blur-2xl transition-transform ${EASE} group-hover:scale-110`} />
 
       {/* square stage; the frame shows only its lower part so the subject pops out above it */}
-      <div className="absolute bottom-[7%] left-1/2 aspect-square w-[54%] -translate-x-1/2">
+      <div className="absolute bottom-[7%] left-1/2 aspect-square w-[58%] -translate-x-1/2">
         <svg aria-hidden className={`pointer-events-none absolute -inset-[5%] top-[13%] h-[92%] w-[110%] overflow-visible opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} viewBox="0 0 110 92" preserveAspectRatio="none">
           <rect x="1" y="1" width="108" height="90" rx="9" fill="none" stroke="currentColor" strokeWidth="1.2" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" className="march text-foreground/40" />
         </svg>
@@ -63,8 +63,8 @@ export function ToolArt({ to }: { to: string }) {
           src={a.cut}
           alt=""
           loading="lazy"
-          style={a.outline ? { filter: OUTLINE } : undefined}
-          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-transform ${EASE} group-hover:-translate-y-[3%] group-hover:scale-[1.04]`}
+          style={a.outline ? ({ "--o": OUTLINE } as React.CSSProperties) : undefined}
+          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[transform,filter] ${EASE} group-hover:scale-[1.05] group-hover:[filter:var(--o,none)]`}
         />
       </div>
 
