@@ -76,9 +76,12 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
       <div className="flex justify-center rounded-2xl bg-muted p-3">
         <div ref={boxRef} className="relative inline-block touch-none select-none" onPointerMove={move} onPointerUp={() => (drag.current = null)}>
           <canvas ref={canvasRef} className="block max-h-[65vh] max-w-full" />
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="absolute shadow-[0_0_0_9999px_hsl(0_0%_0%/0.5)]" style={{ left: `${rect.x * 100}%`, top: `${rect.y * 100}%`, width: `${rect.w * 100}%`, height: `${rect.h * 100}%` }} />
+          </div>
           <div
             onPointerDown={down("move")}
-            className="absolute cursor-move border-2 border-primary-foreground shadow-[0_0_0_9999px_hsl(0_0%_0%/0.5)] outline outline-1 outline-primary"
+            className="absolute cursor-move border-2 border-primary-foreground outline outline-1 outline-primary"
             style={{ left: `${rect.x * 100}%`, top: `${rect.y * 100}%`, width: `${rect.w * 100}%`, height: `${rect.h * 100}%` }}
           >
             {corners.map((c) => (
