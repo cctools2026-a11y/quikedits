@@ -40,3 +40,4 @@ use the editor.
 - Per-tool landing copy and search metadata live in src/lib/tool-content.ts; routes use toolHead() from src/lib/seo.ts and render <ToolLanding>; add new tools there and to public/sitemap.xml.
 - Photo rules, upload tips and result checks live in src/lib/photo-rules.ts (pure, unit-tested); ToolPage `tool` prop enables PhotoTips and CutoutCues/TouchUp, which need the full-frame cutout aligned with the source photo.
 - Header menu groups tools by `group` in src/lib/tools.ts (TOOL_GROUPS); new tools need a group and an icon in SiteHeader ICONS.
+- Tool pages share ToolHero (hero + example), UploadZone (drop zone + sample photo) and ToolLanding sections; per-tool example images live in src/lib/tool-media.ts (src/assets/tools/*.webp, after-images made with the site's own tools).
