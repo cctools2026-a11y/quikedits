@@ -27,9 +27,10 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
           <Heading id="how">How it works</Heading>
           <ol className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
             {c.steps.map((s, i) => (
-              <li key={s} className="border-t-2 border-foreground pt-5">
+              <li key={s.title} className="border-t-2 border-foreground pt-5">
                 <span className="font-display block text-7xl leading-none text-primary">0{i + 1}</span>
-                <p className="mt-4 text-lg font-medium leading-snug">{s}</p>
+                <h3 className="mt-4 text-xl font-semibold leading-snug">{s.title}</h3>
+                <p className="mt-2 text-base leading-relaxed text-muted-foreground">{s.text}</p>
               </li>
             ))}
           </ol>
