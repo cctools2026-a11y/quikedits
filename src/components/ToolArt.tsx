@@ -4,14 +4,14 @@ import home from "@/assets/cards/home.webp";
 import homeCut from "@/assets/cards/home-cut.webp";
 import colour from "@/assets/cards/colour.webp";
 import colourCut from "@/assets/cards/colour-refined-cut.webp.asset.json";
-import product from "@/assets/cards/product.webp";
-import productCut from "@/assets/cards/product-cut.webp";
+import product from "@/assets/cards/product-cat-bottle-original.jpg";
+import productCut from "@/assets/cards/product-cat-bottle-cut.webp.asset.json";
 import passport from "@/assets/cards/passport.webp";
 import passportCut from "@/assets/cards/passport-cut.webp";
 import profile from "@/assets/cards/profile-short-hair-original.jpg";
 import profileCut from "@/assets/cards/profile-short-hair-cut.webp.asset.json";
-import sticker from "@/assets/cards/sticker.webp";
-import stickerCut from "@/assets/cards/sticker-refined-cut.webp.asset.json";
+import sticker from "@/assets/cards/sticker-blue-heeler-original.jpg";
+import stickerCut from "@/assets/cards/sticker-blue-heeler-cut.webp.asset.json";
 import photobg from "@/assets/tools/photobg-summer-before.webp";
 import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
 import logo from "@/assets/cards/logo.webp";
@@ -24,7 +24,7 @@ type Art = { before: string; cut: string; tile: string; result: string; resultIm
 const ART: Record<string, Art> = {
   "/": { before: home, cut: homeCut, tile: "bg-tile-peach", result: "checker-sm" },
   "/colour-background": { before: colour, cut: colourCut.url, tile: "bg-tile-lilac", result: "bg-art-coral" },
-  "/product-photo": { before: product, cut: productCut, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:-translate-x-[13%] group-hover:scale-[0.92]", extra: "floor" },
+  "/product-photo": { before: product, cut: productCut.url, tile: "bg-tile-butter", result: "bg-card", move: "group-hover:scale-[0.92]", extra: "floor" },
   "/passport-photo": { before: passport, cut: passportCut, tile: "bg-tile-sky", result: "bg-muted", extra: "oval" },
   "/profile-picture": { before: profile, cut: profileCut.url, tile: "bg-tile-mint", result: "bg-card", extra: "circle" },
   "/sticker-maker": { before: sticker, cut: stickerCut.url, tile: "bg-tile-peach", result: "checker-sm", outline: true },
