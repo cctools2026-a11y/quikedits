@@ -301,3 +301,5 @@ html[data-palette="mint"] { --primary-strong: oklch(0.45 0.1 175); }
   .tool-split .result-actions { order: 3; margin-top: 0; position: static; }
   .tool-split > :not(aside) img { max-height: 42vh; width: auto; max-width: 100%; margin-inline: auto; object-fit: contain; }
 }
+:root { --yarn: var(--art-pink, oklch(0.78 0.12 10)); }
+@media (prefers-reduced-motion: reduce) { .yarn-trail { display: none; } }
