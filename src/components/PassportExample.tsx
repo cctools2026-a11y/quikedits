@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { CompareSlider } from "@/components/CompareSlider";
 import { Field, Range, useRenderedUrl } from "@/components/ToolPage";
 import { blobToCanvas, ctx2d, makeCanvas } from "@/lib/compose";
@@ -11,14 +12,24 @@ import { PASSPORT_SIZES, passportPx } from "@/lib/tool-sizes";
 export type PassportSizeId = (typeof PASSPORT_SIZES)[number]["id"];
 
 export function PassportSizeSelect({ value, onChange }: { value: PassportSizeId; onChange: (id: PassportSizeId) => void }) {
-  return <label className="block text-sm font-medium">Document size
-    <select aria-label="Document size" value={value} onChange={(e) => {
-      const selected = PASSPORT_SIZES.find((s) => s.id === e.target.value);
+  return <div className="block text-sm font-medium">
+    <span>Document size</span>
+    <Select value={value} onValueChange={(v) => {
+      const selected = PASSPORT_SIZES.find((s) => s.id === v);
       if (selected) onChange(selected.id);
-    }} className="mt-2 h-11 w-full rounded-md border border-border bg-card px-3 text-foreground focus-visible:outline-ring">
-      {PASSPORT_SIZES.map((s) => <option key={s.id} value={s.id}>{s.label}</option>)}
-    </select>
-  </label>;
+    }}>
+      <SelectTrigger aria-label="Document size" className="mt-2 h-12 w-full rounded-xl border-border bg-card px-4 text-base shadow-sm">
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent className="rounded-xl border-border bg-card p-1 shadow-lg">
+        {PASSPORT_SIZES.map((s) => (
+          <SelectItem key={s.id} value={s.id} className="rounded-lg py-2.5 text-base focus:bg-primary/10 focus:text-foreground data-[state=checked]:font-semibold data-[state=checked]:text-primary">
+            {s.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  </div>;
 }
 
 export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSizeId; onSizeChange: (id: PassportSizeId) => void }) {
