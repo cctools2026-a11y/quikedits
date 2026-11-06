@@ -60,11 +60,14 @@ export function ToolArt({ to }: { to: string }) {
             <img src={a.before} alt="" loading="lazy" className={`absolute inset-0 h-full w-full object-cover transition-[opacity,filter] ${EASE} group-hover:opacity-0 group-hover:blur-sm`} />
           </div>
         </div>
+        {a.outline && (
+          <img src={a.cut} alt="" loading="lazy" style={{ filter: OUTLINE, clipPath: "inset(-60% 0 3px 0)" }} className={`absolute inset-0 h-full w-full object-contain opacity-0 transition-opacity ${EASE} group-hover:opacity-100`} />
+        )}
         <img
           src={a.cut}
           alt=""
           loading="lazy"
-          style={{ "--b": (a.outline ? `${OUTLINE} ${LIFT}` : LIFT).replaceAll("var(--card)", "transparent").replace("var(--foreground) 22%", "var(--foreground) 0%"), "--o": a.outline ? `${OUTLINE} ${LIFT}` : LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
+          style={{ "--b": LIFT.replace("22%", "0%"), "--o": LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
           className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter] ${EASE} [filter:var(--b)] group-hover:[filter:var(--o)]`}
         />
       </div>
