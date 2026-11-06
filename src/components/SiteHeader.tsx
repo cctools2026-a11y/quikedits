@@ -5,7 +5,7 @@ import {
 } from "lucide-react";
 import { TOOL_GROUPS, TOOLS } from "@/lib/tools";
 
-const ICONS: Record<string, LucideIcon> = {
+export const ICONS: Record<string, LucideIcon> = {
   "/": Eraser, "/colour-background": Palette, "/photo-background": Image, "/product-photo": ShoppingBag,
   "/passport-photo": IdCard, "/profile-picture": UserRound, "/sticker-maker": Sticker, "/logo-cleaner": PenLine,
 };

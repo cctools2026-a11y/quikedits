@@ -200,3 +200,26 @@
 @keyframes settle { from { opacity: 0; transform: translateY(24px) rotate(-2deg) scale(.98); } to { opacity: 1; transform: rotate(var(--tilt, 0deg)); } }
 .settle { animation: settle 800ms cubic-bezier(.2,.7,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .settle { animation: none; } }
+
+/* Tool card art tiles */
+:root {
+  --tile-peach: oklch(0.9 0.06 45);
+  --tile-sky: oklch(0.9 0.05 235);
+  --tile-mint: oklch(0.91 0.06 160);
+  --tile-butter: oklch(0.93 0.08 95);
+  --tile-lilac: oklch(0.9 0.05 300);
+}
+.dark {
+  --tile-peach: oklch(0.35 0.06 45);
+  --tile-sky: oklch(0.35 0.05 235);
+  --tile-mint: oklch(0.35 0.06 160);
+  --tile-butter: oklch(0.38 0.07 95);
+  --tile-lilac: oklch(0.35 0.05 300);
+}
+@theme inline {
+  --color-tile-peach: var(--tile-peach);
+  --color-tile-sky: var(--tile-sky);
+  --color-tile-mint: var(--tile-mint);
+  --color-tile-butter: var(--tile-butter);
+  --color-tile-lilac: var(--tile-lilac);
+}

@@ -5,6 +5,7 @@ import { TOOL_MEDIA } from "@/lib/tool-media";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { TOOLS } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
+import { ToolArt } from "@/components/ToolArt";
 
 const STEP_ICONS = [ImagePlus, SlidersHorizontal, Download];
 
@@ -113,11 +114,10 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 }
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
-  const m = TOOL_MEDIA[to];
   return (
     <Link to={to} className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-lift transition-all hover:-translate-y-1 hover:shadow-float">
-      <div className="checker-sm relative aspect-[4/3] overflow-hidden">
-        {m && <img src={m.after} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />}
+      <div className="relative">
+        <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">{tag}</span>}
       </div>
       <div className="p-4">
