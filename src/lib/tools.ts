@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export const TOOLS = [
   { to: "/", group: "cutouts", label: "Remove background", task: "I need a see-through cut-out", blurb: "Transparent PNG of any photo." },
   { to: "/colour-background", group: "cutouts", label: "Colour background", task: "I want a plain colour behind my photo", blurb: "Put your photo on a solid colour." },
@@ -14,3 +16,24 @@ export const TOOL_GROUPS = [
   { id: "photos", label: "Photos for a purpose" },
   { id: "fun", label: "Stickers & graphics" },
 ] as const;
+
+/** Starting settings a sub-tool page hands to its parent tool. */
+export type Preset = {
+  title?: ReactNode; intro?: string; colour?: string; pad?: number; sizeId?: string;
+  shape?: "circle" | "square"; outline?: "#FFFFFF" | "#000000"; format?: "image/png" | "image/webp"; tol?: number;
+};
+
+/** Focused pages for one specific job, each built on a parent tool. */
+export const SUBTOOLS = [
+  { to: "/white-background", parent: "/colour-background", label: "White background", blurb: "Pure white behind any photo." },
+  { to: "/amazon-product-photo", parent: "/product-photo", label: "Amazon product photo", blurb: "2000 × 2000, pure white, product fills 85%." },
+  { to: "/us-passport-photo", parent: "/passport-photo", label: "US passport photo", blurb: "2 × 2 in on white, with a print sheet." },
+  { to: "/uk-passport-photo", parent: "/passport-photo", label: "UK passport photo", blurb: "35 × 45 mm on light grey." },
+  { to: "/india-passport-photo", parent: "/passport-photo", label: "India passport photo", blurb: "51 × 51 mm on white." },
+  { to: "/linkedin-profile-photo", parent: "/profile-picture", label: "LinkedIn photo", blurb: "Circle headshot on a calm colour." },
+  { to: "/whatsapp-sticker", parent: "/sticker-maker", label: "WhatsApp sticker", blurb: "512 × 512 WebP with a white outline." },
+  { to: "/transparent-signature", parent: "/logo-cleaner", label: "Transparent signature", blurb: "Sign on paper, get a PNG for documents." },
+] as const;
+
+export const subtoolsOf = (parent: string) => SUBTOOLS.filter((s) => s.parent === parent);
+export const subtool = (path: string) => SUBTOOLS.find((s) => s.to === path);
