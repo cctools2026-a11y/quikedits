@@ -15,7 +15,6 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
       </div>
       <HeroStage>{example ?? (m && (
         <figure className="settle relative mx-auto w-full max-w-md lg:max-w-none" style={{ ["--tilt" as string]: `${m.tilt}deg` }}>
-          <div aria-hidden className="checker-sm absolute -inset-3 -z-10 rotate-[-3deg] rounded-[2rem] opacity-70" />
           <div className="rounded-[1.75rem] border-4 border-foreground bg-card p-2.5 shadow-float">
             <CompareSlider before={m.before} after={m.after} beforeAlt={`Example photo: ${m.subject}`} afterAlt={`Example result: ${m.subject}`} />
           </div>
@@ -30,8 +29,6 @@ function HeroStage({ children }: { children: ReactNode }) {
     <div className="hero-stage mx-auto w-full max-w-md px-4 py-6 sm:px-6 lg:max-w-none">
       <span aria-hidden className="splash-block" />
       <span aria-hidden className="splash-sun" />
-      <span aria-hidden className="splash-dots" />
-      <span aria-hidden className="splash-ring" />
       {children}
     </div>
   );
