@@ -49,14 +49,14 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
   const m = TOOL_MEDIA[path];
   const tilts = [-2.5, 1.5, -1];
   return (
-    <div className="mt-24 space-y-28 overflow-x-clip">
+    <div className="mt-24 space-y-28">
       <Reveal>
         <section aria-labelledby="how">
           <Heading id="how">How it works</Heading>
           <ol className="mt-12 grid gap-12 sm:grid-cols-3 sm:gap-8">
             {c.steps.map((s, i) => (
               <li key={s.title} className="relative">
-                {m && <PosterCard tilt={tilts[i]}><StepImage i={i} m={m} /></PosterCard>}
+                {m && <PosterCard tilt={tilts[i] ?? 0}><StepImage i={i} m={m} /></PosterCard>}
                 {i < 2 && <span aria-hidden className="absolute -right-6 top-[28%] hidden w-6 border-t-[3px] border-dashed border-foreground sm:block" />}
                 <div className="mt-6 flex items-baseline gap-3">
                   <span className="font-display text-5xl leading-none text-primary">0{i + 1}</span>
@@ -82,7 +82,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="tips" className="relative isolate">
-          <span aria-hidden className="absolute -right-24 top-16 -z-10 h-72 w-72 rotate-12 rounded-[2rem] bg-art-yellow opacity-70" />
+          <span aria-hidden className="absolute -left-6 top-24 -z-10 h-48 w-48 -rotate-12 sm:-left-10 sm:h-60 sm:w-60 rounded-[2rem] bg-art-yellow opacity-70" />
           <Heading id="tips">Tips for the best photo</Heading>
           <div className="mt-12 grid gap-14 md:grid-cols-2 md:gap-10">
             <div className="grid grid-cols-[7rem_1fr] items-start gap-6 sm:grid-cols-[10rem_1fr]">
@@ -114,8 +114,8 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       {!home && (
         <Reveal>
-          <section className="relative left-1/2 w-screen -translate-x-1/2 -rotate-1 bg-primary py-10">
-            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <section className="-rotate-1 rounded-[1.5rem] border-4 border-foreground bg-primary px-6 py-10 shadow-float sm:px-10">
+            <div>
               <h2 className="font-display text-5xl leading-none text-primary-foreground sm:text-7xl">Free and private, for real</h2>
               <p className="mt-2 text-lg font-medium text-primary-foreground/90">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
             </div>
