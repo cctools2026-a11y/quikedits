@@ -298,6 +298,6 @@ html[data-palette="mint"] { --primary-strong: oklch(0.45 0.1 175); }
 @media (max-width: 767px) {
   .tool-split > :not(aside) { display: contents; }
   .tool-split > aside { order: 2; }
-  .tool-split .result-actions { order: 3; margin-top: 0; }
+  .tool-split .result-actions { order: 3; margin-top: 0; position: static; }
   .tool-split > :not(aside) img { max-height: 42vh; width: auto; max-width: 100%; margin-inline: auto; object-fit: contain; }
 }
