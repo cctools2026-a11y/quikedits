@@ -199,7 +199,7 @@ export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unk
 
 export function ResultActions({ url, name, onReset, label = "Download PNG" }: { url: string | null; name: string; onReset?: () => void; label?: string }) {
   return (
-    <div className="sticky bottom-3 z-20 mt-6 flex flex-col gap-3 sm:static sm:flex-row">
+    <div className="result-actions sticky bottom-3 z-20 mt-6 flex flex-col gap-3 sm:static sm:flex-row">
       <a
         href={url ?? undefined}
         download={name}
