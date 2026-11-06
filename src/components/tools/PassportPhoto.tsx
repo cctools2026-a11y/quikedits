@@ -13,7 +13,7 @@ const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: "Light g
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
   const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "uk");
-  const [bg, setBg] = useState<(typeof BGS)[number]["id"]>("#FFFFFF");
+  const [bg, setBg] = useState<(typeof BGS)[number]["id"]>((preset.colour as (typeof BGS)[number]["id"] | undefined) ?? "#FFFFFF");
   const [zoom, setZoom] = useState(100);
   const [top, setTop] = useState(8);
   const size = passportPx(PASSPORT_SIZES.find((s) => s.id === sizeId) ?? PASSPORT_SIZES[1]);
