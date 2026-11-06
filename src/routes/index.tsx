@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Download, ImagePlus, Loader2, RotateCcw, ShieldCheck } from "lucide-react";
 import { CompareSlider } from "@/components/CompareSlider";
@@ -106,9 +106,13 @@ function Index() {
     <div className="min-h-screen bg-background">
       <header className="mx-auto flex max-w-5xl items-center justify-between px-4 py-5">
         <span className="font-display text-xl font-bold tracking-tight">cutout<span className="text-primary">.</span></span>
-        <span className="flex items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
-          <ShieldCheck className="h-4 w-4" /> Photos never leave your device
-        </span>
+        <nav className="flex items-center gap-4 text-xs sm:text-sm">
+          <span className="hidden items-center gap-1.5 text-muted-foreground md:flex">
+            <ShieldCheck className="h-4 w-4" /> Photos never leave your device
+          </span>
+          <span className="font-medium text-foreground">Remove background</span>
+          <Link to="/colour-background" className="text-muted-foreground hover:text-foreground">Colour background</Link>
+        </nav>
       </header>
 
       <main className="mx-auto max-w-5xl px-4">

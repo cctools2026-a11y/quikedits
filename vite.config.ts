@@ -12,7 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     // Static output for Cloudflare Pages: every page is prerendered to HTML.
-    pages: [{ path: "/" }, { path: "/license" }],
+    pages: [{ path: "/" }, { path: "/license" }, { path: "/colour-background" }],
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });
