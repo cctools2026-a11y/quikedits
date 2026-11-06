@@ -30,8 +30,6 @@ function HeroStage({ children }: { children: ReactNode }) {
     <div className="hero-stage mx-auto w-full max-w-md px-4 py-6 sm:px-6 lg:max-w-none">
       <span aria-hidden className="splash-block" />
       <span aria-hidden className="splash-sun" />
-      <span aria-hidden className="splash-dots" />
-      <span aria-hidden className="splash-ring" />
       {children}
     </div>
   );
