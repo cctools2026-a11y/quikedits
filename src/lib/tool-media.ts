@@ -5,7 +5,7 @@ import colourA from "@/assets/tools/colour-sleek-bob-after.webp.asset.json";
 import productB from "@/assets/tools/product-circus-mug-original.jpg";
 import productA from "@/assets/tools/product-circus-mug-clean-after.webp.asset.json";
 import passportB from "@/assets/tools/passport-asian-girl-original.jpg";
-import passportA from "@/assets/tools/passport-asian-girl-after.webp.asset.json";
+import passportA from "@/assets/tools/passport-asian-girl-clean.webp.asset.json";
 import profileB from "@/assets/tools/profile-before.webp";
 import profileA from "@/assets/tools/profile-after.webp";
 import stickerB from "@/assets/tools/sticker-calico-original.jpg";
