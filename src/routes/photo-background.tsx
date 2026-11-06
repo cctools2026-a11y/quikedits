@@ -1,10 +1,11 @@
 import { toolHead } from "@/lib/seo";
 import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
-import { Check, ImagePlus, Loader2 } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
+import { Check, ImagePlus, Loader2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BACKGROUND_PRESETS } from "@/lib/background-presets";
+import { foregroundColour, rankBackgrounds } from "@/lib/background-recommendations";
 import { ToolPage, useRenderedUrl, Field, Range, ResultActions, baseName } from "@/components/ToolPage";
 import { blobToCanvas, ctx2d, makeCanvas } from "@/lib/compose";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
@@ -37,6 +38,22 @@ function Composer({ cut, name, reset }: { cut: HTMLCanvasElement | null; name: s
   const request = useRef(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const recommendations = useMemo(() => {
+    if (!cut) return [];
+    const sample = makeCanvas(64, 64);
+    const context = ctx2d(sample);
+    context.drawImage(cut, 0, 0, 64, 64);
+    return rankBackgrounds(foregroundColour(context.getImageData(0, 0, 64, 64).data), BACKGROUND_PRESETS);
+  }, [cut]);
+  const suggested = recommendations[0];
+
+  function applyPreset(preset: (typeof BACKGROUND_PRESETS)[number]) {
+    return loadBackdrop(async () => {
+      const response = await fetch(preset.src);
+      if (!response.ok) throw new Error("Background unavailable");
+      return response.blob();
+    }, preset.id);
+  }
 
   async function loadBackdrop(load: () => Promise<Blob>, id: string) {
     const token = ++request.current;
@@ -75,17 +92,20 @@ function Composer({ cut, name, reset }: { cut: HTMLCanvasElement | null; name: s
   return (
     <div className="grid gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
+        {suggested && <section aria-label="Background recommendation" className="space-y-2 border-b border-border pb-5">
+          <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> Suggested: {suggested.name}</h2>
+          <p className="text-sm text-muted-foreground">{suggested.reason}</p>
+          <Button onClick={() => void applyPreset(suggested)} disabled={loading} className="w-full">
+            <Check /> Apply suggested background
+          </Button>
+        </section>}
         <div>
           <h2 className="font-display mb-3 text-lg font-semibold">Pick a background</h2>
           <div className="grid grid-cols-3 gap-2" role="group" aria-label="Playful background presets">
             {BACKGROUND_PRESETS.map((preset) => (
               <Button key={preset.id} variant="outline" aria-label={`Apply ${preset.name} background`} aria-pressed={selected === preset.id}
                 className="relative h-auto flex-col gap-0 overflow-hidden p-0 whitespace-normal aria-pressed:border-primary aria-pressed:ring-2 aria-pressed:ring-primary"
-                onClick={() => void loadBackdrop(async () => {
-                  const response = await fetch(preset.src);
-                  if (!response.ok) throw new Error("Background unavailable");
-                  return response.blob();
-                }, preset.id)}>
+                onClick={() => void applyPreset(preset)}>
                 <img src={preset.src} alt="" width={1024} height={1024} loading="lazy" className="aspect-square w-full object-cover" />
                 <span className="py-2 text-xs">{preset.name}</span>
                 {selected === preset.id && <span className="absolute right-1 top-1 rounded-full bg-primary p-1 text-primary-foreground"><Check /></span>}

@@ -42,3 +42,4 @@ use the editor.
 - Header menu groups tools by `group` in src/lib/tools.ts (TOOL_GROUPS); new tools need a group and an icon in SiteHeader ICONS.
 - Tool pages share ToolHero (hero + example), UploadZone (drop zone + sample photo) and ToolLanding sections; per-tool example images live in src/lib/tool-media.ts (src/assets/tools/*.webp, after-images made with the site's own tools).
 - Background preset assets are registered in src/lib/background-presets.ts and composed client-side in Photo background; keep Colour background solid-only to preserve its purpose.
+- Background recommendations rank preset colour contrast against alpha-masked dominant foreground colour in src/lib/background-recommendations.ts; no remote analysis or semantic subject-identification claims.
