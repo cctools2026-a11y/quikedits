@@ -101,10 +101,10 @@ export const TOOL_CONTENT: Record<string, ToolContent> = {
   "/photo-background": {
     name: "Photo background",
     title: "Change Photo Background to Any Picture — Free",
-    description: "Cut out a person or object and place it on a background photo you choose. Move and resize it to fit. Free and private in your browser.",
+    description: "Cut out a person or object and pick a playful background or add your own photo. Move and resize it to fit. Free and private in your browser.",
     ogTitle: "Put yourself anywhere",
     ogDescription: "Swap a photo's background for another picture of your choice. Free and private.",
-    steps: ["Add the photo with the person or object.", "Add the picture you want behind it.", "Move, resize and download."],
+    steps: ["Add the photo with the person or object.", "Pick a playful background or add your own picture.", "Move, resize and download."],
     greatFor: ["Holiday and travel fun", "Posters and flyers", "Thumbnails", "Family and pet collages"],
     tips: ["Pick a backdrop with similar light to your photo.", "Keep the person's size realistic for the scene.", "Wide, simple backdrops look most natural."],
     faqs: [FREE_FAQ, PRIVATE_FAQ, { q: "Can I use any picture as the background?", a: "Yes, any JPG, PNG or WebP image you have. Make sure you have the right to use it." }, PHONE_FAQ],
