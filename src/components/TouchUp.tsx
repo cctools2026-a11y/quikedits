@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Minus, Plus, Undo2 } from "lucide-react";
-import { ctx2d, makeCanvas } from "@/lib/compose";
+import { ctx2d, makeCanvas, suggestionOverlay } from "@/lib/compose";
 import { Field, Range } from "@/components/ToolPage";
 
 /** Paint to keep (restore from the original photo) or remove parts of a cutout. */
@@ -15,11 +15,14 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
   const [size, setSize] = useState(30);
   const [zoom, setZoom] = useState(1);
   const [, force] = useState(0);
+  const [hints, setHints] = useState(true);
+  const overlay = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
     const w = makeCanvas(cut.width, cut.height);
     ctx2d(w).drawImage(cut, 0, 0);
     work.current = w;
+    overlay.current = suggestionOverlay(cut);
     redraw();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cut]);
@@ -33,7 +36,13 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
     ctx.drawImage(source, 0, 0, w.width, w.height);
     ctx.globalAlpha = 1;
     ctx.drawImage(w, 0, 0);
+    if (hintsRef.current && overlay.current) {
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(overlay.current, 0, 0, w.width, w.height);
+    }
   }
+  const hintsRef = useRef(hints);
+  useEffect(() => { hintsRef.current = hints; redraw(); }, [hints]);
 
   function dab(e: React.PointerEvent) {
     const v = view.current!, b = v.getBoundingClientRect();
@@ -97,6 +106,13 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
           <h2 className="font-display text-xl font-semibold">Touch up</h2>
           <p className="mt-1 text-sm text-muted-foreground">Paint “Keep” on anything that should stay, “Remove” on anything that should go. The faded parts are what was removed.</p>
         </div>
+        {overlay.current && (
+          <div className="rounded-xl bg-accent p-3 text-sm text-accent-foreground">
+            <p><span className="font-semibold">Red</span>: probably leftover background. Paint Remove.</p>
+            <p className="mt-1"><span className="font-semibold">Green</span>: gaps inside your subject. Paint Keep if they should be filled.</p>
+            <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} className="accent-primary" /> Show suggestions</label>
+          </div>
+        )}
         <div className="flex gap-2">
           <button type="button" aria-pressed={mode === "keep"} onClick={() => setMode("keep")} className={btn(mode === "keep")}>Keep</button>
           <button type="button" aria-pressed={mode === "remove"} onClick={() => setMode("remove")} className={btn(mode === "remove")}>Remove</button>

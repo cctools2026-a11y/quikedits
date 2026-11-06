@@ -25,6 +25,10 @@ describe("cutout cues", () => {
   it("passport subject touching the top edge → cut off", () => {
     expect(ids("/passport-photo", analyseAlpha(mask(100, 100, (x) => x > 30 && x < 70), 100, 100))).toContain("top");
   });
+  it("enclosed gap inside the subject → hole", () => {
+    const a = analyseAlpha(mask(100, 100, (x, y) => x > 20 && x < 80 && y > 20 && y < 95 && !(x > 40 && x < 60 && y > 40 && y < 60)), 100, 100);
+    expect(ids("/", a)).toContain("hole");
+  });
   it("small photo → soft warning", () => {
     expect(ids("/", analyseAlpha(mask(10, 10, (x) => x > 3 && x < 7), 10, 10), true)).toContain("small");
   });
