@@ -290,5 +290,5 @@ body { overflow-x: clip; }
 :root { --primary-strong: oklch(0.5 0.2 360); }
 html[data-palette="mint"] { --primary-strong: oklch(0.45 0.1 175); }
 @theme inline { --color-primary-strong: var(--primary-strong); }
-:root { --mint-pop: oklch(0.52 0.12 166); }
+:root { --mint-pop: oklch(0.5 0.12 166); }
 @theme inline { --color-mint-pop: var(--mint-pop); }
