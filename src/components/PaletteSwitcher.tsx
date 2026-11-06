@@ -6,6 +6,9 @@ const PALETTES = [
   { id: "candy", name: "Candy pop", colors: ["#fff8ec", "#ff5fa2", "#ffe234", "#2445e8", "#111111"] },
   { id: "sorbet", name: "Soft sorbet", colors: ["#fdf0ee", "#f6a5c0", "#fbe99a", "#a8cff0", "#4a3a5c"] },
   { id: "carnival", name: "Night carnival", colors: ["#1c1840", "#ff3d8b", "#ffd83a", "#3d7cff", "#f7f2e4"] },
+  { id: "milk", name: "Milk & candy", colors: ["#fdfcf8", "#f7b9cf", "#fbf0b8", "#d4e6f6", "#2c3242"] },
+  { id: "mint", name: "Fresh mint", colors: ["#f7fcf8", "#a6e3cf", "#f8f0b8", "#d3e8f2", "#2d4a50"] },
+  { id: "cloud", name: "Lilac cloud", colors: ["#f9fafe", "#d2bdf0", "#f9eec4", "#cfdcf8", "#2f3654"] },
 ] as const;
 
 const KEY = "qe-palette";
