@@ -7,6 +7,9 @@ import { CompareSlider } from "@/components/CompareSlider";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
+import { blobToCanvas, canvasToBlob } from "@/lib/compose";
+import { PhotoTips } from "@/components/PhotoTips";
+import { CutoutCues } from "@/components/CutoutCues";
 
 export const Route = createFileRoute("/")({
   head: () => toolHead("/"),
@@ -25,6 +28,8 @@ function Index() {
   const [original, setOriginal] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
   const [fast, setFast] = useState(false);
+  const [cut, setCut] = useState<HTMLCanvasElement | null>(null);
+  const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [elapsed, setElapsed] = useState(0);
   const [drag, setDrag] = useState(false);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -61,6 +66,8 @@ function Index() {
           setStage({ kind: "working", phase: key.startsWith("fetch") ? "download" : "process", pct });
         },
       });
+      setCut(await blobToCanvas(blob));
+      setSrc(await blobToCanvas(input));
       setResult(URL.createObjectURL(blob));
       setStage({ kind: "done" });
     } catch (e) {
@@ -125,6 +132,7 @@ function Index() {
             </button>
             <input ref={inputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { pick(e.target.files?.[0]); e.target.value = ""; }} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            <PhotoTips tool="/" />
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
               Faster mode for older phones and laptops (slightly lower quality)
@@ -175,6 +183,10 @@ function Index() {
 
         {stage.kind === "done" && original && result && (
           <section className="pt-4">
+            {cut && src && (
+              <CutoutCues tool="/" cut={cut} source={src} onRetry={reset}
+                onChange={(c) => { setCut(c); void canvasToBlob(c).then((b) => setResult(URL.createObjectURL(b))); }} />
+            )}
             <CompareSlider before={original} after={result} />
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href={result} download={downloadName} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01]">
