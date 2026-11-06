@@ -11,7 +11,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
-import { YarnTrail } from "@/components/YarnTrail";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -123,7 +122,6 @@ function RootComponent() {
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <PaletteSwitcher />
-      <YarnTrail />
     </QueryClientProvider>
   );
 }
