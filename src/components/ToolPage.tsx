@@ -23,8 +23,10 @@ type Stage =
 export const MAX_BATCH = 20;
 
 export function ToolPage({
-  title, intro, multiple = false, raw = false, children, below, crop, tool, example,
+  title, intro, multiple = false, raw = false, children, below, crop, tool, example, page,
 }: {
+  /** Page path for hero media and breadcrumb (defaults to tool). */
+  page?: string;
   /** Tool path, used for photo tips and result checks. */
   tool?: string;
   /** Show crop & rotate before processing, with these crop shapes. */
@@ -106,7 +108,7 @@ export function ToolPage({
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
           <>
-            <ToolHero path={tool ?? "/"} title={title} intro={intro} example={example}>
+            <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
               <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             </ToolHero>

@@ -28,7 +28,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
   const [original, setOriginal] = useState<string | null>(null);
   const [cutout, setCutout] = useState<Blob | null>(null);
   const [result, setResult] = useState<string | null>(null);
-  const [colour, setColour] = useState<string>("#FFFFFF");
+  const [colour, setColour] = useState<string>(preset.colour ?? "#FFFFFF");
   const [cutCanvas, setCutCanvas] = useState<HTMLCanvasElement | null>(null);
   const [src, setSrc] = useState<HTMLCanvasElement | null>(null);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -125,7 +125,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path="/colour-background" title={<>Put any photo on a <span className="text-primary">solid colour</span>.</>} intro="Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.">
+          <ToolHero path={page} title={preset.title ?? <>Put any photo on a <span className="text-primary">solid colour</span>.</>} intro={preset.intro ?? "Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser."}>
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
           </ToolHero>

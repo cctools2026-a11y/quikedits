@@ -11,17 +11,18 @@ import { PROFILE_SIZE } from "@/lib/tool-sizes";
 const SHAPES = [{ id: "circle", label: "Circle" }, { id: "square", label: "Square" }] as const;
 
 export function ProfilePicture({ page = "/profile-picture", preset = {} }: { page?: string; preset?: Preset }) {
-  const [colour, setColour] = useState("#3B82F6");
-  const [shape, setShape] = useState<"circle" | "square">("circle");
+  const [colour, setColour] = useState(preset.colour ?? "#3B82F6");
+  const [shape, setShape] = useState<"circle" | "square">(preset.shape ?? "circle");
   const [zoom, setZoom] = useState(90);
 
   return (
     <ToolPage
       tool="/profile-picture"
+      page={page}
       below={<ToolLanding path={page} />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
-      title={<>A sharp <span className="text-primary">profile picture</span> in seconds.</>}
-      intro="Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages."
+      title={preset.title ?? <>A sharp <span className="text-primary">profile picture</span> in seconds.</>}
+      intro={preset.intro ?? "Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages."}
     >
       {(items, reset) => {
         const it = items[0];

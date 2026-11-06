@@ -13,19 +13,20 @@ import { fitContain, PRODUCT_SIZES } from "@/lib/tool-sizes";
 type SizeId = (typeof PRODUCT_SIZES)[number]["id"];
 
 export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: string; preset?: Preset }) {
-  const [colour, setColour] = useState("#FFFFFF");
+  const [colour, setColour] = useState(preset.colour ?? "#FFFFFF");
   const [sizeId, setSizeId] = useState<SizeId>("square");
-  const [pad, setPad] = useState(8);
+  const [pad, setPad] = useState(preset.pad ?? 8);
   const size = PRODUCT_SIZES.find((s) => s.id === sizeId)!;
 
   return (
     <ToolPage
       tool="/product-photo"
+      page={page}
       below={<ToolLanding path={page} />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       multiple
-      title={<>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}
-      intro="Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."
+      title={preset.title ?? <>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}
+      intro={preset.intro ?? "Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."}
     >
       {(items, reset) => (
         <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[280px_1fr]">

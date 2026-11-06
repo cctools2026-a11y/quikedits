@@ -9,14 +9,15 @@ import { cornersUneven } from "@/lib/photo-rules";
 
 
 export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: string; preset?: Preset }) {
-  const [tol, setTol] = useState(60);
+  const [tol, setTol] = useState(preset.tol ?? 60);
   return (
     <ToolPage
       tool="/logo-cleaner"
+      page={page}
       below={<ToolLanding path={page} />}
       raw
-      title={<>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
-      intro="Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."
+      title={preset.title ?? <>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
+      intro={preset.intro ?? "Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."}
     >
       {(items, reset) => {
         const it = items[0];

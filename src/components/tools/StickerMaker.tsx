@@ -11,17 +11,18 @@ const OUTLINES = [{ id: "#FFFFFF", label: "White" }, { id: "#000000", label: "Bl
 const FORMATS = [{ id: "image/png", label: "PNG" }, { id: "image/webp", label: "WebP (WhatsApp)" }] as const;
 
 export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: string; preset?: Preset }) {
-  const [outline, setOutline] = useState<"#FFFFFF" | "#000000">("#FFFFFF");
+  const [outline, setOutline] = useState<"#FFFFFF" | "#000000">(preset.outline ?? "#FFFFFF");
   const [width, setWidth] = useState(12);
-  const [format, setFormat] = useState<"image/png" | "image/webp">("image/png");
+  const [format, setFormat] = useState<"image/png" | "image/webp">(preset.format ?? "image/png");
 
   return (
     <ToolPage
       tool="/sticker-maker"
+      page={page}
       below={<ToolLanding path={page} />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
-      title={<>Turn any photo into a <span className="text-primary">sticker</span>.</>}
-      intro="Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram."
+      title={preset.title ?? <>Turn any photo into a <span className="text-primary">sticker</span>.</>}
+      intro={preset.intro ?? "Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram."}
     >
       {(items, reset) => {
         const it = items[0];

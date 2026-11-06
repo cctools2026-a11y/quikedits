@@ -12,7 +12,7 @@ type SizeId = (typeof PASSPORT_SIZES)[number]["id"];
 const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: "Light grey" }] as const;
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
-  const [sizeId, setSizeId] = useState<SizeId>("uk");
+  const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "uk");
   const [bg, setBg] = useState<(typeof BGS)[number]["id"]>("#FFFFFF");
   const [zoom, setZoom] = useState(100);
   const [top, setTop] = useState(8);
@@ -21,11 +21,12 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
   return (
     <ToolPage
       tool="/passport-photo"
+      page={page}
       example={<PassportExample sizeId={sizeId} onSizeChange={setSizeId} />}
       below={<ToolLanding path={page} />}
       crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
-      title={<>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
-      intro="Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."
+      title={preset.title ?? <>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
+      intro={preset.intro ?? "Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."}
     >
       {(items, reset) => <PassportResult cut={items[0]?.cutout ?? null} name={items[0] ? baseName(items[0].file) : "photo"} {...{ size, bg, zoom, top, reset }}
         controls={
