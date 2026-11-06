@@ -64,8 +64,8 @@ export function ToolArt({ to }: { to: string }) {
           src={a.cut}
           alt=""
           loading="lazy"
-          style={{ "--o": a.outline ? `${OUTLINE} ${LIFT}` : LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
-          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter] ${EASE} group-hover:[filter:var(--o)]`}
+          style={{ "--b": (a.outline ? `${OUTLINE} ${LIFT}` : LIFT).replaceAll("var(--card)", "transparent").replace("var(--foreground) 22%", "var(--foreground) 0%"), "--o": a.outline ? `${OUTLINE} ${LIFT}` : LIFT, clipPath: "inset(-60% 3px 3px 3px round 0 0 10px 10px)" } as React.CSSProperties}
+          className={`absolute inset-0 h-full w-full origin-bottom object-contain transition-[filter] ${EASE} [filter:var(--b)] group-hover:[filter:var(--o)]`}
         />
       </div>
 
