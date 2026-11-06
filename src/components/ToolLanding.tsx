@@ -18,7 +18,7 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
 }
 
 /** Outlined, slightly tilted photo card — the same language as the top banner. */
-export function PosterCard({ tilt = 0, className = "", children }: { tilt?: number; className?: string; children: React.ReactNode }) {
+export function PosterCard({ tilt = 0, delay = 0, className = "", children }: { tilt?: number; delay?: number; className?: string; children: React.ReactNode }) {
   return (
     <div data-reveal data-tilt
       className={`rounded-[1.25rem] border-4 border-foreground bg-card p-1.5 shadow-float transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] [transform:rotate(var(--tilt))] hover:[transform:rotate(0deg)_translateY(-4px)] ${className}`}
@@ -56,7 +56,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
           <ol className="mt-12 grid gap-12 sm:grid-cols-3 sm:gap-8">
             {c.steps.map((s, i) => (
               <li key={s.title} className="relative">
-                {m && <PosterCard tilt={tilts[i] ?? 0}><StepImage i={i} m={m} /></PosterCard>}
+                {m && <PosterCard tilt={tilts[i] ?? 0} delay={i * 140}><StepImage i={i} m={m} /></PosterCard>}
                 {i < 2 && <span aria-hidden className="absolute -right-6 top-[28%] hidden w-6 border-t-[3px] border-dashed border-foreground sm:block" />}
                 <div className="mt-6 flex items-baseline gap-3">
                   <span className="font-display text-5xl leading-none text-primary">0{i + 1}</span>
