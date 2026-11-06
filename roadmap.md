@@ -1,5 +1,5 @@
 # Tasks
-- [ ] Recommend backgrounds using on-device foreground colour analysis and verify selection and download.
+- [x] Recommend backgrounds using on-device foreground colour analysis and verify selection and download.
 - [x] Replace the home comparison with an emotive puppy against a messy background and check the comparison.
 - [x] Replace the product page example with a fun mug reading "not my circus, not my monkeys" and check the comparison.
 - [x] Change the signature card to a thicker handwritten "QuikEdits" and verify its transition.
