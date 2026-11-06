@@ -9,21 +9,22 @@ export function isSolidHex(c: string) {
 }
 
 /** Separable min (erode) or box-average filter over a w×h channel. */
-function pass(src: Float32Array, w: number, h: number, r: number, mode: "min" | "avg", horiz: boolean) {
+export function pass(src: Float32Array, w: number, h: number, r: number, mode: "min" | "max" | "avg", horiz: boolean) {
   const out = new Float32Array(src.length);
   const len = horiz ? w : h;
   const lines = horiz ? h : w;
   for (let l = 0; l < lines; l++) {
     for (let i = 0; i < len; i++) {
-      let acc = mode === "min" ? Infinity : 0;
+      let acc = mode === "min" ? Infinity : mode === "max" ? -Infinity : 0;
       let n = 0;
       for (let k = Math.max(0, i - r); k <= Math.min(len - 1, i + r); k++) {
         const v = src[horiz ? l * w + k : k * w + l]!;
         if (mode === "min") acc = Math.min(acc, v);
+        else if (mode === "max") acc = Math.max(acc, v);
         else acc += v;
         n++;
       }
-      out[horiz ? l * w + i : i * w + l] = mode === "min" ? acc : acc / n;
+      out[horiz ? l * w + i : i * w + l] = mode === "avg" ? acc / n : acc;
     }
   }
   return out;
