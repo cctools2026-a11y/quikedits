@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName } from "@/components/ToolPage";
@@ -5,16 +7,7 @@ import { ctx2d, makeCanvas, withOutline } from "@/lib/compose";
 import { fitContain, STICKER_SIZE } from "@/lib/tool-sizes";
 
 export const Route = createFileRoute("/sticker-maker")({
-  head: () => ({
-    meta: [
-      { title: "Free Sticker Maker — WhatsApp & Telegram Stickers from Photos" },
-      { name: "description", content: "Cut out a photo and add a sticker outline. 512 × 512 PNG or WebP for WhatsApp and Telegram. Free and private." },
-      { property: "og:title", content: "Free Photo Sticker Maker" },
-      { property: "og:description", content: "Turn photos into outlined stickers for WhatsApp and Telegram, right in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/sticker-maker"),
   component: StickerMaker,
 });
 
@@ -28,6 +21,7 @@ function StickerMaker() {
 
   return (
     <ToolPage
+      below={<ToolLanding path="/sticker-maker" />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       title={<>Turn any photo into a <span className="text-primary">sticker</span>.</>}
       intro="Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram."

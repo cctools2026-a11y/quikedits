@@ -78,8 +78,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cutout — Free Background Remover" },
-      { name: "description", content: "Free, private background removal that runs in your browser." },
+      { title: "QuikEdits — Free Photo Background Tools" },
+      { name: "description", content: "Free, private photo background tools that run in your browser." },
+      { property: "og:site_name", content: "QuikEdits" },
     ],
     links: [
       {

@@ -1,3 +1,5 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Check, Download, ImagePlus, Loader2, RotateCcw } from "lucide-react";
@@ -8,16 +10,7 @@ import { prepareImage, validateImageFile } from "@/lib/image-file";
 import { compositeOnColour, isSolidHex, PALETTE } from "@/lib/colour-background";
 
 export const Route = createFileRoute("/colour-background")({
-  head: () => ({
-    meta: [
-      { title: "Add a Colour Background to Any Photo — Free & Private" },
-      { name: "description", content: "Upload a photo, pick a solid colour and get a new background. Runs entirely in your browser — no uploads, no accounts." },
-      { property: "og:title", content: "Free Colour Background Tool" },
-      { property: "og:description", content: "Replace any photo's background with a solid colour, privately in your browser." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/colour-background"),
   component: ColourTool,
 });
 
@@ -154,6 +147,7 @@ function ColourTool() {
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
           </section>
         )}
+        {stage.kind === "idle" && <ToolLanding path="/colour-background" />}
 
         {stage.kind === "choose" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">

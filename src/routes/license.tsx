@@ -6,10 +6,10 @@ import { IMGLY_URL, SOURCE_URL } from "@/lib/site";
 export const Route = createFileRoute("/license")({
   head: () => ({
     meta: [
-      { title: "License & Source Code — Cutout" },
-      { name: "description", content: "Cutout is free software under the GNU AGPL-3.0. Attribution, licensing and source code." },
-      { property: "og:title", content: "License & Source Code — Cutout" },
-      { property: "og:description", content: "AGPL-3.0 licensing, IMG.LY attribution and full source code for Cutout." },
+      { title: "License & Source Code — QuikEdits" },
+      { name: "description", content: "QuikEdits is free software under the GNU AGPL-3.0. Attribution, licensing and source code." },
+      { property: "og:title", content: "License & Source Code — QuikEdits" },
+      { property: "og:description", content: "AGPL-3.0 licensing, IMG.LY attribution and full source code for QuikEdits." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -26,7 +26,7 @@ function LicensePage() {
         <section>
           <h2>GNU Affero General Public License v3.0</h2>
           <p>
-            Cutout is free software: you can redistribute it and/or modify it under the terms of the GNU Affero
+            QuikEdits is free software: you can redistribute it and/or modify it under the terms of the GNU Affero
             General Public License as published by the Free Software Foundation, version 3. It is distributed
             WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
             PURPOSE. See the{" "}

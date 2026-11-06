@@ -1,22 +1,15 @@
+import { toolHead } from "@/lib/seo";
+import { ToolLanding, ToolPicker } from "@/components/ToolLanding";
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Download, ImagePlus, Loader2, RotateCcw } from "lucide-react";
 import { CompareSlider } from "@/components/CompareSlider";
 import { SiteFooter } from "@/components/SiteFooter";
-import { MoreTools, SiteHeader } from "@/components/SiteHeader";
+import { SiteHeader } from "@/components/SiteHeader";
 import { prepareImage, validateImageFile } from "@/lib/image-file";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Cutout — Free Background Remover, 100% in Your Browser" },
-      { name: "description", content: "Remove image backgrounds for free. Runs entirely on your device — no uploads, no accounts, transparent PNG download." },
-      { property: "og:title", content: "Cutout — Free In-Browser Background Remover" },
-      { property: "og:description", content: "Private, free background removal that never uploads your photos." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-  }),
+  head: () => toolHead("/"),
   component: Index,
 });
 
@@ -139,8 +132,9 @@ function Index() {
           </section>
         )}
 
+        {stage.kind === "idle" && <ToolPicker />}
         {stage.kind === "idle" && <HowItsFree />}
-        {stage.kind === "idle" && <MoreTools />}
+        {stage.kind === "idle" && <ToolLanding path="/" home />}
 
         {stage.kind === "working" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
