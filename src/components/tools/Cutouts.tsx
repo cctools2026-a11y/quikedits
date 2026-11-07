@@ -66,7 +66,7 @@ function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: 
   }, [item.cutout, preset.raw, preset.tol, preset.maxSide]);
   useEffect(() => { onUrl(url); }, [url, onUrl]);
 
-  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {item.error}</p>;
+  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {t(item.error)}</p>;
   if (compact) return (
     <figure className="rounded-2xl border border-border bg-card p-3">
       <div className="checkerboard rounded-xl p-2">{url ? <img src={url} alt={item.file.name} className="mx-auto max-h-64" /> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}</div>

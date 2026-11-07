@@ -81,7 +81,7 @@ function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item:
   }, [item.cutout, colour, w, h, pad, shadow]);
   useEffect(() => { onUrl(url); }, [url, onUrl]);
 
-  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {item.error}</p>;
+  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {t(item.error)}</p>;
   return (
     <figure className="rounded-2xl border border-border bg-card p-3">
       {url ? <ZoomView><img src={url} alt={`${item.file.name} on new background`} className="w-full rounded-xl" /></ZoomView> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}
