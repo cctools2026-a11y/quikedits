@@ -30,7 +30,7 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
               <Field label={t("Strength: {n}", { n: tol })}><Range label={t("Strength")} value={tol} min={15} max={180} onChange={setTol} /></Field>
-              <p className="text-sm text-muted-foreground">Raise it if paper shadows remain; lower it if thin lines disappear.</p>
+              <p className="text-sm text-muted-foreground">{t("Raise it if paper shadows remain; lower it if thin lines disappear.")}</p>
               <Field label={t("Colour")}><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: t("Original") }, { id: "black", label: t("All black") }, { id: "white", label: t("All white") }]} /></Field>
             </aside>
             <LogoResult src={it?.cutout ?? null} name={it ? baseName(it.file) : "logo"} tol={tol} reset={reset} recolour={recolour} ink={!!preset.ink} maxWidth={preset.maxWidth} />
