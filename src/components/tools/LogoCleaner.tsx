@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -10,6 +11,7 @@ import { canDrawSignature } from "@/lib/signature-tools";
 
 
 export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [tol, setTol] = useState(preset.tol ?? 60);
   const [recolour, setRecolour] = useState<"original" | "black" | "white">(preset.recolour ?? "original");
   return (
@@ -19,17 +21,17 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
       drawSignature={canDrawSignature(page)}
       below={<ToolLanding path={page} />}
       raw
-      title={preset.title ?? <>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
-      intro={preset.intro ?? "Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."}
+      title={preset.title ?? <>{t("Transparent")} <span className="text-primary">logos &amp; signatures</span>.</>}
+      intro={preset.intro ?? t("Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download.")}
     >
       {(items, reset) => {
         const it = items[0];
         return (
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
-              <Field label={`Strength: ${tol}`}><Range label="Strength" value={tol} min={15} max={180} onChange={setTol} /></Field>
+              <Field label={t("Strength: {n}", { n: tol })}><Range label={t("Strength")} value={tol} min={15} max={180} onChange={setTol} /></Field>
               <p className="text-sm text-muted-foreground">Raise it if paper shadows remain; lower it if thin lines disappear.</p>
-              <Field label="Colour"><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: "Original" }, { id: "black", label: "All black" }, { id: "white", label: "All white" }]} /></Field>
+              <Field label={t("Colour")}><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: t("Original") }, { id: "black", label: t("All black") }, { id: "white", label: t("All white") }]} /></Field>
             </aside>
             <LogoResult src={it?.cutout ?? null} name={it ? baseName(it.file) : "logo"} tol={tol} reset={reset} recolour={recolour} ink={!!preset.ink} maxWidth={preset.maxWidth} />
           </div>
@@ -40,6 +42,7 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
 }
 
 function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: HTMLCanvasElement | null; name: string; tol: number; reset: () => void; recolour: string; ink: boolean; maxWidth?: number | undefined }) {
+  const t = useT();
   const bgColour = useMemo(() => {
     if (!src) return [255, 255, 255];
     const { width: w, height: h } = src;
@@ -63,12 +66,12 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
       if (recolour !== "original") { const v = recolour === "white" ? 255 : 0; d[p] = v; d[p + 1] = v; d[p + 2] = v; }
     }
     ctx.putImageData(img, 0, 0);
-    const t = trim(c);
-    if (!maxWidth || t.width <= maxWidth) return t;
-    const out = makeCanvas(maxWidth, Math.round((t.height / t.width) * maxWidth));
+    const trimmed = trim(c);
+    if (!maxWidth || trimmed.width <= maxWidth) return trimmed;
+    const out = makeCanvas(maxWidth, Math.round((trimmed.height / trimmed.width) * maxWidth));
     const o = ctx2d(out);
     o.imageSmoothingQuality = "high";
-    o.drawImage(t, 0, 0, out.width, out.height);
+    o.drawImage(trimmed, 0, 0, out.width, out.height);
     return out;
   }, [src, tol, bgColour, recolour, ink, maxWidth]);
 
@@ -86,8 +89,8 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
           The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.
         </p>
       )}
-      <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
-      <ResultActions url={url} name={`${name}-transparent.png`} label="Download transparent PNG" onReset={reset} />
+      <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt={t("Transparent logo")} className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
+      <ResultActions url={url} name={`${name}-transparent.png`} label={t("Download transparent PNG")} onReset={reset} />
     </div>
   );
 }

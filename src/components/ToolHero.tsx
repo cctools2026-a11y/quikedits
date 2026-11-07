@@ -4,19 +4,28 @@ import { TOOL_MEDIA } from "@/lib/tool-media";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { TOOLS, subtool } from "@/lib/tools";
+import { PT_HERO } from "@/lib/hero.pt";
+import { useLocale, useLp, useT } from "@/lib/use-i18n";
 
 /** Two-column hero: copy + upload on the left, a draggable example on the right. */
 export function ToolHero({ path, title, intro, children, example }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode; example?: ReactNode }) {
+  const t = useT();
+  const lp = useLp();
+  const pt = useLocale() === "pt" ? PT_HERO[path] : undefined;
+  if (pt) {
+    title = <>{pt[0]}<span className="text-primary">{pt[1]}</span>{pt[2]}</>;
+    intro = pt[3];
+  }
   const m = TOOL_MEDIA[path];
   const sub = subtool(path);
-  const parent = sub && TOOLS.find((t) => t.to === sub.parent);
+  const parent = sub && TOOLS.find((o) => o.to === sub.parent);
   return (
     <section className="grid items-center gap-10 overflow-x-clip pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
         {sub && parent && (
-          <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-1 text-sm font-semibold text-muted-foreground">
-            <Link to={parent.to} className="underline-offset-4 hover:text-foreground hover:underline">{parent.label}</Link>
-            <ChevronRight className="h-4 w-4" aria-hidden /><span className="text-foreground">{sub.label}</span>
+          <nav aria-label={t("Breadcrumb")} className="mb-3 flex items-center gap-1 text-sm font-semibold text-muted-foreground">
+            <Link to={lp(parent.to)} className="underline-offset-4 hover:text-foreground hover:underline">{t(parent.label)}</Link>
+            <ChevronRight className="h-4 w-4" aria-hidden /><span className="text-foreground">{t(sub.label)}</span>
           </nav>
         )}
         <h1 className="page-title">{title}</h1>
@@ -26,7 +35,7 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
       <HeroStage>{example ?? (m && (
         <figure className="settle relative mx-auto w-full max-w-md lg:max-w-none" style={{ ["--tilt" as string]: `${m.tilt}deg` }}>
           <div className="rounded-[1.75rem] border-4 border-foreground bg-card p-2.5 shadow-float">
-            <CompareSlider before={m.before} after={m.after} beforeAlt={`Example photo: ${m.subject}`} afterAlt={`Example result: ${m.subject}`} />
+            <CompareSlider before={m.before} after={m.after} beforeAlt={t("Example photo: {s}", { s: t(m.subject) })} afterAlt={t("Example result: {s}", { s: t(m.subject) })} />
           </div>
         </figure>
       ))}</HeroStage>
@@ -45,7 +54,9 @@ function HeroStage({ children }: { children: ReactNode }) {
 }
 
 export function TrustStrip() {
-  const items = ["Free forever", "Never uploaded", "No sign-up"];
+  const t = useT();
+  const items = ["Free forever", "Never uploaded", "No sign-up"].map((s) => t(s));
+
   return (
     <ul className="mt-8 flex flex-wrap gap-2">
       {items.map((label) => (

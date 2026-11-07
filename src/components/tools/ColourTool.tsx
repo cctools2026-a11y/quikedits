@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ShareButton } from "@/components/ShareButton";
@@ -23,6 +24,7 @@ type Stage =
   | { kind: "error"; message: string };
 
 export function ColourTool({ page = "/colour-background", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [file, setFile] = useState<File | null>(null);
   const [original, setOriginal] = useState<string | null>(null);
@@ -67,10 +69,10 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
       setStage({
         kind: "error",
         message: /memory|allocation/i.test(msg)
-          ? "Your device ran out of memory. Try a smaller image."
+          ? t("Your device ran out of memory. Try a smaller image.")
           : /fetch|network/i.test(msg)
-            ? "Couldn't download the AI model. Check your connection and try again."
-            : "Something went wrong. Please try again.",
+            ? t("Couldn't download the AI model. Check your connection and try again.")
+            : t("Something went wrong. Please try again."),
       });
     }
   }
@@ -111,12 +113,12 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
       {preset.brand && (
         <label className="mb-4 flex items-center gap-3 text-sm font-semibold">
           Brand colour
-          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder="#1A73E8" maxLength={7} spellCheck={false}
-            className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label="Brand colour hex code" />
+          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={t("#1A73E8")} maxLength={7} spellCheck={false}
+            className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label={t("Brand colour hex code")} />
           <span aria-hidden className="h-8 w-8 rounded-full border-2 border-foreground" style={{ backgroundColor: colour }} />
         </label>
       )}
-      <div className="flex flex-wrap gap-3" role="radiogroup" aria-label="Background colour">
+      <div className="flex flex-wrap gap-3" role="radiogroup" aria-label={t("Background colour")}>
         {PALETTE.map((c) => (
           <button
             key={c}
@@ -132,7 +134,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
           </button>
         ))}
         <label className="flex h-11 cursor-pointer items-center gap-2 rounded-full border-2 border-border px-3 text-sm font-medium">
-          <input type="color" value={colour} onChange={(e) => apply(e.target.value)} className="h-6 w-6 cursor-pointer rounded-full border-0 bg-transparent p-0" aria-label="Custom colour" />
+          <input type="color" value={colour} onChange={(e) => apply(e.target.value)} className="h-6 w-6 cursor-pointer rounded-full border-0 bg-transparent p-0" aria-label={t("Custom colour")} />
           Custom
         </label>
       </div>
@@ -145,7 +147,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path={page} title={preset.title ?? <>Put any photo on a <span className="text-primary">solid colour</span>.</>} intro={preset.intro ?? "Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser."}>
+          <ToolHero path={page} title={preset.title ?? <>{t("Put any photo on a")} <span className="text-primary">{"solid colour"}</span>.</>} intro={preset.intro ?? t("Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.")}>
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
           </ToolHero>
@@ -155,26 +157,26 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
         {stage.kind === "choose" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
-            <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain" />
+            <img src={original} alt={t("Your image")} className="max-h-[60vh] w-full rounded-2xl border border-border object-contain" />
             <div>
-              <h2 className="font-display text-2xl font-semibold">Choose a background colour</h2>
-              <p className="mt-1 mb-5 text-sm text-muted-foreground">Tap a colour to start.</p>
+              <h2 className="font-display text-2xl font-semibold">{t("Choose a background colour")}</h2>
+              <p className="mt-1 mb-5 text-sm text-muted-foreground">{t("Tap a colour to start.")}</p>
               {palette}
-              <button onClick={reset} className="mt-6 text-sm text-muted-foreground underline underline-offset-2">Choose a different photo</button>
+              <button onClick={reset} className="mt-6 text-sm text-muted-foreground underline underline-offset-2">{t("Choose a different photo")}</button>
             </div>
           </section>
         )}
 
         {stage.kind === "working" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
-            <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
+            <img src={original} alt={t("Your image")} className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
-                {stage.phase === "download" ? "Downloading AI model" : "Removing background"}
+                {stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {stage.phase === "download" ? "First time only — it's cached for next time." : "Then adding your colour…"}
+                {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Then adding your colour…")}
               </p>
               <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-muted">
                 <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${stage.pct}%` }} />
@@ -186,11 +188,11 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
-            <h2 className="font-display text-2xl font-semibold">That didn't work</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
             <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
             <div className="mt-6 flex justify-center gap-3">
-              {file && <button onClick={() => apply(colour)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">Try again</button>}
-              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">New image</button>
+              {file && <button onClick={() => apply(colour)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>}
+              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
             </div>
           </section>
         )}
@@ -207,16 +209,16 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
             )}
             <ZoomView><CompareSlider before={original} after={result} /></ZoomView>
             <div className="mt-6">
-              <p className="mb-3 text-sm font-medium">Try another colour</p>
+              <p className="mb-3 text-sm font-medium">{t("Try another colour")}</p>
               {palette}
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href={result} download={downloadName} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01]">
-                <Download className="h-5 w-5" /> Download PNG
+                <Download className="h-5 w-5" /> {t("Download PNG")}
               </a>
               <ShareButton url={result} name={downloadName} />
               <button onClick={reset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
-                <RotateCcw className="h-4 w-4" /> New image
+                <RotateCcw className="h-4 w-4" /> {t("New image")}
               </button>
             </div>
           </section>

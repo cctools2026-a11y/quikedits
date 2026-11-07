@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { RotateCcw, RotateCw } from "lucide-react";
 import { prepareImage } from "@/lib/image-file";
@@ -11,6 +12,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
   file: File; aspects: CropAspect[]; heading?: string | undefined;
   onDone: (f: File) => void; onSkip: () => void; onSkipAll?: (() => void) | undefined;
 }) {
+  const t = useT();
   const [bmp, setBmp] = useState<ImageBitmap | null>(null);
   const [quarter, setQuarter] = useState(0);
   const [fine, setFine] = useState(0);
@@ -94,20 +96,20 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
       <aside className="space-y-6">
         <div>
           <h2 className="font-display text-2xl font-semibold">Crop &amp; straighten</h2>
-          <p className="mt-1 text-sm text-muted-foreground">{heading ?? "Drag the box to frame your photo."}</p>
+          <p className="mt-1 text-sm text-muted-foreground">{heading ?? t("Drag the box to frame your photo.")}</p>
         </div>
-        <Field label="Rotate">
+        <Field label={t("Rotate")}>
           <div className="flex gap-2">
-            <button type="button" onClick={() => setQuarter((q) => (q + 3) % 4)} className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm hover:bg-accent"><RotateCcw className="h-4 w-4" /> Left</button>
-            <button type="button" onClick={() => setQuarter((q) => (q + 1) % 4)} className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm hover:bg-accent"><RotateCw className="h-4 w-4" /> Right</button>
+            <button type="button" onClick={() => setQuarter((q) => (q + 3) % 4)} className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm hover:bg-accent"><RotateCcw className="h-4 w-4" /> {t("Left")}</button>
+            <button type="button" onClick={() => setQuarter((q) => (q + 1) % 4)} className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm hover:bg-accent"><RotateCw className="h-4 w-4" /> {t("Right")}</button>
           </div>
         </Field>
-        <Field label={`Straighten: ${fine > 0 ? "+" : ""}${fine}°`}><Range label="Straighten" value={fine} min={-15} max={15} step={0.5} onChange={setFine} /></Field>
-        {aspects.length > 1 && <Field label="Crop shape"><Choice value={aspectId} onChange={setAspectId} options={aspects} /></Field>}
+        <Field label={`Straighten: ${fine > 0 ? "+" : ""}${fine}°`}><Range label={t("Straighten")} value={fine} min={-15} max={15} step={0.5} onChange={setFine} /></Field>
+        {aspects.length > 1 && <Field label={t("Crop shape")}><Choice value={aspectId} onChange={setAspectId} options={aspects} /></Field>}
         <div className="flex flex-col gap-2">
-          <button type="button" onClick={apply} disabled={!bmp} className="rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground disabled:opacity-50">Continue</button>
-          <button type="button" onClick={onSkip} className="rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">Use as is</button>
-          {onSkipAll && <button type="button" onClick={onSkipAll} className="text-sm text-muted-foreground underline">Skip the rest</button>}
+          <button type="button" onClick={apply} disabled={!bmp} className="rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground disabled:opacity-50">{t("Continue")}</button>
+          <button type="button" onClick={onSkip} className="rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">{t("Use as is")}</button>
+          {onSkipAll && <button type="button" onClick={onSkipAll} className="text-sm text-muted-foreground underline">{t("Skip the rest")}</button>}
         </div>
       </aside>
     </section>

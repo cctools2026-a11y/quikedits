@@ -1,7 +1,9 @@
+import { useT } from "@/lib/use-i18n";
 import { useZoomed } from "@/components/ZoomView";
 import { useCallback, useRef, useState } from "react";
 
 export function CompareSlider({ before, after, afterAlt = "Background removed", beforeAlt = "Original" }: { before: string; after: string; afterAlt?: string; beforeAlt?: string }) {
+  const t = useT();
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -34,14 +36,14 @@ export function CompareSlider({ before, after, afterAlt = "Background removed", 
         className="absolute inset-0 h-full w-full object-contain bg-background"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
       />
-      <span className="absolute left-3 top-3 rounded-full bg-foreground/80 px-2.5 py-1 text-xs font-medium text-background">Before</span>
-      <span className="absolute right-3 top-3 rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground">After</span>
+      <span className="absolute left-3 top-3 rounded-full bg-foreground/80 px-2.5 py-1 text-xs font-medium text-background">{t("Before")}</span>
+      <span className="absolute right-3 top-3 rounded-full bg-primary px-2.5 py-1 text-xs font-medium text-primary-foreground">{t("After")}</span>
       <div className="no-pan absolute inset-y-0" style={{ left: `${pos}%` }}>
         <div className="absolute inset-y-0 -ml-px w-0.5 bg-primary" />
         <button
           type="button"
           role="slider"
-          aria-label="Before and after comparison"
+          aria-label={t("Before and after comparison")}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(pos)}

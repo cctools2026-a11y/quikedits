@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { GRADIENTS, gradientCanvas, gradientCss } from "@/lib/gradients";
 import { ZoomView } from "@/components/ZoomView";
@@ -13,13 +14,14 @@ import { prepareImage, validateImageFile } from "@/lib/image-file";
 
 
 export function PhotoBackground({ page = "/photo-background", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   return (
     <ToolPage
       tool="/photo-background"
       page={page}
       below={<ToolLanding path={page} />}
-      title={preset.title ?? <>Put yourself <span className="text-primary">anywhere</span>.</>}
-      intro={preset.intro ?? "Upload your photo, then pick a playful background or add your own picture."}
+      title={preset.title ?? <>{t("Put yourself")} <span className="text-primary">{"anywhere"}</span>.</>}
+      intro={preset.intro ?? t("Upload your photo, then pick a playful background or add your own picture.")}
     >
       {(items, reset) => preset.blur
         ? <BlurResult full={items[0]?.full ?? null} source={items[0]?.source ?? null} name={items[0] ? baseName(items[0].file) : "photo"} reset={reset} />
@@ -29,6 +31,7 @@ export function PhotoBackground({ page = "/photo-background", preset = {} }: { p
 }
 
 function BlurResult({ full, source, name, reset }: { full: HTMLCanvasElement | null; source: HTMLCanvasElement | null; name: string; reset: () => void }) {
+  const t = useT();
   const [amount, setAmount] = useState(12);
   const url = useRenderedUrl(() => {
     if (!full || !source) return null;
@@ -45,18 +48,19 @@ function BlurResult({ full, source, name, reset }: { full: HTMLCanvasElement | n
   return (
     <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
-        <Field label={`Blur: ${amount}`}><Range label="Blur amount" value={amount} min={2} max={40} onChange={setAmount} /></Field>
-        <p className="text-sm text-muted-foreground">Your subject stays sharp while the scene behind softens, like a portrait camera.</p>
+        <Field label={t("Blur: {n}", { n: amount })}><Range label={t("Blur amount")} value={amount} min={2} max={40} onChange={setAmount} /></Field>
+        <p className="text-sm text-muted-foreground">{t("Your subject stays sharp while the scene behind softens, like a portrait camera.")}</p>
       </aside>
       <div>
-        {url ? <ZoomView><img src={url} alt="Photo with blurred background" className="w-full rounded-2xl border border-border" /></ZoomView> : <div className="aspect-[4/3] animate-pulse rounded-2xl bg-muted" />}
-        <ResultActions url={url} name={`${name}-blurred.jpg`} label="Download photo" onReset={reset} />
+        {url ? <ZoomView><img src={url} alt={t("Photo with blurred background")} className="w-full rounded-2xl border border-border" /></ZoomView> : <div className="aspect-[4/3] animate-pulse rounded-2xl bg-muted" />}
+        <ResultActions url={url} name={`${name}-blurred.jpg`} label={t("Download photo")} onReset={reset} />
       </div>
     </div>
   );
 }
 
 function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null; name: string; reset: () => void; preset: Preset }) {
+  const t = useT();
   const choices = useMemo(() => [
     ...(preset.gradients ? GRADIENTS.map((g) => ({ id: g.id, name: g.name, src: "", css: gradientCss(g.stops), colour: [0, 0, 0] as const, stops: g.stops })) : []),
     ...BACKGROUND_PRESETS.filter((b) => !preset.backdrops || preset.backdrops.includes(b.id)).map((b) => ({ ...b, css: "", stops: null })),
@@ -98,7 +102,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
       setBackdrop(canvas);
       setSelected(id);
     } catch {
-      if (token === request.current) setErr("Couldn't open that background. Please try again.");
+      if (token === request.current) setErr(t("Couldn't open that background. Please try again."));
     } finally {
       if (token === request.current) setLoading(false);
     }
@@ -127,41 +131,41 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
   return (
     <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
-        {suggested && <section aria-label="Background recommendation" className="space-y-2 border-b border-border pb-5">
-          <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> Suggested: {suggested.name}</h2>
-          <p className="text-sm text-muted-foreground">{suggested.reason}</p>
+        {suggested && <section aria-label={t("Background recommendation")} className="space-y-2 border-b border-border pb-5">
+          <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> {t("Suggested: {s}", { s: t(suggested.name) })}</h2>
+          <p className="text-sm text-muted-foreground">{t(suggested.reason)}</p>
           <Button onClick={() => void applyPreset(suggested)} disabled={loading} className="w-full">
-            <Check /> Apply suggested background
+            <Check /> {t("Apply suggested background")}
           </Button>
         </section>}
         <div>
-          <h2 className="font-display mb-3 text-lg font-semibold">Pick a background</h2>
-          <div className="grid grid-cols-3 gap-2" role="group" aria-label="Playful background presets">
+          <h2 className="font-display mb-3 text-lg font-semibold">{t("Pick a background")}</h2>
+          <div className="grid grid-cols-3 gap-2" role="group" aria-label={t("Playful background presets")}>
             {choices.map((preset) => (
-              <Button key={preset.id} variant="outline" aria-label={`Apply ${preset.name} background`} aria-pressed={selected === preset.id}
+              <Button key={preset.id} variant="outline" aria-label={t("Apply {s} background", { s: t(preset.name) })} aria-pressed={selected === preset.id}
                 className="relative h-auto flex-col gap-0 overflow-hidden p-0 whitespace-normal aria-pressed:border-primary aria-pressed:ring-2 aria-pressed:ring-primary"
                 onClick={() => void applyPreset(preset)}>
                 {preset.stops ? <span className="block aspect-square w-full" style={{ backgroundImage: preset.css }} /> : <img src={preset.src} alt="" width={1024} height={1024} loading="lazy" className="aspect-square w-full object-cover" />}
-                <span className="py-2 text-xs">{preset.name}</span>
+                <span className="py-2 text-xs">{t(preset.name)}</span>
                 {selected === preset.id && <span className="absolute right-1 top-1 rounded-full bg-primary p-1 text-primary-foreground"><Check /></span>}
               </Button>
             ))}
           </div>
         </div>
         <Button variant="outline" onClick={() => ref.current?.click()} className="h-auto w-full rounded-full px-4 py-3 whitespace-normal">
-          <ImagePlus className="h-4 w-4" /> {backdrop ? "Change background photo" : "Choose background photo"}
+          <ImagePlus className="h-4 w-4" /> {backdrop ? t("Change background photo") : t("Choose background photo")}
         </Button>
         <input ref={ref} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { void pickBackdrop(e.target.files?.[0]); e.target.value = ""; }} />
         {err && <p role="alert" className="text-sm text-destructive">{err}</p>}
-        {loading && <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> Opening background…</p>}
-        <Field label={`Size: ${scale}%`}><Range label="Size" value={scale} min={10} max={120} onChange={setScale} /></Field>
-        <Field label="Left / right"><Range label="Horizontal position" value={x} min={0} max={100} onChange={setX} /></Field>
-        <Field label="Up / down"><Range label="Vertical position" value={y} min={0} max={100} onChange={setY} /></Field>
+        {loading && <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> {t("Opening background…")}</p>}
+        <Field label={t("Size: {n}%", { n: scale })}><Range label={t("Size")} value={scale} min={10} max={120} onChange={setScale} /></Field>
+        <Field label={t("Left / right")}><Range label={t("Horizontal position")} value={x} min={0} max={100} onChange={setX} /></Field>
+        <Field label={t("Up / down")}><Range label={t("Vertical position")} value={y} min={0} max={100} onChange={setY} /></Field>
       </aside>
       <div>
-        {url ? <ZoomView><img src={url} alt="Combined photo" className="w-full rounded-2xl border border-border" /></ZoomView> : (
+        {url ? <ZoomView><img src={url} alt={t("Combined photo")} className="w-full rounded-2xl border border-border" /></ZoomView> : (
           <div className="checkerboard flex min-h-64 items-center justify-center rounded-2xl p-6">
-            {cut && <img src={cut.toDataURL()} alt="Your cutout" className="max-h-80" />}
+            {cut && <img src={cut.toDataURL()} alt={t("Your cutout")} className="max-h-80" />}
           </div>
         )}
         <ResultActions url={loading ? null : url} name={`${name}-new-background.png`} onReset={reset} />

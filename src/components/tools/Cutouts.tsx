@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { useEffect } from "react";
 import { Download } from "lucide-react";
@@ -12,6 +13,7 @@ import { alphaForDistance } from "@/lib/tool-sizes";
 
 /** Transparent cut-outs for one or many photos, with optional AI-free mode for flat graphics. */
 export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }) {
+  const t = useT();
   return (
     <ToolPage
       tool="/"
@@ -19,8 +21,8 @@ export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }
       raw={!!preset.raw}
       multiple={!!preset.multiple}
       below={<ToolLanding path={page} />}
-      title={preset.title ?? "Remove the background"}
-      intro={preset.intro ?? "Upload a photo and get a transparent PNG."}
+      title={preset.title ?? t("Remove the background")}
+      intro={preset.intro ?? t("Upload a photo and get a transparent PNG.")}
     >
       {(items, reset) => {
         const names = uniqueNames(items.map((x) => `${baseName(x.file)}-cutout.png`));
@@ -31,6 +33,7 @@ export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }
 }
 
 function CutoutList({ items, names, reset, preset }: { items: Item[]; names: string[]; reset: () => void; preset: Preset }) {
+  const t = useT();
   const [urls, report] = useUrlMap();
   if (items.length === 1) return <One item={items[0]!} name={names[0]!} preset={preset} onUrl={() => {}} reset={reset} />;
   return (
@@ -40,13 +43,14 @@ function CutoutList({ items, names, reset, preset }: { items: Item[]; names: str
       </div>
       <div className="mt-6 space-y-3">
         <ZipButton files={items.map((_, i) => ({ url: urls[i] ?? null, name: names[i]! }))} name="cutouts.zip" />
-        <button onClick={reset} className="w-full rounded-full border border-border px-6 py-3 font-medium hover:bg-accent">New images</button>
+        <button onClick={reset} className="w-full rounded-full border border-border px-6 py-3 font-medium hover:bg-accent">{t("New images")}</button>
       </div>
     </div>
   );
 }
 
 function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: string; preset: Preset; onUrl: (u: string | null) => void; reset?: (() => void) | undefined; compact?: boolean }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     let cut = item.cutout;
     if (!cut) return null;
@@ -68,15 +72,15 @@ function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: 
       <div className="checkerboard rounded-xl p-2">{url ? <img src={url} alt={item.file.name} className="mx-auto max-h-64" /> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}</div>
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
-        <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground"><Download className="h-4 w-4" /> PNG</a>
+        <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground"><Download className="h-4 w-4" /> {t("PNG")}</a>
         <ShareButton compact url={url} name={name} />
       </figcaption>
     </figure>
   );
   return (
     <div>
-      <div className="checkerboard rounded-2xl p-4">{url && <ZoomView><img src={url} alt="Your cut-out" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
-      <ResultActions url={url} name={name} label="Download transparent PNG" {...(reset ? { onReset: reset } : {})} />
+      <div className="checkerboard rounded-2xl p-4">{url && <ZoomView><img src={url} alt={t("Your cut-out")} className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
+      <ResultActions url={url} name={name} label={t("Download transparent PNG")} {...(reset ? { onReset: reset } : {})} />
     </div>
   );
 }

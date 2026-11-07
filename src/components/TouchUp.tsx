@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useRef, useState } from "react";
 import { Minus, Plus, Undo2 } from "lucide-react";
 import { ctx2d, makeCanvas, suggestionOverlay } from "@/lib/compose";
@@ -7,6 +8,7 @@ import { Field, Range } from "@/components/ToolPage";
 export function TouchUp({ cut, source, onDone, onCancel }: {
   cut: HTMLCanvasElement; source: HTMLCanvasElement; onDone: (c: HTMLCanvasElement) => void; onCancel: () => void;
 }) {
+  const t = useT();
   const work = useRef<HTMLCanvasElement>(null as unknown as HTMLCanvasElement);
   const view = useRef<HTMLCanvasElement>(null);
   const history = useRef<ImageData[]>([]);
@@ -103,30 +105,30 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
       </div>
       <aside className="space-y-5">
         <div>
-          <h2 className="font-display text-xl font-semibold">Touch up</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Paint “Keep” on anything that should stay, “Remove” on anything that should go. The faded parts are what was removed.</p>
+          <h2 className="font-display text-xl font-semibold">{t("Touch up")}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{t("Paint “Keep” on anything that should stay, “Remove” on anything that should go. The faded parts are what was removed.")}</p>
         </div>
         {overlay.current && (
           <div className="rounded-xl bg-accent p-3 text-sm text-accent-foreground">
-            <p><span className="font-semibold">Red</span>: probably leftover background. Paint Remove.</p>
-            <p className="mt-1"><span className="font-semibold">Green</span>: gaps inside your subject. Paint Keep if they should be filled.</p>
-            <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} className="accent-primary" /> Show suggestions</label>
+            <p><span className="font-semibold">{t("Red")}</span>{t(": probably leftover background. Paint Remove.")}</p>
+            <p className="mt-1"><span className="font-semibold">{t("Green")}</span>{t(": gaps inside your subject. Paint Keep if they should be filled.")}</p>
+            <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={hints} onChange={(e) => setHints(e.target.checked)} className="accent-primary" /> {t("Show suggestions")}</label>
           </div>
         )}
         <div className="flex gap-2">
-          <button type="button" aria-pressed={mode === "keep"} onClick={() => setMode("keep")} className={btn(mode === "keep")}>Keep</button>
-          <button type="button" aria-pressed={mode === "remove"} onClick={() => setMode("remove")} className={btn(mode === "remove")}>Remove</button>
+          <button type="button" aria-pressed={mode === "keep"} onClick={() => setMode("keep")} className={btn(mode === "keep")}>{t("Keep")}</button>
+          <button type="button" aria-pressed={mode === "remove"} onClick={() => setMode("remove")} className={btn(mode === "remove")}>{t("Remove")}</button>
         </div>
-        <Field label={`Brush size: ${size}`}><Range label="Brush size" value={size} min={5} max={120} onChange={setSize} /></Field>
+        <Field label={t("Brush size: {n}", { n: size })}><Range label={t("Brush size")} value={size} min={5} max={120} onChange={setSize} /></Field>
         <div className="flex flex-wrap gap-2">
-          <button type="button" aria-label="Zoom out" onClick={() => setZoom((z) => Math.max(1, z - 0.5))} className={btn(false)}><Minus className="h-4 w-4" /></button>
-          <button type="button" aria-label="Zoom in" onClick={() => setZoom((z) => Math.min(4, z + 0.5))} className={btn(false)}><Plus className="h-4 w-4" /></button>
-          <button type="button" onClick={undo} disabled={!history.current.length} className={`${btn(false)} flex items-center gap-1.5 disabled:opacity-50`}><Undo2 className="h-4 w-4" /> Undo</button>
-          <button type="button" onClick={resetAll} className={btn(false)}>Reset</button>
+          <button type="button" aria-label={t("Zoom out")} onClick={() => setZoom((z) => Math.max(1, z - 0.5))} className={btn(false)}><Minus className="h-4 w-4" /></button>
+          <button type="button" aria-label={t("Zoom in")} onClick={() => setZoom((z) => Math.min(4, z + 0.5))} className={btn(false)}><Plus className="h-4 w-4" /></button>
+          <button type="button" onClick={undo} disabled={!history.current.length} className={`${btn(false)} flex items-center gap-1.5 disabled:opacity-50`}><Undo2 className="h-4 w-4" /> {t("Undo")}</button>
+          <button type="button" onClick={resetAll} className={btn(false)}>{t("Reset")}</button>
         </div>
         <div className="flex flex-col gap-2">
-          <button type="button" onClick={() => onDone(work.current)} className="rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground">Done</button>
-          <button type="button" onClick={onCancel} className="rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">Cancel</button>
+          <button type="button" onClick={() => onDone(work.current)} className="rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground">{t("Done")}</button>
+          <button type="button" onClick={onCancel} className="rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">{t("Cancel")}</button>
         </div>
       </aside>
     </div>

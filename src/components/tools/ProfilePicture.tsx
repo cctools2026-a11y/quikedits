@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -14,6 +15,7 @@ const RINGS = [{ id: "none", label: "None" }, { id: "#FFFFFF", label: "White" },
 const SHAPES = [{ id: "circle", label: "Circle" }, { id: "square", label: "Square" }] as const;
 
 export function ProfilePicture({ page = "/profile-picture", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [colour, setColour] = useState(preset.colour ?? "#3B82F6");
   const [shape, setShape] = useState<"circle" | "square">(preset.shape ?? "circle");
   const [zoom, setZoom] = useState(90);
@@ -26,9 +28,9 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
       multiple={!!preset.multiple}
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
-      title={preset.title ?? <>A sharp <span className="text-primary">profile picture</span> in seconds.</>}
-      intro={preset.intro ?? "Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages."}
+      crop={[{ id: "square", label: t("Square"), ratio: 1 }, { id: "free", label: t("Free"), ratio: null }]}
+      title={preset.title ?? <>{t("A sharp")} <span className="text-primary">{"profile picture"}</span> {t("in seconds.")}</>}
+      intro={preset.intro ?? t("Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages.")}
     >
       {(items, reset) => {
         const it = items[0];
@@ -36,10 +38,10 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
         return (
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
-              <Field label="Background colour"><ColourSwatches value={colour} onChange={setColour} /></Field>
-              <Field label="Shape"><Choice value={shape} onChange={setShape} options={SHAPES} /></Field>
-              <Field label={`Size of person: ${zoom}%`}><Range label="Zoom" value={zoom} min={50} max={150} onChange={setZoom} /></Field>
-              {shape === "circle" && <Field label="Outline ring"><Choice value={ring} onChange={setRing} options={RINGS} /></Field>}
+              <Field label={t("Background colour")}><ColourSwatches value={colour} onChange={setColour} /></Field>
+              <Field label={t("Shape")}><Choice value={shape} onChange={setShape} options={SHAPES.map((o) => ({ ...o, label: t(o.label) }))} /></Field>
+              <Field label={t("Size of person: {n}%", { n: zoom })}><Range label={t("Zoom")} value={zoom} min={50} max={150} onChange={setZoom} /></Field>
+              {shape === "circle" && <Field label={t("Outline ring")}><Choice value={ring} onChange={setRing} options={RINGS.map((o) => ({ ...o, label: t(o.label) }))} /></Field>}
             </aside>
             {preset.multiple && items.length > 1 ? (
               <div>
@@ -49,7 +51,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
                 </div>
                 <div className="mt-6 space-y-3">
                   <ZipButton files={items.map((_, i) => ({ url: urls[i] ?? null, name: names[i]! }))} name="team-headshots.zip" />
-                  <button onClick={reset} className="w-full rounded-full border border-border px-6 py-3 font-medium hover:bg-accent">New photos</button>
+                  <button onClick={reset} className="w-full rounded-full border border-border px-6 py-3 font-medium hover:bg-accent">{t("New photos")}</button>
                 </div>
               </div>
             ) : <ProfileResult cut={it?.cutout ?? null} name={names[0] ?? "profile.png"} {...{ colour, shape, zoom, ring, reset }} />}
@@ -61,6 +63,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
 }
 
 function ProfileResult({ cut, name, colour, shape, zoom, ring, reset, compact, onUrl }: { cut: HTMLCanvasElement | null; name: string; colour: string; shape: string; zoom: number; ring: string; reset: () => void; compact?: boolean; onUrl?: (u: string | null) => void }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     if (!cut) return null;
     const S = PROFILE_SIZE;
@@ -92,7 +95,7 @@ function ProfileResult({ cut, name, colour, shape, zoom, ring, reset, compact, o
   return (
     <div>
       <div className="checkerboard mx-auto max-w-md rounded-2xl p-4">
-        {url && <ZoomView><img src={url} alt="Profile picture" className="w-full" /></ZoomView>}
+        {url && <ZoomView><img src={url} alt={t("Profile picture")} className="w-full" /></ZoomView>}
       </div>
       <ResultActions url={url} name={name} onReset={reset} />
     </div>

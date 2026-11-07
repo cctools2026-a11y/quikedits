@@ -1,9 +1,11 @@
+import { useT } from "@/lib/use-i18n";
 import { Check } from "lucide-react";
 import { PALETTE } from "@/lib/colour-background";
 
 export function ColourSwatches({ value, onChange, colours = PALETTE }: { value: string; onChange: (c: string) => void; colours?: readonly string[] }) {
+  const t = useT();
   return (
-    <div className="flex flex-wrap gap-2.5" role="radiogroup" aria-label="Background colour">
+    <div className="flex flex-wrap gap-2.5" role="radiogroup" aria-label={t("Background colour")}>
       {colours.map((c) => (
         <button
           key={c}
@@ -19,7 +21,7 @@ export function ColourSwatches({ value, onChange, colours = PALETTE }: { value: 
         </button>
       ))}
       <label className="flex h-10 cursor-pointer items-center gap-2 rounded-full border-2 border-border px-3 text-sm font-medium">
-        <input type="color" value={value} onChange={(e) => onChange(e.target.value)} className="h-6 w-6 cursor-pointer border-0 bg-transparent p-0" aria-label="Custom colour" />
+        <input type="color" value={value} onChange={(e) => onChange(e.target.value)} className="h-6 w-6 cursor-pointer border-0 bg-transparent p-0" aria-label={t("Custom colour")} />
         Custom
       </label>
     </div>

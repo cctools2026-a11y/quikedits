@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -15,6 +16,7 @@ import { fitContain, PRODUCT_SIZES } from "@/lib/tool-sizes";
 type SizeId = (typeof PRODUCT_SIZES)[number]["id"];
 
 export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [colour, setColour] = useState(preset.colour ?? "#FFFFFF");
   const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "square");
   const [pad, setPad] = useState(preset.pad ?? 8);
@@ -27,22 +29,22 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
       tool="/product-photo"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
+      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       multiple
-      title={preset.title ?? <>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}
-      intro={preset.intro ?? "Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."}
+      title={preset.title ?? <>{t("Product photos on")} <span className="text-primary">{"clean white"}</span>{t(", ready to list.")}</>}
+      intro={preset.intro ?? t("Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify.")}
     >
       {(items, reset) => { const names = uniqueNames(items.map((x) => `${baseName(x.file)}-product.png`)); return (
         <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[280px_1fr]">
           <aside className="space-y-6">
-            <Field label="Background"><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
-            <Field label="Size">
-              <Choice value={sizeId} onChange={setSizeId} options={PRODUCT_SIZES.map((s) => ({ id: s.id, label: s.label }))} />
+            <Field label={t("Background")}><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
+            <Field label={t("Size")}>
+              <Choice value={sizeId} onChange={setSizeId} options={PRODUCT_SIZES.map((s) => ({ id: s.id, label: t(s.label) }))} />
             </Field>
-            <Field label={`Space around product: ${pad}%`}><Range label="Padding" value={pad} min={0} max={25} onChange={setPad} /></Field>
-            <Field label="Shadow"><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: "None" }, { id: "on", label: "Soft shadow" }]} /></Field>
+            <Field label={t("Space around product: {n}%", { n: pad })}><Range label={t("Padding")} value={pad} min={0} max={25} onChange={setPad} /></Field>
+            <Field label={t("Shadow")}><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: t("None") }, { id: "on", label: t("Soft shadow") }]} /></Field>
             <ZipButton files={items.map((_, i) => ({ url: urls[i] ?? null, name: names[i]! }))} name="product-photos.zip" />
-            <button onClick={reset} className="w-full rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">New images</button>
+            <button onClick={reset} className="w-full rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">{t("New images")}</button>
           </aside>
           <div className="grid gap-6 sm:grid-cols-2">
             {items.map((it, i) => <ProductResult key={i} item={it} name={names[i]!} colour={colour} w={size.w} h={size.h} pad={pad} shadow={shadow === "on"} onUrl={(u) => report(i, u)} />)}
@@ -54,6 +56,7 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
 }
 
 function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item: Item; name: string; colour: string; w: number; h: number; pad: number; shadow: boolean; onUrl: (u: string | null) => void }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     const cut = item.cutout;
     if (!cut) return null;
@@ -85,7 +88,7 @@ function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item:
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
         <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
-          <Download className="h-4 w-4" /> PNG
+          <Download className="h-4 w-4" /> {t("PNG")}
         </a>
         <ShareButton compact url={url} name={name} />
       </figcaption>

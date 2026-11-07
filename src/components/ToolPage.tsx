@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ShareButton } from "@/components/ShareButton";
 import { Download, Loader2, RotateCcw } from "lucide-react";
@@ -41,6 +42,7 @@ export function ToolPage({
   below?: ReactNode;
   example?: ReactNode;
 }) {
+  const t = useT();
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [items, setItems] = useState<Item[]>([]);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -132,15 +134,15 @@ export function ToolPage({
 
         {stage.kind === "working" && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
-            <img src={items[stage.index]?.original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
+            <img src={items[stage.index]?.original} alt={t("Your image")} className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
-                {raw ? "Preparing image" : stage.phase === "download" ? "Downloading AI model" : "Removing background"}
+                {raw ? t("Preparing image") : stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 {stage.total > 1 && `Image ${stage.index + 1} of ${stage.total} · `}
-                {stage.phase === "download" ? "First time only — it's cached for next time." : "Working on your device…"}
+                {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Working on your device…")}
               </p>
               {!raw && (
                 <>
@@ -156,11 +158,11 @@ export function ToolPage({
 
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
-            <h2 className="font-display text-2xl font-semibold">That didn't work</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
             <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
             <div className="mt-6 flex justify-center gap-3">
-              <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">Try again</button>
-              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">New image</button>
+              <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>
+              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
             </div>
           </section>
         )}
@@ -201,6 +203,7 @@ export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unk
 }
 
 export function ResultActions({ url, name, onReset, label = "Download PNG" }: { url: string | null; name: string; onReset?: () => void; label?: string }) {
+  const t = useT();
   return (
     <div className="result-actions sticky bottom-3 z-20 mt-6 flex flex-col gap-3 sm:static sm:flex-row">
       <a
@@ -214,7 +217,7 @@ export function ResultActions({ url, name, onReset, label = "Download PNG" }: { 
       <ShareButton url={url} name={name} />
       {onReset && (
         <button onClick={onReset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
-          <RotateCcw className="h-4 w-4" /> New image
+          <RotateCcw className="h-4 w-4" /> {t("New image")}
         </button>
       )}
     </div>
