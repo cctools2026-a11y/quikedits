@@ -7,7 +7,7 @@ import { EN_PATHS, localePath } from "@/lib/i18n";
 import { PT_UI } from "@/lib/strings/pt";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 
-const BASE = process.env.PT_TEST_URL ?? "http://localhost:8080";
+const BASE = process.env["PT_TEST_URL"] ?? "http://localhost:8080";
 const up = await fetch(BASE, { signal: AbortSignal.timeout(3000) }).then((r) => r.ok, () => false);
 
 const norm = (s: string) => s.replace(/\s+/g, " ").trim().toLowerCase();
