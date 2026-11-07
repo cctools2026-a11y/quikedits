@@ -60,9 +60,9 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
         <nav aria-label={t("Language")} className="flex rounded-full border-2 border-foreground bg-card p-0.5 text-xs font-bold">
-          {(["en", "pt"] as const).map((l) => (
+          {(["en", "pt", "es"] as const).map((l) => (
             <Link key={l} to={localePath(path, l) as RoutePath} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}
-              aria-label={l === "en" ? "English" : "Português"}
+              aria-label={{ en: "English", pt: "Português", es: "Español" }[l]}
               className={`rounded-full px-2.5 py-1 uppercase transition-colors ${l === locale ? "bg-foreground text-background" : "hover:bg-accent"}`}>{l}</Link>
           ))}
         </nav>

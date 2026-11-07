@@ -1,13 +1,14 @@
 // Pure locale/path helpers. No "@/" imports: vite.config.ts imports this file for prerendering.
 
-export type Locale = "en" | "pt";
-export const LOCALES: readonly Locale[] = ["en", "pt"];
+export type Locale = "en" | "pt" | "es";
+export const LOCALES: readonly Locale[] = ["en", "pt", "es"];
 export const SITE_URL = "https://quikedits.com";
 
 /** hreflang code and URL prefix per locale. Add "pt-BR" -> "/pt/br" here later. */
 export const LOCALE_INFO: Record<Locale, { hreflang: string; prefix: string; ogLocale: string; htmlLang: string }> = {
   en: { hreflang: "en", prefix: "", ogLocale: "en_US", htmlLang: "en" },
   pt: { hreflang: "pt", prefix: "/pt", ogLocale: "pt_BR", htmlLang: "pt" },
+  es: { hreflang: "es", prefix: "/es", ogLocale: "es_LA", htmlLang: "es" },
 };
 
 /** Every English page path and its Portuguese slug (empty string = /pt/). */
@@ -66,23 +67,81 @@ export const PT_SLUGS = {
 export type EnPath = keyof typeof PT_SLUGS;
 export const EN_PATHS = Object.keys(PT_SLUGS) as EnPath[];
 
+/** Every English page path and its Spanish slug (empty string = /es/). */
+export const ES_SLUGS: Record<EnPath, string> = {
+  "/": "",
+  "/license": "licencia",
+  "/colour-background": "fondo-de-color",
+  "/product-photo": "foto-de-producto",
+  "/passport-photo": "foto-para-pasaporte",
+  "/profile-picture": "foto-de-perfil",
+  "/sticker-maker": "crear-stickers",
+  "/photo-background": "cambiar-fondo-de-foto",
+  "/logo-cleaner": "logo-y-firma-sin-fondo",
+  "/white-background": "fondo-blanco",
+  "/amazon-product-photo": "foto-de-producto-amazon",
+  "/us-passport-photo": "foto-pasaporte-estados-unidos",
+  "/uk-passport-photo": "foto-pasaporte-reino-unido",
+  "/india-passport-photo": "foto-pasaporte-india",
+  "/linkedin-profile-photo": "foto-para-linkedin",
+  "/whatsapp-sticker": "sticker-whatsapp",
+  "/transparent-signature": "firma-transparente",
+  "/transparent-png-for-slides": "png-transparente-para-presentaciones",
+  "/remove-background-from-graphic": "quitar-fondo-de-grafico",
+  "/batch-remove-background": "quitar-fondo-en-lote",
+  "/cut-out-pet": "recortar-mascota",
+  "/cut-out-hair": "recortar-cabello",
+  "/black-background": "fondo-negro",
+  "/brand-colour-background": "fondo-color-de-marca",
+  "/gradient-background": "fondo-degradado",
+  "/virtual-background": "fondo-virtual-zoom-teams",
+  "/holiday-background": "fondo-de-vacaciones",
+  "/party-background": "fondo-de-fiesta",
+  "/blur-background": "desenfocar-fondo",
+  "/ebay-etsy-product-photo": "foto-de-producto-ebay-etsy",
+  "/shopify-product-photos": "fotos-de-producto-shopify",
+  "/product-photo-shadow": "foto-de-producto-con-sombra",
+  "/clothing-photo": "foto-de-ropa-para-vender",
+  "/australia-passport-photo": "foto-pasaporte-australia",
+  "/schengen-visa-photo": "foto-visa-schengen",
+  "/id-card-photo": "foto-para-documento",
+  "/passport-photo-print-sheet": "hoja-de-fotos-pasaporte",
+  "/cv-photo": "foto-para-curriculum",
+  "/instagram-profile-picture": "foto-de-perfil-instagram",
+  "/discord-avatar": "avatar-discord",
+  "/team-headshots": "fotos-del-equipo",
+  "/telegram-sticker": "sticker-telegram",
+  "/printable-sticker-sheet": "hoja-de-pegatinas-para-imprimir",
+  "/pet-sticker": "sticker-de-mascota",
+  "/slack-emoji": "emoji-slack-discord",
+  "/email-signature": "firma-de-correo",
+  "/logo-to-png": "logo-png-transparente",
+  "/recolour-logo": "cambiar-color-del-logo",
+  "/stamp-cleaner": "sello-transparente",
+};
+
+const SLUGS: Record<Exclude<Locale, "en">, Record<string, string>> = { pt: PT_SLUGS, es: ES_SLUGS };
+const NON_EN = LOCALES.filter((l): l is Exclude<Locale, "en"> => l !== "en");
+
 /** URL of an English page in the given locale. */
 export function localePath(en: string, locale: Locale): string {
   if (locale === "en") return en;
-  const slug = (PT_SLUGS as Record<string, string>)[en];
+  const slug = SLUGS[locale][en];
   if (slug === undefined) return en;
-  return slug ? `/pt/${slug}` : "/pt/";
+  const prefix = LOCALE_INFO[locale].prefix;
+  return slug ? `${prefix}/${slug}` : `${prefix}/`;
 }
 
 export function localeOf(pathname: string): Locale {
-  return pathname === "/pt" || pathname.startsWith("/pt/") ? "pt" : "en";
+  return NON_EN.find((l) => { const p = LOCALE_INFO[l].prefix; return pathname === p || pathname.startsWith(`${p}/`); }) ?? "en";
 }
 
-/** English page key for any URL (English or Portuguese). */
+/** English page key for any URL (any language). */
 export function enPathOf(pathname: string): string {
-  if (localeOf(pathname) === "en") return pathname;
-  const slug = pathname.replace(/^\/pt\/?/, "").replace(/\/$/, "");
-  const hit = Object.entries(PT_SLUGS).find(([, s]) => s === slug);
+  const l = localeOf(pathname);
+  if (l === "en") return pathname;
+  const slug = pathname.slice(LOCALE_INFO[l].prefix.length).replace(/^\//, "").replace(/\/$/, "");
+  const hit = Object.entries(SLUGS[l]).find(([, s]) => s === slug);
   return hit ? hit[0] : pathname;
 }
 

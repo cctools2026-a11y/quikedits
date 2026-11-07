@@ -1,12 +1,13 @@
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { TOOL_CONTENT_PT } from "@/lib/tool-content.pt";
+import { TOOL_CONTENT_ES } from "@/lib/tool-content.es";
 import { subtool } from "@/lib/tools";
 import { alternates, LOCALE_INFO, LOCALES, localePath, SITE_URL, type Locale } from "@/lib/i18n";
 
 export { SITE_URL };
 export const SITE_NAME = "QuikEdits";
 
-export const contentFor = (locale: Locale) => (locale === "pt" ? TOOL_CONTENT_PT : TOOL_CONTENT);
+export const contentFor = (locale: Locale) => ({ en: TOOL_CONTENT, pt: TOOL_CONTENT_PT, es: TOOL_CONTENT_ES })[locale];
 
 /** hreflang alternates (every language + x-default) and a self-referencing canonical. */
 export function langLinks(path: string, locale: Locale) {
@@ -82,6 +83,7 @@ export function toolHead(path: string, locale: Locale = "en") {
 
 const LICENSE_META: Record<Locale, { title: string; description: string; og: string }> = {
   en: { title: "License & Source Code — QuikEdits", description: "QuikEdits is free software under the GNU AGPL-3.0. Attribution, licensing and source code.", og: "AGPL-3.0 licensing, IMG.LY attribution and full source code for QuikEdits." },
+  es: { title: "Licencia y código fuente — QuikEdits", description: "QuikEdits es software libre bajo la GNU AGPL-3.0. Atribución, licencia y código fuente.", og: "Licencia AGPL-3.0, atribución a IMG.LY y el código fuente completo de QuikEdits." },
   pt: { title: "Licença e Código-Fonte — QuikEdits", description: "O QuikEdits é software livre sob a GNU AGPL-3.0. Atribuição, licença e código-fonte.", og: "Licença AGPL-3.0, atribuição à IMG.LY e o código-fonte completo do QuikEdits." },
 };
 
