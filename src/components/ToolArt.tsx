@@ -15,6 +15,11 @@ import photobgCut from "@/assets/tools/photobg-summer-cut.webp";
 import logo from "@/assets/cards/signature-quikedits-paper.jpg";
 import logoCut from "@/assets/cards/signature-quikedits-transparent.webp.asset.json";
 import coastalResult from "@/assets/tools/photobg-coastal-after.webp";
+import localeMedia from "@/lib/locale-media.json";
+import { useLocale } from "@/lib/use-i18n";
+
+/** Card photos per language (local people, places and words); English uses ART below. */
+const CARDS = localeMedia.card as Record<string, Record<string, { before: string; cut: string; after: string }>>;
 
 type Art = { before: string; cut: string; tile: string; result: string; resultImg?: string; flatPhoto?: boolean; outline?: boolean; move?: string; extra?: "floor" | "oval" | "circle" };
 
@@ -39,7 +44,13 @@ const OUTLINE = "drop-shadow(3px 0 0 var(--card)) drop-shadow(-3px 0 0 var(--car
  * fades into the tool's result while the cut-out lifts and a dotted cut line traces the frame.
  */
 export function ToolArt({ to }: { to: string }) {
-  const a = ART[to] ?? ART["/"];
+  const loc = useLocale();
+  const base = ART[to] ?? ART["/"];
+  const local = loc === "en" ? undefined : CARDS[loc]?.[to];
+  const a = base && local ? {
+    ...base, before: local.before, cut: local.cut,
+    resultImg: to === "/photo-background" ? local.after : to === "/logo-cleaner" ? local.cut : base.resultImg,
+  } : base;
   if (!a) return null;
   return (
     <div className={`relative aspect-[4/3] overflow-hidden ${a.tile}`}>

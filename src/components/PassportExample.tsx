@@ -1,4 +1,4 @@
-import { useT } from "@/lib/use-i18n";
+import { useEnPath, useLocale, useT } from "@/lib/use-i18n";
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { CompareSlider } from "@/components/CompareSlider";
 import { Field, Range, useRenderedUrl } from "@/components/ToolPage";
 import { blobToCanvas, ctx2d, makeCanvas } from "@/lib/compose";
 import { documentCrop } from "@/lib/passport-crop";
-import { TOOL_MEDIA } from "@/lib/tool-media";
+import { mediaFor } from "@/lib/tool-media";
 import { PASSPORT_SIZES, passportPx } from "@/lib/tool-sizes";
 
 export type PassportSizeId = (typeof PASSPORT_SIZES)[number]["id"];
@@ -44,7 +44,8 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
   const preset = PASSPORT_SIZES.find((s) => s.id === sizeId) ?? PASSPORT_SIZES[1];
   const size = passportPx(preset);
   const loc = useLocale();
-  const media = useMemo(() => mediaFor(useEnPathPassport(enPath), loc), [enPath, loc]);
+  const enPath = useEnPath();
+  const media = mediaFor(enPath.startsWith("/") && enPath.includes("photo") ? enPath : "/passport-photo", loc) ?? mediaFor("/passport-photo", loc);
   useEffect(() => {
     if (!media) return;
     let active = true;
