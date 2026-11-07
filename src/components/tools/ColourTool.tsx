@@ -112,7 +112,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
     <div>
       {preset.brand && (
         <label className="mb-4 flex items-center gap-3 text-sm font-semibold">
-          Brand colour
+          {t("Brand colour")}
           <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={t("#1A73E8")} maxLength={7} spellCheck={false}
             className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label={t("Brand colour hex code")} />
           <span aria-hidden className="h-8 w-8 rounded-full border-2 border-foreground" style={{ backgroundColor: colour }} />
@@ -125,7 +125,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
             type="button"
             role="radio"
             aria-checked={result !== null && colour === c}
-            aria-label={`Colour ${c}`}
+            aria-label={t("Colour {s}", { s: c })}
             onClick={() => apply(c)}
             className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-border shadow-sm transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-ring"
             style={{ backgroundColor: c }}
@@ -135,7 +135,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         ))}
         <label className="flex h-11 cursor-pointer items-center gap-2 rounded-full border-2 border-border px-3 text-sm font-medium">
           <input type="color" value={colour} onChange={(e) => apply(e.target.value)} className="h-6 w-6 cursor-pointer rounded-full border-0 bg-transparent p-0" aria-label={t("Custom colour")} />
-          Custom
+          {t("Custom")}
         </label>
       </div>
     </div>

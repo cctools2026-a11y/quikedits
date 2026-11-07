@@ -125,7 +125,7 @@ export function ToolPage({
             key={stage.index}
             file={items[stage.index]!.file}
             aspects={crop}
-            heading={items.length > 1 ? `Image ${stage.index + 1} of ${items.length}. Drag the box to frame it.` : undefined}
+            heading={items.length > 1 ? t("Image {a} of {b}. Drag the box to frame it.", { a: stage.index + 1, b: items.length }) : undefined}
             onDone={(f) => nextAdjust(stage.index, f)}
             onSkip={() => nextAdjust(stage.index)}
             onSkipAll={items.length > 1 ? () => void run(items) : undefined}
@@ -141,7 +141,7 @@ export function ToolPage({
                 {raw ? t("Preparing image") : stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {stage.total > 1 && `Image ${stage.index + 1} of ${stage.total} · `}
+                {stage.total > 1 && `${t("Image {a} of {b}", { a: stage.index + 1, b: stage.total })} · `}
                 {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Working on your device…")}
               </p>
               {!raw && (

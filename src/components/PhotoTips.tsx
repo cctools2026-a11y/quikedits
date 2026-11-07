@@ -42,7 +42,7 @@ export function PhotoTips({ tool }: { tool: string }) {
       className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full px-1 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-ring"
     >
       <Info className="h-4 w-4 shrink-0" aria-hidden />
-      Photo tips
+      {t("Photo tips")}
     </button>
   );
 

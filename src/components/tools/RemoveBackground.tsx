@@ -111,7 +111,7 @@ export function RemoveBackground() {
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
-              Faster mode for older phones and laptops (slightly lower quality)
+              {t("Faster mode for older phones and laptops (slightly lower quality)")}
             </label>
           </ToolHero>
         )}
@@ -151,7 +151,7 @@ export function RemoveBackground() {
             </div>
             <label className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
-              Use faster mode
+              {t("Use faster mode")}
             </label>
           </section>
         )}

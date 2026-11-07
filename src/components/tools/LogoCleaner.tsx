@@ -86,7 +86,7 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
     <div>
       {uneven && (
         <p role="status" className="mb-4 rounded-2xl border border-primary/40 bg-accent p-4 text-sm text-accent-foreground">
-          The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.
+          {t("The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.")}
         </p>
       )}
       <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt={t("Transparent logo")} className="mx-auto max-h-[60vh]" /></ZoomView>}</div>

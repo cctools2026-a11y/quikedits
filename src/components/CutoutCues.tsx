@@ -43,7 +43,7 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
       )}
       {cues.length === 0 && (
         <button type="button" onClick={() => setEditing(true)} className="flex items-center gap-1.5 text-sm text-muted-foreground underline underline-offset-2 hover:text-foreground">
-          <Brush className="h-4 w-4" /> {label ? `Touch up ${label}` : t("Something missing or left over? Touch it up")}
+          <Brush className="h-4 w-4" /> {label ? t("Touch up {s}", { s: label }) : t("Something missing or left over? Touch it up")}
         </button>
       )}
     </div>

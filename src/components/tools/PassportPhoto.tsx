@@ -83,7 +83,7 @@ function PassportResult({ cut, name, size, bg, zoom, top, reset, controls }: {
           {sheet && <ZoomView><img src={sheet} alt={t("Print sheet")} className="w-full rounded-lg border border-border" /></ZoomView>}
         </div>
         <p className="mt-3 text-xs text-muted-foreground">
-          The sheet prints at 6 × 4 in (10 × 15 cm), 300 dpi. Always check your country's official photo rules before submitting.
+          {t("The sheet prints at 6 × 4 in (10 × 15 cm), 300 dpi. Always check your country's official photo rules before submitting.")}
         </p>
         <ResultActions url={single} name={`${name}-passport.png`} label={t("Download photo")} />
         <ResultActions url={sheet} name={`${name}-passport-sheet.png`} label={t("Download print sheet")} onReset={reset} />
