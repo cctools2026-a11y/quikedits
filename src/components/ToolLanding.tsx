@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Plus, X } from "lucide-react";
 import { TOOL_MEDIA } from "@/lib/tool-media";
 import { TOOL_CONTENT } from "@/lib/tool-content";
+import { contentFor } from "@/lib/seo";
+import { useLocale, useLp, useT } from "@/lib/use-i18n";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { TOOLS, subtool, subtoolsOf } from "@/lib/tools";
 import { Reveal } from "@/components/ToolHero";
@@ -30,9 +32,10 @@ export function PosterCard({ tilt = 0, delay = 0, className = "", children }: { 
 }
 
 function StepImage({ i, m }: { i: number; m: { before: string; after: string; subject: string } }) {
+  const t = useT();
   const img = "aspect-[4/3] w-full rounded-[0.8rem] object-cover";
-  if (i === 0) return <img src={m.before} alt={`Original: ${m.subject}`} loading="lazy" className={img} />;
-  if (i === 2) return <div className="checkerboard overflow-hidden rounded-[0.8rem]"><img src={m.after} alt={`Result: ${m.subject}`} loading="lazy" className={img} /></div>;
+  if (i === 0) return <img src={m.before} alt={t("Original: {s}", { s: t(m.subject) })} loading="lazy" className={img} />;
+  if (i === 2) return <div className="checkerboard overflow-hidden rounded-[0.8rem]"><img src={m.after} alt={t("Result: {s}", { s: t(m.subject) })} loading="lazy" className={img} /></div>;
   return (
     <div className="relative overflow-hidden rounded-[0.8rem]">
       <img src={m.before} alt="" loading="lazy" className={img} />
@@ -44,7 +47,8 @@ function StepImage({ i, m }: { i: number; m: { before: string; after: string; su
 
 /** Readable landing content shown under the upload box: how it works, uses, tips, FAQs, other tools. */
 export function ToolLanding({ path, home = false }: { path: string; home?: boolean }) {
-  const c = TOOL_CONTENT[path]!;
+  const t = useT();
+  const c = contentFor(useLocale())[path]!;
   const rules = PHOTO_RULES[path];
   const m = TOOL_MEDIA[path];
   const tilts = [-2.5, 1.5, -1];
@@ -90,7 +94,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
               <div>
                 <p className="font-display text-4xl leading-none">{t("Do")}</p>
                 <ul className="mt-4 space-y-2.5 text-foreground/80">
-                  {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
+                  {[...(rules?.good ?? []).map((g) => t(g)), ...c.tips].map((g) => <li key={g} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{g}</li>)}
                 </ul>
               </div>
             </div>
@@ -104,7 +108,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
               <div>
                 <p className="font-display text-4xl leading-none">{t("Avoid")}</p>
                 <ul className="mt-4 space-y-2.5 text-foreground/80">
-                  {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0 text-destructive" />{t}</li>)}
+                  {(rules?.avoid ?? []).map((g) => <li key={g} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0 text-destructive" />{t(g)}</li>)}
                 </ul>
               </div>
             </div>
@@ -146,8 +150,9 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 }
 
 function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb: string; tag?: string | undefined }) {
+  const lp = useLp();
   return (
-    <Link to={to} data-reveal data-tilt className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
+    <Link to={lp(to)} data-reveal data-tilt className="group block overflow-hidden rounded-[1.5rem] border-4 border-foreground bg-card hover:border-primary active:border-primary focus-visible:border-primary shadow-float transition-[transform,border-color] duration-500 hover:-translate-y-1 ease-[cubic-bezier(0.22,1,0.36,1)]">
       <div className="relative">
         <ToolArt to={to} />
         {tag && <span className="absolute left-3 top-3 rounded-full border-2 border-foreground bg-primary px-2.5 py-0.5 text-xs font-bold text-primary-foreground">{tag}</span>}
@@ -161,15 +166,17 @@ function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb:
 }
 
 function SpecificJobs({ path }: { path: string }) {
+  const t = useT();
+  const lp = useLp();
   return (
     <section aria-labelledby="specific-jobs">
       <Heading id="specific-jobs">{t("More specific jobs")}</Heading>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {subtoolsOf(path).map((s) => (
-          <Link key={s.to} to={s.to} data-reveal data-tilt className="group flex items-center justify-between gap-4 rounded-[1.25rem] border-4 border-foreground bg-card p-5 shadow-float transition-[transform,border-color] duration-500 hover:border-primary active:border-primary focus-visible:border-primary">
+          <Link key={s.to} to={lp(s.to)} data-reveal data-tilt className="group flex items-center justify-between gap-4 rounded-[1.25rem] border-4 border-foreground bg-card p-5 shadow-float transition-[transform,border-color] duration-500 hover:border-primary active:border-primary focus-visible:border-primary">
             <span>
-              <span className="font-display block text-3xl leading-none">{s.label}</span>
-              <span className="mt-1 block text-sm text-muted-foreground">{s.blurb}</span>
+              <span className="font-display block text-3xl leading-none">{t(s.label)}</span>
+              <span className="mt-1 block text-sm text-muted-foreground">{t(s.blurb)}</span>
             </span>
             <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
           </Link>
@@ -180,14 +187,15 @@ function SpecificJobs({ path }: { path: string }) {
 }
 
 function OtherTools({ path }: { path: string }) {
+  const t = useT();
   const rel = TOOL_CONTENT[path]!.related;
   const parent = subtool(path)?.parent ?? path;
-  const others = TOOLS.filter((t) => t.to !== parent).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
+  const others = TOOLS.filter((o) => o.to !== parent).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
   return (
     <section aria-labelledby="more-tools">
       <Heading id="more-tools">{t("More free tools")}</Heading>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? t("Try next") : undefined} />)}
+        {others.map((o) => <ToolCard key={o.to} to={o.to} label={t(o.label)} blurb={t(o.blurb)} tag={o.to === rel ? t("Try next") : undefined} />)}
       </div>
     </section>
   );
@@ -195,12 +203,14 @@ function OtherTools({ path }: { path: string }) {
 
 /** Home page tool picker, described by the job people want done. */
 export function ToolPicker() {
+  const t = useT();
   return (
     <Reveal>
       <section aria-labelledby="pick-tool" className="mt-24">
         <Heading id="pick-tool">{t("Pick the tool for your job")}</Heading>
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {TOOLS.map((t) => <ToolCard key={t.to} to={t.to} label={t.task} blurb={t.label} />)}
+          {TOOLS.map((o) => <ToolCard key={o.to} to={o.to} label={t(o.task)} blurb={t(o.label)} />)}
+
         </div>
       </section>
     </Reveal>
