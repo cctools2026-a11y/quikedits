@@ -5,13 +5,15 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { TOOLS, subtool } from "@/lib/tools";
 import { PT_HERO } from "@/lib/hero.pt";
+import { ES_HERO } from "@/lib/hero.es";
 import { useLocale, useLp, useT } from "@/lib/use-i18n";
 
 /** Two-column hero: copy + upload on the left, a draggable example on the right. */
 export function ToolHero({ path, title, intro, children, example }: { path: string; title: ReactNode; intro: ReactNode; children: ReactNode; example?: ReactNode }) {
   const t = useT();
   const lp = useLp();
-  const pt = useLocale() === "pt" ? PT_HERO[path] : undefined;
+  const loc = useLocale();
+  const pt = loc === "pt" ? PT_HERO[path] : loc === "es" ? ES_HERO[path] : undefined;
   if (pt) {
     title = <>{pt[0]}<span className="text-primary">{pt[1]}</span>{pt[2]}</>;
     intro = pt[3];

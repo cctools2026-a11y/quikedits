@@ -9,7 +9,7 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
-    // Keep "/pt/" as-is: it is the canonical Portuguese home and is served as /pt/index.html.
+    // Keep "/pt/" and "/es/" as-is: they are canonical language homes served as <lang>/index.html.
     trailingSlash: "preserve",
     defaultPreloadStaleTime: 0,
   });
