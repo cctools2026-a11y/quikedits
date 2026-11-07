@@ -59,7 +59,7 @@ describe("search tags", () => {
     const h = toolHead("/white-background", "pt");
     const canonical = h.links.find((l) => l.rel === "canonical");
     expect(canonical?.href).toBe("https://quikedits.com/pt/fundo-branco");
-    expect(h.links.filter((l) => l.rel === "alternate").map((l) => l.hrefLang)).toEqual(["en", "pt", "x-default"]);
+    expect(h.links.filter((l) => l.rel === "alternate").map((l) => ("hrefLang" in l ? l.hrefLang : ""))).toEqual(["en", "pt", "x-default"]);
     expect(h.meta).toContainEqual({ property: "og:locale", content: "pt_BR" });
     expect(h.meta).toContainEqual({ property: "og:image", content: "https://quikedits.com/og/pt/white-background.jpg" });
   });
