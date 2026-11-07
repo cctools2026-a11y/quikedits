@@ -20,10 +20,10 @@ describe("every /pt/ page", () => {
       expect(match?.routeId).not.toBe(rootRouteId);
       expect(match?.routeId.startsWith("/pt")).toBe(true);
 
-      const route = (router.routesById as Record<string, { options: { head?: (c: unknown) => Head } }>)[match!.routeId]!;
+      const route = (router.routesById as unknown as Record<string, { options: { head?: (c: unknown) => Head } }>)[match!.routeId]!;
       const head = route.options.head!({} as never);
-      const title = head.meta?.find((m) => "title" in m)?.title;
-      const canonical = head.links?.find((l) => l.rel === "canonical")?.href;
+      const title = head.meta?.find((m) => "title" in m)?.["title"];
+      const canonical = head.links?.find((l) => l["rel"] === "canonical")?.["href"];
 
       expect(canonical).toBe(`https://quikedits.com${pt}`);
       expect(head.meta).toContainEqual({ property: "og:locale", content: "pt_BR" });
