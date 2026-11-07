@@ -67,8 +67,8 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
     }
     ctx.putImageData(img, 0, 0);
     const trimmed = trim(c);
-    if (!maxWidth || trimmed.width <= maxWidth) return t;
-    const out = makeCanvas(maxWidth, Math.round((t.height / t.width) * maxWidth));
+    if (!maxWidth || trimmed.width <= maxWidth) return trimmed;
+    const out = makeCanvas(maxWidth, Math.round((trimmed.height / trimmed.width) * maxWidth));
     const o = ctx2d(out);
     o.imageSmoothingQuality = "high";
     o.drawImage(trimmed, 0, 0, out.width, out.height);
