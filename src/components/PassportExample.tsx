@@ -1,5 +1,5 @@
 import { useEnPath, useLocale, useT } from "@/lib/use-i18n";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -45,7 +45,7 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
   const size = passportPx(preset);
   const loc = useLocale();
   const enPath = useEnPath();
-  const media = mediaFor(enPath.startsWith("/") && enPath.includes("photo") ? enPath : "/passport-photo", loc) ?? mediaFor("/passport-photo", loc);
+  const media = useMemo(() => mediaFor(enPath, loc) ?? mediaFor("/passport-photo", loc), [enPath, loc]);
   useEffect(() => {
     if (!media) return;
     let active = true;
