@@ -31,7 +31,7 @@ export const ES_HERO: Record<string, [string, string, string, string]> = {
   "/ebay-etsy-product-photo": ["Fotos de anuncio para ", "eBay y Etsy", ".", "Sube las fotos de tus productos. Ponemos cada una sobre blanco, en un cuadrado de 2000 × 2000 que funciona en eBay y Etsy."],
   "/shopify-product-photos": ["Imágenes de producto ", "uniformes", " para Shopify.", "Sube un lote. Cada producto recibe el mismo cuadrado blanco y el mismo margen, y tu tienda se ve ordenada."],
   "/product-photo-shadow": ["Fotos de producto con ", "sombra suave", ".", "Sube tus productos. Ponemos cada uno sobre blanco con una sombra suave debajo, para que parezca apoyado y no flotando."],
-  "/clothing-photo": ["Fotos de ropa para ", "Vinted y Wallapop", ".", "Sube fotos de tu ropa. La recortamos y la ponemos sobre un fondo claro y suave, en formato vertical."],
+  "/clothing-photo": ["Fotos de ropa para ", "Vinted y Depop", ".", "Sube fotos de tu ropa. La recortamos y la ponemos sobre un fondo claro y suave, en formato vertical."],
   "/australia-passport-photo": ["Foto de pasaporte australiano, ", "35 × 45 mm", "", "Sube una foto bien iluminada, mirando a la cámara. La ponemos sobre blanco y la ajustamos al pasaporte de Australia, con hoja para imprimir."],
   "/schengen-visa-photo": ["Foto para visa Schengen, ", "35 × 45 mm", "", "Sube una foto bien iluminada, mirando a la cámara. La ponemos sobre gris claro y la ajustamos a la solicitud de visa Schengen."],
   "/id-card-photo": ["Fotos para ", "documento de identidad", ".", "Sube una foto mirando a la cámara. La ajustamos al tamaño estándar de 35 × 45 mm sobre blanco, o elige otro tamaño."],
