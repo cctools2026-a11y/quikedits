@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Check, Plus, X } from "lucide-react";
-import { TOOL_MEDIA } from "@/lib/tool-media";
+import { mediaFor } from "@/lib/tool-media";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { contentFor } from "@/lib/seo";
 import { useLocale, useLp, useT } from "@/lib/use-i18n";
@@ -48,9 +48,10 @@ function StepImage({ i, m }: { i: number; m: { before: string; after: string; su
 /** Readable landing content shown under the upload box: how it works, uses, tips, FAQs, other tools. */
 export function ToolLanding({ path, home = false }: { path: string; home?: boolean }) {
   const t = useT();
-  const c = contentFor(useLocale())[path]!;
+  const loc = useLocale();
+  const c = contentFor(loc)[path]!;
   const rules = PHOTO_RULES[path];
-  const m = TOOL_MEDIA[path];
+  const m = mediaFor(path, loc);
   const tilts = [-2.5, 1.5, -1];
   return (
     <div className="mt-24 space-y-28">

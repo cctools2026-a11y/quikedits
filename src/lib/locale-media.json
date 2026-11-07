@@ -1,0 +1,478 @@
+{
+ "hero": {
+  "pt": {
+   "/": {
+    "before": "/__l5e/assets-v1/314ea208-76dd-40f7-8fa7-bdb1dd18c72c/pt-home-before.webp",
+    "after": "/__l5e/assets-v1/d64615c4-65a4-410a-be41-b1fb3e8d239c/pt-home-after.webp"
+   },
+   "/colour-background": {
+    "before": "/__l5e/assets-v1/ebda3ab6-e96a-434f-8fa6-39858e7a9109/pt-colour-background-before.webp",
+    "after": "/__l5e/assets-v1/77bf5c0c-6993-44c6-8abe-a31c3edcf684/pt-colour-background-after.webp"
+   },
+   "/product-photo": {
+    "before": "/__l5e/assets-v1/14ad04df-1036-4a24-a6bb-91de9f16752f/pt-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/f4f2ec17-a01c-4396-a521-ecbd586051b1/pt-product-photo-after.webp"
+   },
+   "/passport-photo": {
+    "before": "/__l5e/assets-v1/e001b274-ddd2-4e4e-b800-12670d0718d9/pt-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/e95617b7-707c-45f1-98bf-7173da046437/pt-passport-photo-after.webp"
+   },
+   "/profile-picture": {
+    "before": "/__l5e/assets-v1/b7425770-6df3-4647-bc2f-dc804772d946/pt-profile-picture-before.webp",
+    "after": "/__l5e/assets-v1/0b6dc94c-bb5b-4c7e-89ab-7c6873f7f8a4/pt-profile-picture-after.webp"
+   },
+   "/sticker-maker": {
+    "before": "/__l5e/assets-v1/33110b28-9891-4ad2-b07c-0d0e622bb8b6/pt-sticker-maker-before.webp",
+    "after": "/__l5e/assets-v1/e00843a9-adbd-4a8f-96dd-b2b17fad4a8d/pt-sticker-maker-after.webp"
+   },
+   "/photo-background": {
+    "before": "/__l5e/assets-v1/6b8d446a-cb95-461e-a153-e26995fe56d9/pt-photo-background-before.webp",
+    "after": "/__l5e/assets-v1/ec4bdcc2-9de8-468a-94b0-cfe6c0441038/pt-photo-background-after.webp"
+   },
+   "/logo-cleaner": {
+    "before": "/__l5e/assets-v1/4458a931-2ad1-4df5-b154-336fa9783f0a/pt-logo-cleaner-before.webp",
+    "after": "/__l5e/assets-v1/ba472775-92fa-4ede-bd42-55b2ada582a9/pt-logo-cleaner-after.webp"
+   },
+   "/white-background": {
+    "before": "/__l5e/assets-v1/967242ce-7bdb-451b-9cb4-8abc246d6c04/pt-white-background-before.webp",
+    "after": "/__l5e/assets-v1/1e34cd74-ba55-4dfd-93aa-649e7e8d03ea/pt-white-background-after.webp"
+   },
+   "/amazon-product-photo": {
+    "before": "/__l5e/assets-v1/5e553907-73c9-495a-b006-1ce5ce6c3311/pt-amazon-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/76f29d49-4892-488f-8c93-0715976b5aca/pt-amazon-product-photo-after.webp"
+   },
+   "/us-passport-photo": {
+    "before": "/__l5e/assets-v1/bf148964-7ace-4dd4-892a-ba097c5ba945/pt-us-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/557cf06e-68a6-4ec1-8904-1c01ed5ea9a1/pt-us-passport-photo-after.webp"
+   },
+   "/uk-passport-photo": {
+    "before": "/__l5e/assets-v1/d1ce3fd1-77bc-480b-a158-0b100addf74b/pt-uk-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/6dcb4784-1d5a-4032-b61c-3980e15bb1ed/pt-uk-passport-photo-after.webp"
+   },
+   "/india-passport-photo": {
+    "before": "/__l5e/assets-v1/7be4ae80-1d87-44ee-a6b7-5a6b1fcf025f/pt-india-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/5e19d1c2-caa8-4e4a-bea4-eeb83614c582/pt-india-passport-photo-after.webp"
+   },
+   "/linkedin-profile-photo": {
+    "before": "/__l5e/assets-v1/adb74694-d35c-4b24-a1be-0f741467815b/pt-linkedin-profile-photo-before.webp",
+    "after": "/__l5e/assets-v1/4abb55a7-f436-44d5-9d54-74f30e679312/pt-linkedin-profile-photo-after.webp"
+   },
+   "/whatsapp-sticker": {
+    "before": "/__l5e/assets-v1/abea719c-6449-4c8b-ae93-9cd0ea32ed5a/pt-whatsapp-sticker-before.webp",
+    "after": "/__l5e/assets-v1/1e9d7b1b-9eff-4876-aa38-5d610c369eb7/pt-whatsapp-sticker-after.webp"
+   },
+   "/transparent-signature": {
+    "before": "/__l5e/assets-v1/a015a92a-a36e-4322-9fa8-277669ff0007/pt-transparent-signature-before.webp",
+    "after": "/__l5e/assets-v1/9f18bf0f-dc9e-4b8a-822a-729cdc3165b8/pt-transparent-signature-after.webp"
+   },
+   "/transparent-png-for-slides": {
+    "before": "/__l5e/assets-v1/5cc7d97b-4a93-4547-8d86-735fa788a722/pt-transparent-png-for-slides-before.webp",
+    "after": "/__l5e/assets-v1/e534efb4-2495-4b5b-ae2a-834e9411d138/pt-transparent-png-for-slides-after.webp"
+   },
+   "/remove-background-from-graphic": {
+    "before": "/__l5e/assets-v1/5ccf6dde-3d98-4274-b416-c22a14b1e7fc/pt-remove-background-from-graphic-before.webp",
+    "after": "/__l5e/assets-v1/1fdd1a06-9d87-4905-9fa4-70adcab934a3/pt-remove-background-from-graphic-after.webp"
+   },
+   "/batch-remove-background": {
+    "before": "/__l5e/assets-v1/457dd969-00db-4bbd-85b4-5ee1fc35bcb5/pt-batch-remove-background-before.webp",
+    "after": "/__l5e/assets-v1/07744aea-b527-4927-b3c1-b278c2719dd4/pt-batch-remove-background-after.webp"
+   },
+   "/cut-out-pet": {
+    "before": "/__l5e/assets-v1/313de383-478c-4656-b71a-9c5c106db7cb/pt-cut-out-pet-before.webp",
+    "after": "/__l5e/assets-v1/480c4f38-670c-482a-8622-8dbf57ad2485/pt-cut-out-pet-after.webp"
+   },
+   "/cut-out-hair": {
+    "before": "/__l5e/assets-v1/3c7da86b-4cc3-4865-a360-5dacb17711d3/pt-cut-out-hair-before.webp",
+    "after": "/__l5e/assets-v1/c050d23e-2737-4a74-9fff-6a288dd4d529/pt-cut-out-hair-after.webp"
+   },
+   "/black-background": {
+    "before": "/__l5e/assets-v1/b6746aaa-56b2-42d1-9a51-f44e6d6483da/pt-black-background-before.webp",
+    "after": "/__l5e/assets-v1/f2e60966-4904-425b-bf0b-8e46b7793aa0/pt-black-background-after.webp"
+   },
+   "/brand-colour-background": {
+    "before": "/__l5e/assets-v1/15016686-1954-4184-bf14-545fc999fa9b/pt-brand-colour-background-before.webp",
+    "after": "/__l5e/assets-v1/e4d500a7-2bdb-4596-9899-f457134d87f2/pt-brand-colour-background-after.webp"
+   },
+   "/gradient-background": {
+    "before": "/__l5e/assets-v1/7da585be-d109-4efc-bb5f-87b2b0637332/pt-gradient-background-before.webp",
+    "after": "/__l5e/assets-v1/84ddfda8-9f86-4775-ad8a-2048c56b08ac/pt-gradient-background-after.webp"
+   },
+   "/virtual-background": {
+    "before": "/__l5e/assets-v1/5caec715-ce17-4a17-8cb3-ef0167361e40/pt-virtual-background-before.webp",
+    "after": "/__l5e/assets-v1/bcae396c-71f4-4e63-bf11-3d23aff06ac6/pt-virtual-background-after.webp"
+   },
+   "/holiday-background": {
+    "before": "/__l5e/assets-v1/69af44a0-4a77-4426-a4c6-b7b4c843f079/pt-holiday-background-before.webp",
+    "after": "/__l5e/assets-v1/0d71508b-6fb6-4299-b5b0-369120488a4a/pt-holiday-background-after.webp"
+   },
+   "/party-background": {
+    "before": "/__l5e/assets-v1/b6bf52ad-ff15-43e9-8ca9-a4d271a0905a/pt-party-background-before.webp",
+    "after": "/__l5e/assets-v1/f79248e2-6250-43d3-bb47-b67601aa4f08/pt-party-background-after.webp"
+   },
+   "/blur-background": {
+    "before": "/__l5e/assets-v1/779298e3-d186-491e-be8b-884bdd6c8289/pt-blur-background-before.webp",
+    "after": "/__l5e/assets-v1/75643603-3d75-470b-ab2d-af0c2b7b49aa/pt-blur-background-after.webp"
+   },
+   "/ebay-etsy-product-photo": {
+    "before": "/__l5e/assets-v1/1d88ed89-cde9-4807-93d1-5518531dec60/pt-ebay-etsy-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/c85d3b3e-9dcb-4396-80f1-8a2111e756f1/pt-ebay-etsy-product-photo-after.webp"
+   },
+   "/shopify-product-photos": {
+    "before": "/__l5e/assets-v1/ef8b7c7e-46d9-4fb1-9b0f-f52f6d9487bc/pt-shopify-product-photos-before.webp",
+    "after": "/__l5e/assets-v1/7eb441d2-7300-4ff3-a1bb-620c980f70f1/pt-shopify-product-photos-after.webp"
+   },
+   "/product-photo-shadow": {
+    "before": "/__l5e/assets-v1/4ed717a9-7cdb-4d9f-a610-bd665660f441/pt-product-photo-shadow-before.webp",
+    "after": "/__l5e/assets-v1/3a7d7af8-739f-4996-80f1-c8fe91deb4e1/pt-product-photo-shadow-after.webp"
+   },
+   "/clothing-photo": {
+    "before": "/__l5e/assets-v1/b8dd6b43-272a-46a8-9f18-726717beb8de/pt-clothing-photo-before.webp",
+    "after": "/__l5e/assets-v1/9d25d094-7b22-42c0-ac89-2a1b1eed4944/pt-clothing-photo-after.webp"
+   },
+   "/australia-passport-photo": {
+    "before": "/__l5e/assets-v1/2a1a12b0-5d0d-472a-a140-993a4d1355ca/pt-australia-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/d5ccd3bc-1b94-4cfd-aefe-c8285fa5c956/pt-australia-passport-photo-after.webp"
+   },
+   "/schengen-visa-photo": {
+    "before": "/__l5e/assets-v1/50bedf9f-954a-4e19-82d6-425bc51fa9e5/pt-schengen-visa-photo-before.webp",
+    "after": "/__l5e/assets-v1/774b95af-cb40-4509-82c1-3b71092bf5d0/pt-schengen-visa-photo-after.webp"
+   },
+   "/id-card-photo": {
+    "before": "/__l5e/assets-v1/5b597d3e-a31f-4731-892b-dced7d4bc592/pt-id-card-photo-before.webp",
+    "after": "/__l5e/assets-v1/ebe0ae9b-2bbe-4495-9d17-9dfbef21c27a/pt-id-card-photo-after.webp"
+   },
+   "/passport-photo-print-sheet": {
+    "before": "/__l5e/assets-v1/a2f7df8d-ec53-43f4-b269-0b4454844023/pt-passport-photo-print-sheet-before.webp",
+    "after": "/__l5e/assets-v1/e63a8d5e-7322-49a2-934b-cdaf58b781a6/pt-passport-photo-print-sheet-after.webp"
+   },
+   "/cv-photo": {
+    "before": "/__l5e/assets-v1/7abf1b5e-370a-4fff-ab49-2a44d8cca7f8/pt-cv-photo-before.webp",
+    "after": "/__l5e/assets-v1/748590a8-da17-405f-b064-4b7e112adc68/pt-cv-photo-after.webp"
+   },
+   "/instagram-profile-picture": {
+    "before": "/__l5e/assets-v1/ae63b89f-6861-4879-bce1-e1cd4f6e606b/pt-instagram-profile-picture-before.webp",
+    "after": "/__l5e/assets-v1/36677bd7-a753-45aa-8a67-3a9f927a2f59/pt-instagram-profile-picture-after.webp"
+   },
+   "/discord-avatar": {
+    "before": "/__l5e/assets-v1/fb2aab2f-0825-4ece-ae0d-471e0c101317/pt-discord-avatar-before.webp",
+    "after": "/__l5e/assets-v1/2d60d55a-d365-415d-83d7-0c77924bd716/pt-discord-avatar-after.webp"
+   },
+   "/team-headshots": {
+    "before": "/__l5e/assets-v1/499e148b-2272-4c1e-997d-aaeb9a928ec0/pt-team-headshots-before.webp",
+    "after": "/__l5e/assets-v1/d72d30a1-52a8-441a-b9dc-3adce2c44e66/pt-team-headshots-after.webp"
+   },
+   "/telegram-sticker": {
+    "before": "/__l5e/assets-v1/a66fdb5e-9103-4161-9932-e2135756f23f/pt-telegram-sticker-before.webp",
+    "after": "/__l5e/assets-v1/fd3c3109-550d-4fce-961f-fe4fa5613886/pt-telegram-sticker-after.webp"
+   },
+   "/printable-sticker-sheet": {
+    "before": "/__l5e/assets-v1/4d6361a4-b8d3-4543-983b-60532cc0a102/pt-printable-sticker-sheet-before.webp",
+    "after": "/__l5e/assets-v1/b48ad031-794d-477e-935b-14788b8c0348/pt-printable-sticker-sheet-after.webp"
+   },
+   "/pet-sticker": {
+    "before": "/__l5e/assets-v1/0c568748-2270-4ab9-9fc5-d8f6c460ba62/pt-pet-sticker-before.webp",
+    "after": "/__l5e/assets-v1/051c56ec-66bc-4884-8001-1ac8a2e6dd27/pt-pet-sticker-after.webp"
+   },
+   "/slack-emoji": {
+    "before": "/__l5e/assets-v1/33bed708-0392-4bb0-87fb-a665d27c0878/pt-slack-emoji-before.webp",
+    "after": "/__l5e/assets-v1/bf0198c6-98f8-4019-a4c1-f24b113f46f1/pt-slack-emoji-after.webp"
+   },
+   "/email-signature": {
+    "before": "/__l5e/assets-v1/67511ce4-24b5-43f2-ad66-985e88239831/pt-email-signature-before.webp",
+    "after": "/__l5e/assets-v1/b62dee13-b7da-4c02-a909-c4771c7990fb/pt-email-signature-after.webp"
+   },
+   "/logo-to-png": {
+    "before": "/__l5e/assets-v1/c33ecab0-958f-4528-af84-960dd9772f47/pt-logo-to-png-before.webp",
+    "after": "/__l5e/assets-v1/0ff762e4-64ce-4635-a7d0-84dd4f098042/pt-logo-to-png-after.webp"
+   },
+   "/recolour-logo": {
+    "before": "/__l5e/assets-v1/b17f01bb-5672-4b28-9c32-ec71a03ffbcd/pt-recolour-logo-before.webp",
+    "after": "/__l5e/assets-v1/1bd11632-b927-46c7-87ed-deb04a84dddc/pt-recolour-logo-after.webp"
+   },
+   "/stamp-cleaner": {
+    "before": "/__l5e/assets-v1/da84300e-871f-4237-b74f-513c291cfdf7/pt-stamp-cleaner-before.webp",
+    "after": "/__l5e/assets-v1/77b0b3a4-28b0-49c9-a8e8-13e0bd585c99/pt-stamp-cleaner-after.webp"
+   }
+  },
+  "es": {
+   "/": {
+    "before": "/__l5e/assets-v1/bafba2b7-063e-464c-b1eb-f03991f8cbd9/es-home-before.webp",
+    "after": "/__l5e/assets-v1/c6b0f28b-ce76-4d2f-928c-88c11d8eaaf6/es-home-after.webp"
+   },
+   "/colour-background": {
+    "before": "/__l5e/assets-v1/449bb4c6-a73d-4129-bda9-f7bb3cf5994a/es-colour-background-before.webp",
+    "after": "/__l5e/assets-v1/172cb0ea-c19d-4dfa-a793-461b40d83679/es-colour-background-after.webp"
+   },
+   "/product-photo": {
+    "before": "/__l5e/assets-v1/f87481fc-10e2-442a-92ac-df27a85727fb/es-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/292a7b29-c24b-4bc6-a79c-9e1d5c64f390/es-product-photo-after.webp"
+   },
+   "/passport-photo": {
+    "before": "/__l5e/assets-v1/e7a6ce8b-2f59-4882-8d4f-27bf22594b5a/es-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/cdc2a920-ea2b-4199-8136-79407bb2c55a/es-passport-photo-after.webp"
+   },
+   "/profile-picture": {
+    "before": "/__l5e/assets-v1/98455dc6-4e0f-43f2-a1ac-a42d0ef2149c/es-profile-picture-before.webp",
+    "after": "/__l5e/assets-v1/ddb112d2-98fa-44c6-a606-22cf213e64fe/es-profile-picture-after.webp"
+   },
+   "/sticker-maker": {
+    "before": "/__l5e/assets-v1/589ef495-0f16-4a22-81a3-2e135b14d1a6/es-sticker-maker-before.webp",
+    "after": "/__l5e/assets-v1/824cce9e-bc89-4fbc-9fa3-3ed5839d057c/es-sticker-maker-after.webp"
+   },
+   "/photo-background": {
+    "before": "/__l5e/assets-v1/56ceacf8-b755-4579-aa68-a1355d5441d8/es-photo-background-before.webp",
+    "after": "/__l5e/assets-v1/966cebc5-937b-4ea8-9d60-f85c25b2d62b/es-photo-background-after.webp"
+   },
+   "/logo-cleaner": {
+    "before": "/__l5e/assets-v1/fcb1a90e-a17b-4c34-94d9-810e7d85cb0b/es-logo-cleaner-before.webp",
+    "after": "/__l5e/assets-v1/40b9ea22-6a88-4973-955a-289a70443247/es-logo-cleaner-after.webp"
+   },
+   "/white-background": {
+    "before": "/__l5e/assets-v1/25e8f852-9c6a-41e4-83fe-1306e28105f9/es-white-background-before.webp",
+    "after": "/__l5e/assets-v1/4f6f9bfc-51bd-4e33-8599-915f48fbe4d6/es-white-background-after.webp"
+   },
+   "/amazon-product-photo": {
+    "before": "/__l5e/assets-v1/52465e2b-910a-440c-8415-453a01b2ed8e/es-amazon-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/500c6695-31b8-4196-83e6-0576512064e3/es-amazon-product-photo-after.webp"
+   },
+   "/us-passport-photo": {
+    "before": "/__l5e/assets-v1/9cc1682a-df70-4f56-88a5-4745a0b05964/es-us-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/91c80423-5175-4030-b1b2-3f5cc9a16da3/es-us-passport-photo-after.webp"
+   },
+   "/uk-passport-photo": {
+    "before": "/__l5e/assets-v1/c763574d-a264-4598-92d8-7bae8c223934/es-uk-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/e768382e-da5f-4067-bd5f-e2b5060c89f9/es-uk-passport-photo-after.webp"
+   },
+   "/india-passport-photo": {
+    "before": "/__l5e/assets-v1/907f4d2b-f8bf-4ecc-93a6-8fef095046c3/es-india-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/34398abf-b2ee-4f48-9410-b9ce8a554a72/es-india-passport-photo-after.webp"
+   },
+   "/linkedin-profile-photo": {
+    "before": "/__l5e/assets-v1/ba26f18e-8a62-4900-95d2-ebdbc41fd612/es-linkedin-profile-photo-before.webp",
+    "after": "/__l5e/assets-v1/9bc99e0f-73d3-49dc-b411-9d070f9a4a62/es-linkedin-profile-photo-after.webp"
+   },
+   "/whatsapp-sticker": {
+    "before": "/__l5e/assets-v1/fecab8d1-786c-4587-a10e-e7b5cd894c0d/es-whatsapp-sticker-before.webp",
+    "after": "/__l5e/assets-v1/4a4be107-3f9c-433c-9fcb-740aa0fbc72a/es-whatsapp-sticker-after.webp"
+   },
+   "/transparent-signature": {
+    "before": "/__l5e/assets-v1/150e8ebd-0c9a-45d4-badd-5391833f130a/es-transparent-signature-before.webp",
+    "after": "/__l5e/assets-v1/f77db5b1-980e-43cd-bfe8-2fbd58837d44/es-transparent-signature-after.webp"
+   },
+   "/transparent-png-for-slides": {
+    "before": "/__l5e/assets-v1/5a2f96d9-9aea-40ef-b13a-a6ac6911e467/es-transparent-png-for-slides-before.webp",
+    "after": "/__l5e/assets-v1/2afa2076-8cec-45c8-a118-3ae7899671a3/es-transparent-png-for-slides-after.webp"
+   },
+   "/remove-background-from-graphic": {
+    "before": "/__l5e/assets-v1/562ce74f-f0b7-45f5-98a1-9a2749a31c36/es-remove-background-from-graphic-before.webp",
+    "after": "/__l5e/assets-v1/1b0d6cc1-3809-4c12-b0d7-dccbd51c43a7/es-remove-background-from-graphic-after.webp"
+   },
+   "/batch-remove-background": {
+    "before": "/__l5e/assets-v1/1749014b-3276-4893-ba5d-0078e4929b6c/es-batch-remove-background-before.webp",
+    "after": "/__l5e/assets-v1/3f851ad7-b9ba-4e4a-9526-a5eb70d80e71/es-batch-remove-background-after.webp"
+   },
+   "/cut-out-pet": {
+    "before": "/__l5e/assets-v1/34f26c6a-59e3-412e-8799-58fb12f14503/es-cut-out-pet-before.webp",
+    "after": "/__l5e/assets-v1/59918b3b-d3eb-4f40-9562-4519c407d23b/es-cut-out-pet-after.webp"
+   },
+   "/cut-out-hair": {
+    "before": "/__l5e/assets-v1/bbdafbe1-6e37-40d7-afc5-4e4057e77f9c/es-cut-out-hair-before.webp",
+    "after": "/__l5e/assets-v1/e5588255-9b0e-486d-af45-8276265bff64/es-cut-out-hair-after.webp"
+   },
+   "/black-background": {
+    "before": "/__l5e/assets-v1/2affdf85-d71e-4aa2-8a98-e2eafe0a35b8/es-black-background-before.webp",
+    "after": "/__l5e/assets-v1/65895ca1-bf09-4fd6-86ee-9e0fab740043/es-black-background-after.webp"
+   },
+   "/brand-colour-background": {
+    "before": "/__l5e/assets-v1/04c1c154-8752-439b-a95d-778e0bbfbad7/es-brand-colour-background-before.webp",
+    "after": "/__l5e/assets-v1/2fdfc0cf-5efc-41bf-a9d9-d58bafa332be/es-brand-colour-background-after.webp"
+   },
+   "/gradient-background": {
+    "before": "/__l5e/assets-v1/70305ddf-239f-4868-8a1b-20e3a400c8b7/es-gradient-background-before.webp",
+    "after": "/__l5e/assets-v1/eb3b3e91-86fe-47f7-91f4-b4932b19f460/es-gradient-background-after.webp"
+   },
+   "/virtual-background": {
+    "before": "/__l5e/assets-v1/0bb7a00e-baee-412c-a730-aa8636621b65/es-virtual-background-before.webp",
+    "after": "/__l5e/assets-v1/420e4009-2e5f-42c4-b86f-962009ff86a1/es-virtual-background-after.webp"
+   },
+   "/holiday-background": {
+    "before": "/__l5e/assets-v1/6f0d0c24-917e-4811-8351-5f1ffe6b8af2/es-holiday-background-before.webp",
+    "after": "/__l5e/assets-v1/f25253f5-28e1-4a72-8d5b-ebd499d3b0b0/es-holiday-background-after.webp"
+   },
+   "/party-background": {
+    "before": "/__l5e/assets-v1/59a24594-c066-4f26-ab84-e4d7a8bdc1c9/es-party-background-before.webp",
+    "after": "/__l5e/assets-v1/44423f9c-7828-438f-afba-9e9bcdaec96d/es-party-background-after.webp"
+   },
+   "/blur-background": {
+    "before": "/__l5e/assets-v1/98a00e2d-a824-4abc-b10e-96c2ea56c1a5/es-blur-background-before.webp",
+    "after": "/__l5e/assets-v1/8f6c557f-7093-4b2e-b893-5d29de457159/es-blur-background-after.webp"
+   },
+   "/ebay-etsy-product-photo": {
+    "before": "/__l5e/assets-v1/83bca2c1-74bb-43c7-8623-a1eb59312c72/es-ebay-etsy-product-photo-before.webp",
+    "after": "/__l5e/assets-v1/df9a04c9-34f9-456b-ad5a-dd0ceca0defa/es-ebay-etsy-product-photo-after.webp"
+   },
+   "/shopify-product-photos": {
+    "before": "/__l5e/assets-v1/a892f845-3c32-4321-9b19-1c10f00f1232/es-shopify-product-photos-before.webp",
+    "after": "/__l5e/assets-v1/135e8555-a113-4507-a885-bd79e0c9e937/es-shopify-product-photos-after.webp"
+   },
+   "/product-photo-shadow": {
+    "before": "/__l5e/assets-v1/0c544bd6-e1a2-4854-9df4-21359c48b4e9/es-product-photo-shadow-before.webp",
+    "after": "/__l5e/assets-v1/dddf5986-8224-4dbc-9d7c-fdab4e029b8d/es-product-photo-shadow-after.webp"
+   },
+   "/clothing-photo": {
+    "before": "/__l5e/assets-v1/ce9c43e7-6b59-4eb5-9428-1892d7c9e6d4/es-clothing-photo-before.webp",
+    "after": "/__l5e/assets-v1/8eeda657-8181-4026-969f-f8bafa7815a4/es-clothing-photo-after.webp"
+   },
+   "/australia-passport-photo": {
+    "before": "/__l5e/assets-v1/02033d9b-a3b8-4947-b642-22afc4c54851/es-australia-passport-photo-before.webp",
+    "after": "/__l5e/assets-v1/47f36078-e653-4d78-9e66-75b4da42d3b5/es-australia-passport-photo-after.webp"
+   },
+   "/schengen-visa-photo": {
+    "before": "/__l5e/assets-v1/bb2b6695-e662-4a03-b163-57838a9a0578/es-schengen-visa-photo-before.webp",
+    "after": "/__l5e/assets-v1/3fb90110-4b03-40c6-b174-0e59c96c7db6/es-schengen-visa-photo-after.webp"
+   },
+   "/id-card-photo": {
+    "before": "/__l5e/assets-v1/76bba5a7-bf03-4e20-be71-6a43bf3cac40/es-id-card-photo-before.webp",
+    "after": "/__l5e/assets-v1/1d7025d7-72f6-4c2c-a5d4-39db4c5e7615/es-id-card-photo-after.webp"
+   },
+   "/passport-photo-print-sheet": {
+    "before": "/__l5e/assets-v1/54ccd429-16ef-4cc0-94cf-14dba7afb430/es-passport-photo-print-sheet-before.webp",
+    "after": "/__l5e/assets-v1/bf40d7b6-314f-404b-908d-3a025e839f5f/es-passport-photo-print-sheet-after.webp"
+   },
+   "/cv-photo": {
+    "before": "/__l5e/assets-v1/00eb38d6-ce13-42d1-9981-ee984aba9732/es-cv-photo-before.webp",
+    "after": "/__l5e/assets-v1/875b7e7e-5afa-4320-80d5-7f19e7359e21/es-cv-photo-after.webp"
+   },
+   "/instagram-profile-picture": {
+    "before": "/__l5e/assets-v1/948b38d3-56ee-4117-8966-bb4c77eb351d/es-instagram-profile-picture-before.webp",
+    "after": "/__l5e/assets-v1/c9c4448a-d69a-4cbf-baf1-4324b7690df4/es-instagram-profile-picture-after.webp"
+   },
+   "/discord-avatar": {
+    "before": "/__l5e/assets-v1/d31b485b-9968-44c5-a8b7-86f304c46d01/es-discord-avatar-before.webp",
+    "after": "/__l5e/assets-v1/528e1f8d-70db-454c-9814-f7d753d47a38/es-discord-avatar-after.webp"
+   },
+   "/team-headshots": {
+    "before": "/__l5e/assets-v1/e0105023-111e-4cb7-934c-7773e3b2f281/es-team-headshots-before.webp",
+    "after": "/__l5e/assets-v1/4a6c2580-abef-4be6-8657-4d1b1bc2e5b4/es-team-headshots-after.webp"
+   },
+   "/telegram-sticker": {
+    "before": "/__l5e/assets-v1/1e819350-c7b5-4393-8c8d-087a4e3416e5/es-telegram-sticker-before.webp",
+    "after": "/__l5e/assets-v1/fc7abbab-8fb3-4141-9a36-f4712e0ed493/es-telegram-sticker-after.webp"
+   },
+   "/printable-sticker-sheet": {
+    "before": "/__l5e/assets-v1/5f6c9548-b5db-4325-b850-8fb27343f6ca/es-printable-sticker-sheet-before.webp",
+    "after": "/__l5e/assets-v1/31870aaf-a712-4087-9ffb-e03bf369224f/es-printable-sticker-sheet-after.webp"
+   },
+   "/pet-sticker": {
+    "before": "/__l5e/assets-v1/69891b70-bf1a-4df6-b3c9-0a416cceb850/es-pet-sticker-before.webp",
+    "after": "/__l5e/assets-v1/7f60c138-98ef-46b3-9ae8-f31ddf4d4bcd/es-pet-sticker-after.webp"
+   },
+   "/slack-emoji": {
+    "before": "/__l5e/assets-v1/6ca2209d-1069-46dd-aa2f-b479222f9618/es-slack-emoji-before.webp",
+    "after": "/__l5e/assets-v1/0c2bd99a-c998-43a6-ac3e-c0e80e73902d/es-slack-emoji-after.webp"
+   },
+   "/email-signature": {
+    "before": "/__l5e/assets-v1/37e1eef9-61e2-4919-9830-3051aa1d7097/es-email-signature-before.webp",
+    "after": "/__l5e/assets-v1/279c0f93-80a1-4ee6-9f73-71d26389db27/es-email-signature-after.webp"
+   },
+   "/logo-to-png": {
+    "before": "/__l5e/assets-v1/a1dd84d2-0edf-43b7-9227-06c8f3152b21/es-logo-to-png-before.webp",
+    "after": "/__l5e/assets-v1/f5b22aad-1069-482a-9acc-7d4c3bec1dbc/es-logo-to-png-after.webp"
+   },
+   "/recolour-logo": {
+    "before": "/__l5e/assets-v1/327c3dcf-eddb-4e08-9b88-57e02eeb9869/es-recolour-logo-before.webp",
+    "after": "/__l5e/assets-v1/070aeb06-5d66-4228-8482-ae9727f04796/es-recolour-logo-after.webp"
+   },
+   "/stamp-cleaner": {
+    "before": "/__l5e/assets-v1/ecb35495-c9f8-4774-9ade-e5269167fb73/es-stamp-cleaner-before.webp",
+    "after": "/__l5e/assets-v1/1e4ec72e-13bb-43d3-ba98-f1b654c5f553/es-stamp-cleaner-after.webp"
+   }
+  }
+ },
+ "card": {
+  "pt": {
+   "/": {
+    "before": "/__l5e/assets-v1/35581b75-ce5f-4855-be21-cb78849f791a/pt-card-home-before.webp",
+    "cut": "/__l5e/assets-v1/89dadcad-e6a6-4b99-a9fc-aaf69327e979/pt-card-home-cut.webp",
+    "after": "/__l5e/assets-v1/6f95d9da-3f2e-4228-9ee3-675363497cfb/pt-card-home-after.webp"
+   },
+   "/colour-background": {
+    "before": "/__l5e/assets-v1/d36fbf92-e76d-4478-8864-2ae6f9fbbb52/pt-card-colour-background-before.webp",
+    "cut": "/__l5e/assets-v1/b80aa198-7c85-48ba-8f61-8c35d73a6a73/pt-card-colour-background-cut.webp",
+    "after": "/__l5e/assets-v1/dad9061f-9ceb-4353-84f2-63adfab78f50/pt-card-colour-background-after.webp"
+   },
+   "/product-photo": {
+    "before": "/__l5e/assets-v1/687966e5-7ac7-4b92-baf3-978e5f2b5770/pt-card-product-photo-before.webp",
+    "cut": "/__l5e/assets-v1/b64080a5-e45c-46a0-91fe-98fdaea1389b/pt-card-product-photo-cut.webp",
+    "after": "/__l5e/assets-v1/d6637935-2477-4056-9a3d-a32a947d71fe/pt-card-product-photo-after.webp"
+   },
+   "/passport-photo": {
+    "before": "/__l5e/assets-v1/2975edfc-2544-4e2e-835d-7174b0b18122/pt-card-passport-photo-before.webp",
+    "cut": "/__l5e/assets-v1/04f6170c-c3ae-40a2-ab10-b02bfae79fb1/pt-card-passport-photo-cut.webp",
+    "after": "/__l5e/assets-v1/29842f02-dc12-4ea3-ae36-49d9cf0495cb/pt-card-passport-photo-after.webp"
+   },
+   "/profile-picture": {
+    "before": "/__l5e/assets-v1/fa2e7101-4582-4992-ae11-0eb516eada6e/pt-card-profile-picture-before.webp",
+    "cut": "/__l5e/assets-v1/a4684ac0-6db0-420d-9fc2-0532ae1be28b/pt-card-profile-picture-cut.webp",
+    "after": "/__l5e/assets-v1/66be1e76-6cb4-42b0-8dd8-f8d0fa4b9f92/pt-card-profile-picture-after.webp"
+   },
+   "/sticker-maker": {
+    "before": "/__l5e/assets-v1/d9eef298-0e19-4256-a9ac-1ebfea4b7e22/pt-card-sticker-maker-before.webp",
+    "cut": "/__l5e/assets-v1/c8d3527a-54e1-4c48-8874-1bbbee565761/pt-card-sticker-maker-cut.webp",
+    "after": "/__l5e/assets-v1/6c862756-0af6-4563-a057-7a2d6e35fddd/pt-card-sticker-maker-after.webp"
+   },
+   "/photo-background": {
+    "before": "/__l5e/assets-v1/5af802a7-a2e3-4096-82db-592b3ecf298d/pt-card-photo-background-before.webp",
+    "cut": "/__l5e/assets-v1/1090a7c2-b722-4bbc-a2e8-2ded2072dca2/pt-card-photo-background-cut.webp",
+    "after": "/__l5e/assets-v1/c6a8582c-2dfd-4696-a7bb-664d0dcf077e/pt-card-photo-background-after.webp"
+   },
+   "/logo-cleaner": {
+    "before": "/__l5e/assets-v1/ab7ec0a3-7a13-4ea8-8b96-fe37ee86bf51/pt-card-logo-cleaner-before.webp",
+    "cut": "/__l5e/assets-v1/9af7f199-039c-4b0c-b721-2c895416a296/pt-card-logo-cleaner-cut.webp",
+    "after": "/__l5e/assets-v1/ed3dd17e-acb1-4207-b0c9-b8921b85373c/pt-card-logo-cleaner-after.webp"
+   }
+  },
+  "es": {
+   "/": {
+    "before": "/__l5e/assets-v1/ec60c362-06bf-4af4-acbc-974fad74705c/es-card-home-before.webp",
+    "cut": "/__l5e/assets-v1/1c248223-c1ca-416a-9ef8-6d9a938f5c1d/es-card-home-cut.webp",
+    "after": "/__l5e/assets-v1/64501524-a18f-4847-be1e-24518e9040fd/es-card-home-after.webp"
+   },
+   "/colour-background": {
+    "before": "/__l5e/assets-v1/5d9a1839-836b-4b56-87c9-062bbbb3263d/es-card-colour-background-before.webp",
+    "cut": "/__l5e/assets-v1/3092522c-df3b-4bd3-a5c9-862f16bf7071/es-card-colour-background-cut.webp",
+    "after": "/__l5e/assets-v1/0e773e33-0260-4198-97ca-c524ea599cac/es-card-colour-background-after.webp"
+   },
+   "/product-photo": {
+    "before": "/__l5e/assets-v1/ab4a4053-d831-44e1-8256-e769f7e6a483/es-card-product-photo-before.webp",
+    "cut": "/__l5e/assets-v1/e791b396-a28f-4d22-8f6a-27f473f7eaaa/es-card-product-photo-cut.webp",
+    "after": "/__l5e/assets-v1/a0661161-4fce-4c03-a433-44ea8ce2c5fd/es-card-product-photo-after.webp"
+   },
+   "/passport-photo": {
+    "before": "/__l5e/assets-v1/35ad369d-6987-42db-a90c-d991cfc9c22d/es-card-passport-photo-before.webp",
+    "cut": "/__l5e/assets-v1/ca215d1c-176e-4bdc-a593-dedf48680a05/es-card-passport-photo-cut.webp",
+    "after": "/__l5e/assets-v1/2fef5d63-4709-4c08-967c-cc18ef1b1883/es-card-passport-photo-after.webp"
+   },
+   "/profile-picture": {
+    "before": "/__l5e/assets-v1/94ce6bd0-05a1-46ee-a5d5-541d9a14187b/es-card-profile-picture-before.webp",
+    "cut": "/__l5e/assets-v1/d1dce309-5a06-470e-a599-89f8df2a2413/es-card-profile-picture-cut.webp",
+    "after": "/__l5e/assets-v1/b4219cab-1401-476f-85f5-082f657c48cd/es-card-profile-picture-after.webp"
+   },
+   "/sticker-maker": {
+    "before": "/__l5e/assets-v1/fc04fb1e-6950-4a62-8c25-8bfa59b50e22/es-card-sticker-maker-before.webp",
+    "cut": "/__l5e/assets-v1/d1f3e4d0-170f-418a-af0f-5a04e10798f7/es-card-sticker-maker-cut.webp",
+    "after": "/__l5e/assets-v1/1066631d-7cdf-459e-af1a-e3b7ce11aa8d/es-card-sticker-maker-after.webp"
+   },
+   "/photo-background": {
+    "before": "/__l5e/assets-v1/daad5663-b234-4fd8-94f0-f8d71f1125e4/es-card-photo-background-before.webp",
+    "cut": "/__l5e/assets-v1/776ba778-2e17-4a1e-b1d2-f28376403922/es-card-photo-background-cut.webp",
+    "after": "/__l5e/assets-v1/9380e7b0-253d-4f58-95d0-6427473e32a9/es-card-photo-background-after.webp"
+   },
+   "/logo-cleaner": {
+    "before": "/__l5e/assets-v1/ddb2b0c2-a7b3-4ed3-9e7d-fb64d027e649/es-card-logo-cleaner-before.webp",
+    "cut": "/__l5e/assets-v1/d3b198c7-e69c-4269-8b4f-3a77cb76df10/es-card-logo-cleaner-cut.webp",
+    "after": "/__l5e/assets-v1/a9ed7594-3cb6-4940-9f45-9fa31090aef4/es-card-logo-cleaner-after.webp"
+   }
+  }
+ }
+}
