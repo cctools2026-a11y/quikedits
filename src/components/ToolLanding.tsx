@@ -12,7 +12,7 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
   return (
     <div>
       {kicker && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>}
-      <h2 id={id} className={`font-display ${kicker ? t("mt-2 ") : ""}text-4xl leading-none sm:text-5xl`}>{children}</h2>
+      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-4xl leading-none sm:text-5xl`}>{children}</h2>
     </div>
   );
 }

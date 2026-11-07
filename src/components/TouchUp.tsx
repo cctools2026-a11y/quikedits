@@ -87,7 +87,7 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
     force((n) => n + 1);
   }
 
-  const btn = (on: boolean) => `rounded-full border px-4 py-2 text-sm font-medium ${on ? t("border-primary bg-primary text-primary-foreground") : t("border-border hover:bg-accent")}`;
+  const btn = (on: boolean) => `rounded-full border px-4 py-2 text-sm font-medium ${on ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-accent"}`;
 
   return (
     <div className="mb-8 grid gap-6 md:grid-cols-[1fr_260px]">

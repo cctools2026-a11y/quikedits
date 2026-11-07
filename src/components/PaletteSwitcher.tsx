@@ -47,7 +47,7 @@ export function PaletteSwitcher() {
                 <button
                   onClick={() => choose(p.id)}
                   aria-pressed={current === p.id}
-                  className={`flex w-full items-center justify-between gap-2 rounded-xl border-2 px-2.5 py-2 text-left text-sm font-semibold ${current === p.id ? t("border-foreground bg-primary text-primary-foreground") : t("border-transparent hover:border-border")}`}
+                  className={`flex w-full items-center justify-between gap-2 rounded-xl border-2 px-2.5 py-2 text-left text-sm font-semibold ${current === p.id ? "border-foreground bg-primary text-primary-foreground" : "border-transparent hover:border-border"}`}
                 >
                   <span>{p.name}</span>
                   <span className="flex">

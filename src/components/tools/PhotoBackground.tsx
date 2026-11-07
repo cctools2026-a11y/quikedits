@@ -18,7 +18,7 @@ export function PhotoBackground({ page = "/photo-background", preset = {} }: { p
       tool="/photo-background"
       page={page}
       below={<ToolLanding path={page} />}
-      title={preset.title ?? <>{t("Put yourself")} <span className="text-primary">{t("anywhere")}</span>.</>}
+      title={preset.title ?? <>{t("Put yourself")} <span className="text-primary">{"anywhere"}</span>.</>}
       intro={preset.intro ?? t("Upload your photo, then pick a playful background or add your own picture.")}
     >
       {(items, reset) => preset.blur

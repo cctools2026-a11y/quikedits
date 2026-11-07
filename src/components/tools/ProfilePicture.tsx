@@ -27,7 +27,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
       page={page}
       below={<ToolLanding path={page} />}
       crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
-      title={preset.title ?? <>{t("A sharp")} <span className="text-primary">{t("profile picture")}</span> {t("in seconds.")}</>}
+      title={preset.title ?? <>{t("A sharp")} <span className="text-primary">{"profile picture"}</span> {t("in seconds.")}</>}
       intro={preset.intro ?? t("Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages.")}
     >
       {(items, reset) => {

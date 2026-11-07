@@ -241,7 +241,7 @@ export function Choice<T extends string>({ value, options, onChange }: { value: 
     <div className="flex flex-wrap gap-2">
       {options.map((o) => (
         <button key={o.id} type="button" aria-pressed={value === o.id} onClick={() => onChange(o.id)}
-          className={`rounded-full border px-3.5 py-2 text-sm ${value === o.id ? t("border-primary bg-primary text-primary-foreground") : t("border-border hover:bg-accent")}`}>
+          className={`rounded-full border px-3.5 py-2 text-sm ${value === o.id ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-accent"}`}>
           {o.label}
         </button>
       ))}

@@ -145,7 +145,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path={page} title={preset.title ?? <>{t("Put any photo on a")} <span className="text-primary">{t("solid colour")}</span>.</>} intro={preset.intro ?? t("Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.")}>
+          <ToolHero path={page} title={preset.title ?? <>{t("Put any photo on a")} <span className="text-primary">{"solid colour"}</span>.</>} intro={preset.intro ?? t("Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.")}>
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
           </ToolHero>

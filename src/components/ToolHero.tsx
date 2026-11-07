@@ -63,7 +63,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { rootMargin: t("0px 0px -10% 0px") });
+    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { rootMargin: "0px 0px -10% 0px" });
     io.observe(el);
     return () => io.disconnect();
   }, []);

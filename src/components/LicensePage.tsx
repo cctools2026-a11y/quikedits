@@ -15,7 +15,7 @@ export function LicensePage() {
             General Public License as published by the Free Software Foundation, version 3. It is distributed
             WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
             PURPOSE. See the{" "}
-            <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noreferrer">{t("full license text")}</a>.
+            <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noreferrer">{"full license text"}</a>.
           </p>
         </section>
         <section>
@@ -30,7 +30,7 @@ export function LicensePage() {
           <h2>{t("Third-party attribution")}</h2>
           <p>
             Background removal is powered by{" "}
-            <a href={IMGLY_URL} target="_blank" rel="noreferrer">{t("@imgly/background-removal")}</a> © IMG.LY GmbH, licensed
+            <a href={IMGLY_URL} target="_blank" rel="noreferrer">{"@imgly/background-removal"}</a> © IMG.LY GmbH, licensed
             under AGPL-3.0. Its AI model files (© IMG.LY, AGPL-3.0) are hosted on this site, checked against IMG.LY's published SHA-256 fingerprints, and cached in your browser.
             Commercial use without AGPL obligations requires a separate licence from IMG.LY.
           </p>
