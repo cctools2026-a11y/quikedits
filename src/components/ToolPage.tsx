@@ -10,7 +10,6 @@ import { friendlyError, removeBg, type Phase } from "@/lib/remove";
 import { blobToCanvas, canvasToBlob, canvasUnder, refinedFull, trim } from "@/lib/compose";
 import { CutoutCues } from "@/components/CutoutCues";
 import { CropRotate, type CropAspect } from "@/components/CropRotate";
-import { SignatureDraw } from "@/components/SignatureDraw";
 
 export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined; full?: HTMLCanvasElement | undefined; source?: HTMLCanvasElement | undefined };
 
@@ -111,8 +110,7 @@ export function ToolPage({
         {stage.kind === "idle" && (
           <>
             <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
-              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
-              {drawSignature && <SignatureDraw onFiles={pick} />}
+              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             </ToolHero>
             <TrustStrip />
