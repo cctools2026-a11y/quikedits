@@ -1,6 +1,6 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { CompareSlider } from "@/components/CompareSlider";
-import { TOOL_MEDIA } from "@/lib/tool-media";
+import { mediaFor } from "@/lib/tool-media";
 import { Link } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { TOOLS, subtool } from "@/lib/tools";
@@ -18,7 +18,7 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
     title = <>{pt[0]}<span className="text-primary">{pt[1]}</span>{pt[2]}</>;
     intro = pt[3];
   }
-  const m = TOOL_MEDIA[path];
+  const m = mediaFor(path, loc);
   const sub = subtool(path);
   const parent = sub && TOOLS.find((o) => o.to === sub.parent);
   return (

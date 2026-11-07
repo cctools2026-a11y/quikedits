@@ -1,4 +1,6 @@
 import { SUBTOOLS } from "@/lib/tools";
+import type { Locale } from "@/lib/i18n";
+import localeMedia from "@/lib/locale-media.json";
 import homeB from "@/assets/tools/home-expressive-puppy-original.jpg";
 import homeA from "@/assets/tools/home-expressive-puppy-after.webp.asset.json";
 import colourB from "@/assets/tools/colour-sleek-bob-original.jpg";
@@ -32,9 +34,19 @@ export const TOOL_MEDIA: Record<string, ToolMedia> = {
 
 for (const s of SUBTOOLS) TOOL_MEDIA[s.to] ??= TOOL_MEDIA[s.parent]!;
 
+type LocalMedia = { before: string; after: string };
+const LOCAL = localeMedia.hero as Record<string, Record<string, LocalMedia>>;
+
+/** Example pair for a page in a language: local people, places and words, falling back to English. */
+export function mediaFor(path: string, locale: Locale): ToolMedia | undefined {
+  const base = TOOL_MEDIA[path];
+  const local = locale === "en" ? undefined : LOCAL[locale]?.[path];
+  return base && local ? { ...base, ...local } : base;
+}
+
 /** Load an example photo as a File so it can go through the normal tool flow. */
-export async function sampleFile(path: string) {
-  const m = TOOL_MEDIA[path]!;
+export async function sampleFile(path: string, locale: Locale = "en") {
+  const m = mediaFor(path, locale)!;
   const blob = await (await fetch(m.before)).blob();
   return new File([blob], "sample.webp", { type: blob.type || "image/webp" });
 }

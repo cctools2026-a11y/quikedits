@@ -43,7 +43,8 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
   const [y, setY] = useState(50);
   const preset = PASSPORT_SIZES.find((s) => s.id === sizeId) ?? PASSPORT_SIZES[1];
   const size = passportPx(preset);
-  const media = TOOL_MEDIA["/passport-photo"];
+  const loc = useLocale();
+  const media = useMemo(() => mediaFor(useEnPathPassport(enPath), loc), [enPath, loc]);
   useEffect(() => {
     if (!media) return;
     let active = true;
