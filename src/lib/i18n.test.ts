@@ -1,10 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
-import { ALL_PATHS, alternates, EN_PATHS, enPathOf, localePath, PT_SLUGS } from "@/lib/i18n";
+import { ALL_PATHS, alternates, EN_PATHS, enPathOf, localePath, PT_SLUGS, ES_SLUGS } from "@/lib/i18n";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 import { TOOL_CONTENT_PT } from "@/lib/tool-content.pt";
 import { PT_HERO } from "@/lib/hero.pt";
 import { PT_UI } from "@/lib/strings/pt";
+import { ES_UI } from "@/lib/strings/es";
+import { TOOL_CONTENT_ES } from "@/lib/tool-content.es";
+import { ES_HERO } from "@/lib/hero.es";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { SUBTOOLS, TOOL_GROUPS, TOOLS } from "@/lib/tools";
 import { toolHead } from "@/lib/seo";
@@ -41,7 +44,7 @@ describe("Portuguese pages", () => {
   });
 
   it("every page is prerendered in both languages", () => {
-    expect(ALL_PATHS.length).toBe(EN_PATHS.length * 2);
+    expect(ALL_PATHS.length).toBe(EN_PATHS.length * 3);
     expect(ALL_PATHS).toContain("/pt/fundo-branco");
   });
 });
@@ -51,6 +54,7 @@ describe("search tags", () => {
     expect(alternates("/white-background")).toEqual([
       { hreflang: "en", href: "https://quikedits.com/white-background" },
       { hreflang: "pt", href: "https://quikedits.com/pt/fundo-branco" },
+      { hreflang: "es", href: "https://quikedits.com/es/fondo-blanco" },
       { hreflang: "x-default", href: "https://quikedits.com/white-background" },
     ]);
   });
@@ -59,7 +63,7 @@ describe("search tags", () => {
     const h = toolHead("/white-background", "pt");
     const canonical = h.links.find((l) => l.rel === "canonical");
     expect(canonical?.href).toBe("https://quikedits.com/pt/fundo-branco");
-    expect(h.links.filter((l) => l.rel === "alternate").map((l) => ("hrefLang" in l ? l.hrefLang : ""))).toEqual(["en", "pt", "x-default"]);
+    expect(h.links.filter((l) => l.rel === "alternate").map((l) => ("hrefLang" in l ? l.hrefLang : ""))).toEqual(["en", "pt", "es", "x-default"]);
     expect(h.meta).toContainEqual({ property: "og:locale", content: "pt_BR" });
     expect(h.meta).toContainEqual({ property: "og:image", content: "https://quikedits.com/og/pt/white-background.jpg" });
   });
@@ -106,5 +110,45 @@ describe("Portuguese interface text", () => {
       const vars = en.match(/\{\w+\}/g) ?? [];
       for (const v of vars) expect(pt, en).toContain(v);
     }
+  });
+});
+
+describe("Spanish pages", () => {
+  it("every English page has a unique Spanish address under /es/ that maps back", () => {
+    const urls = EN_PATHS.map((p) => localePath(p, "es"));
+    expect(new Set(urls).size).toBe(EN_PATHS.length);
+    for (const u of urls) expect(u.startsWith("/es/")).toBe(true);
+    expect(localePath("/", "es")).toBe("/es/");
+    expect(localePath("/passport-photo", "es")).toBe("/es/foto-para-pasaporte");
+    for (const p of EN_PATHS) expect(enPathOf(localePath(p, "es"))).toBe(p);
+    expect(enPathOf("/es")).toBe("/");
+  });
+
+  it("every Spanish page has a route file, content, headline and share image", () => {
+    for (const slug of Object.values(ES_SLUGS)) expect(existsSync(`src/routes/es.${slug || "index"}.tsx`)).toBe(true);
+    expect(readdirSync("src/routes").filter((f) => f.startsWith("es.")).length).toBe(EN_PATHS.length);
+    for (const p of toolPaths) {
+      expect(TOOL_CONTENT_ES[p], p).toBeDefined();
+      expect(ES_HERO[p], p).toBeDefined();
+      expect(TOOL_CONTENT_ES[p]!.title).not.toBe(TOOL_CONTENT[p]!.title);
+      expect(TOOL_CONTENT_ES[p]!.faqs.length).toBe(TOOL_CONTENT[p]!.faqs.length);
+      expect(existsSync(`public/og/es/${p === "/" ? "home" : p.slice(1)}.jpg`), p).toBe(true);
+    }
+  });
+
+  it("Spanish pages point canonical at themselves with Spanish locale", () => {
+    const h = toolHead("/white-background", "es");
+    expect(h.links.find((l) => l.rel === "canonical")?.href).toBe("https://quikedits.com/es/fondo-blanco");
+    expect(h.meta).toContainEqual({ property: "og:locale", content: "es_LA" });
+  });
+
+  it("sitemap lists every Spanish page", () => {
+    const xml = readFileSync("public/sitemap.xml", "utf8");
+    expect(xml.match(/hreflang="es"/g)?.length).toBe(ALL_PATHS.length);
+  });
+
+  it("Spanish interface text covers every Portuguese key and keeps placeholders", () => {
+    expect(Object.keys(PT_UI).filter((k) => !(k in ES_UI))).toEqual([]);
+    for (const [en, es] of Object.entries(ES_UI)) for (const v of en.match(/\{\w+\}/g) ?? []) expect(es, en).toContain(v);
   });
 });
