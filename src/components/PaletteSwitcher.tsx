@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useState } from "react";
 import { Palette, X } from "lucide-react";
 
@@ -19,6 +20,7 @@ function apply(id: string) {
 }
 
 export function PaletteSwitcher() {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState("mint");
 

@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { createContext, useContext, useState, type ReactNode } from "react";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import { Minus, Plus, RotateCcw } from "lucide-react";
@@ -8,6 +9,7 @@ export const useZoomed = () => useContext(ZoomedCtx);
 
 /** Pinch / wheel / double-tap zoom and drag-to-pan for a finished image preview. */
 export function ZoomView({ children, className = "" }: { children: ReactNode; className?: string }) {
+  const t = useT();
   const [zoomed, setZoomed] = useState(false);
   const btn = "flex h-9 w-9 items-center justify-center rounded-full border-2 border-foreground bg-background text-foreground shadow-sm active:scale-95";
   return (

@@ -1,7 +1,9 @@
+import { useT } from "@/lib/use-i18n";
 import { useZoomed } from "@/components/ZoomView";
 import { useCallback, useRef, useState } from "react";
 
 export function CompareSlider({ before, after, afterAlt = "Background removed", beforeAlt = "Original" }: { before: string; after: string; afterAlt?: string; beforeAlt?: string }) {
+  const t = useT();
   const [pos, setPos] = useState(50);
   const ref = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);

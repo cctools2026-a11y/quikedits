@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { RotateCcw, RotateCw } from "lucide-react";
 import { prepareImage } from "@/lib/image-file";
@@ -11,6 +12,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
   file: File; aspects: CropAspect[]; heading?: string | undefined;
   onDone: (f: File) => void; onSkip: () => void; onSkipAll?: (() => void) | undefined;
 }) {
+  const t = useT();
   const [bmp, setBmp] = useState<ImageBitmap | null>(null);
   const [quarter, setQuarter] = useState(0);
   const [fine, setFine] = useState(0);

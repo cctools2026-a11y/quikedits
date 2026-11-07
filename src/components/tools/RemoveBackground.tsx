@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { ZoomView } from "@/components/ZoomView";
 import { ShareButton } from "@/components/ShareButton";
 import { ToolLanding, ToolPicker } from "@/components/ToolLanding";
@@ -163,11 +164,11 @@ export function RemoveBackground() {
             <ZoomView><CompareSlider before={original} after={result} /></ZoomView>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a href={result} download={downloadName} className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01]">
-                <Download className="h-5 w-5" /> Download transparent PNG
+                <Download className="h-5 w-5" /> {t("Download transparent PNG")}
               </a>
               <ShareButton url={result} name={downloadName} />
               <button onClick={reset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
-                <RotateCcw className="h-4 w-4" /> New image
+                <RotateCcw className="h-4 w-4" /> {t("New image")}
               </button>
             </div>
             <p className="mt-3 text-center text-xs text-muted-foreground">{t("Drag the handle to compare. Processed entirely in your browser.")}</p>

@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -10,6 +11,7 @@ import { canDrawSignature } from "@/lib/signature-tools";
 
 
 export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [tol, setTol] = useState(preset.tol ?? 60);
   const [recolour, setRecolour] = useState<"original" | "black" | "white">(preset.recolour ?? "original");
   return (

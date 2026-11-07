@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useRef, useState } from "react";
 import SignaturePad from "signature_pad";
 import { Check, PenLine, Trash2, Undo2 } from "lucide-react";
@@ -5,11 +6,12 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export function SignatureDraw({ onFiles }: { onFiles: (files: File[]) => void }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   return (
     <>
       <Button variant="start-option" onClick={() => setOpen(true)}>
-        <PenLine /> Draw signature
+        <PenLine /> {t("Draw signature")}
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border-4 border-foreground p-4 sm:p-6">
@@ -25,6 +27,7 @@ export function SignatureDraw({ onFiles }: { onFiles: (files: File[]) => void })
 }
 
 function SignatureEditor({ onDone }: { onDone: (file: File) => void }) {
+  const t = useT();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const padRef = useRef<SignaturePad | null>(null);
   const [empty, setEmpty] = useState(true);
@@ -81,7 +84,7 @@ function SignatureEditor({ onDone }: { onDone: (file: File) => void }) {
     setSaving(true);
     setError(null);
     canvas.toBlob((blob) => {
-      if (!blob) { setError("Couldn't save your signature. Please try again."); setSaving(false); return; }
+      if (!blob) { setError(t("Couldn't save your signature. Please try again.")); setSaving(false); return; }
       onDone(new File([blob], "signature.png", { type: "image/png" }));
     }, "image/png");
   }

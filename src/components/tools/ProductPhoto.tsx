@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -15,6 +16,7 @@ import { fitContain, PRODUCT_SIZES } from "@/lib/tool-sizes";
 type SizeId = (typeof PRODUCT_SIZES)[number]["id"];
 
 export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [colour, setColour] = useState(preset.colour ?? "#FFFFFF");
   const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "square");
   const [pad, setPad] = useState(preset.pad ?? 8);
@@ -54,6 +56,7 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
 }
 
 function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item: Item; name: string; colour: string; w: number; h: number; pad: number; shadow: boolean; onUrl: (u: string | null) => void }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     const cut = item.cutout;
     if (!cut) return null;
@@ -85,7 +88,7 @@ function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item:
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
         <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
-          <Download className="h-4 w-4" /> PNG
+          <Download className="h-4 w-4" /> {t("PNG")}
         </a>
         <ShareButton compact url={url} name={name} />
       </figcaption>

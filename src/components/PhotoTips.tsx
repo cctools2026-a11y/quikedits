@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { Check, Info, X } from "lucide-react";
 import { PHOTO_RULES } from "@/lib/photo-rules";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -5,6 +6,7 @@ import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/s
 import { useIsMobile } from "@/hooks/use-mobile";
 
 function TipsBody({ tool }: { tool: string }) {
+  const t = useT();
   const r = PHOTO_RULES[tool];
   if (!r) return null;
   return (
@@ -29,6 +31,7 @@ function TipsBody({ tool }: { tool: string }) {
 }
 
 export function PhotoTips({ tool }: { tool: string }) {
+  const t = useT();
   const isMobile = useIsMobile();
   if (!PHOTO_RULES[tool]) return null;
 

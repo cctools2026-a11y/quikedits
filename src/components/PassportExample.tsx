@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useState } from "react";
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,6 +13,7 @@ import { PASSPORT_SIZES, passportPx } from "@/lib/tool-sizes";
 export type PassportSizeId = (typeof PASSPORT_SIZES)[number]["id"];
 
 export function PassportSizeSelect({ value, onChange }: { value: PassportSizeId; onChange: (id: PassportSizeId) => void }) {
+  const t = useT();
   return <div className="block text-sm font-medium">
     <span>{t("Document size")}</span>
     <Select value={value} onValueChange={(v) => {
@@ -33,6 +35,7 @@ export function PassportSizeSelect({ value, onChange }: { value: PassportSizeId;
 }
 
 export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSizeId; onSizeChange: (id: PassportSizeId) => void }) {
+  const t = useT();
   const [photos, setPhotos] = useState<HTMLCanvasElement[]>([]);
   const [error, setError] = useState(false);
   const [zoom, setZoom] = useState(100);

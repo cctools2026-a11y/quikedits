@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { GRADIENTS, gradientCanvas, gradientCss } from "@/lib/gradients";
 import { ZoomView } from "@/components/ZoomView";
@@ -13,6 +14,7 @@ import { prepareImage, validateImageFile } from "@/lib/image-file";
 
 
 export function PhotoBackground({ page = "/photo-background", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   return (
     <ToolPage
       tool="/photo-background"
@@ -29,6 +31,7 @@ export function PhotoBackground({ page = "/photo-background", preset = {} }: { p
 }
 
 function BlurResult({ full, source, name, reset }: { full: HTMLCanvasElement | null; source: HTMLCanvasElement | null; name: string; reset: () => void }) {
+  const t = useT();
   const [amount, setAmount] = useState(12);
   const url = useRenderedUrl(() => {
     if (!full || !source) return null;
@@ -57,6 +60,7 @@ function BlurResult({ full, source, name, reset }: { full: HTMLCanvasElement | n
 }
 
 function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null; name: string; reset: () => void; preset: Preset }) {
+  const t = useT();
   const choices = useMemo(() => [
     ...(preset.gradients ? GRADIENTS.map((g) => ({ id: g.id, name: g.name, src: "", css: gradientCss(g.stops), colour: [0, 0, 0] as const, stops: g.stops })) : []),
     ...BACKGROUND_PRESETS.filter((b) => !preset.backdrops || preset.backdrops.includes(b.id)).map((b) => ({ ...b, css: "", stops: null })),
@@ -98,7 +102,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
       setBackdrop(canvas);
       setSelected(id);
     } catch {
-      if (token === request.current) setErr("Couldn't open that background. Please try again.");
+      if (token === request.current) setErr(t("Couldn't open that background. Please try again."));
     } finally {
       if (token === request.current) setLoading(false);
     }
@@ -131,7 +135,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
           <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> Suggested: {suggested.name}</h2>
           <p className="text-sm text-muted-foreground">{suggested.reason}</p>
           <Button onClick={() => void applyPreset(suggested)} disabled={loading} className="w-full">
-            <Check /> Apply suggested background
+            <Check /> {t("Apply suggested background")}
           </Button>
         </section>}
         <div>

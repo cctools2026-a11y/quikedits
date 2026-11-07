@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -12,6 +13,7 @@ type SizeId = (typeof PASSPORT_SIZES)[number]["id"];
 const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: t("Light grey") }] as const;
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "uk");
   const [bg, setBg] = useState<(typeof BGS)[number]["id"]>((preset.colour as (typeof BGS)[number]["id"] | undefined) ?? "#FFFFFF");
   const [zoom, setZoom] = useState(100);
@@ -44,6 +46,7 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
 function PassportResult({ cut, name, size, bg, zoom, top, reset, controls }: {
   cut: HTMLCanvasElement | null; name: string; size: { w: number; h: number }; bg: string; zoom: number; top: number; reset: () => void; controls: React.ReactNode;
 }) {
+  const t = useT();
   const draw = () => {
     if (!cut) return null;
     const c = makeCanvas(size.w, size.h);

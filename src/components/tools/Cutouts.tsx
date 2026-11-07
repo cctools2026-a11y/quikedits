@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { useEffect } from "react";
 import { Download } from "lucide-react";
@@ -12,6 +13,7 @@ import { alphaForDistance } from "@/lib/tool-sizes";
 
 /** Transparent cut-outs for one or many photos, with optional AI-free mode for flat graphics. */
 export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }) {
+  const t = useT();
   return (
     <ToolPage
       tool="/"
@@ -31,6 +33,7 @@ export function Cutouts({ page, preset = {} }: { page: string; preset?: Preset }
 }
 
 function CutoutList({ items, names, reset, preset }: { items: Item[]; names: string[]; reset: () => void; preset: Preset }) {
+  const t = useT();
   const [urls, report] = useUrlMap();
   if (items.length === 1) return <One item={items[0]!} name={names[0]!} preset={preset} onUrl={() => {}} reset={reset} />;
   return (
@@ -47,6 +50,7 @@ function CutoutList({ items, names, reset, preset }: { items: Item[]; names: str
 }
 
 function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: string; preset: Preset; onUrl: (u: string | null) => void; reset?: (() => void) | undefined; compact?: boolean }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     let cut = item.cutout;
     if (!cut) return null;

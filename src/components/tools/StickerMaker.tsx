@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -12,6 +13,7 @@ const OUTLINES = [{ id: "#FFFFFF", label: "White" }, { id: "#000000", label: "Bl
 const FORMATS = [{ id: "image/png", label: "PNG" }, { id: "image/webp", label: t("WebP (WhatsApp)") }] as const;
 
 export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [outline, setOutline] = useState<"#FFFFFF" | "#000000">(preset.outline ?? "#FFFFFF");
   const [width, setWidth] = useState(12);
   const [pageId, setPageId] = useState<(typeof PAGES)[number]["id"]>("a4");
@@ -46,6 +48,7 @@ export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: 
 }
 
 function StickerResult({ cut, name, outline, width, format, reset, size, pad, shadow, page }: { cut: HTMLCanvasElement | null; name: string; outline: string; width: number; format: string; reset: () => void; size: number; pad: number; shadow: boolean; page: { w: number; h: number } | null }) {
+  const t = useT();
   const draw = (S: number) => {
     if (!cut) return null;
     const r = Math.round(width * (Math.max(cut.width, cut.height) / 480));

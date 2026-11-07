@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useRef, useState } from "react";
 import { Minus, Plus, Undo2 } from "lucide-react";
 import { ctx2d, makeCanvas, suggestionOverlay } from "@/lib/compose";
@@ -7,6 +8,7 @@ import { Field, Range } from "@/components/ToolPage";
 export function TouchUp({ cut, source, onDone, onCancel }: {
   cut: HTMLCanvasElement; source: HTMLCanvasElement; onDone: (c: HTMLCanvasElement) => void; onCancel: () => void;
 }) {
+  const t = useT();
   const work = useRef<HTMLCanvasElement>(null as unknown as HTMLCanvasElement);
   const view = useRef<HTMLCanvasElement>(null);
   const history = useRef<ImageData[]>([]);

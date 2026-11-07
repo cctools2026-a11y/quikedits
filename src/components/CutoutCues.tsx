@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useMemo, useState } from "react";
 import { AlertTriangle, Brush, Sparkles } from "lucide-react";
 import { analyseCanvas, keepLargest } from "@/lib/compose";
@@ -9,6 +10,7 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
   tool: string; cut: HTMLCanvasElement; source: HTMLCanvasElement; label?: string | undefined;
   onChange: (c: HTMLCanvasElement) => void; onRetry?: (() => void) | undefined;
 }) {
+  const t = useT();
   const [editing, setEditing] = useState(false);
   const cues = useMemo(
     () => cuesFor(tool, analyseCanvas(cut), Math.min(source.width, source.height) < SMALL_EDGE),
@@ -29,11 +31,11 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
           <div className="mt-3 flex flex-wrap gap-2">
             {stray && (
               <button type="button" onClick={() => onChange(keepLargest(cut))} className="flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground">
-                <Sparkles className="h-4 w-4" /> Clean up stray bits
+                <Sparkles className="h-4 w-4" /> {t("Clean up stray bits")}
               </button>
             )}
             <button type="button" onClick={() => setEditing(true)} className="flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium">
-              <Brush className="h-4 w-4" /> Fix it
+              <Brush className="h-4 w-4" /> {t("Fix it")}
             </button>
             {onRetry && <button type="button" onClick={onRetry} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium">{t("Try another photo")}</button>}
           </div>

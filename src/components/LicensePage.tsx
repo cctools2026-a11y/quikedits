@@ -1,8 +1,10 @@
+import { useT } from "@/lib/use-i18n";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { IMGLY_URL, SOURCE_URL } from "@/lib/site";
 
 export function LicensePage() {
+  const t = useT();
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />

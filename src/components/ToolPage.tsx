@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ShareButton } from "@/components/ShareButton";
 import { Download, Loader2, RotateCcw } from "lucide-react";
@@ -41,6 +42,7 @@ export function ToolPage({
   below?: ReactNode;
   example?: ReactNode;
 }) {
+  const t = useT();
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [items, setItems] = useState<Item[]>([]);
   const [fileError, setFileError] = useState<string | null>(null);
@@ -201,6 +203,7 @@ export function useRenderedUrl(render: () => HTMLCanvasElement | null, deps: unk
 }
 
 export function ResultActions({ url, name, onReset, label = "Download PNG" }: { url: string | null; name: string; onReset?: () => void; label?: string }) {
+  const t = useT();
   return (
     <div className="result-actions sticky bottom-3 z-20 mt-6 flex flex-col gap-3 sm:static sm:flex-row">
       <a
@@ -214,7 +217,7 @@ export function ResultActions({ url, name, onReset, label = "Download PNG" }: { 
       <ShareButton url={url} name={name} />
       {onReset && (
         <button onClick={onReset} className="flex items-center justify-center gap-2 rounded-full border border-border px-6 py-4 font-medium hover:bg-accent">
-          <RotateCcw className="h-4 w-4" /> New image
+          <RotateCcw className="h-4 w-4" /> {t("New image")}
         </button>
       )}
     </div>

@@ -1,3 +1,4 @@
+import { useT } from "@/lib/use-i18n";
 import type { Preset } from "@/lib/tools";
 import { ZoomView } from "@/components/ZoomView";
 import { ToolLanding } from "@/components/ToolLanding";
@@ -14,6 +15,7 @@ const RINGS = [{ id: "none", label: "None" }, { id: "#FFFFFF", label: "White" },
 const SHAPES = [{ id: "circle", label: "Circle" }, { id: "square", label: "Square" }] as const;
 
 export function ProfilePicture({ page = "/profile-picture", preset = {} }: { page?: string; preset?: Preset }) {
+  const t = useT();
   const [colour, setColour] = useState(preset.colour ?? "#3B82F6");
   const [shape, setShape] = useState<"circle" | "square">(preset.shape ?? "circle");
   const [zoom, setZoom] = useState(90);
@@ -61,6 +63,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
 }
 
 function ProfileResult({ cut, name, colour, shape, zoom, ring, reset, compact, onUrl }: { cut: HTMLCanvasElement | null; name: string; colour: string; shape: string; zoom: number; ring: string; reset: () => void; compact?: boolean; onUrl?: (u: string | null) => void }) {
+  const t = useT();
   const url = useRenderedUrl(() => {
     if (!cut) return null;
     const S = PROFILE_SIZE;

@@ -1,7 +1,9 @@
+import { useT } from "@/lib/use-i18n";
 import { Check } from "lucide-react";
 import { PALETTE } from "@/lib/colour-background";
 
 export function ColourSwatches({ value, onChange, colours = PALETTE }: { value: string; onChange: (c: string) => void; colours?: readonly string[] }) {
+  const t = useT();
   return (
     <div className="flex flex-wrap gap-2.5" role="radiogroup" aria-label={t("Background colour")}>
       {colours.map((c) => (

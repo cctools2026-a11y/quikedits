@@ -1,8 +1,10 @@
+import { useT } from "@/lib/use-i18n";
 import { useEffect, useState } from "react";
 import { Share2 } from "lucide-react";
 
 /** Shares an edited image through the device's own share sheet (WhatsApp, Instagram, etc.). */
 export function ShareButton({ url, name, compact = false }: { url: string | null; name: string; compact?: boolean }) {
+  const t = useT();
   const [supported, setSupported] = useState(false);
   const [note, setNote] = useState<string | null>(null);
   useEffect(() => { setSupported(typeof navigator !== "undefined" && "share" in navigator && "canShare" in navigator); }, []);
@@ -14,10 +16,10 @@ export function ShareButton({ url, name, compact = false }: { url: string | null
     try {
       const blob = await (await fetch(url)).blob();
       const file = new File([blob], name, { type: blob.type || "image/png" });
-      if (!navigator.canShare({ files: [file] })) { setNote("This device can't share images. Please download instead."); return; }
+      if (!navigator.canShare({ files: [file] })) { setNote(t("This device can't share images. Please download instead.")); return; }
       await navigator.share({ files: [file], title: t("Made with QuikEdits") });
     } catch (e) {
-      if ((e as Error).name !== "AbortError") setNote("Sharing didn't work. Please download instead.");
+      if ((e as Error).name !== "AbortError") setNote(t("Sharing didn't work. Please download instead."));
     }
   };
 
