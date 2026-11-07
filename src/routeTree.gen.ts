@@ -58,6 +58,55 @@ import { Route as UsPassportPhotoRouteImport } from './routes/us-passport-photo'
 import { Route as VirtualBackgroundRouteImport } from './routes/virtual-background'
 import { Route as WhatsappStickerRouteImport } from './routes/whatsapp-sticker'
 import { Route as WhiteBackgroundRouteImport } from './routes/white-background'
+import { Route as PtIndexRouteImport } from './routes/pt.index'
+import { Route as PtAssinaturaDeEmailRouteImport } from './routes/pt.assinatura-de-email'
+import { Route as PtAssinaturaTransparenteRouteImport } from './routes/pt.assinatura-transparente'
+import { Route as PtAvatarDiscordRouteImport } from './routes/pt.avatar-discord'
+import { Route as PtCarimboTransparenteRouteImport } from './routes/pt.carimbo-transparente'
+import { Route as PtCriarFigurinhasRouteImport } from './routes/pt.criar-figurinhas'
+import { Route as PtDesfocarFundoRouteImport } from './routes/pt.desfocar-fundo'
+import { Route as PtEmojiSlackDiscordRouteImport } from './routes/pt.emoji-slack-discord'
+import { Route as PtFigurinhaDePetRouteImport } from './routes/pt.figurinha-de-pet'
+import { Route as PtFigurinhaTelegramRouteImport } from './routes/pt.figurinha-telegram'
+import { Route as PtFigurinhaWhatsappRouteImport } from './routes/pt.figurinha-whatsapp'
+import { Route as PtFolhaDeAdesivosParaImprimirRouteImport } from './routes/pt.folha-de-adesivos-para-imprimir'
+import { Route as PtFolhaDeFotosPassaporteRouteImport } from './routes/pt.folha-de-fotos-passaporte'
+import { Route as PtFotoDePerfilRouteImport } from './routes/pt.foto-de-perfil'
+import { Route as PtFotoDePerfilInstagramRouteImport } from './routes/pt.foto-de-perfil-instagram'
+import { Route as PtFotoDeProdutoRouteImport } from './routes/pt.foto-de-produto'
+import { Route as PtFotoDeProdutoAmazonRouteImport } from './routes/pt.foto-de-produto-amazon'
+import { Route as PtFotoDeProdutoComSombraRouteImport } from './routes/pt.foto-de-produto-com-sombra'
+import { Route as PtFotoDeProdutoEbayEtsyRouteImport } from './routes/pt.foto-de-produto-ebay-etsy'
+import { Route as PtFotoDeRoupaParaVenderRouteImport } from './routes/pt.foto-de-roupa-para-vender'
+import { Route as PtFotoParaCurriculoRouteImport } from './routes/pt.foto-para-curriculo'
+import { Route as PtFotoParaDocumentoRouteImport } from './routes/pt.foto-para-documento'
+import { Route as PtFotoParaLinkedinRouteImport } from './routes/pt.foto-para-linkedin'
+import { Route as PtFotoParaPassaporteRouteImport } from './routes/pt.foto-para-passaporte'
+import { Route as PtFotoPassaporteAustraliaRouteImport } from './routes/pt.foto-passaporte-australia'
+import { Route as PtFotoPassaporteEuaRouteImport } from './routes/pt.foto-passaporte-eua'
+import { Route as PtFotoPassaporteIndiaRouteImport } from './routes/pt.foto-passaporte-india'
+import { Route as PtFotoPassaporteReinoUnidoRouteImport } from './routes/pt.foto-passaporte-reino-unido'
+import { Route as PtFotoVistoSchengenRouteImport } from './routes/pt.foto-visto-schengen'
+import { Route as PtFotosDaEquipeRouteImport } from './routes/pt.fotos-da-equipe'
+import { Route as PtFotosDeProdutoShopifyRouteImport } from './routes/pt.fotos-de-produto-shopify'
+import { Route as PtFundoBrancoRouteImport } from './routes/pt.fundo-branco'
+import { Route as PtFundoColoridoRouteImport } from './routes/pt.fundo-colorido'
+import { Route as PtFundoCorDaMarcaRouteImport } from './routes/pt.fundo-cor-da-marca'
+import { Route as PtFundoDeFestaRouteImport } from './routes/pt.fundo-de-festa'
+import { Route as PtFundoDeViagemRouteImport } from './routes/pt.fundo-de-viagem'
+import { Route as PtFundoDegradeRouteImport } from './routes/pt.fundo-degrade'
+import { Route as PtFundoPretoRouteImport } from './routes/pt.fundo-preto'
+import { Route as PtFundoVirtualZoomTeamsRouteImport } from './routes/pt.fundo-virtual-zoom-teams'
+import { Route as PtLicencaRouteImport } from './routes/pt.licenca'
+import { Route as PtLogoEAssinaturaSemFundoRouteImport } from './routes/pt.logo-e-assinatura-sem-fundo'
+import { Route as PtLogoPngTransparenteRouteImport } from './routes/pt.logo-png-transparente'
+import { Route as PtMudarCorDoLogoRouteImport } from './routes/pt.mudar-cor-do-logo'
+import { Route as PtPngTransparenteParaSlidesRouteImport } from './routes/pt.png-transparente-para-slides'
+import { Route as PtRecortarCabeloRouteImport } from './routes/pt.recortar-cabelo'
+import { Route as PtRecortarPetRouteImport } from './routes/pt.recortar-pet'
+import { Route as PtRemoverFundoDeImagemGraficaRouteImport } from './routes/pt.remover-fundo-de-imagem-grafica'
+import { Route as PtRemoverFundoEmLoteRouteImport } from './routes/pt.remover-fundo-em-lote'
+import { Route as PtTrocarFundoDaFotoRouteImport } from './routes/pt.trocar-fundo-da-foto'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -305,6 +354,260 @@ const WhiteBackgroundRoute = WhiteBackgroundRouteImport.update({
   path: '/white-background',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PtIndexRoute = PtIndexRouteImport.update({
+  id: '/pt/',
+  path: '/pt/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtAssinaturaDeEmailRoute = PtAssinaturaDeEmailRouteImport.update({
+  id: '/pt/assinatura-de-email',
+  path: '/pt/assinatura-de-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtAssinaturaTransparenteRoute =
+  PtAssinaturaTransparenteRouteImport.update({
+    id: '/pt/assinatura-transparente',
+    path: '/pt/assinatura-transparente',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtAvatarDiscordRoute = PtAvatarDiscordRouteImport.update({
+  id: '/pt/avatar-discord',
+  path: '/pt/avatar-discord',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtCarimboTransparenteRoute = PtCarimboTransparenteRouteImport.update({
+  id: '/pt/carimbo-transparente',
+  path: '/pt/carimbo-transparente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtCriarFigurinhasRoute = PtCriarFigurinhasRouteImport.update({
+  id: '/pt/criar-figurinhas',
+  path: '/pt/criar-figurinhas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtDesfocarFundoRoute = PtDesfocarFundoRouteImport.update({
+  id: '/pt/desfocar-fundo',
+  path: '/pt/desfocar-fundo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtEmojiSlackDiscordRoute = PtEmojiSlackDiscordRouteImport.update({
+  id: '/pt/emoji-slack-discord',
+  path: '/pt/emoji-slack-discord',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFigurinhaDePetRoute = PtFigurinhaDePetRouteImport.update({
+  id: '/pt/figurinha-de-pet',
+  path: '/pt/figurinha-de-pet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFigurinhaTelegramRoute = PtFigurinhaTelegramRouteImport.update({
+  id: '/pt/figurinha-telegram',
+  path: '/pt/figurinha-telegram',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFigurinhaWhatsappRoute = PtFigurinhaWhatsappRouteImport.update({
+  id: '/pt/figurinha-whatsapp',
+  path: '/pt/figurinha-whatsapp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFolhaDeAdesivosParaImprimirRoute =
+  PtFolhaDeAdesivosParaImprimirRouteImport.update({
+    id: '/pt/folha-de-adesivos-para-imprimir',
+    path: '/pt/folha-de-adesivos-para-imprimir',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtFolhaDeFotosPassaporteRoute =
+  PtFolhaDeFotosPassaporteRouteImport.update({
+    id: '/pt/folha-de-fotos-passaporte',
+    path: '/pt/folha-de-fotos-passaporte',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtFotoDePerfilRoute = PtFotoDePerfilRouteImport.update({
+  id: '/pt/foto-de-perfil',
+  path: '/pt/foto-de-perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoDePerfilInstagramRoute = PtFotoDePerfilInstagramRouteImport.update({
+  id: '/pt/foto-de-perfil-instagram',
+  path: '/pt/foto-de-perfil-instagram',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoDeProdutoRoute = PtFotoDeProdutoRouteImport.update({
+  id: '/pt/foto-de-produto',
+  path: '/pt/foto-de-produto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoDeProdutoAmazonRoute = PtFotoDeProdutoAmazonRouteImport.update({
+  id: '/pt/foto-de-produto-amazon',
+  path: '/pt/foto-de-produto-amazon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoDeProdutoComSombraRoute =
+  PtFotoDeProdutoComSombraRouteImport.update({
+    id: '/pt/foto-de-produto-com-sombra',
+    path: '/pt/foto-de-produto-com-sombra',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtFotoDeProdutoEbayEtsyRoute = PtFotoDeProdutoEbayEtsyRouteImport.update({
+  id: '/pt/foto-de-produto-ebay-etsy',
+  path: '/pt/foto-de-produto-ebay-etsy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoDeRoupaParaVenderRoute = PtFotoDeRoupaParaVenderRouteImport.update({
+  id: '/pt/foto-de-roupa-para-vender',
+  path: '/pt/foto-de-roupa-para-vender',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoParaCurriculoRoute = PtFotoParaCurriculoRouteImport.update({
+  id: '/pt/foto-para-curriculo',
+  path: '/pt/foto-para-curriculo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoParaDocumentoRoute = PtFotoParaDocumentoRouteImport.update({
+  id: '/pt/foto-para-documento',
+  path: '/pt/foto-para-documento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoParaLinkedinRoute = PtFotoParaLinkedinRouteImport.update({
+  id: '/pt/foto-para-linkedin',
+  path: '/pt/foto-para-linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoParaPassaporteRoute = PtFotoParaPassaporteRouteImport.update({
+  id: '/pt/foto-para-passaporte',
+  path: '/pt/foto-para-passaporte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoPassaporteAustraliaRoute =
+  PtFotoPassaporteAustraliaRouteImport.update({
+    id: '/pt/foto-passaporte-australia',
+    path: '/pt/foto-passaporte-australia',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtFotoPassaporteEuaRoute = PtFotoPassaporteEuaRouteImport.update({
+  id: '/pt/foto-passaporte-eua',
+  path: '/pt/foto-passaporte-eua',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoPassaporteIndiaRoute = PtFotoPassaporteIndiaRouteImport.update({
+  id: '/pt/foto-passaporte-india',
+  path: '/pt/foto-passaporte-india',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotoPassaporteReinoUnidoRoute =
+  PtFotoPassaporteReinoUnidoRouteImport.update({
+    id: '/pt/foto-passaporte-reino-unido',
+    path: '/pt/foto-passaporte-reino-unido',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtFotoVistoSchengenRoute = PtFotoVistoSchengenRouteImport.update({
+  id: '/pt/foto-visto-schengen',
+  path: '/pt/foto-visto-schengen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotosDaEquipeRoute = PtFotosDaEquipeRouteImport.update({
+  id: '/pt/fotos-da-equipe',
+  path: '/pt/fotos-da-equipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFotosDeProdutoShopifyRoute = PtFotosDeProdutoShopifyRouteImport.update({
+  id: '/pt/fotos-de-produto-shopify',
+  path: '/pt/fotos-de-produto-shopify',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoBrancoRoute = PtFundoBrancoRouteImport.update({
+  id: '/pt/fundo-branco',
+  path: '/pt/fundo-branco',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoColoridoRoute = PtFundoColoridoRouteImport.update({
+  id: '/pt/fundo-colorido',
+  path: '/pt/fundo-colorido',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoCorDaMarcaRoute = PtFundoCorDaMarcaRouteImport.update({
+  id: '/pt/fundo-cor-da-marca',
+  path: '/pt/fundo-cor-da-marca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoDeFestaRoute = PtFundoDeFestaRouteImport.update({
+  id: '/pt/fundo-de-festa',
+  path: '/pt/fundo-de-festa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoDeViagemRoute = PtFundoDeViagemRouteImport.update({
+  id: '/pt/fundo-de-viagem',
+  path: '/pt/fundo-de-viagem',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoDegradeRoute = PtFundoDegradeRouteImport.update({
+  id: '/pt/fundo-degrade',
+  path: '/pt/fundo-degrade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoPretoRoute = PtFundoPretoRouteImport.update({
+  id: '/pt/fundo-preto',
+  path: '/pt/fundo-preto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtFundoVirtualZoomTeamsRoute = PtFundoVirtualZoomTeamsRouteImport.update({
+  id: '/pt/fundo-virtual-zoom-teams',
+  path: '/pt/fundo-virtual-zoom-teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtLicencaRoute = PtLicencaRouteImport.update({
+  id: '/pt/licenca',
+  path: '/pt/licenca',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtLogoEAssinaturaSemFundoRoute =
+  PtLogoEAssinaturaSemFundoRouteImport.update({
+    id: '/pt/logo-e-assinatura-sem-fundo',
+    path: '/pt/logo-e-assinatura-sem-fundo',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtLogoPngTransparenteRoute = PtLogoPngTransparenteRouteImport.update({
+  id: '/pt/logo-png-transparente',
+  path: '/pt/logo-png-transparente',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtMudarCorDoLogoRoute = PtMudarCorDoLogoRouteImport.update({
+  id: '/pt/mudar-cor-do-logo',
+  path: '/pt/mudar-cor-do-logo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtPngTransparenteParaSlidesRoute =
+  PtPngTransparenteParaSlidesRouteImport.update({
+    id: '/pt/png-transparente-para-slides',
+    path: '/pt/png-transparente-para-slides',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtRecortarCabeloRoute = PtRecortarCabeloRouteImport.update({
+  id: '/pt/recortar-cabelo',
+  path: '/pt/recortar-cabelo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtRecortarPetRoute = PtRecortarPetRouteImport.update({
+  id: '/pt/recortar-pet',
+  path: '/pt/recortar-pet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtRemoverFundoDeImagemGraficaRoute =
+  PtRemoverFundoDeImagemGraficaRouteImport.update({
+    id: '/pt/remover-fundo-de-imagem-grafica',
+    path: '/pt/remover-fundo-de-imagem-grafica',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const PtRemoverFundoEmLoteRoute = PtRemoverFundoEmLoteRouteImport.update({
+  id: '/pt/remover-fundo-em-lote',
+  path: '/pt/remover-fundo-em-lote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PtTrocarFundoDaFotoRoute = PtTrocarFundoDaFotoRouteImport.update({
+  id: '/pt/trocar-fundo-da-foto',
+  path: '/pt/trocar-fundo-da-foto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -356,6 +659,55 @@ export interface FileRoutesByFullPath {
   '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
+  '/pt/assinatura-de-email': typeof PtAssinaturaDeEmailRoute
+  '/pt/assinatura-transparente': typeof PtAssinaturaTransparenteRoute
+  '/pt/avatar-discord': typeof PtAvatarDiscordRoute
+  '/pt/carimbo-transparente': typeof PtCarimboTransparenteRoute
+  '/pt/criar-figurinhas': typeof PtCriarFigurinhasRoute
+  '/pt/desfocar-fundo': typeof PtDesfocarFundoRoute
+  '/pt/emoji-slack-discord': typeof PtEmojiSlackDiscordRoute
+  '/pt/figurinha-de-pet': typeof PtFigurinhaDePetRoute
+  '/pt/figurinha-telegram': typeof PtFigurinhaTelegramRoute
+  '/pt/figurinha-whatsapp': typeof PtFigurinhaWhatsappRoute
+  '/pt/folha-de-adesivos-para-imprimir': typeof PtFolhaDeAdesivosParaImprimirRoute
+  '/pt/folha-de-fotos-passaporte': typeof PtFolhaDeFotosPassaporteRoute
+  '/pt/foto-de-perfil': typeof PtFotoDePerfilRoute
+  '/pt/foto-de-perfil-instagram': typeof PtFotoDePerfilInstagramRoute
+  '/pt/foto-de-produto': typeof PtFotoDeProdutoRoute
+  '/pt/foto-de-produto-amazon': typeof PtFotoDeProdutoAmazonRoute
+  '/pt/foto-de-produto-com-sombra': typeof PtFotoDeProdutoComSombraRoute
+  '/pt/foto-de-produto-ebay-etsy': typeof PtFotoDeProdutoEbayEtsyRoute
+  '/pt/foto-de-roupa-para-vender': typeof PtFotoDeRoupaParaVenderRoute
+  '/pt/foto-para-curriculo': typeof PtFotoParaCurriculoRoute
+  '/pt/foto-para-documento': typeof PtFotoParaDocumentoRoute
+  '/pt/foto-para-linkedin': typeof PtFotoParaLinkedinRoute
+  '/pt/foto-para-passaporte': typeof PtFotoParaPassaporteRoute
+  '/pt/foto-passaporte-australia': typeof PtFotoPassaporteAustraliaRoute
+  '/pt/foto-passaporte-eua': typeof PtFotoPassaporteEuaRoute
+  '/pt/foto-passaporte-india': typeof PtFotoPassaporteIndiaRoute
+  '/pt/foto-passaporte-reino-unido': typeof PtFotoPassaporteReinoUnidoRoute
+  '/pt/foto-visto-schengen': typeof PtFotoVistoSchengenRoute
+  '/pt/fotos-da-equipe': typeof PtFotosDaEquipeRoute
+  '/pt/fotos-de-produto-shopify': typeof PtFotosDeProdutoShopifyRoute
+  '/pt/fundo-branco': typeof PtFundoBrancoRoute
+  '/pt/fundo-colorido': typeof PtFundoColoridoRoute
+  '/pt/fundo-cor-da-marca': typeof PtFundoCorDaMarcaRoute
+  '/pt/fundo-de-festa': typeof PtFundoDeFestaRoute
+  '/pt/fundo-de-viagem': typeof PtFundoDeViagemRoute
+  '/pt/fundo-degrade': typeof PtFundoDegradeRoute
+  '/pt/fundo-preto': typeof PtFundoPretoRoute
+  '/pt/fundo-virtual-zoom-teams': typeof PtFundoVirtualZoomTeamsRoute
+  '/pt/licenca': typeof PtLicencaRoute
+  '/pt/logo-e-assinatura-sem-fundo': typeof PtLogoEAssinaturaSemFundoRoute
+  '/pt/logo-png-transparente': typeof PtLogoPngTransparenteRoute
+  '/pt/mudar-cor-do-logo': typeof PtMudarCorDoLogoRoute
+  '/pt/png-transparente-para-slides': typeof PtPngTransparenteParaSlidesRoute
+  '/pt/recortar-cabelo': typeof PtRecortarCabeloRoute
+  '/pt/recortar-pet': typeof PtRecortarPetRoute
+  '/pt/remover-fundo-de-imagem-grafica': typeof PtRemoverFundoDeImagemGraficaRoute
+  '/pt/remover-fundo-em-lote': typeof PtRemoverFundoEmLoteRoute
+  '/pt/trocar-fundo-da-foto': typeof PtTrocarFundoDaFotoRoute
+  '/pt/': typeof PtIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -407,6 +759,55 @@ export interface FileRoutesByTo {
   '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
+  '/pt/assinatura-de-email': typeof PtAssinaturaDeEmailRoute
+  '/pt/assinatura-transparente': typeof PtAssinaturaTransparenteRoute
+  '/pt/avatar-discord': typeof PtAvatarDiscordRoute
+  '/pt/carimbo-transparente': typeof PtCarimboTransparenteRoute
+  '/pt/criar-figurinhas': typeof PtCriarFigurinhasRoute
+  '/pt/desfocar-fundo': typeof PtDesfocarFundoRoute
+  '/pt/emoji-slack-discord': typeof PtEmojiSlackDiscordRoute
+  '/pt/figurinha-de-pet': typeof PtFigurinhaDePetRoute
+  '/pt/figurinha-telegram': typeof PtFigurinhaTelegramRoute
+  '/pt/figurinha-whatsapp': typeof PtFigurinhaWhatsappRoute
+  '/pt/folha-de-adesivos-para-imprimir': typeof PtFolhaDeAdesivosParaImprimirRoute
+  '/pt/folha-de-fotos-passaporte': typeof PtFolhaDeFotosPassaporteRoute
+  '/pt/foto-de-perfil': typeof PtFotoDePerfilRoute
+  '/pt/foto-de-perfil-instagram': typeof PtFotoDePerfilInstagramRoute
+  '/pt/foto-de-produto': typeof PtFotoDeProdutoRoute
+  '/pt/foto-de-produto-amazon': typeof PtFotoDeProdutoAmazonRoute
+  '/pt/foto-de-produto-com-sombra': typeof PtFotoDeProdutoComSombraRoute
+  '/pt/foto-de-produto-ebay-etsy': typeof PtFotoDeProdutoEbayEtsyRoute
+  '/pt/foto-de-roupa-para-vender': typeof PtFotoDeRoupaParaVenderRoute
+  '/pt/foto-para-curriculo': typeof PtFotoParaCurriculoRoute
+  '/pt/foto-para-documento': typeof PtFotoParaDocumentoRoute
+  '/pt/foto-para-linkedin': typeof PtFotoParaLinkedinRoute
+  '/pt/foto-para-passaporte': typeof PtFotoParaPassaporteRoute
+  '/pt/foto-passaporte-australia': typeof PtFotoPassaporteAustraliaRoute
+  '/pt/foto-passaporte-eua': typeof PtFotoPassaporteEuaRoute
+  '/pt/foto-passaporte-india': typeof PtFotoPassaporteIndiaRoute
+  '/pt/foto-passaporte-reino-unido': typeof PtFotoPassaporteReinoUnidoRoute
+  '/pt/foto-visto-schengen': typeof PtFotoVistoSchengenRoute
+  '/pt/fotos-da-equipe': typeof PtFotosDaEquipeRoute
+  '/pt/fotos-de-produto-shopify': typeof PtFotosDeProdutoShopifyRoute
+  '/pt/fundo-branco': typeof PtFundoBrancoRoute
+  '/pt/fundo-colorido': typeof PtFundoColoridoRoute
+  '/pt/fundo-cor-da-marca': typeof PtFundoCorDaMarcaRoute
+  '/pt/fundo-de-festa': typeof PtFundoDeFestaRoute
+  '/pt/fundo-de-viagem': typeof PtFundoDeViagemRoute
+  '/pt/fundo-degrade': typeof PtFundoDegradeRoute
+  '/pt/fundo-preto': typeof PtFundoPretoRoute
+  '/pt/fundo-virtual-zoom-teams': typeof PtFundoVirtualZoomTeamsRoute
+  '/pt/licenca': typeof PtLicencaRoute
+  '/pt/logo-e-assinatura-sem-fundo': typeof PtLogoEAssinaturaSemFundoRoute
+  '/pt/logo-png-transparente': typeof PtLogoPngTransparenteRoute
+  '/pt/mudar-cor-do-logo': typeof PtMudarCorDoLogoRoute
+  '/pt/png-transparente-para-slides': typeof PtPngTransparenteParaSlidesRoute
+  '/pt/recortar-cabelo': typeof PtRecortarCabeloRoute
+  '/pt/recortar-pet': typeof PtRecortarPetRoute
+  '/pt/remover-fundo-de-imagem-grafica': typeof PtRemoverFundoDeImagemGraficaRoute
+  '/pt/remover-fundo-em-lote': typeof PtRemoverFundoEmLoteRoute
+  '/pt/trocar-fundo-da-foto': typeof PtTrocarFundoDaFotoRoute
+  '/pt': typeof PtIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -459,6 +860,55 @@ export interface FileRoutesById {
   '/virtual-background': typeof VirtualBackgroundRoute
   '/whatsapp-sticker': typeof WhatsappStickerRoute
   '/white-background': typeof WhiteBackgroundRoute
+  '/pt/assinatura-de-email': typeof PtAssinaturaDeEmailRoute
+  '/pt/assinatura-transparente': typeof PtAssinaturaTransparenteRoute
+  '/pt/avatar-discord': typeof PtAvatarDiscordRoute
+  '/pt/carimbo-transparente': typeof PtCarimboTransparenteRoute
+  '/pt/criar-figurinhas': typeof PtCriarFigurinhasRoute
+  '/pt/desfocar-fundo': typeof PtDesfocarFundoRoute
+  '/pt/emoji-slack-discord': typeof PtEmojiSlackDiscordRoute
+  '/pt/figurinha-de-pet': typeof PtFigurinhaDePetRoute
+  '/pt/figurinha-telegram': typeof PtFigurinhaTelegramRoute
+  '/pt/figurinha-whatsapp': typeof PtFigurinhaWhatsappRoute
+  '/pt/folha-de-adesivos-para-imprimir': typeof PtFolhaDeAdesivosParaImprimirRoute
+  '/pt/folha-de-fotos-passaporte': typeof PtFolhaDeFotosPassaporteRoute
+  '/pt/foto-de-perfil': typeof PtFotoDePerfilRoute
+  '/pt/foto-de-perfil-instagram': typeof PtFotoDePerfilInstagramRoute
+  '/pt/foto-de-produto': typeof PtFotoDeProdutoRoute
+  '/pt/foto-de-produto-amazon': typeof PtFotoDeProdutoAmazonRoute
+  '/pt/foto-de-produto-com-sombra': typeof PtFotoDeProdutoComSombraRoute
+  '/pt/foto-de-produto-ebay-etsy': typeof PtFotoDeProdutoEbayEtsyRoute
+  '/pt/foto-de-roupa-para-vender': typeof PtFotoDeRoupaParaVenderRoute
+  '/pt/foto-para-curriculo': typeof PtFotoParaCurriculoRoute
+  '/pt/foto-para-documento': typeof PtFotoParaDocumentoRoute
+  '/pt/foto-para-linkedin': typeof PtFotoParaLinkedinRoute
+  '/pt/foto-para-passaporte': typeof PtFotoParaPassaporteRoute
+  '/pt/foto-passaporte-australia': typeof PtFotoPassaporteAustraliaRoute
+  '/pt/foto-passaporte-eua': typeof PtFotoPassaporteEuaRoute
+  '/pt/foto-passaporte-india': typeof PtFotoPassaporteIndiaRoute
+  '/pt/foto-passaporte-reino-unido': typeof PtFotoPassaporteReinoUnidoRoute
+  '/pt/foto-visto-schengen': typeof PtFotoVistoSchengenRoute
+  '/pt/fotos-da-equipe': typeof PtFotosDaEquipeRoute
+  '/pt/fotos-de-produto-shopify': typeof PtFotosDeProdutoShopifyRoute
+  '/pt/fundo-branco': typeof PtFundoBrancoRoute
+  '/pt/fundo-colorido': typeof PtFundoColoridoRoute
+  '/pt/fundo-cor-da-marca': typeof PtFundoCorDaMarcaRoute
+  '/pt/fundo-de-festa': typeof PtFundoDeFestaRoute
+  '/pt/fundo-de-viagem': typeof PtFundoDeViagemRoute
+  '/pt/fundo-degrade': typeof PtFundoDegradeRoute
+  '/pt/fundo-preto': typeof PtFundoPretoRoute
+  '/pt/fundo-virtual-zoom-teams': typeof PtFundoVirtualZoomTeamsRoute
+  '/pt/licenca': typeof PtLicencaRoute
+  '/pt/logo-e-assinatura-sem-fundo': typeof PtLogoEAssinaturaSemFundoRoute
+  '/pt/logo-png-transparente': typeof PtLogoPngTransparenteRoute
+  '/pt/mudar-cor-do-logo': typeof PtMudarCorDoLogoRoute
+  '/pt/png-transparente-para-slides': typeof PtPngTransparenteParaSlidesRoute
+  '/pt/recortar-cabelo': typeof PtRecortarCabeloRoute
+  '/pt/recortar-pet': typeof PtRecortarPetRoute
+  '/pt/remover-fundo-de-imagem-grafica': typeof PtRemoverFundoDeImagemGraficaRoute
+  '/pt/remover-fundo-em-lote': typeof PtRemoverFundoEmLoteRoute
+  '/pt/trocar-fundo-da-foto': typeof PtTrocarFundoDaFotoRoute
+  '/pt/': typeof PtIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -512,6 +962,55 @@ export interface FileRouteTypes {
     | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
+    | '/pt/assinatura-de-email'
+    | '/pt/assinatura-transparente'
+    | '/pt/avatar-discord'
+    | '/pt/carimbo-transparente'
+    | '/pt/criar-figurinhas'
+    | '/pt/desfocar-fundo'
+    | '/pt/emoji-slack-discord'
+    | '/pt/figurinha-de-pet'
+    | '/pt/figurinha-telegram'
+    | '/pt/figurinha-whatsapp'
+    | '/pt/folha-de-adesivos-para-imprimir'
+    | '/pt/folha-de-fotos-passaporte'
+    | '/pt/foto-de-perfil'
+    | '/pt/foto-de-perfil-instagram'
+    | '/pt/foto-de-produto'
+    | '/pt/foto-de-produto-amazon'
+    | '/pt/foto-de-produto-com-sombra'
+    | '/pt/foto-de-produto-ebay-etsy'
+    | '/pt/foto-de-roupa-para-vender'
+    | '/pt/foto-para-curriculo'
+    | '/pt/foto-para-documento'
+    | '/pt/foto-para-linkedin'
+    | '/pt/foto-para-passaporte'
+    | '/pt/foto-passaporte-australia'
+    | '/pt/foto-passaporte-eua'
+    | '/pt/foto-passaporte-india'
+    | '/pt/foto-passaporte-reino-unido'
+    | '/pt/foto-visto-schengen'
+    | '/pt/fotos-da-equipe'
+    | '/pt/fotos-de-produto-shopify'
+    | '/pt/fundo-branco'
+    | '/pt/fundo-colorido'
+    | '/pt/fundo-cor-da-marca'
+    | '/pt/fundo-de-festa'
+    | '/pt/fundo-de-viagem'
+    | '/pt/fundo-degrade'
+    | '/pt/fundo-preto'
+    | '/pt/fundo-virtual-zoom-teams'
+    | '/pt/licenca'
+    | '/pt/logo-e-assinatura-sem-fundo'
+    | '/pt/logo-png-transparente'
+    | '/pt/mudar-cor-do-logo'
+    | '/pt/png-transparente-para-slides'
+    | '/pt/recortar-cabelo'
+    | '/pt/recortar-pet'
+    | '/pt/remover-fundo-de-imagem-grafica'
+    | '/pt/remover-fundo-em-lote'
+    | '/pt/trocar-fundo-da-foto'
+    | '/pt/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -563,6 +1062,55 @@ export interface FileRouteTypes {
     | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
+    | '/pt/assinatura-de-email'
+    | '/pt/assinatura-transparente'
+    | '/pt/avatar-discord'
+    | '/pt/carimbo-transparente'
+    | '/pt/criar-figurinhas'
+    | '/pt/desfocar-fundo'
+    | '/pt/emoji-slack-discord'
+    | '/pt/figurinha-de-pet'
+    | '/pt/figurinha-telegram'
+    | '/pt/figurinha-whatsapp'
+    | '/pt/folha-de-adesivos-para-imprimir'
+    | '/pt/folha-de-fotos-passaporte'
+    | '/pt/foto-de-perfil'
+    | '/pt/foto-de-perfil-instagram'
+    | '/pt/foto-de-produto'
+    | '/pt/foto-de-produto-amazon'
+    | '/pt/foto-de-produto-com-sombra'
+    | '/pt/foto-de-produto-ebay-etsy'
+    | '/pt/foto-de-roupa-para-vender'
+    | '/pt/foto-para-curriculo'
+    | '/pt/foto-para-documento'
+    | '/pt/foto-para-linkedin'
+    | '/pt/foto-para-passaporte'
+    | '/pt/foto-passaporte-australia'
+    | '/pt/foto-passaporte-eua'
+    | '/pt/foto-passaporte-india'
+    | '/pt/foto-passaporte-reino-unido'
+    | '/pt/foto-visto-schengen'
+    | '/pt/fotos-da-equipe'
+    | '/pt/fotos-de-produto-shopify'
+    | '/pt/fundo-branco'
+    | '/pt/fundo-colorido'
+    | '/pt/fundo-cor-da-marca'
+    | '/pt/fundo-de-festa'
+    | '/pt/fundo-de-viagem'
+    | '/pt/fundo-degrade'
+    | '/pt/fundo-preto'
+    | '/pt/fundo-virtual-zoom-teams'
+    | '/pt/licenca'
+    | '/pt/logo-e-assinatura-sem-fundo'
+    | '/pt/logo-png-transparente'
+    | '/pt/mudar-cor-do-logo'
+    | '/pt/png-transparente-para-slides'
+    | '/pt/recortar-cabelo'
+    | '/pt/recortar-pet'
+    | '/pt/remover-fundo-de-imagem-grafica'
+    | '/pt/remover-fundo-em-lote'
+    | '/pt/trocar-fundo-da-foto'
+    | '/pt'
   id:
     | '__root__'
     | '/'
@@ -614,6 +1162,55 @@ export interface FileRouteTypes {
     | '/virtual-background'
     | '/whatsapp-sticker'
     | '/white-background'
+    | '/pt/assinatura-de-email'
+    | '/pt/assinatura-transparente'
+    | '/pt/avatar-discord'
+    | '/pt/carimbo-transparente'
+    | '/pt/criar-figurinhas'
+    | '/pt/desfocar-fundo'
+    | '/pt/emoji-slack-discord'
+    | '/pt/figurinha-de-pet'
+    | '/pt/figurinha-telegram'
+    | '/pt/figurinha-whatsapp'
+    | '/pt/folha-de-adesivos-para-imprimir'
+    | '/pt/folha-de-fotos-passaporte'
+    | '/pt/foto-de-perfil'
+    | '/pt/foto-de-perfil-instagram'
+    | '/pt/foto-de-produto'
+    | '/pt/foto-de-produto-amazon'
+    | '/pt/foto-de-produto-com-sombra'
+    | '/pt/foto-de-produto-ebay-etsy'
+    | '/pt/foto-de-roupa-para-vender'
+    | '/pt/foto-para-curriculo'
+    | '/pt/foto-para-documento'
+    | '/pt/foto-para-linkedin'
+    | '/pt/foto-para-passaporte'
+    | '/pt/foto-passaporte-australia'
+    | '/pt/foto-passaporte-eua'
+    | '/pt/foto-passaporte-india'
+    | '/pt/foto-passaporte-reino-unido'
+    | '/pt/foto-visto-schengen'
+    | '/pt/fotos-da-equipe'
+    | '/pt/fotos-de-produto-shopify'
+    | '/pt/fundo-branco'
+    | '/pt/fundo-colorido'
+    | '/pt/fundo-cor-da-marca'
+    | '/pt/fundo-de-festa'
+    | '/pt/fundo-de-viagem'
+    | '/pt/fundo-degrade'
+    | '/pt/fundo-preto'
+    | '/pt/fundo-virtual-zoom-teams'
+    | '/pt/licenca'
+    | '/pt/logo-e-assinatura-sem-fundo'
+    | '/pt/logo-png-transparente'
+    | '/pt/mudar-cor-do-logo'
+    | '/pt/png-transparente-para-slides'
+    | '/pt/recortar-cabelo'
+    | '/pt/recortar-pet'
+    | '/pt/remover-fundo-de-imagem-grafica'
+    | '/pt/remover-fundo-em-lote'
+    | '/pt/trocar-fundo-da-foto'
+    | '/pt/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -666,6 +1263,55 @@ export interface RootRouteChildren {
   VirtualBackgroundRoute: typeof VirtualBackgroundRoute
   WhatsappStickerRoute: typeof WhatsappStickerRoute
   WhiteBackgroundRoute: typeof WhiteBackgroundRoute
+  PtAssinaturaDeEmailRoute: typeof PtAssinaturaDeEmailRoute
+  PtAssinaturaTransparenteRoute: typeof PtAssinaturaTransparenteRoute
+  PtAvatarDiscordRoute: typeof PtAvatarDiscordRoute
+  PtCarimboTransparenteRoute: typeof PtCarimboTransparenteRoute
+  PtCriarFigurinhasRoute: typeof PtCriarFigurinhasRoute
+  PtDesfocarFundoRoute: typeof PtDesfocarFundoRoute
+  PtEmojiSlackDiscordRoute: typeof PtEmojiSlackDiscordRoute
+  PtFigurinhaDePetRoute: typeof PtFigurinhaDePetRoute
+  PtFigurinhaTelegramRoute: typeof PtFigurinhaTelegramRoute
+  PtFigurinhaWhatsappRoute: typeof PtFigurinhaWhatsappRoute
+  PtFolhaDeAdesivosParaImprimirRoute: typeof PtFolhaDeAdesivosParaImprimirRoute
+  PtFolhaDeFotosPassaporteRoute: typeof PtFolhaDeFotosPassaporteRoute
+  PtFotoDePerfilRoute: typeof PtFotoDePerfilRoute
+  PtFotoDePerfilInstagramRoute: typeof PtFotoDePerfilInstagramRoute
+  PtFotoDeProdutoRoute: typeof PtFotoDeProdutoRoute
+  PtFotoDeProdutoAmazonRoute: typeof PtFotoDeProdutoAmazonRoute
+  PtFotoDeProdutoComSombraRoute: typeof PtFotoDeProdutoComSombraRoute
+  PtFotoDeProdutoEbayEtsyRoute: typeof PtFotoDeProdutoEbayEtsyRoute
+  PtFotoDeRoupaParaVenderRoute: typeof PtFotoDeRoupaParaVenderRoute
+  PtFotoParaCurriculoRoute: typeof PtFotoParaCurriculoRoute
+  PtFotoParaDocumentoRoute: typeof PtFotoParaDocumentoRoute
+  PtFotoParaLinkedinRoute: typeof PtFotoParaLinkedinRoute
+  PtFotoParaPassaporteRoute: typeof PtFotoParaPassaporteRoute
+  PtFotoPassaporteAustraliaRoute: typeof PtFotoPassaporteAustraliaRoute
+  PtFotoPassaporteEuaRoute: typeof PtFotoPassaporteEuaRoute
+  PtFotoPassaporteIndiaRoute: typeof PtFotoPassaporteIndiaRoute
+  PtFotoPassaporteReinoUnidoRoute: typeof PtFotoPassaporteReinoUnidoRoute
+  PtFotoVistoSchengenRoute: typeof PtFotoVistoSchengenRoute
+  PtFotosDaEquipeRoute: typeof PtFotosDaEquipeRoute
+  PtFotosDeProdutoShopifyRoute: typeof PtFotosDeProdutoShopifyRoute
+  PtFundoBrancoRoute: typeof PtFundoBrancoRoute
+  PtFundoColoridoRoute: typeof PtFundoColoridoRoute
+  PtFundoCorDaMarcaRoute: typeof PtFundoCorDaMarcaRoute
+  PtFundoDeFestaRoute: typeof PtFundoDeFestaRoute
+  PtFundoDeViagemRoute: typeof PtFundoDeViagemRoute
+  PtFundoDegradeRoute: typeof PtFundoDegradeRoute
+  PtFundoPretoRoute: typeof PtFundoPretoRoute
+  PtFundoVirtualZoomTeamsRoute: typeof PtFundoVirtualZoomTeamsRoute
+  PtLicencaRoute: typeof PtLicencaRoute
+  PtLogoEAssinaturaSemFundoRoute: typeof PtLogoEAssinaturaSemFundoRoute
+  PtLogoPngTransparenteRoute: typeof PtLogoPngTransparenteRoute
+  PtMudarCorDoLogoRoute: typeof PtMudarCorDoLogoRoute
+  PtPngTransparenteParaSlidesRoute: typeof PtPngTransparenteParaSlidesRoute
+  PtRecortarCabeloRoute: typeof PtRecortarCabeloRoute
+  PtRecortarPetRoute: typeof PtRecortarPetRoute
+  PtRemoverFundoDeImagemGraficaRoute: typeof PtRemoverFundoDeImagemGraficaRoute
+  PtRemoverFundoEmLoteRoute: typeof PtRemoverFundoEmLoteRoute
+  PtTrocarFundoDaFotoRoute: typeof PtTrocarFundoDaFotoRoute
+  PtIndexRoute: typeof PtIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -1013,6 +1659,349 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WhiteBackgroundRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pt/': {
+      id: '/pt/'
+      path: '/pt'
+      fullPath: '/pt/'
+      preLoaderRoute: typeof PtIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/assinatura-de-email': {
+      id: '/pt/assinatura-de-email'
+      path: '/pt/assinatura-de-email'
+      fullPath: '/pt/assinatura-de-email'
+      preLoaderRoute: typeof PtAssinaturaDeEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/assinatura-transparente': {
+      id: '/pt/assinatura-transparente'
+      path: '/pt/assinatura-transparente'
+      fullPath: '/pt/assinatura-transparente'
+      preLoaderRoute: typeof PtAssinaturaTransparenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/avatar-discord': {
+      id: '/pt/avatar-discord'
+      path: '/pt/avatar-discord'
+      fullPath: '/pt/avatar-discord'
+      preLoaderRoute: typeof PtAvatarDiscordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/carimbo-transparente': {
+      id: '/pt/carimbo-transparente'
+      path: '/pt/carimbo-transparente'
+      fullPath: '/pt/carimbo-transparente'
+      preLoaderRoute: typeof PtCarimboTransparenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/criar-figurinhas': {
+      id: '/pt/criar-figurinhas'
+      path: '/pt/criar-figurinhas'
+      fullPath: '/pt/criar-figurinhas'
+      preLoaderRoute: typeof PtCriarFigurinhasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/desfocar-fundo': {
+      id: '/pt/desfocar-fundo'
+      path: '/pt/desfocar-fundo'
+      fullPath: '/pt/desfocar-fundo'
+      preLoaderRoute: typeof PtDesfocarFundoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/emoji-slack-discord': {
+      id: '/pt/emoji-slack-discord'
+      path: '/pt/emoji-slack-discord'
+      fullPath: '/pt/emoji-slack-discord'
+      preLoaderRoute: typeof PtEmojiSlackDiscordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/figurinha-de-pet': {
+      id: '/pt/figurinha-de-pet'
+      path: '/pt/figurinha-de-pet'
+      fullPath: '/pt/figurinha-de-pet'
+      preLoaderRoute: typeof PtFigurinhaDePetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/figurinha-telegram': {
+      id: '/pt/figurinha-telegram'
+      path: '/pt/figurinha-telegram'
+      fullPath: '/pt/figurinha-telegram'
+      preLoaderRoute: typeof PtFigurinhaTelegramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/figurinha-whatsapp': {
+      id: '/pt/figurinha-whatsapp'
+      path: '/pt/figurinha-whatsapp'
+      fullPath: '/pt/figurinha-whatsapp'
+      preLoaderRoute: typeof PtFigurinhaWhatsappRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/folha-de-adesivos-para-imprimir': {
+      id: '/pt/folha-de-adesivos-para-imprimir'
+      path: '/pt/folha-de-adesivos-para-imprimir'
+      fullPath: '/pt/folha-de-adesivos-para-imprimir'
+      preLoaderRoute: typeof PtFolhaDeAdesivosParaImprimirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/folha-de-fotos-passaporte': {
+      id: '/pt/folha-de-fotos-passaporte'
+      path: '/pt/folha-de-fotos-passaporte'
+      fullPath: '/pt/folha-de-fotos-passaporte'
+      preLoaderRoute: typeof PtFolhaDeFotosPassaporteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-perfil': {
+      id: '/pt/foto-de-perfil'
+      path: '/pt/foto-de-perfil'
+      fullPath: '/pt/foto-de-perfil'
+      preLoaderRoute: typeof PtFotoDePerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-perfil-instagram': {
+      id: '/pt/foto-de-perfil-instagram'
+      path: '/pt/foto-de-perfil-instagram'
+      fullPath: '/pt/foto-de-perfil-instagram'
+      preLoaderRoute: typeof PtFotoDePerfilInstagramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-produto': {
+      id: '/pt/foto-de-produto'
+      path: '/pt/foto-de-produto'
+      fullPath: '/pt/foto-de-produto'
+      preLoaderRoute: typeof PtFotoDeProdutoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-produto-amazon': {
+      id: '/pt/foto-de-produto-amazon'
+      path: '/pt/foto-de-produto-amazon'
+      fullPath: '/pt/foto-de-produto-amazon'
+      preLoaderRoute: typeof PtFotoDeProdutoAmazonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-produto-com-sombra': {
+      id: '/pt/foto-de-produto-com-sombra'
+      path: '/pt/foto-de-produto-com-sombra'
+      fullPath: '/pt/foto-de-produto-com-sombra'
+      preLoaderRoute: typeof PtFotoDeProdutoComSombraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-produto-ebay-etsy': {
+      id: '/pt/foto-de-produto-ebay-etsy'
+      path: '/pt/foto-de-produto-ebay-etsy'
+      fullPath: '/pt/foto-de-produto-ebay-etsy'
+      preLoaderRoute: typeof PtFotoDeProdutoEbayEtsyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-de-roupa-para-vender': {
+      id: '/pt/foto-de-roupa-para-vender'
+      path: '/pt/foto-de-roupa-para-vender'
+      fullPath: '/pt/foto-de-roupa-para-vender'
+      preLoaderRoute: typeof PtFotoDeRoupaParaVenderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-para-curriculo': {
+      id: '/pt/foto-para-curriculo'
+      path: '/pt/foto-para-curriculo'
+      fullPath: '/pt/foto-para-curriculo'
+      preLoaderRoute: typeof PtFotoParaCurriculoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-para-documento': {
+      id: '/pt/foto-para-documento'
+      path: '/pt/foto-para-documento'
+      fullPath: '/pt/foto-para-documento'
+      preLoaderRoute: typeof PtFotoParaDocumentoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-para-linkedin': {
+      id: '/pt/foto-para-linkedin'
+      path: '/pt/foto-para-linkedin'
+      fullPath: '/pt/foto-para-linkedin'
+      preLoaderRoute: typeof PtFotoParaLinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-para-passaporte': {
+      id: '/pt/foto-para-passaporte'
+      path: '/pt/foto-para-passaporte'
+      fullPath: '/pt/foto-para-passaporte'
+      preLoaderRoute: typeof PtFotoParaPassaporteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-passaporte-australia': {
+      id: '/pt/foto-passaporte-australia'
+      path: '/pt/foto-passaporte-australia'
+      fullPath: '/pt/foto-passaporte-australia'
+      preLoaderRoute: typeof PtFotoPassaporteAustraliaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-passaporte-eua': {
+      id: '/pt/foto-passaporte-eua'
+      path: '/pt/foto-passaporte-eua'
+      fullPath: '/pt/foto-passaporte-eua'
+      preLoaderRoute: typeof PtFotoPassaporteEuaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-passaporte-india': {
+      id: '/pt/foto-passaporte-india'
+      path: '/pt/foto-passaporte-india'
+      fullPath: '/pt/foto-passaporte-india'
+      preLoaderRoute: typeof PtFotoPassaporteIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-passaporte-reino-unido': {
+      id: '/pt/foto-passaporte-reino-unido'
+      path: '/pt/foto-passaporte-reino-unido'
+      fullPath: '/pt/foto-passaporte-reino-unido'
+      preLoaderRoute: typeof PtFotoPassaporteReinoUnidoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/foto-visto-schengen': {
+      id: '/pt/foto-visto-schengen'
+      path: '/pt/foto-visto-schengen'
+      fullPath: '/pt/foto-visto-schengen'
+      preLoaderRoute: typeof PtFotoVistoSchengenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fotos-da-equipe': {
+      id: '/pt/fotos-da-equipe'
+      path: '/pt/fotos-da-equipe'
+      fullPath: '/pt/fotos-da-equipe'
+      preLoaderRoute: typeof PtFotosDaEquipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fotos-de-produto-shopify': {
+      id: '/pt/fotos-de-produto-shopify'
+      path: '/pt/fotos-de-produto-shopify'
+      fullPath: '/pt/fotos-de-produto-shopify'
+      preLoaderRoute: typeof PtFotosDeProdutoShopifyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-branco': {
+      id: '/pt/fundo-branco'
+      path: '/pt/fundo-branco'
+      fullPath: '/pt/fundo-branco'
+      preLoaderRoute: typeof PtFundoBrancoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-colorido': {
+      id: '/pt/fundo-colorido'
+      path: '/pt/fundo-colorido'
+      fullPath: '/pt/fundo-colorido'
+      preLoaderRoute: typeof PtFundoColoridoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-cor-da-marca': {
+      id: '/pt/fundo-cor-da-marca'
+      path: '/pt/fundo-cor-da-marca'
+      fullPath: '/pt/fundo-cor-da-marca'
+      preLoaderRoute: typeof PtFundoCorDaMarcaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-de-festa': {
+      id: '/pt/fundo-de-festa'
+      path: '/pt/fundo-de-festa'
+      fullPath: '/pt/fundo-de-festa'
+      preLoaderRoute: typeof PtFundoDeFestaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-de-viagem': {
+      id: '/pt/fundo-de-viagem'
+      path: '/pt/fundo-de-viagem'
+      fullPath: '/pt/fundo-de-viagem'
+      preLoaderRoute: typeof PtFundoDeViagemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-degrade': {
+      id: '/pt/fundo-degrade'
+      path: '/pt/fundo-degrade'
+      fullPath: '/pt/fundo-degrade'
+      preLoaderRoute: typeof PtFundoDegradeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-preto': {
+      id: '/pt/fundo-preto'
+      path: '/pt/fundo-preto'
+      fullPath: '/pt/fundo-preto'
+      preLoaderRoute: typeof PtFundoPretoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/fundo-virtual-zoom-teams': {
+      id: '/pt/fundo-virtual-zoom-teams'
+      path: '/pt/fundo-virtual-zoom-teams'
+      fullPath: '/pt/fundo-virtual-zoom-teams'
+      preLoaderRoute: typeof PtFundoVirtualZoomTeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/licenca': {
+      id: '/pt/licenca'
+      path: '/pt/licenca'
+      fullPath: '/pt/licenca'
+      preLoaderRoute: typeof PtLicencaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/logo-e-assinatura-sem-fundo': {
+      id: '/pt/logo-e-assinatura-sem-fundo'
+      path: '/pt/logo-e-assinatura-sem-fundo'
+      fullPath: '/pt/logo-e-assinatura-sem-fundo'
+      preLoaderRoute: typeof PtLogoEAssinaturaSemFundoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/logo-png-transparente': {
+      id: '/pt/logo-png-transparente'
+      path: '/pt/logo-png-transparente'
+      fullPath: '/pt/logo-png-transparente'
+      preLoaderRoute: typeof PtLogoPngTransparenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/mudar-cor-do-logo': {
+      id: '/pt/mudar-cor-do-logo'
+      path: '/pt/mudar-cor-do-logo'
+      fullPath: '/pt/mudar-cor-do-logo'
+      preLoaderRoute: typeof PtMudarCorDoLogoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/png-transparente-para-slides': {
+      id: '/pt/png-transparente-para-slides'
+      path: '/pt/png-transparente-para-slides'
+      fullPath: '/pt/png-transparente-para-slides'
+      preLoaderRoute: typeof PtPngTransparenteParaSlidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/recortar-cabelo': {
+      id: '/pt/recortar-cabelo'
+      path: '/pt/recortar-cabelo'
+      fullPath: '/pt/recortar-cabelo'
+      preLoaderRoute: typeof PtRecortarCabeloRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/recortar-pet': {
+      id: '/pt/recortar-pet'
+      path: '/pt/recortar-pet'
+      fullPath: '/pt/recortar-pet'
+      preLoaderRoute: typeof PtRecortarPetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/remover-fundo-de-imagem-grafica': {
+      id: '/pt/remover-fundo-de-imagem-grafica'
+      path: '/pt/remover-fundo-de-imagem-grafica'
+      fullPath: '/pt/remover-fundo-de-imagem-grafica'
+      preLoaderRoute: typeof PtRemoverFundoDeImagemGraficaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/remover-fundo-em-lote': {
+      id: '/pt/remover-fundo-em-lote'
+      path: '/pt/remover-fundo-em-lote'
+      fullPath: '/pt/remover-fundo-em-lote'
+      preLoaderRoute: typeof PtRemoverFundoEmLoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pt/trocar-fundo-da-foto': {
+      id: '/pt/trocar-fundo-da-foto'
+      path: '/pt/trocar-fundo-da-foto'
+      fullPath: '/pt/trocar-fundo-da-foto'
+      preLoaderRoute: typeof PtTrocarFundoDaFotoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -1066,6 +2055,55 @@ const rootRouteChildren: RootRouteChildren = {
   VirtualBackgroundRoute: VirtualBackgroundRoute,
   WhatsappStickerRoute: WhatsappStickerRoute,
   WhiteBackgroundRoute: WhiteBackgroundRoute,
+  PtAssinaturaDeEmailRoute: PtAssinaturaDeEmailRoute,
+  PtAssinaturaTransparenteRoute: PtAssinaturaTransparenteRoute,
+  PtAvatarDiscordRoute: PtAvatarDiscordRoute,
+  PtCarimboTransparenteRoute: PtCarimboTransparenteRoute,
+  PtCriarFigurinhasRoute: PtCriarFigurinhasRoute,
+  PtDesfocarFundoRoute: PtDesfocarFundoRoute,
+  PtEmojiSlackDiscordRoute: PtEmojiSlackDiscordRoute,
+  PtFigurinhaDePetRoute: PtFigurinhaDePetRoute,
+  PtFigurinhaTelegramRoute: PtFigurinhaTelegramRoute,
+  PtFigurinhaWhatsappRoute: PtFigurinhaWhatsappRoute,
+  PtFolhaDeAdesivosParaImprimirRoute: PtFolhaDeAdesivosParaImprimirRoute,
+  PtFolhaDeFotosPassaporteRoute: PtFolhaDeFotosPassaporteRoute,
+  PtFotoDePerfilRoute: PtFotoDePerfilRoute,
+  PtFotoDePerfilInstagramRoute: PtFotoDePerfilInstagramRoute,
+  PtFotoDeProdutoRoute: PtFotoDeProdutoRoute,
+  PtFotoDeProdutoAmazonRoute: PtFotoDeProdutoAmazonRoute,
+  PtFotoDeProdutoComSombraRoute: PtFotoDeProdutoComSombraRoute,
+  PtFotoDeProdutoEbayEtsyRoute: PtFotoDeProdutoEbayEtsyRoute,
+  PtFotoDeRoupaParaVenderRoute: PtFotoDeRoupaParaVenderRoute,
+  PtFotoParaCurriculoRoute: PtFotoParaCurriculoRoute,
+  PtFotoParaDocumentoRoute: PtFotoParaDocumentoRoute,
+  PtFotoParaLinkedinRoute: PtFotoParaLinkedinRoute,
+  PtFotoParaPassaporteRoute: PtFotoParaPassaporteRoute,
+  PtFotoPassaporteAustraliaRoute: PtFotoPassaporteAustraliaRoute,
+  PtFotoPassaporteEuaRoute: PtFotoPassaporteEuaRoute,
+  PtFotoPassaporteIndiaRoute: PtFotoPassaporteIndiaRoute,
+  PtFotoPassaporteReinoUnidoRoute: PtFotoPassaporteReinoUnidoRoute,
+  PtFotoVistoSchengenRoute: PtFotoVistoSchengenRoute,
+  PtFotosDaEquipeRoute: PtFotosDaEquipeRoute,
+  PtFotosDeProdutoShopifyRoute: PtFotosDeProdutoShopifyRoute,
+  PtFundoBrancoRoute: PtFundoBrancoRoute,
+  PtFundoColoridoRoute: PtFundoColoridoRoute,
+  PtFundoCorDaMarcaRoute: PtFundoCorDaMarcaRoute,
+  PtFundoDeFestaRoute: PtFundoDeFestaRoute,
+  PtFundoDeViagemRoute: PtFundoDeViagemRoute,
+  PtFundoDegradeRoute: PtFundoDegradeRoute,
+  PtFundoPretoRoute: PtFundoPretoRoute,
+  PtFundoVirtualZoomTeamsRoute: PtFundoVirtualZoomTeamsRoute,
+  PtLicencaRoute: PtLicencaRoute,
+  PtLogoEAssinaturaSemFundoRoute: PtLogoEAssinaturaSemFundoRoute,
+  PtLogoPngTransparenteRoute: PtLogoPngTransparenteRoute,
+  PtMudarCorDoLogoRoute: PtMudarCorDoLogoRoute,
+  PtPngTransparenteParaSlidesRoute: PtPngTransparenteParaSlidesRoute,
+  PtRecortarCabeloRoute: PtRecortarCabeloRoute,
+  PtRecortarPetRoute: PtRecortarPetRoute,
+  PtRemoverFundoDeImagemGraficaRoute: PtRemoverFundoDeImagemGraficaRoute,
+  PtRemoverFundoEmLoteRoute: PtRemoverFundoEmLoteRoute,
+  PtTrocarFundoDaFotoRoute: PtTrocarFundoDaFotoRoute,
+  PtIndexRoute: PtIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
