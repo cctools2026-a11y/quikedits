@@ -26,7 +26,7 @@ export function PassportSizeSelect({ value, onChange }: { value: PassportSizeId;
       <SelectContent className="rounded-xl border-border bg-card p-1 shadow-lg">
         {PASSPORT_SIZES.map((s) => (
           <SelectItem key={s.id} value={s.id} className="rounded-lg py-2.5 text-base focus:bg-primary/10 focus:text-foreground data-[state=checked]:font-semibold data-[state=checked]:text-primary">
-            {s.label}
+            {t(s.label)}
           </SelectItem>
         ))}
       </SelectContent>
