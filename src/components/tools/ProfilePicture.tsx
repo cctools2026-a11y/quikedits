@@ -11,8 +11,8 @@ import { ctx2d, makeCanvas } from "@/lib/compose";
 import { PROFILE_SIZE } from "@/lib/tool-sizes";
 
 
-const RINGS = [{ id: "none", label: "None" }, { id: "#FFFFFF", label: "White" }, { id: "#5865F2", label: "Blurple" }, { id: "#FF4FA3", label: "Pink" }] as const;
-const SHAPES = [{ id: "circle", label: "Circle" }, { id: "square", label: "Square" }] as const;
+const RINGS = [{ id: "none", label: t("None") }, { id: "#FFFFFF", label: t("White") }, { id: "#5865F2", label: t("Blurple") }, { id: "#FF4FA3", label: t("Pink") }] as const;
+const SHAPES = [{ id: "circle", label: t("Circle") }, { id: "square", label: t("Square") }] as const;
 
 export function ProfilePicture({ page = "/profile-picture", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();
@@ -28,7 +28,7 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
       multiple={!!preset.multiple}
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "square", label: "Square", ratio: 1 }, { id: "free", label: "Free", ratio: null }]}
+      crop={[{ id: "square", label: t("Square"), ratio: 1 }, { id: "free", label: t("Free"), ratio: null }]}
       title={preset.title ?? <>{t("A sharp")} <span className="text-primary">{"profile picture"}</span> {t("in seconds.")}</>}
       intro={preset.intro ?? t("Upload a headshot. We replace the background with a solid colour and frame it for LinkedIn, CVs, Slack or team pages.")}
     >
@@ -39,9 +39,9 @@ export function ProfilePicture({ page = "/profile-picture", preset = {} }: { pag
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
               <Field label={t("Background colour")}><ColourSwatches value={colour} onChange={setColour} /></Field>
-              <Field label={t("Shape")}><Choice value={shape} onChange={setShape} options={SHAPES} /></Field>
-              <Field label={`Size of person: ${zoom}%`}><Range label={t("Zoom")} value={zoom} min={50} max={150} onChange={setZoom} /></Field>
-              {shape === "circle" && <Field label={t("Outline ring")}><Choice value={ring} onChange={setRing} options={RINGS} /></Field>}
+              <Field label={t("Shape")}><Choice value={shape} onChange={setShape} options={SHAPES.map((o) => ({ ...o, label: t(o.label) }))} /></Field>
+              <Field label={t("Size of person: {n}%", { n: zoom })}><Range label={t("Zoom")} value={zoom} min={50} max={150} onChange={setZoom} /></Field>
+              {shape === "circle" && <Field label={t("Outline ring")}><Choice value={ring} onChange={setRing} options={RINGS.map((o) => ({ ...o, label: t(o.label) }))} /></Field>}
             </aside>
             {preset.multiple && items.length > 1 ? (
               <div>

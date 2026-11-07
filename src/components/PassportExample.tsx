@@ -72,7 +72,7 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
     <details className="group border-b border-border pb-3 text-sm">
       <summary className="cursor-pointer py-2 font-medium">{t("Adjust example crop")}</summary>
       <div className="space-y-4 pt-3">
-        <Field label={`Zoom: ${zoom}%`}><Range label={t("Example zoom")} value={zoom} min={100} max={180} onChange={setZoom} /></Field>
+        <Field label={t("Zoom: {n}%", { n: zoom })}><Range label={t("Example zoom")} value={zoom} min={100} max={180} onChange={setZoom} /></Field>
         <Field label={t("Horizontal position")}><Range label={t("Example horizontal position")} value={x} min={0} max={100} onChange={setX} /></Field>
         <Field label={t("Vertical position")}><Range label={t("Example vertical position")} value={y} min={0} max={100} onChange={setY} /></Field>
         <Button variant="outline" onClick={() => { setZoom(100); setX(50); setY(50); }}><RotateCcw />{t("Reset crop")}</Button>

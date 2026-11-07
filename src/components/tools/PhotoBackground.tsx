@@ -48,7 +48,7 @@ function BlurResult({ full, source, name, reset }: { full: HTMLCanvasElement | n
   return (
     <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
-        <Field label={`Blur: ${amount}`}><Range label={t("Blur amount")} value={amount} min={2} max={40} onChange={setAmount} /></Field>
+        <Field label={t("Blur: {n}", { n: amount })}><Range label={t("Blur amount")} value={amount} min={2} max={40} onChange={setAmount} /></Field>
         <p className="text-sm text-muted-foreground">{t("Your subject stays sharp while the scene behind softens, like a portrait camera.")}</p>
       </aside>
       <div>

@@ -10,7 +10,7 @@ import { PassportExample, PassportSizeSelect } from "@/components/PassportExampl
 
 
 type SizeId = (typeof PASSPORT_SIZES)[number]["id"];
-const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: t("Light grey") }] as const;
+const BGS = [{ id: "#FFFFFF", label: t("White") }, { id: "#EEEEEE", label: t("Light grey") }] as const;
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();
@@ -26,7 +26,7 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
       page={page}
       example={<PassportExample sizeId={sizeId} onSizeChange={setSizeId} />}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "photo", label: t("Photo shape"), ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
+      crop={[{ id: "photo", label: t("Photo shape"), ratio: size.w / size.h }, { id: "free", label: t("Free"), ratio: null }]}
       title={preset.title ?? <>Passport &amp; ID photos, <span className="text-primary">{"done at home"}</span>.</>}
       intro={preset.intro ?? t("Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card.")}
     >
@@ -34,9 +34,9 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
         controls={
           <>
             <PassportSizeSelect value={sizeId} onChange={setSizeId} />
-            <Field label={t("Background")}><Choice value={bg} onChange={setBg} options={BGS} /></Field>
-            <Field label={`Size of person: ${zoom}%`}><Range label={t("Zoom")} value={zoom} min={60} max={160} onChange={setZoom} /></Field>
-            <Field label={`Space above head: ${top}%`}><Range label={t("Space above head")} value={top} min={0} max={30} onChange={setTop} /></Field>
+            <Field label={t("Background")}><Choice value={bg} onChange={setBg} options={BGS.map((o) => ({ ...o, label: t(o.label) }))} /></Field>
+            <Field label={t("Size of person: {n}%", { n: zoom })}><Range label={t("Zoom")} value={zoom} min={60} max={160} onChange={setZoom} /></Field>
+            <Field label={t("Space above head: {n}%", { n: top })}><Range label={t("Space above head")} value={top} min={0} max={30} onChange={setTop} /></Field>
           </>
         } />}
     </ToolPage>

@@ -29,7 +29,7 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
       tool="/product-photo"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
+      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       multiple
       title={preset.title ?? <>{t("Product photos on")} <span className="text-primary">{"clean white"}</span>{t(", ready to list.")}</>}
       intro={preset.intro ?? t("Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify.")}
@@ -39,10 +39,10 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
           <aside className="space-y-6">
             <Field label={t("Background")}><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
             <Field label={t("Size")}>
-              <Choice value={sizeId} onChange={setSizeId} options={PRODUCT_SIZES.map((s) => ({ id: s.id, label: s.label }))} />
+              <Choice value={sizeId} onChange={setSizeId} options={PRODUCT_SIZES.map((s) => ({ id: s.id, label: t(s.label) }))} />
             </Field>
-            <Field label={`Space around product: ${pad}%`}><Range label={t("Padding")} value={pad} min={0} max={25} onChange={setPad} /></Field>
-            <Field label={t("Shadow")}><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: "None" }, { id: "on", label: t("Soft shadow") }]} /></Field>
+            <Field label={t("Space around product: {n}%", { n: pad })}><Range label={t("Padding")} value={pad} min={0} max={25} onChange={setPad} /></Field>
+            <Field label={t("Shadow")}><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: t("None") }, { id: "on", label: t("Soft shadow") }]} /></Field>
             <ZipButton files={items.map((_, i) => ({ url: urls[i] ?? null, name: names[i]! }))} name="product-photos.zip" />
             <button onClick={reset} className="w-full rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">{t("New images")}</button>
           </aside>

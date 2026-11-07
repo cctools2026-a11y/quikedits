@@ -9,8 +9,8 @@ import { fitContain, STICKER_SIZE } from "@/lib/tool-sizes";
 import { PAGES, gridOnPage } from "@/lib/sheets";
 
 
-const OUTLINES = [{ id: "#FFFFFF", label: "White" }, { id: "#000000", label: "Black" }] as const;
-const FORMATS = [{ id: "image/png", label: "PNG" }, { id: "image/webp", label: t("WebP (WhatsApp)") }] as const;
+const OUTLINES = [{ id: "#FFFFFF", label: t("White") }, { id: "#000000", label: t("Black") }] as const;
+const FORMATS = [{ id: "image/png", label: t("PNG") }, { id: "image/webp", label: t("WebP (WhatsApp)") }] as const;
 
 export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();
@@ -24,7 +24,7 @@ export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: 
       tool="/sticker-maker"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
+      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       title={preset.title ?? <>{t("Turn any photo into a")} <span className="text-primary">{"sticker"}</span>.</>}
       intro={preset.intro ?? t("Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram.")}
     >
@@ -33,11 +33,11 @@ export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: 
         return (
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
-              <Field label={t("Outline colour")}><Choice value={outline} onChange={setOutline} options={OUTLINES} /></Field>
-              <Field label={`Outline thickness: ${width}`}><Range label={t("Outline thickness")} value={width} min={0} max={30} onChange={setWidth} /></Field>
+              <Field label={t("Outline colour")}><Choice value={outline} onChange={setOutline} options={OUTLINES.map((o) => ({ ...o, label: t(o.label) }))} /></Field>
+              <Field label={t("Outline thickness: {n}", { n: width })}><Range label={t("Outline thickness")} value={width} min={0} max={30} onChange={setWidth} /></Field>
               {preset.sheet
-                ? <Field label={t("Paper")}><Choice value={pageId} onChange={setPageId} options={PAGES.map((p) => ({ id: p.id, label: p.label }))} /></Field>
-                : <Field label={t("File type")}><Choice value={format} onChange={setFormat} options={FORMATS} /></Field>}
+                ? <Field label={t("Paper")}><Choice value={pageId} onChange={setPageId} options={PAGES.map((p) => ({ id: p.id, label: t(p.label) }))} /></Field>
+                : <Field label={t("File type")}><Choice value={format} onChange={setFormat} options={FORMATS.map((o) => ({ ...o, label: t(o.label) }))} /></Field>}
             </aside>
             <StickerResult cut={it?.cutout ?? null} name={it ? baseName(it.file) : "sticker"} {...{ outline, width, format, reset }} size={preset.size ?? STICKER_SIZE} pad={preset.stickerPad ?? 16} shadow={!!preset.shadow} page={preset.sheet ? PAGES.find((p) => p.id === pageId)! : null} />
           </div>

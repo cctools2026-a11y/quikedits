@@ -119,7 +119,7 @@ export function TouchUp({ cut, source, onDone, onCancel }: {
           <button type="button" aria-pressed={mode === "keep"} onClick={() => setMode("keep")} className={btn(mode === "keep")}>{t("Keep")}</button>
           <button type="button" aria-pressed={mode === "remove"} onClick={() => setMode("remove")} className={btn(mode === "remove")}>{t("Remove")}</button>
         </div>
-        <Field label={`Brush size: ${size}`}><Range label={t("Brush size")} value={size} min={5} max={120} onChange={setSize} /></Field>
+        <Field label={t("Brush size: {n}", { n: size })}><Range label={t("Brush size")} value={size} min={5} max={120} onChange={setSize} /></Field>
         <div className="flex flex-wrap gap-2">
           <button type="button" aria-label={t("Zoom out")} onClick={() => setZoom((z) => Math.max(1, z - 0.5))} className={btn(false)}><Minus className="h-4 w-4" /></button>
           <button type="button" aria-label={t("Zoom in")} onClick={() => setZoom((z) => Math.min(4, z + 0.5))} className={btn(false)}><Plus className="h-4 w-4" /></button>
