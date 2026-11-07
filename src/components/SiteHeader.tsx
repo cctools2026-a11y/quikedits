@@ -84,33 +84,36 @@ export function SiteHeader() {
 }
 
 function ToolGrid({ path }: { path: string }) {
+  const tr = useT();
+  const lp = useLp();
   return (
     <div className="grid gap-8 md:grid-cols-3">
       {TOOL_GROUPS.map((g) => (
         <div key={g.id}>
-          <p className="font-display mb-3 text-2xl tracking-wide">{g.label}</p>
+          <p className="font-display mb-3 text-2xl tracking-wide">{tr(g.label)}</p>
           <ul className="space-y-1">
             {TOOLS.filter((t) => t.group === g.id).map((t) => {
               const Icon = ICONS[t.to] ?? Eraser;
               const active = t.to === path;
               return (
                 <li key={t.to}>
-                  <Link to={t.to} aria-current={active ? "page" : undefined}
+                  <Link to={lp(t.to)} aria-current={active ? "page" : undefined}
                     className={`group flex gap-3 rounded-xl border-2 p-2.5 transition-colors hover:border-foreground hover:bg-card ${active ? "border-foreground bg-card" : "border-transparent"}`}>
                     <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-foreground transition-colors ${active ? "bg-primary text-primary-foreground" : "bg-card text-foreground group-hover:bg-primary group-hover:text-primary-foreground"}`}>
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
-                      <span className="font-display block text-lg leading-tight tracking-wide">{t.label}</span>
-                      <span className="block text-xs text-muted-foreground">{t.blurb}</span>
+                      <span className="font-display block text-lg leading-tight tracking-wide">{tr(t.label)}</span>
+                      <span className="block text-xs text-muted-foreground">{tr(t.blurb)}</span>
                     </span>
                   </Link>
                   {subtoolsOf(t.to).length > 0 && (
-                    <ul aria-label={`Popular jobs for ${t.label}`} className="ml-14 mt-1 mb-2 flex flex-wrap gap-1.5">
+                    <ul aria-label={tr("Popular jobs for {s}", { s: tr(t.label) })} className="ml-14 mt-1 mb-2 flex flex-wrap gap-1.5">
                       {subtoolsOf(t.to).slice(0, 4).map((s) => (
                         <li key={s.to}>
-                          <Link to={s.to} aria-current={s.to === path ? "page" : undefined}
-                            className={`block rounded-full border-2 px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-foreground hover:bg-card ${s.to === path ? "border-foreground bg-card" : "border-border"}`}>{s.label}</Link>
+                          <Link to={lp(s.to)} aria-current={s.to === path ? "page" : undefined}
+                            className={`block rounded-full border-2 px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-foreground hover:bg-card ${s.to === path ? "border-foreground bg-card" : "border-border"}`}>{tr(s.label)}</Link>
+
                         </li>
                       ))}
                     </ul>
