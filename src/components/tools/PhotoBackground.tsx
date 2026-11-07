@@ -92,7 +92,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
     }, choice.id);
   }
 
-  async function loadBackdrop(load: () => {t("Promise")}<Blob>, id: string) {
+  async function loadBackdrop(load: () => Promise<Blob>, id: string) {
     const token = ++request.current;
     setErr(null);
     setLoading(true);
@@ -132,8 +132,8 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
     <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
       <aside className="space-y-6">
         {suggested && <section aria-label={t("Background recommendation")} className="space-y-2 border-b border-border pb-5">
-          <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> Suggested: {suggested.name}</h2>
-          <p className="text-sm text-muted-foreground">{suggested.reason}</p>
+          <h2 className="flex items-center gap-2 font-display text-lg font-semibold"><Sparkles className="h-4 w-4 text-primary" /> {t("Suggested: {s}", { s: t(suggested.name) })}</h2>
+          <p className="text-sm text-muted-foreground">{t(suggested.reason)}</p>
           <Button onClick={() => void applyPreset(suggested)} disabled={loading} className="w-full">
             <Check /> {t("Apply suggested background")}
           </Button>
@@ -142,11 +142,11 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
           <h2 className="font-display mb-3 text-lg font-semibold">{t("Pick a background")}</h2>
           <div className="grid grid-cols-3 gap-2" role="group" aria-label={t("Playful background presets")}>
             {choices.map((preset) => (
-              <Button key={preset.id} variant="outline" aria-label={`Apply ${preset.name} background`} aria-pressed={selected === preset.id}
+              <Button key={preset.id} variant="outline" aria-label={t("Apply {s} background", { s: t(preset.name) })} aria-pressed={selected === preset.id}
                 className="relative h-auto flex-col gap-0 overflow-hidden p-0 whitespace-normal aria-pressed:border-primary aria-pressed:ring-2 aria-pressed:ring-primary"
                 onClick={() => void applyPreset(preset)}>
                 {preset.stops ? <span className="block aspect-square w-full" style={{ backgroundImage: preset.css }} /> : <img src={preset.src} alt="" width={1024} height={1024} loading="lazy" className="aspect-square w-full object-cover" />}
-                <span className="py-2 text-xs">{preset.name}</span>
+                <span className="py-2 text-xs">{t(preset.name)}</span>
                 {selected === preset.id && <span className="absolute right-1 top-1 rounded-full bg-primary p-1 text-primary-foreground"><Check /></span>}
               </Button>
             ))}
@@ -158,7 +158,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
         <input ref={ref} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { void pickBackdrop(e.target.files?.[0]); e.target.value = ""; }} />
         {err && <p role="alert" className="text-sm text-destructive">{err}</p>}
         {loading && <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> {t("Opening background…")}</p>}
-        <Field label={`Size: ${scale}%`}><Range label={t("Size")} value={scale} min={10} max={120} onChange={setScale} /></Field>
+        <Field label={t("Size: {n}%", { n: scale })}><Range label={t("Size")} value={scale} min={10} max={120} onChange={setScale} /></Field>
         <Field label={t("Left / right")}><Range label={t("Horizontal position")} value={x} min={0} max={100} onChange={setX} /></Field>
         <Field label={t("Up / down")}><Range label={t("Vertical position")} value={y} min={0} max={100} onChange={setY} /></Field>
       </aside>
