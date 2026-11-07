@@ -29,7 +29,7 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
       tool="/product-photo"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
+      crop={[{ id: "free", label: t("Freeform"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       multiple
       title={preset.title ?? <>{t("Product photos on")} <span className="text-primary">{"clean white"}</span>{t(", ready to list.")}</>}
       intro={preset.intro ?? t("Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify.")}

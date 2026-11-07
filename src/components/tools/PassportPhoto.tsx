@@ -26,7 +26,7 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
       page={page}
       example={<PassportExample sizeId={sizeId} onSizeChange={setSizeId} />}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "photo", label: t("Photo shape"), ratio: size.w / size.h }, { id: "free", label: t("Free"), ratio: null }]}
+      crop={[{ id: "photo", label: t("Photo shape"), ratio: size.w / size.h }, { id: "free", label: t("Freeform"), ratio: null }]}
       title={preset.title ?? <>Passport &amp; ID photos, <span className="text-primary">{"done at home"}</span>.</>}
       intro={preset.intro ?? t("Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card.")}
     >

@@ -24,7 +24,7 @@ export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: 
       tool="/sticker-maker"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
+      crop={[{ id: "free", label: t("Freeform"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       title={preset.title ?? <>{t("Turn any photo into a")} <span className="text-primary">{"sticker"}</span>.</>}
       intro={preset.intro ?? t("Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram.")}
     >

@@ -282,7 +282,7 @@ export const PT_UI: Record<string, string> = {
   "Use as is": "Usar assim",
   "Skip the rest": "Pular as outras",
   "Resize {s}": "Redimensionar {s}",
-  "Free ": "Livre",
+  "Freeform": "Livre",
   "Photo shape": "Formato da foto",
   "Square": "Quadrado",
 
@@ -330,7 +330,6 @@ export const PT_UI: Record<string, string> = {
   "Your cutout": "Seu recorte",
   "Combined photo": "Foto combinada",
   "Photo with blurred background": "Foto com fundo desfocado",
-  "Passport photo ": "Foto de passaporte",
   "Print sheet": "Folha para imprimir",
   "Sticker": "Figurinha",
 
