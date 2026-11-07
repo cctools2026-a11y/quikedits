@@ -6,12 +6,46 @@ import { useLocale } from "@/lib/use-i18n";
 const A = ({ href, children }: { href: string; children: React.ReactNode }) => <a href={href} target="_blank" rel="noreferrer">{children}</a>;
 
 export function LicensePage() {
-  const pt = useLocale() === "pt";
+  const loc = useLocale();
+  const pt = loc === "pt";
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="prose-page mx-auto max-w-3xl space-y-6 px-4 pt-6">
-        {pt ? (
+        {loc === "es" ? (
+          <>
+            <h1 className="page-title">Licencia y código fuente</h1>
+            <section>
+              <h2>GNU Affero General Public License v3.0</h2>
+              <p>
+                QuikEdits es software libre: puedes redistribuirlo y/o modificarlo según los términos de la GNU Affero General
+                Public License, publicada por la Free Software Foundation, versión 3. Se distribuye SIN NINGUNA GARANTÍA,
+                ni siquiera la garantía implícita de COMERCIABILIDAD o IDONEIDAD PARA UN FIN DETERMINADO. Consulta el{" "}
+                <A href="https://www.gnu.org/licenses/agpl-3.0.html">texto completo de la licencia</A> (en inglés).
+              </p>
+            </section>
+            <section>
+              <h2>Código fuente correspondiente</h2>
+              <p>
+                El código fuente completo de esta aplicación, tal como está publicada, está disponible en <A href={SOURCE_URL}>{SOURCE_URL}</A>.
+                Si modificas y alojas esta app, debes ofrecer el código modificado a tus usuarios bajo la misma licencia.
+              </p>
+            </section>
+            <section>
+              <h2>Atribución a terceros</h2>
+              <p>
+                La eliminación de fondo usa la biblioteca <A href={IMGLY_URL}>@imgly/background-removal</A> © IMG.LY GmbH, con licencia
+                AGPL-3.0. Los archivos del modelo de IA (© IMG.LY, AGPL-3.0) están alojados en este sitio, se comprueban con las
+                huellas SHA-256 publicadas por IMG.LY y se guardan en la caché de tu navegador. El uso comercial sin las
+                obligaciones de la AGPL requiere una licencia aparte de IMG.LY.
+              </p>
+            </section>
+            <section>
+              <h2>Privacidad</h2>
+              <p>Tus imágenes se procesan en tu propio dispositivo y nunca se suben, guardan ni comparten.</p>
+            </section>
+          </>
+        ) : pt ? (
           <>
             <h1 className="page-title">Licença e código-fonte</h1>
             <section>
