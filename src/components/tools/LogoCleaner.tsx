@@ -6,6 +6,7 @@ import { ToolPage, useRenderedUrl, Field, Range, Choice, ResultActions, baseName
 import { ctx2d, makeCanvas, trim } from "@/lib/compose";
 import { alphaForDistance, inkAlpha } from "@/lib/tool-sizes";
 import { cornersUneven } from "@/lib/photo-rules";
+import { canDrawSignature } from "@/lib/signature-tools";
 
 
 export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: string; preset?: Preset }) {
@@ -15,6 +16,7 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
     <ToolPage
       tool="/logo-cleaner"
       page={page}
+      drawSignature={canDrawSignature(page)}
       below={<ToolLanding path={page} />}
       raw
       title={preset.title ?? <>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
