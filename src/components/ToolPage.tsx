@@ -212,7 +212,7 @@ export function ResultActions({ url, name, onReset, label = "Download PNG" }: { 
         aria-disabled={!url}
         className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01] aria-disabled:opacity-50"
       >
-        <Download className="h-5 w-5" /> {label}
+        <Download className="h-5 w-5" /> {t(label)}
       </a>
       <ShareButton url={url} name={name} />
       {onReset && (
