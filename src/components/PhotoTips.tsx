@@ -11,18 +11,18 @@ function TipsBody({ tool }: { tool: string }) {
   if (!r) return null;
   return (
     <div className="text-sm">
-      <p className="font-medium leading-relaxed text-foreground">{r.best}</p>
+      <p className="font-medium leading-relaxed text-foreground">{t(r.best)}</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
           <p className="mb-2 text-xs font-semibold text-foreground">{t("Works well")}</p>
           <ul className="space-y-2 text-muted-foreground">
-            {r.good.map((g) => <li key={g} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />{g}</li>)}
+            {r.good.map((g) => <li key={g} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />{t(g)}</li>)}
           </ul>
         </div>
         <div>
           <p className="mb-2 text-xs font-semibold text-foreground">{t("Avoid")}</p>
           <ul className="space-y-2 text-muted-foreground">
-            {r.avoid.map((g) => <li key={g} className="flex items-start gap-2"><X className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden />{g}</li>)}
+            {r.avoid.map((g) => <li key={g} className="flex items-start gap-2"><X className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden />{t(g)}</li>)}
           </ul>
         </div>
       </div>
@@ -42,7 +42,7 @@ export function PhotoTips({ tool }: { tool: string }) {
       className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full px-1 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-ring"
     >
       <Info className="h-4 w-4 shrink-0" aria-hidden />
-      Photo tips
+      {t("Photo tips")}
     </button>
   );
 

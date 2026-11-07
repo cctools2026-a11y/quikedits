@@ -7,3 +7,8 @@
 - [x] Phase 2: Zoom/Teams background, blur background, product shadow, gradient, recolour logo, brand colour
 - [x] Phase 3: batch ZIP, printable sticker sheet, team headshots, stamp cleaner
 - [x] Draw a signature as a starting option on all signature tools; verify touch input and transparent exports.
+
+# Roadmap — Portuguese
+
+- [x] /pt/ version of all 49 pages: translated addresses, page text, menus, tool screens, search tags, share images, sitemap
+- [ ] Later: country folders such as /pt/br/ (waiting on your go-ahead)

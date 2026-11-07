@@ -1,52 +1,591 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://quikedits.com/</loc></url>
-  <url><loc>https://quikedits.com/colour-background</loc></url>
-  <url><loc>https://quikedits.com/product-photo</loc></url>
-  <url><loc>https://quikedits.com/passport-photo</loc></url>
-  <url><loc>https://quikedits.com/profile-picture</loc></url>
-  <url><loc>https://quikedits.com/sticker-maker</loc></url>
-  <url><loc>https://quikedits.com/photo-background</loc></url>
-  <url><loc>https://quikedits.com/logo-cleaner</loc></url>
-  <url><loc>https://quikedits.com/license</loc></url>
-  <url><loc>https://quikedits.com/white-background</loc></url>
-  <url><loc>https://quikedits.com/amazon-product-photo</loc></url>
-  <url><loc>https://quikedits.com/us-passport-photo</loc></url>
-  <url><loc>https://quikedits.com/uk-passport-photo</loc></url>
-  <url><loc>https://quikedits.com/india-passport-photo</loc></url>
-  <url><loc>https://quikedits.com/linkedin-profile-photo</loc></url>
-  <url><loc>https://quikedits.com/whatsapp-sticker</loc></url>
-  <url><loc>https://quikedits.com/transparent-signature</loc></url>
-  <url><loc>https://quikedits.com/transparent-png-for-slides</loc></url>
-  <url><loc>https://quikedits.com/remove-background-from-graphic</loc></url>
-  <url><loc>https://quikedits.com/batch-remove-background</loc></url>
-  <url><loc>https://quikedits.com/cut-out-pet</loc></url>
-  <url><loc>https://quikedits.com/cut-out-hair</loc></url>
-  <url><loc>https://quikedits.com/black-background</loc></url>
-  <url><loc>https://quikedits.com/brand-colour-background</loc></url>
-  <url><loc>https://quikedits.com/gradient-background</loc></url>
-  <url><loc>https://quikedits.com/virtual-background</loc></url>
-  <url><loc>https://quikedits.com/holiday-background</loc></url>
-  <url><loc>https://quikedits.com/party-background</loc></url>
-  <url><loc>https://quikedits.com/blur-background</loc></url>
-  <url><loc>https://quikedits.com/ebay-etsy-product-photo</loc></url>
-  <url><loc>https://quikedits.com/shopify-product-photos</loc></url>
-  <url><loc>https://quikedits.com/product-photo-shadow</loc></url>
-  <url><loc>https://quikedits.com/clothing-photo</loc></url>
-  <url><loc>https://quikedits.com/australia-passport-photo</loc></url>
-  <url><loc>https://quikedits.com/schengen-visa-photo</loc></url>
-  <url><loc>https://quikedits.com/id-card-photo</loc></url>
-  <url><loc>https://quikedits.com/passport-photo-print-sheet</loc></url>
-  <url><loc>https://quikedits.com/cv-photo</loc></url>
-  <url><loc>https://quikedits.com/instagram-profile-picture</loc></url>
-  <url><loc>https://quikedits.com/discord-avatar</loc></url>
-  <url><loc>https://quikedits.com/team-headshots</loc></url>
-  <url><loc>https://quikedits.com/telegram-sticker</loc></url>
-  <url><loc>https://quikedits.com/printable-sticker-sheet</loc></url>
-  <url><loc>https://quikedits.com/pet-sticker</loc></url>
-  <url><loc>https://quikedits.com/slack-emoji</loc></url>
-  <url><loc>https://quikedits.com/email-signature</loc></url>
-  <url><loc>https://quikedits.com/logo-to-png</loc></url>
-  <url><loc>https://quikedits.com/recolour-logo</loc></url>
-  <url><loc>https://quikedits.com/stamp-cleaner</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://quikedits.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/license</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/license"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/licenca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/license"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/colour-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/colour-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-colorido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/colour-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/product-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/passport-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-passaporte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/profile-picture</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/profile-picture"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-perfil"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/profile-picture"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/sticker-maker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/sticker-maker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/criar-figurinhas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/sticker-maker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/photo-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/photo-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/trocar-fundo-da-foto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/photo-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/logo-cleaner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/logo-cleaner"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/logo-e-assinatura-sem-fundo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/logo-cleaner"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/white-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/white-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-branco"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/white-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/amazon-product-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/amazon-product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-amazon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/amazon-product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/us-passport-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/us-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-eua"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/us-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/uk-passport-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/uk-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-reino-unido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/uk-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/india-passport-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/india-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-india"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/india-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/linkedin-profile-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/linkedin-profile-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-linkedin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/linkedin-profile-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/whatsapp-sticker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/whatsapp-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-whatsapp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/whatsapp-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/transparent-signature</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/transparent-signature"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/assinatura-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/transparent-signature"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/transparent-png-for-slides</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/transparent-png-for-slides"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/png-transparente-para-slides"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/transparent-png-for-slides"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/remove-background-from-graphic</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/remove-background-from-graphic"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/remover-fundo-de-imagem-grafica"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/remove-background-from-graphic"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/batch-remove-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/batch-remove-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/remover-fundo-em-lote"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/batch-remove-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/cut-out-pet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cut-out-pet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/recortar-pet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cut-out-pet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/cut-out-hair</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cut-out-hair"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/recortar-cabelo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cut-out-hair"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/black-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/black-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-preto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/black-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/brand-colour-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/brand-colour-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-cor-da-marca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/brand-colour-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/gradient-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/gradient-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-degrade"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/gradient-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/virtual-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/virtual-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-virtual-zoom-teams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/virtual-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/holiday-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/holiday-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-de-viagem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/holiday-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/party-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/party-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-de-festa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/party-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/blur-background</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/blur-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/desfocar-fundo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/blur-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/ebay-etsy-product-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/ebay-etsy-product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-ebay-etsy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/ebay-etsy-product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/shopify-product-photos</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/shopify-product-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fotos-de-produto-shopify"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/shopify-product-photos"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/product-photo-shadow</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/product-photo-shadow"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-com-sombra"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/product-photo-shadow"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/clothing-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/clothing-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-roupa-para-vender"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/clothing-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/australia-passport-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/australia-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-australia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/australia-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/schengen-visa-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/schengen-visa-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-visto-schengen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/schengen-visa-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/id-card-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/id-card-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-documento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/id-card-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/passport-photo-print-sheet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/passport-photo-print-sheet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/folha-de-fotos-passaporte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/passport-photo-print-sheet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/cv-photo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cv-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-curriculo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cv-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/instagram-profile-picture</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/instagram-profile-picture"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-perfil-instagram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/instagram-profile-picture"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/discord-avatar</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/discord-avatar"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/avatar-discord"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/discord-avatar"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/team-headshots</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/team-headshots"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fotos-da-equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/team-headshots"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/telegram-sticker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/telegram-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-telegram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/telegram-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/printable-sticker-sheet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/printable-sticker-sheet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/folha-de-adesivos-para-imprimir"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/printable-sticker-sheet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pet-sticker</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/pet-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-de-pet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/pet-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/slack-emoji</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/slack-emoji"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/emoji-slack-discord"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/slack-emoji"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/email-signature</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/email-signature"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/assinatura-de-email"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/email-signature"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/logo-to-png</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/logo-to-png"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/logo-png-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/logo-to-png"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/recolour-logo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/recolour-logo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/mudar-cor-do-logo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/recolour-logo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/stamp-cleaner</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/stamp-cleaner"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/carimbo-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/stamp-cleaner"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/licenca</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/license"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/licenca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/license"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-colorido</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/colour-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-colorido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/colour-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-produto</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-para-passaporte</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-passaporte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-perfil</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/profile-picture"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-perfil"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/profile-picture"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/criar-figurinhas</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/sticker-maker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/criar-figurinhas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/sticker-maker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/trocar-fundo-da-foto</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/photo-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/trocar-fundo-da-foto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/photo-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/logo-e-assinatura-sem-fundo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/logo-cleaner"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/logo-e-assinatura-sem-fundo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/logo-cleaner"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-branco</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/white-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-branco"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/white-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-produto-amazon</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/amazon-product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-amazon"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/amazon-product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-passaporte-eua</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/us-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-eua"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/us-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-passaporte-reino-unido</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/uk-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-reino-unido"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/uk-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-passaporte-india</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/india-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-india"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/india-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-para-linkedin</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/linkedin-profile-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-linkedin"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/linkedin-profile-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/figurinha-whatsapp</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/whatsapp-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-whatsapp"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/whatsapp-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/assinatura-transparente</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/transparent-signature"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/assinatura-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/transparent-signature"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/png-transparente-para-slides</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/transparent-png-for-slides"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/png-transparente-para-slides"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/transparent-png-for-slides"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/remover-fundo-de-imagem-grafica</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/remove-background-from-graphic"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/remover-fundo-de-imagem-grafica"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/remove-background-from-graphic"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/remover-fundo-em-lote</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/batch-remove-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/remover-fundo-em-lote"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/batch-remove-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/recortar-pet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cut-out-pet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/recortar-pet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cut-out-pet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/recortar-cabelo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cut-out-hair"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/recortar-cabelo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cut-out-hair"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-preto</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/black-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-preto"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/black-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-cor-da-marca</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/brand-colour-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-cor-da-marca"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/brand-colour-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-degrade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/gradient-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-degrade"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/gradient-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-virtual-zoom-teams</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/virtual-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-virtual-zoom-teams"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/virtual-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-de-viagem</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/holiday-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-de-viagem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/holiday-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fundo-de-festa</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/party-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fundo-de-festa"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/party-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/desfocar-fundo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/blur-background"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/desfocar-fundo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/blur-background"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-produto-ebay-etsy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/ebay-etsy-product-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-ebay-etsy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/ebay-etsy-product-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fotos-de-produto-shopify</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/shopify-product-photos"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fotos-de-produto-shopify"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/shopify-product-photos"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-produto-com-sombra</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/product-photo-shadow"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-produto-com-sombra"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/product-photo-shadow"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-roupa-para-vender</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/clothing-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-roupa-para-vender"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/clothing-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-passaporte-australia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/australia-passport-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-passaporte-australia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/australia-passport-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-visto-schengen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/schengen-visa-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-visto-schengen"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/schengen-visa-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-para-documento</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/id-card-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-documento"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/id-card-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/folha-de-fotos-passaporte</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/passport-photo-print-sheet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/folha-de-fotos-passaporte"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/passport-photo-print-sheet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-para-curriculo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/cv-photo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-para-curriculo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/cv-photo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/foto-de-perfil-instagram</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/instagram-profile-picture"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/foto-de-perfil-instagram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/instagram-profile-picture"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/avatar-discord</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/discord-avatar"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/avatar-discord"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/discord-avatar"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/fotos-da-equipe</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/team-headshots"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/fotos-da-equipe"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/team-headshots"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/figurinha-telegram</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/telegram-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-telegram"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/telegram-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/folha-de-adesivos-para-imprimir</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/printable-sticker-sheet"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/folha-de-adesivos-para-imprimir"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/printable-sticker-sheet"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/figurinha-de-pet</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/pet-sticker"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/figurinha-de-pet"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/pet-sticker"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/emoji-slack-discord</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/slack-emoji"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/emoji-slack-discord"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/slack-emoji"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/assinatura-de-email</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/email-signature"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/assinatura-de-email"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/email-signature"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/logo-png-transparente</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/logo-to-png"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/logo-png-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/logo-to-png"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/mudar-cor-do-logo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/recolour-logo"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/mudar-cor-do-logo"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/recolour-logo"/>
+  </url>
+  <url>
+    <loc>https://quikedits.com/pt/carimbo-transparente</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://quikedits.com/stamp-cleaner"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://quikedits.com/pt/carimbo-transparente"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://quikedits.com/stamp-cleaner"/>
+  </url>
 </urlset>

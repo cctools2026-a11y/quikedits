@@ -12,7 +12,7 @@ export function ColourSwatches({ value, onChange, colours = PALETTE }: { value: 
           type="button"
           role="radio"
           aria-checked={value.toLowerCase() === c.toLowerCase()}
-          aria-label={`Colour ${c}`}
+          aria-label={t("Colour {s}", { s: c })}
           onClick={() => onChange(c)}
           className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-border shadow-sm transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-ring"
           style={{ backgroundColor: c }}
@@ -22,7 +22,7 @@ export function ColourSwatches({ value, onChange, colours = PALETTE }: { value: 
       ))}
       <label className="flex h-10 cursor-pointer items-center gap-2 rounded-full border-2 border-border px-3 text-sm font-medium">
         <input type="color" value={value} onChange={(e) => onChange(e.target.value)} className="h-6 w-6 cursor-pointer border-0 bg-transparent p-0" aria-label={t("Custom colour")} />
-        Custom
+        {t("Custom")}
       </label>
     </div>
   );

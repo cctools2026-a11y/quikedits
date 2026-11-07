@@ -112,8 +112,8 @@ export function ToolPage({
         {stage.kind === "idle" && (
           <>
             <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
-              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
-              {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? t("up to {n} at once", { n: MAX_BATCH }) : undefined} />
+              {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
             </ToolHero>
             <TrustStrip />
             {below}
@@ -125,7 +125,7 @@ export function ToolPage({
             key={stage.index}
             file={items[stage.index]!.file}
             aspects={crop}
-            heading={items.length > 1 ? `Image ${stage.index + 1} of ${items.length}. Drag the box to frame it.` : undefined}
+            heading={items.length > 1 ? t("Image {a} of {b}. Drag the box to frame it.", { a: stage.index + 1, b: items.length }) : undefined}
             onDone={(f) => nextAdjust(stage.index, f)}
             onSkip={() => nextAdjust(stage.index)}
             onSkipAll={items.length > 1 ? () => void run(items) : undefined}
@@ -141,7 +141,7 @@ export function ToolPage({
                 {raw ? t("Preparing image") : stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {stage.total > 1 && `Image ${stage.index + 1} of ${stage.total} · `}
+                {stage.total > 1 && `${t("Image {a} of {b}", { a: stage.index + 1, b: stage.total })} · `}
                 {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Working on your device…")}
               </p>
               {!raw && (
@@ -159,7 +159,7 @@ export function ToolPage({
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
             <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
-            <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
+            <p className="mt-2 text-muted-foreground" role="alert">{t(stage.message)}</p>
             <div className="mt-6 flex justify-center gap-3">
               <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>
               <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
@@ -212,7 +212,7 @@ export function ResultActions({ url, name, onReset, label = "Download PNG" }: { 
         aria-disabled={!url}
         className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary px-6 py-4 text-lg font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-[1.01] aria-disabled:opacity-50"
       >
-        <Download className="h-5 w-5" /> {label}
+        <Download className="h-5 w-5" /> {t(label)}
       </a>
       <ShareButton url={url} name={name} />
       {onReset && (

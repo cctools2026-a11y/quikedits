@@ -87,7 +87,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
             style={{ left: `${rect.x * 100}%`, top: `${rect.y * 100}%`, width: `${rect.w * 100}%`, height: `${rect.h * 100}%` }}
           >
             {corners.map((c) => (
-              <span key={c} onPointerDown={down(c)} aria-label={`Resize ${c}`}
+              <span key={c} onPointerDown={down(c)} aria-label={t("Resize {s}", { s: c })}
                 className={`absolute h-5 w-5 rounded-full border-2 border-primary-foreground bg-primary ${c.includes("n") ? "-top-2.5" : "-bottom-2.5"} ${c.includes("w") ? "-left-2.5" : "-right-2.5"} ${c === "nw" || c === "se" ? "cursor-nwse-resize" : "cursor-nesw-resize"}`} />
             ))}
           </div>
@@ -95,7 +95,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
       </div>
       <aside className="space-y-6">
         <div>
-          <h2 className="font-display text-2xl font-semibold">Crop &amp; straighten</h2>
+          <h2 className="font-display text-2xl font-semibold">{t("Crop & straighten")}</h2>
           <p className="mt-1 text-sm text-muted-foreground">{heading ?? t("Drag the box to frame your photo.")}</p>
         </div>
         <Field label={t("Rotate")}>
@@ -104,7 +104,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
             <button type="button" onClick={() => setQuarter((q) => (q + 1) % 4)} className="flex items-center gap-1.5 rounded-full border border-border px-3.5 py-2 text-sm hover:bg-accent"><RotateCw className="h-4 w-4" /> {t("Right")}</button>
           </div>
         </Field>
-        <Field label={`Straighten: ${fine > 0 ? "+" : ""}${fine}°`}><Range label={t("Straighten")} value={fine} min={-15} max={15} step={0.5} onChange={setFine} /></Field>
+        <Field label={t("Straighten: {n}°", { n: `${fine > 0 ? "+" : ""}${fine}` })}><Range label={t("Straighten")} value={fine} min={-15} max={15} step={0.5} onChange={setFine} /></Field>
         {aspects.length > 1 && <Field label={t("Crop shape")}><Choice value={aspectId} onChange={setAspectId} options={aspects} /></Field>}
         <div className="flex flex-col gap-2">
           <button type="button" onClick={apply} disabled={!bmp} className="rounded-full bg-primary px-5 py-3 font-semibold text-primary-foreground disabled:opacity-50">{t("Continue")}</button>

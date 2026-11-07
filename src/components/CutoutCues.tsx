@@ -26,7 +26,7 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
         <div role="status" className="rounded-2xl border border-primary/40 bg-accent p-4 text-accent-foreground">
           {label && <p className="mb-1 text-sm font-semibold">{label}</p>}
           <ul className="space-y-1.5">
-            {cues.map((c) => <li key={c.id} className="flex gap-2 text-sm"><AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />{c.text}</li>)}
+            {cues.map((c) => <li key={c.id} className="flex gap-2 text-sm"><AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />{t(c.text)}</li>)}
           </ul>
           <div className="mt-3 flex flex-wrap gap-2">
             {stray && (
@@ -43,7 +43,7 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
       )}
       {cues.length === 0 && (
         <button type="button" onClick={() => setEditing(true)} className="flex items-center gap-1.5 text-sm text-muted-foreground underline underline-offset-2 hover:text-foreground">
-          <Brush className="h-4 w-4" /> {label ? `Touch up ${label}` : t("Something missing or left over? Touch it up")}
+          <Brush className="h-4 w-4" /> {label ? t("Touch up {s}", { s: label }) : t("Something missing or left over? Touch it up")}
         </button>
       )}
     </div>

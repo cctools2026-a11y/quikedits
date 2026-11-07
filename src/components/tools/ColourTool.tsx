@@ -112,8 +112,8 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
     <div>
       {preset.brand && (
         <label className="mb-4 flex items-center gap-3 text-sm font-semibold">
-          Brand colour
-          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={t("#1A73E8")} maxLength={7} spellCheck={false}
+          {t("Brand colour")}
+          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={"#1A73E8"} maxLength={7} spellCheck={false}
             className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label={t("Brand colour hex code")} />
           <span aria-hidden className="h-8 w-8 rounded-full border-2 border-foreground" style={{ backgroundColor: colour }} />
         </label>
@@ -125,7 +125,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
             type="button"
             role="radio"
             aria-checked={result !== null && colour === c}
-            aria-label={`Colour ${c}`}
+            aria-label={t("Colour {s}", { s: c })}
             onClick={() => apply(c)}
             className="flex h-11 w-11 items-center justify-center rounded-full border-2 border-border shadow-sm transition-transform hover:scale-110 focus:outline-none focus-visible:ring-4 focus-visible:ring-ring"
             style={{ backgroundColor: c }}
@@ -135,7 +135,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         ))}
         <label className="flex h-11 cursor-pointer items-center gap-2 rounded-full border-2 border-border px-3 text-sm font-medium">
           <input type="color" value={colour} onChange={(e) => apply(e.target.value)} className="h-6 w-6 cursor-pointer rounded-full border-0 bg-transparent p-0" aria-label={t("Custom colour")} />
-          Custom
+          {t("Custom")}
         </label>
       </div>
     </div>
@@ -149,7 +149,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         {stage.kind === "idle" && (
           <ToolHero path={page} title={preset.title ?? <>{t("Put any photo on a")} <span className="text-primary">{"solid colour"}</span>.</>} intro={preset.intro ?? t("Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.")}>
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
-            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
           </ToolHero>
         )}
         {stage.kind === "idle" && <TrustStrip />}
@@ -189,7 +189,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
             <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
-            <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
+            <p className="mt-2 text-muted-foreground" role="alert">{t(stage.message)}</p>
             <div className="mt-6 flex justify-center gap-3">
               {file && <button onClick={() => apply(colour)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>}
               <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>

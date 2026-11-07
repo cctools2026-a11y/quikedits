@@ -29,7 +29,7 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
       tool="/product-photo"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
+      crop={[{ id: "free", label: t("Freeform"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       multiple
       title={preset.title ?? <>{t("Product photos on")} <span className="text-primary">{"clean white"}</span>{t(", ready to list.")}</>}
       intro={preset.intro ?? t("Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify.")}
@@ -81,14 +81,14 @@ function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item:
   }, [item.cutout, colour, w, h, pad, shadow]);
   useEffect(() => { onUrl(url); }, [url, onUrl]);
 
-  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {item.error}</p>;
+  if (item.error) return <p className="rounded-xl bg-destructive/10 p-4 text-sm text-destructive">{item.file.name}: {t(item.error)}</p>;
   return (
     <figure className="rounded-2xl border border-border bg-card p-3">
       {url ? <ZoomView><img src={url} alt={`${item.file.name} on new background`} className="w-full rounded-xl" /></ZoomView> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
         <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
-          <Download className="h-4 w-4" /> {t("PNG")}
+          <Download className="h-4 w-4" /> PNG
         </a>
         <ShareButton compact url={url} name={name} />
       </figcaption>

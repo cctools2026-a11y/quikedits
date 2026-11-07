@@ -9,6 +9,8 @@ export const getRouter = () => {
     routeTree,
     context: { queryClient },
     scrollRestoration: true,
+    // Keep "/pt/" as-is: it is the canonical Portuguese home and is served as /pt/index.html.
+    trailingSlash: "preserve",
     defaultPreloadStaleTime: 0,
   });
 

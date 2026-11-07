@@ -28,10 +28,10 @@ export function CompareSlider({ before, after, afterAlt = "Background removed", 
       onPointerMove={(e) => dragging.current && move(e.clientX)}
       onPointerUp={() => (dragging.current = false)}
     >
-      <img src={after} alt={afterAlt} className="block max-h-[70vh] w-full object-contain" draggable={false} />
+      <img src={after} alt={t(afterAlt)} className="block max-h-[70vh] w-full object-contain" draggable={false} />
       <img
         src={before}
-        alt={beforeAlt}
+        alt={t(beforeAlt)}
         draggable={false}
         className="absolute inset-0 h-full w-full object-contain bg-background"
         style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}

@@ -24,7 +24,7 @@ export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: 
       tool="/sticker-maker"
       page={page}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "free", label: t("Free"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
+      crop={[{ id: "free", label: t("Freeform"), ratio: null }, { id: "square", label: t("Square"), ratio: 1 }]}
       title={preset.title ?? <>{t("Turn any photo into a")} <span className="text-primary">{"sticker"}</span>.</>}
       intro={preset.intro ?? t("Upload a photo of a person, pet or object. We cut it out and add an outline, sized 512 × 512 for WhatsApp and Telegram.")}
     >
@@ -81,7 +81,7 @@ function StickerResult({ cut, name, outline, width, format, reset, size, pad, sh
   return (
     <div>
       <div className="checkerboard mx-auto max-w-md rounded-2xl p-4">{url && <ZoomView><img src={url} alt={t("Sticker")} className="w-full" /></ZoomView>}</div>
-      {page && <p className="mt-3 text-xs text-muted-foreground">Prints at 300 dpi. Each sticker is 2 × 2 in; cut along the dashed lines.</p>}
+      {page && <p className="mt-3 text-xs text-muted-foreground">{t("Prints at 300 dpi. Each sticker is 2 × 2 in; cut along the dashed lines.")}</p>}
       <ResultActions url={url} name={page ? `${name}-sticker-sheet.png` : `${name}-sticker.${format === "image/webp" ? "webp" : "png"}`} label={page ? t("Download sticker sheet") : t("Download sticker")} onReset={reset} />
     </div>
   );

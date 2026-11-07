@@ -108,10 +108,10 @@ export function RemoveBackground() {
         {stage.kind === "idle" && (
           <ToolHero path="/" title={<>{t("Remove any background.")} <span className="text-primary">{t("Free")}</span>{t(", private, instant.")}</>} intro={t("The AI runs right in your browser. No sign-up, no uploads, no limits.")}>
             <UploadZone tool="/" onFiles={(f) => pick(f[0])} />
-            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
-              Faster mode for older phones and laptops (slightly lower quality)
+              {t("Faster mode for older phones and laptops (slightly lower quality)")}
             </label>
           </ToolHero>
         )}
@@ -144,14 +144,14 @@ export function RemoveBackground() {
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
             <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
-            <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
+            <p className="mt-2 text-muted-foreground" role="alert">{t(stage.message)}</p>
             <div className="mt-6 flex justify-center gap-3">
               {file && <button onClick={() => run(file)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>}
               <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
             </div>
             <label className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
-              Use faster mode
+              {t("Use faster mode")}
             </label>
           </section>
         )}
