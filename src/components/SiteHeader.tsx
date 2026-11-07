@@ -4,6 +4,8 @@ import {
   ChevronDown, Eraser, IdCard, Image, Menu, PenLine, Palette, ShoppingBag, Sticker, UserRound, X, type LucideIcon,
 } from "lucide-react";
 import { TOOL_GROUPS, TOOLS, subtool, subtoolsOf } from "@/lib/tools";
+import { localePath } from "@/lib/i18n";
+import { useEnPath, useLocale, useLp, useT, type RoutePath } from "@/lib/use-i18n";
 
 export const ICONS: Record<string, LucideIcon> = {
   "/": Eraser, "/colour-background": Palette, "/photo-background": Image, "/product-photo": ShoppingBag,
@@ -14,10 +16,14 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [mobile, setMobile] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const path = useRouterState({ select: (s) => s.location.pathname });
-  const current = TOOLS.find((t) => t.to === (subtool(path)?.parent ?? path));
+  const raw = useRouterState({ select: (s) => s.location.pathname });
+  const path = useEnPath();
+  const t = useT();
+  const lp = useLp();
+  const locale = useLocale();
+  const current = TOOLS.find((o) => o.to === (subtool(path)?.parent ?? path));
 
-  useEffect(() => { setOpen(false); setMobile(false); }, [path]);
+  useEffect(() => { setOpen(false); setMobile(false); }, [raw]);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(false); setMobile(false); } };
     window.addEventListener("keydown", onKey);
@@ -30,7 +36,7 @@ export function SiteHeader() {
   return (
     <header className="relative z-40 border-b-4 border-foreground bg-background">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link to="/" className="font-display shrink-0 text-2xl tracking-wide">{"quikedits"}<span className="text-primary">.</span><span className="ml-2 rounded-full border-2 border-foreground bg-art-yellow px-2 py-0.5 align-middle font-sans text-[10px] font-bold uppercase tracking-wider text-foreground">{t("Free")}</span></Link>
+        <Link to={lp("/")} className="font-display shrink-0 text-2xl tracking-wide">{"quikedits"}<span className="text-primary">.</span><span className="ml-2 rounded-full border-2 border-foreground bg-art-yellow px-2 py-0.5 align-middle font-sans text-[10px] font-bold uppercase tracking-wider text-foreground">{t("Free")}</span></Link>
 
         <nav aria-label={t("Main")} className="hidden items-center gap-1 md:flex">
           <div onPointerEnter={enter} onPointerLeave={leave}>
@@ -41,7 +47,7 @@ export function SiteHeader() {
               onClick={() => setOpen((o) => !o)}
               className={`flex items-center gap-1.5 rounded-full border-2 border-foreground px-4 py-2 text-sm font-bold transition-colors hover:bg-primary hover:text-primary-foreground ${open ? "bg-primary text-primary-foreground" : "bg-card"}`}
             >
-              {current ? <>{t("Tools")}<span>·</span><span>{current.label}</span></> : t("All tools")}
+              {current ? <>{t("Tools")}<span>·</span><span>{t(current.label)}</span></> : t("All tools")}
               <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
             </button>
             {open && (
@@ -52,10 +58,20 @@ export function SiteHeader() {
           </div>
         </nav>
 
+        <div className="flex items-center gap-2">
+        <nav aria-label={t("Language")} className="flex rounded-full border-2 border-foreground bg-card p-0.5 text-xs font-bold">
+          {(["en", "pt"] as const).map((l) => (
+            <Link key={l} to={localePath(path, l) as RoutePath} hrefLang={l} lang={l} aria-current={l === locale ? "true" : undefined}
+              aria-label={l === "en" ? "English" : "Português"}
+              className={`rounded-full px-2.5 py-1 uppercase transition-colors ${l === locale ? "bg-foreground text-background" : "hover:bg-accent"}`}>{l}</Link>
+          ))}
+        </nav>
         <button type="button" aria-label={mobile ? t("Close menu") : t("Open menu")} aria-expanded={mobile} onClick={() => setMobile((m) => !m)}
           className="flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-4 py-2 text-sm font-bold md:hidden">
-          {mobile ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />} Tools
+          {mobile ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />} {t("Tools")}
         </button>
+        </div>
+
       </div>
 
       {mobile && (
