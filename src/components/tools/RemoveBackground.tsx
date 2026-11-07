@@ -21,6 +21,7 @@ type Stage =
   | { kind: "error"; message: string };
 
 export function RemoveBackground() {
+  const t = useT();
   const [stage, setStage] = useState<Stage>({ kind: "idle" });
   const [file, setFile] = useState<File | null>(null);
   const [original, setOriginal] = useState<string | null>(null);
@@ -34,8 +35,8 @@ export function RemoveBackground() {
   useEffect(() => {
     if (stage.kind !== "working") return;
     const start = Date.now();
-    const t = setInterval(() => setElapsed(Math.floor((Date.now() - start) / 1000)), 1000);
-    return () => clearInterval(t);
+    const timer = setInterval(() => setElapsed(Math.floor((Date.now() - start) / 1000)), 1000);
+    return () => clearInterval(timer);
   }, [stage.kind]);
 
   useEffect(() => () => {

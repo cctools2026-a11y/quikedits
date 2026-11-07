@@ -18,7 +18,7 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
   }
   const m = TOOL_MEDIA[path];
   const sub = subtool(path);
-  const parent = sub && TOOLS.find((t) => t.to === sub.parent);
+  const parent = sub && TOOLS.find((o) => o.to === sub.parent);
   return (
     <section className="grid items-center gap-10 overflow-x-clip pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">

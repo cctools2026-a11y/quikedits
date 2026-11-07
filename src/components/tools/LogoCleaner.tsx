@@ -42,6 +42,7 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
 }
 
 function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: HTMLCanvasElement | null; name: string; tol: number; reset: () => void; recolour: string; ink: boolean; maxWidth?: number | undefined }) {
+  const t = useT();
   const bgColour = useMemo(() => {
     if (!src) return [255, 255, 255];
     const { width: w, height: h } = src;
@@ -65,12 +66,12 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
       if (recolour !== "original") { const v = recolour === "white" ? 255 : 0; d[p] = v; d[p + 1] = v; d[p + 2] = v; }
     }
     ctx.putImageData(img, 0, 0);
-    const t = trim(c);
+    const trimmed = trim(c);
     if (!maxWidth || t.width <= maxWidth) return t;
     const out = makeCanvas(maxWidth, Math.round((t.height / t.width) * maxWidth));
     const o = ctx2d(out);
     o.imageSmoothingQuality = "high";
-    o.drawImage(t, 0, 0, out.width, out.height);
+    o.drawImage(trimmed, 0, 0, out.width, out.height);
     return out;
   }, [src, tol, bgColour, recolour, ink, maxWidth]);
 

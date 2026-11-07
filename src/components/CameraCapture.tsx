@@ -20,13 +20,13 @@ export function CameraCapture({ open, onOpenChange, onCapture }: {
     setError(null);
     navigator.mediaDevices?.getUserMedia({ video: { facingMode: facing, width: { ideal: 1920 }, height: { ideal: 1440 } }, audio: false })
       .then((s) => {
-        if (cancelled) { s.getTracks().forEach((t) => t.stop()); return; }
+        if (cancelled) { s.getTracks().forEach((tr) => tr.stop()); return; }
         stream = s;
         if (video.current) { video.current.srcObject = s; void video.current.play(); }
       })
       .catch(() => setError(t("We couldn't open your camera. Check that you've allowed camera access, or upload a photo instead.")));
     if (!navigator.mediaDevices) setError(t("Your browser doesn't support taking photos here. Please upload a photo instead."));
-    return () => { cancelled = true; stream?.getTracks().forEach((t) => t.stop()); };
+    return () => { cancelled = true; stream?.getTracks().forEach((tr) => tr.stop()); };
   }, [open, facing]);
 
   const snap = () => {
