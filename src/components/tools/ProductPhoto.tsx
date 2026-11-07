@@ -29,20 +29,20 @@ export function ProductPhoto({ page = "/product-photo", preset = {} }: { page?: 
       below={<ToolLanding path={page} />}
       crop={[{ id: "free", label: "Free", ratio: null }, { id: "square", label: "Square", ratio: 1 }]}
       multiple
-      title={preset.title ?? <>Product photos on <span className="text-primary">clean white</span>, ready to list.</>}
-      intro={preset.intro ?? "Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify."}
+      title={preset.title ?? <>{t("Product photos on")} <span className="text-primary">{t("clean white")}</span>{t(", ready to list.")}</>}
+      intro={preset.intro ?? t("Upload one or several product photos. We remove the background, centre each product and size it for Amazon, eBay, Etsy or Shopify.")}
     >
       {(items, reset) => { const names = uniqueNames(items.map((x) => `${baseName(x.file)}-product.png`)); return (
         <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[280px_1fr]">
           <aside className="space-y-6">
-            <Field label="Background"><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
-            <Field label="Size">
+            <Field label={t("Background")}><ColourSwatches value={colour} onChange={setColour} colours={["#FFFFFF", "#F5F0E8", "#E5E7EB", "#000000"]} /></Field>
+            <Field label={t("Size")}>
               <Choice value={sizeId} onChange={setSizeId} options={PRODUCT_SIZES.map((s) => ({ id: s.id, label: s.label }))} />
             </Field>
-            <Field label={`Space around product: ${pad}%`}><Range label="Padding" value={pad} min={0} max={25} onChange={setPad} /></Field>
-            <Field label="Shadow"><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: "None" }, { id: "on", label: "Soft shadow" }]} /></Field>
+            <Field label={`Space around product: ${pad}%`}><Range label={t("Padding")} value={pad} min={0} max={25} onChange={setPad} /></Field>
+            <Field label={t("Shadow")}><Choice value={shadow} onChange={setShadow} options={[{ id: "off", label: "None" }, { id: "on", label: t("Soft shadow") }]} /></Field>
             <ZipButton files={items.map((_, i) => ({ url: urls[i] ?? null, name: names[i]! }))} name="product-photos.zip" />
-            <button onClick={reset} className="w-full rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">New images</button>
+            <button onClick={reset} className="w-full rounded-full border border-border px-5 py-3 font-medium hover:bg-accent">{t("New images")}</button>
           </aside>
           <div className="grid gap-6 sm:grid-cols-2">
             {items.map((it, i) => <ProductResult key={i} item={it} name={names[i]!} colour={colour} w={size.w} h={size.h} pad={pad} shadow={shadow === "on"} onUrl={(u) => report(i, u)} />)}

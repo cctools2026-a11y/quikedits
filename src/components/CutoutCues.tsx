@@ -35,13 +35,13 @@ export function CutoutCues({ tool, cut, source, label, onChange, onRetry }: {
             <button type="button" onClick={() => setEditing(true)} className="flex items-center gap-1.5 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium">
               <Brush className="h-4 w-4" /> Fix it
             </button>
-            {onRetry && <button type="button" onClick={onRetry} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium">Try another photo</button>}
+            {onRetry && <button type="button" onClick={onRetry} className="rounded-full border border-border bg-background px-4 py-2 text-sm font-medium">{t("Try another photo")}</button>}
           </div>
         </div>
       )}
       {cues.length === 0 && (
         <button type="button" onClick={() => setEditing(true)} className="flex items-center gap-1.5 text-sm text-muted-foreground underline underline-offset-2 hover:text-foreground">
-          <Brush className="h-4 w-4" /> {label ? `Touch up ${label}` : "Something missing or left over? Touch it up"}
+          <Brush className="h-4 w-4" /> {label ? `Touch up ${label}` : t("Something missing or left over? Touch it up")}
         </button>
       )}
     </div>

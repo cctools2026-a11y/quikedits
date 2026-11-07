@@ -46,8 +46,8 @@ export function CameraCapture({ open, onOpenChange, onCapture }: {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl border-4 border-foreground">
         <DialogHeader>
-          <DialogTitle className="font-display text-3xl">Take a photo</DialogTitle>
-          <DialogDescription>Your photo stays on this device.</DialogDescription>
+          <DialogTitle className="font-display text-3xl">{t("Take a photo")}</DialogTitle>
+          <DialogDescription>{t("Your photo stays on this device.")}</DialogDescription>
         </DialogHeader>
         {error ? (
           <p role="alert" className="rounded-xl border-2 border-foreground bg-muted p-4 text-sm">{error}</p>
@@ -58,7 +58,7 @@ export function CameraCapture({ open, onOpenChange, onCapture }: {
           <Button type="button" variant="outline" onClick={() => setFacing((f) => (f === "user" ? "environment" : "user"))}>
             <SwitchCamera /> Switch camera
           </Button>
-          <Button type="button" onClick={snap} disabled={!!error}><Camera /> Take photo</Button>
+          <Button type="button" onClick={snap} disabled={!!error}><Camera /> {t("Take photo")}</Button>
         </div>
       </DialogContent>
     </Dialog>

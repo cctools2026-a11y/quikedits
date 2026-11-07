@@ -12,7 +12,7 @@ function Heading({ id, kicker, children }: { id: string; kicker?: string; childr
   return (
     <div>
       {kicker && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">{kicker}</p>}
-      <h2 id={id} className={`font-display ${kicker ? "mt-2 " : ""}text-4xl leading-none sm:text-5xl`}>{children}</h2>
+      <h2 id={id} className={`font-display ${kicker ? t("mt-2 ") : ""}text-4xl leading-none sm:text-5xl`}>{children}</h2>
     </div>
   );
 }
@@ -52,7 +52,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
     <div className="mt-24 space-y-28">
       <Reveal>
         <section aria-labelledby="how">
-          <Heading id="how">How it works</Heading>
+          <Heading id="how">{t("How it works")}</Heading>
           <ol className="mt-12 grid gap-12 sm:grid-cols-3 sm:gap-8">
             {c.steps.map((s, i) => (
               <li key={s.title} className="relative">
@@ -71,7 +71,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="great-for" className="relative left-1/2 w-screen -translate-x-1/2 border-y-4 border-foreground bg-art-yellow px-4 py-14 sm:px-8 lg:px-12">
-          <Heading id="great-for">Great for</Heading>
+          <Heading id="great-for">{t("Great for")}</Heading>
           <ul className="mt-6 flex flex-wrap gap-x-12 gap-y-2">
             {c.greatFor.map((g) => (
               <li key={g} tabIndex={0} className="font-display rounded-lg text-4xl leading-tight decoration-mint-pop decoration-[5px] underline-offset-[6px] [text-decoration-skip-ink:none] outline-none transition-colors hover:text-mint-pop hover:shadow-[inset_0_-5px_0_0_var(--mint-pop)] focus-visible:text-mint-pop focus-visible:shadow-[inset_0_-5px_0_0_var(--mint-pop)] focus-visible:ring-4 focus-visible:ring-mint-pop focus-visible:ring-offset-4 focus-visible:ring-offset-art-yellow sm:text-5xl">{g}</li>
@@ -83,12 +83,12 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
       <Reveal>
         <section aria-labelledby="tips" className="relative isolate">
           <span aria-hidden className="absolute -left-6 top-24 -z-10 h-48 w-48 -rotate-12 sm:-left-10 sm:h-60 sm:w-60 rounded-[2rem] bg-art-yellow opacity-70" />
-          <Heading id="tips">Tips for the best photo</Heading>
+          <Heading id="tips">{t("Tips for the best photo")}</Heading>
           <div className="mt-12 grid gap-14 md:grid-cols-2 md:gap-10">
             <div className="grid grid-cols-[7rem_1fr] items-start gap-6 sm:grid-cols-[10rem_1fr]">
-              {m && <PosterCard tilt={-3}><img src={m.before} alt="A good photo: close and clear" loading="lazy" className="aspect-square w-full rounded-[0.8rem] object-cover" /></PosterCard>}
+              {m && <PosterCard tilt={-3}><img src={m.before} alt={t("A good photo: close and clear")} loading="lazy" className="aspect-square w-full rounded-[0.8rem] object-cover" /></PosterCard>}
               <div>
-                <p className="font-display text-4xl leading-none">Do</p>
+                <p className="font-display text-4xl leading-none">{t("Do")}</p>
                 <ul className="mt-4 space-y-2.5 text-foreground/80">
                   {[...(rules?.good ?? []), ...c.tips].map((t) => <li key={t} className="flex gap-2"><Check className="mt-1 h-4 w-4 shrink-0 text-primary" />{t}</li>)}
                 </ul>
@@ -97,12 +97,12 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
             <div className="grid grid-cols-[7rem_1fr] items-start gap-6 sm:grid-cols-[10rem_1fr]">
               {m && (
                 <PosterCard tilt={2.5} className="relative">
-                  <div className="overflow-hidden rounded-[0.8rem]"><img src={m.before} alt="A photo to avoid: far away and blurry" loading="lazy" className="aspect-square w-full scale-50 object-cover blur-[3px]" /></div>
+                  <div className="overflow-hidden rounded-[0.8rem]"><img src={m.before} alt={t("A photo to avoid: far away and blurry")} loading="lazy" className="aspect-square w-full scale-50 object-cover blur-[3px]" /></div>
                   <span className="absolute -right-3 -top-3 flex h-9 w-9 items-center justify-center rounded-full border-[3px] border-foreground bg-destructive text-destructive-foreground"><X className="h-4 w-4" /></span>
                 </PosterCard>
               )}
               <div>
-                <p className="font-display text-4xl leading-none">Avoid</p>
+                <p className="font-display text-4xl leading-none">{t("Avoid")}</p>
                 <ul className="mt-4 space-y-2.5 text-foreground/80">
                   {(rules?.avoid ?? []).map((t) => <li key={t} className="flex gap-2"><X className="mt-1 h-4 w-4 shrink-0 text-destructive" />{t}</li>)}
                 </ul>
@@ -116,8 +116,8 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
         <Reveal>
           <section className="-rotate-1 rounded-[1.5rem] border-4 border-foreground bg-primary px-6 py-10 shadow-float sm:px-10">
             <div>
-              <h2 className="font-display text-5xl leading-none text-primary-foreground sm:text-7xl">Free and private, for real</h2>
-              <p className="mt-2 text-lg font-medium text-primary-foreground/90">Your photo never leaves your device. No sign-up, no watermark, no limits.</p>
+              <h2 className="font-display text-5xl leading-none text-primary-foreground sm:text-7xl">{t("Free and private, for real")}</h2>
+              <p className="mt-2 text-lg font-medium text-primary-foreground/90">{t("Your photo never leaves your device. No sign-up, no watermark, no limits.")}</p>
             </div>
           </section>
         </Reveal>
@@ -125,7 +125,7 @@ export function ToolLanding({ path, home = false }: { path: string; home?: boole
 
       <Reveal>
         <section aria-labelledby="faq">
-          <Heading id="faq">Common questions</Heading>
+          <Heading id="faq">{t("Common questions")}</Heading>
           <div className="mt-8 border-t-4 border-foreground">
             {c.faqs.map((f) => (
               <details key={f.q} className="group border-b-4 border-foreground py-5">
@@ -163,7 +163,7 @@ function ToolCard({ to, label, blurb, tag }: { to: string; label: string; blurb:
 function SpecificJobs({ path }: { path: string }) {
   return (
     <section aria-labelledby="specific-jobs">
-      <Heading id="specific-jobs">More specific jobs</Heading>
+      <Heading id="specific-jobs">{t("More specific jobs")}</Heading>
       <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {subtoolsOf(path).map((s) => (
           <Link key={s.to} to={s.to} data-reveal data-tilt className="group flex items-center justify-between gap-4 rounded-[1.25rem] border-4 border-foreground bg-card p-5 shadow-float transition-[transform,border-color] duration-500 hover:border-primary active:border-primary focus-visible:border-primary">
@@ -185,9 +185,9 @@ function OtherTools({ path }: { path: string }) {
   const others = TOOLS.filter((t) => t.to !== parent).sort((a, b) => Number(b.to === rel) - Number(a.to === rel));
   return (
     <section aria-labelledby="more-tools">
-      <Heading id="more-tools">More free tools</Heading>
+      <Heading id="more-tools">{t("More free tools")}</Heading>
       <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? "Try next" : undefined} />)}
+        {others.map((t) => <ToolCard key={t.to} to={t.to} label={t.label} blurb={t.blurb} tag={t.to === rel ? t("Try next") : undefined} />)}
       </div>
     </section>
   );
@@ -198,7 +198,7 @@ export function ToolPicker() {
   return (
     <Reveal>
       <section aria-labelledby="pick-tool" className="mt-24">
-        <Heading id="pick-tool">Pick the tool for your job</Heading>
+        <Heading id="pick-tool">{t("Pick the tool for your job")}</Heading>
         <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {TOOLS.map((t) => <ToolCard key={t.to} to={t.to} label={t.task} blurb={t.label} />)}
         </div>

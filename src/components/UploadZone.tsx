@@ -21,19 +21,19 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote, drawSigna
         onDragOver={(e) => { e.preventDefault(); setDrag(true); }}
         onDragLeave={() => setDrag(false)}
         onDrop={(e) => { e.preventDefault(); setDrag(false); onFiles(Array.from(e.dataTransfer.files)); }}
-        className={`group relative flex w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-3xl border-2 border-dashed px-6 py-12 text-center shadow-lift transition-all sm:py-14 ${drag ? "scale-[1.01] border-primary bg-accent" : "border-border bg-card hover:-translate-y-0.5 hover:border-primary/60"}`}
+        className={`group relative flex w-full flex-col items-center justify-center gap-3 overflow-hidden rounded-3xl border-2 border-dashed px-6 py-12 text-center shadow-lift transition-all sm:py-14 ${drag ? t("scale-[1.01] border-primary bg-accent") : t("border-border bg-card hover:-translate-y-0.5 hover:border-primary/60")}`}
       >
         <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-float transition-transform group-hover:-rotate-6 group-hover:scale-105">
           <ImagePlus className="h-8 w-8" />
         </span>
-        <span className="font-display text-xl font-semibold">{multiple ? "Drop photos here or tap to upload" : "Drop a photo here or tap to upload"}</span>
+        <span className="font-display text-xl font-semibold">{multiple ? t("Drop photos here or tap to upload") : t("Drop a photo here or tap to upload")}</span>
         <span className="text-sm text-muted-foreground">JPG, PNG or WebP · up to 25 MB{maxNote ? ` · ${maxNote}` : ""}</span>
       </button>
       <input ref={input} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden"
         onChange={(e) => { onFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />
       {drawSignature ? (
         <div className="mt-3 grid grid-cols-2 gap-2">
-          <Button variant="start-option" onClick={() => setCamera(true)}><Camera /> Take a photo</Button>
+          <Button variant="start-option" onClick={() => setCamera(true)}><Camera /> {t("Take a photo")}</Button>
           <SignatureDraw onFiles={onFiles} />
         </div>
       ) : <button type="button" onClick={() => setCamera(true)}

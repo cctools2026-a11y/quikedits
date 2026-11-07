@@ -27,11 +27,11 @@ export function ZoomView({ children, className = "" }: { children: ReactNode; cl
               {children}
             </TransformComponent>
             <div className="absolute bottom-3 right-3 z-10 flex gap-1.5">
-              <button type="button" aria-label="Zoom out" className={btn} onClick={() => zoomOut()}><Minus className="h-4 w-4" /></button>
-              <button type="button" aria-label="Zoom in" className={btn} onClick={() => zoomIn()}><Plus className="h-4 w-4" /></button>
-              {zoomed && <button type="button" aria-label="Reset zoom" className={btn} onClick={() => resetTransform()}><RotateCcw className="h-4 w-4" /></button>}
+              <button type="button" aria-label={t("Zoom out")} className={btn} onClick={() => zoomOut()}><Minus className="h-4 w-4" /></button>
+              <button type="button" aria-label={t("Zoom in")} className={btn} onClick={() => zoomIn()}><Plus className="h-4 w-4" /></button>
+              {zoomed && <button type="button" aria-label={t("Reset zoom")} className={btn} onClick={() => resetTransform()}><RotateCcw className="h-4 w-4" /></button>}
             </div>
-            <p className="mt-2 text-center text-xs text-muted-foreground">Pinch or double-tap to zoom in, drag to look around.</p>
+            <p className="mt-2 text-center text-xs text-muted-foreground">{t("Pinch or double-tap to zoom in, drag to look around.")}</p>
           </div>
         )}
       </TransformWrapper>

@@ -14,8 +14,8 @@ export function SignatureDraw({ onFiles }: { onFiles: (files: File[]) => void })
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border-4 border-foreground p-4 sm:p-6">
           <DialogHeader>
-            <DialogTitle className="font-display text-3xl tracking-normal">Draw your signature</DialogTitle>
-            <DialogDescription>Your signature stays on your device.</DialogDescription>
+            <DialogTitle className="font-display text-3xl tracking-normal">{t("Draw your signature")}</DialogTitle>
+            <DialogDescription>{t("Your signature stays on your device.")}</DialogDescription>
           </DialogHeader>
           {open && <SignatureEditor onDone={(file) => { setOpen(false); onFiles([file]); }} />}
         </DialogContent>
@@ -89,12 +89,12 @@ function SignatureEditor({ onDone }: { onDone: (file: File) => void }) {
   return (
     <>
       <div className="overflow-hidden rounded-lg border-2 border-foreground">
-        <canvas ref={canvasRef} aria-label="Signature drawing area" className="block aspect-[5/2] w-full touch-none bg-card" />
+        <canvas ref={canvasRef} aria-label={t("Signature drawing area")} className="block aspect-[5/2] w-full touch-none bg-card" />
       </div>
       <div className="flex flex-wrap items-center gap-2">
-        <Button variant="outline" size="icon" aria-label="Undo last stroke" title="Undo last stroke" disabled={empty || saving} onClick={undo}><Undo2 /></Button>
-        <Button variant="outline" size="icon" aria-label="Clear signature" title="Clear signature" disabled={empty || saving} onClick={() => { padRef.current?.clear(); setEmpty(true); }}><Trash2 /></Button>
-        <Button disabled={empty || saving} onClick={save} className="ml-auto h-11"><Check />{saving ? "Preparing…" : "Use signature"}</Button>
+        <Button variant="outline" size="icon" aria-label={t("Undo last stroke")} title={t("Undo last stroke")} disabled={empty || saving} onClick={undo}><Undo2 /></Button>
+        <Button variant="outline" size="icon" aria-label={t("Clear signature")} title={t("Clear signature")} disabled={empty || saving} onClick={() => { padRef.current?.clear(); setEmpty(true); }}><Trash2 /></Button>
+        <Button disabled={empty || saving} onClick={save} className="ml-auto h-11"><Check />{saving ? "Preparing…" : t("Use signature")}</Button>
       </div>
       {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
     </>

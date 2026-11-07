@@ -13,12 +13,12 @@ export type PassportSizeId = (typeof PASSPORT_SIZES)[number]["id"];
 
 export function PassportSizeSelect({ value, onChange }: { value: PassportSizeId; onChange: (id: PassportSizeId) => void }) {
   return <div className="block text-sm font-medium">
-    <span>Document size</span>
+    <span>{t("Document size")}</span>
     <Select value={value} onValueChange={(v) => {
       const selected = PASSPORT_SIZES.find((s) => s.id === v);
       if (selected) onChange(selected.id);
     }}>
-      <SelectTrigger aria-label="Document size" className="mt-2 h-12 w-full rounded-xl border-border bg-card px-4 text-base shadow-sm">
+      <SelectTrigger aria-label={t("Document size")} className="mt-2 h-12 w-full rounded-xl border-border bg-card px-4 text-base shadow-sm">
         <SelectValue />
       </SelectTrigger>
       <SelectContent className="rounded-xl border-border bg-card p-1 shadow-lg">
@@ -63,16 +63,16 @@ export function PassportExample({ sizeId, onSizeChange }: { sizeId: PassportSize
   const after = useRenderedUrl(() => draw(1), [photos, size.w, size.h, zoom, x, y]);
   return <div className="mx-auto w-full max-w-sm space-y-4 rounded-[1.75rem] border-4 border-foreground bg-card p-4 shadow-float">
     <div className="overflow-hidden rounded-2xl">
-      {before && after ? <CompareSlider before={before} after={after} beforeAlt="Asian teenage girl before document crop" afterAlt="Asian teenage girl with white background" /> : <div className="flex min-h-80 items-center justify-center bg-muted text-sm text-muted-foreground">{error ? "Example could not load" : "Loading example…"}</div>}
+      {before && after ? <CompareSlider before={before} after={after} beforeAlt={t("Asian teenage girl before document crop")} afterAlt={t("Asian teenage girl with white background")} /> : <div className="flex min-h-80 items-center justify-center bg-muted text-sm text-muted-foreground">{error ? t("Example could not load") : t("Loading example…")}</div>}
     </div>
     <PassportSizeSelect value={sizeId} onChange={onSizeChange} />
     <details className="group border-b border-border pb-3 text-sm">
-      <summary className="cursor-pointer py-2 font-medium">Adjust example crop</summary>
+      <summary className="cursor-pointer py-2 font-medium">{t("Adjust example crop")}</summary>
       <div className="space-y-4 pt-3">
-        <Field label={`Zoom: ${zoom}%`}><Range label="Example zoom" value={zoom} min={100} max={180} onChange={setZoom} /></Field>
-        <Field label="Horizontal position"><Range label="Example horizontal position" value={x} min={0} max={100} onChange={setX} /></Field>
-        <Field label="Vertical position"><Range label="Example vertical position" value={y} min={0} max={100} onChange={setY} /></Field>
-        <Button variant="outline" onClick={() => { setZoom(100); setX(50); setY(50); }}><RotateCcw />Reset crop</Button>
+        <Field label={`Zoom: ${zoom}%`}><Range label={t("Example zoom")} value={zoom} min={100} max={180} onChange={setZoom} /></Field>
+        <Field label={t("Horizontal position")}><Range label={t("Example horizontal position")} value={x} min={0} max={100} onChange={setX} /></Field>
+        <Field label={t("Vertical position")}><Range label={t("Example vertical position")} value={y} min={0} max={100} onChange={setY} /></Field>
+        <Button variant="outline" onClick={() => { setZoom(100); setX(50); setY(50); }}><RotateCcw />{t("Reset crop")}</Button>
       </div>
     </details>
     <p className="text-xs text-muted-foreground">{size.w} × {size.h} px · 300 dpi. Check your document’s official photo requirements.</p>

@@ -30,18 +30,18 @@ export function SiteHeader() {
   return (
     <header className="relative z-40 border-b-4 border-foreground bg-background">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between gap-4 px-4">
-        <Link to="/" className="font-display shrink-0 text-2xl tracking-wide">quikedits<span className="text-primary">.</span><span className="ml-2 rounded-full border-2 border-foreground bg-art-yellow px-2 py-0.5 align-middle font-sans text-[10px] font-bold uppercase tracking-wider text-foreground">Free</span></Link>
+        <Link to="/" className="font-display shrink-0 text-2xl tracking-wide">{t("quikedits")}<span className="text-primary">.</span><span className="ml-2 rounded-full border-2 border-foreground bg-art-yellow px-2 py-0.5 align-middle font-sans text-[10px] font-bold uppercase tracking-wider text-foreground">{t("Free")}</span></Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+        <nav aria-label={t("Main")} className="hidden items-center gap-1 md:flex">
           <div onPointerEnter={enter} onPointerLeave={leave}>
             <button
               type="button"
               aria-expanded={open}
               aria-haspopup="true"
               onClick={() => setOpen((o) => !o)}
-              className={`flex items-center gap-1.5 rounded-full border-2 border-foreground px-4 py-2 text-sm font-bold transition-colors hover:bg-primary hover:text-primary-foreground ${open ? "bg-primary text-primary-foreground" : "bg-card"}`}
+              className={`flex items-center gap-1.5 rounded-full border-2 border-foreground px-4 py-2 text-sm font-bold transition-colors hover:bg-primary hover:text-primary-foreground ${open ? t("bg-primary text-primary-foreground") : "bg-card"}`}
             >
-              {current ? <>Tools<span>·</span><span>{current.label}</span></> : "All tools"}
+              {current ? <>{t("Tools")}<span>·</span><span>{current.label}</span></> : t("All tools")}
               <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
             </button>
             {open && (
@@ -52,7 +52,7 @@ export function SiteHeader() {
           </div>
         </nav>
 
-        <button type="button" aria-label={mobile ? "Close menu" : "Open menu"} aria-expanded={mobile} onClick={() => setMobile((m) => !m)}
+        <button type="button" aria-label={mobile ? t("Close menu") : t("Open menu")} aria-expanded={mobile} onClick={() => setMobile((m) => !m)}
           className="flex items-center gap-2 rounded-full border-2 border-foreground bg-card px-4 py-2 text-sm font-bold md:hidden">
           {mobile ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />} Tools
         </button>
@@ -80,8 +80,8 @@ function ToolGrid({ path }: { path: string }) {
               return (
                 <li key={t.to}>
                   <Link to={t.to} aria-current={active ? "page" : undefined}
-                    className={`group flex gap-3 rounded-xl border-2 p-2.5 transition-colors hover:border-foreground hover:bg-card ${active ? "border-foreground bg-card" : "border-transparent"}`}>
-                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-foreground transition-colors ${active ? "bg-primary text-primary-foreground" : "bg-card text-foreground group-hover:bg-primary group-hover:text-primary-foreground"}`}>
+                    className={`group flex gap-3 rounded-xl border-2 p-2.5 transition-colors hover:border-foreground hover:bg-card ${active ? t("border-foreground bg-card") : "border-transparent"}`}>
+                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-foreground transition-colors ${active ? t("bg-primary text-primary-foreground") : t("bg-card text-foreground group-hover:bg-primary group-hover:text-primary-foreground")}`}>
                       <Icon className="h-4 w-4" />
                     </span>
                     <span className="min-w-0">
@@ -94,7 +94,7 @@ function ToolGrid({ path }: { path: string }) {
                       {subtoolsOf(t.to).slice(0, 4).map((s) => (
                         <li key={s.to}>
                           <Link to={s.to} aria-current={s.to === path ? "page" : undefined}
-                            className={`block rounded-full border-2 px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-foreground hover:bg-card ${s.to === path ? "border-foreground bg-card" : "border-border"}`}>{s.label}</Link>
+                            className={`block rounded-full border-2 px-2.5 py-0.5 text-xs font-semibold transition-colors hover:border-foreground hover:bg-card ${s.to === path ? t("border-foreground bg-card") : "border-border"}`}>{s.label}</Link>
                         </li>
                       ))}
                     </ul>

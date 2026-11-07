@@ -1,19 +1,19 @@
 const FREE_STEPS = [
   {
-    title: "Your browser downloads the AI model",
-    body: "On your first visit, your browser downloads the AI model. It's a fairly large file, from tens to a couple of hundred megabytes depending on the mode. Think of it like a website loading a piece of software before it can do its job.",
+    title: t("Your browser downloads the AI model"),
+    body: t("On your first visit, your browser downloads the AI model. It's a fairly large file, from tens to a couple of hundred megabytes depending on the mode. Think of it like a website loading a piece of software before it can do its job."),
   },
   {
-    title: "The model runs on your own device",
-    body: "The AI runs on your own computer or phone, not on our servers. That's why we have no processing costs to pass on to you.",
+    title: t("The model runs on your own device"),
+    body: t("The AI runs on your own computer or phone, not on our servers. That's why we have no processing costs to pass on to you."),
   },
   {
-    title: "You add a photo and remove its background",
-    body: "Your photo stays on your device the whole time. Nothing is uploaded, stored or shared.",
+    title: t("You add a photo and remove its background"),
+    body: t("Your photo stays on your device the whole time. Nothing is uploaded, stored or shared."),
   },
   {
-    title: "Next time is faster",
-    body: "Your browser can keep the model saved, so later visits usually skip the big download and start almost straight away.",
+    title: t("Next time is faster"),
+    body: t("Your browser can keep the model saved, so later visits usually skip the big download and start almost straight away."),
   },
 ];
 
@@ -21,7 +21,7 @@ export function HowItsFree() {
   return (
     <section aria-labelledby="how-free" className="mx-auto mb-16 max-w-5xl rotate-[0.6deg] rounded-[1.75rem] border-4 border-foreground bg-card p-6 shadow-float sm:p-10">
       <h2 id="how-free" className="font-display text-5xl leading-none sm:text-6xl">
-        How is this <span className="text-primary">actually free?</span>
+        How is this <span className="text-primary">{t("actually free?")}</span>
       </h2>
       <p className="mt-3 max-w-2xl text-muted-foreground">
         No catch, no trial, no hidden fees. Your own device does the work, so each image costs us nothing to process. Here's what happens:
@@ -36,7 +36,7 @@ export function HowItsFree() {
         ))}
       </ol>
       <p className="mt-10 -rotate-[0.6deg] rounded-xl border-[3px] border-foreground bg-art-yellow px-4 py-3 text-sm font-medium text-foreground">
-        <strong>Heads up:</strong> the first download can take a minute on slower connections. If you're on mobile data, Wi-Fi is a good idea.
+        <strong>{t("Heads up:")}</strong> the first download can take a minute on slower connections. If you're on mobile data, Wi-Fi is a good idea.
       </p>
     </section>
   );

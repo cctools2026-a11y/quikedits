@@ -132,15 +132,15 @@ export function ToolPage({
 
         {stage.kind === "working" && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
-            <img src={items[stage.index]?.original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
+            <img src={items[stage.index]?.original} alt={t("Your image")} className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
-                {raw ? "Preparing image" : stage.phase === "download" ? "Downloading AI model" : "Removing background"}
+                {raw ? t("Preparing image") : stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 {stage.total > 1 && `Image ${stage.index + 1} of ${stage.total} · `}
-                {stage.phase === "download" ? "First time only — it's cached for next time." : "Working on your device…"}
+                {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Working on your device…")}
               </p>
               {!raw && (
                 <>
@@ -156,11 +156,11 @@ export function ToolPage({
 
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
-            <h2 className="font-display text-2xl font-semibold">That didn't work</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
             <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
             <div className="mt-6 flex justify-center gap-3">
-              <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">Try again</button>
-              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">New image</button>
+              <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>
+              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
             </div>
           </section>
         )}
@@ -241,7 +241,7 @@ export function Choice<T extends string>({ value, options, onChange }: { value: 
     <div className="flex flex-wrap gap-2">
       {options.map((o) => (
         <button key={o.id} type="button" aria-pressed={value === o.id} onClick={() => onChange(o.id)}
-          className={`rounded-full border px-3.5 py-2 text-sm ${value === o.id ? "border-primary bg-primary text-primary-foreground" : "border-border hover:bg-accent"}`}>
+          className={`rounded-full border px-3.5 py-2 text-sm ${value === o.id ? t("border-primary bg-primary text-primary-foreground") : t("border-border hover:bg-accent")}`}>
           {o.label}
         </button>
       ))}

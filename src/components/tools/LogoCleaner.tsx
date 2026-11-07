@@ -19,17 +19,17 @@ export function LogoCleaner({ page = "/logo-cleaner", preset = {} }: { page?: st
       drawSignature={canDrawSignature(page)}
       below={<ToolLanding path={page} />}
       raw
-      title={preset.title ?? <>Transparent <span className="text-primary">logos &amp; signatures</span>.</>}
-      intro={preset.intro ?? "Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download."}
+      title={preset.title ?? <>{t("Transparent")} <span className="text-primary">logos &amp; signatures</span>.</>}
+      intro={preset.intro ?? t("Best for flat graphics, logos and handwriting on plain paper. It works instantly, with no AI download.")}
     >
       {(items, reset) => {
         const it = items[0];
         return (
           <div className="tool-split grid gap-6 md:gap-8 md:grid-cols-[300px_1fr]">
             <aside className="space-y-6">
-              <Field label={`Strength: ${tol}`}><Range label="Strength" value={tol} min={15} max={180} onChange={setTol} /></Field>
+              <Field label={`Strength: ${tol}`}><Range label={t("Strength")} value={tol} min={15} max={180} onChange={setTol} /></Field>
               <p className="text-sm text-muted-foreground">Raise it if paper shadows remain; lower it if thin lines disappear.</p>
-              <Field label="Colour"><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: "Original" }, { id: "black", label: "All black" }, { id: "white", label: "All white" }]} /></Field>
+              <Field label={t("Colour")}><Choice value={recolour} onChange={setRecolour} options={[{ id: "original", label: "Original" }, { id: "black", label: t("All black") }, { id: "white", label: t("All white") }]} /></Field>
             </aside>
             <LogoResult src={it?.cutout ?? null} name={it ? baseName(it.file) : "logo"} tol={tol} reset={reset} recolour={recolour} ink={!!preset.ink} maxWidth={preset.maxWidth} />
           </div>
@@ -86,8 +86,8 @@ function LogoResult({ src, name, tol, reset, recolour, ink, maxWidth }: { src: H
           The background isn't plain, so some of it may remain. Try a photo on white paper, or raise the strength.
         </p>
       )}
-      <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt="Transparent logo" className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
-      <ResultActions url={url} name={`${name}-transparent.png`} label="Download transparent PNG" onReset={reset} />
+      <div className={`rounded-2xl p-4 ${recolour === "white" ? "bg-foreground" : "checkerboard"}`}>{url && <ZoomView><img src={url} alt={t("Transparent logo")} className="mx-auto max-h-[60vh]" /></ZoomView>}</div>
+      <ResultActions url={url} name={`${name}-transparent.png`} label={t("Download transparent PNG")} onReset={reset} />
     </div>
   );
 }

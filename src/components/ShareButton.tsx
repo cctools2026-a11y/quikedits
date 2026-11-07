@@ -15,18 +15,18 @@ export function ShareButton({ url, name, compact = false }: { url: string | null
       const blob = await (await fetch(url)).blob();
       const file = new File([blob], name, { type: blob.type || "image/png" });
       if (!navigator.canShare({ files: [file] })) { setNote("This device can't share images. Please download instead."); return; }
-      await navigator.share({ files: [file], title: "Made with QuikEdits" });
+      await navigator.share({ files: [file], title: t("Made with QuikEdits") });
     } catch (e) {
       if ((e as Error).name !== "AbortError") setNote("Sharing didn't work. Please download instead.");
     }
   };
 
   return (
-    <div className={compact ? "" : "flex flex-1 flex-col"}>
+    <div className={compact ? "" : t("flex flex-1 flex-col")}>
       <button type="button" onClick={share} disabled={!url} aria-label={compact ? "Share" : undefined}
         className={compact
-          ? "flex shrink-0 items-center gap-1.5 rounded-full border-2 border-foreground px-3 py-1.5 font-medium hover:bg-accent disabled:opacity-50"
-          : "flex flex-1 items-center justify-center gap-2 rounded-full border-4 border-foreground bg-card px-6 py-3.5 text-lg font-semibold shadow-lg transition-colors hover:border-primary hover:bg-accent disabled:opacity-50"}>
+          ? t("flex shrink-0 items-center gap-1.5 rounded-full border-2 border-foreground px-3 py-1.5 font-medium hover:bg-accent disabled:opacity-50")
+          : t("flex flex-1 items-center justify-center gap-2 rounded-full border-4 border-foreground bg-card px-6 py-3.5 text-lg font-semibold shadow-lg transition-colors hover:border-primary hover:bg-accent disabled:opacity-50")}>
         <Share2 className={compact ? "h-4 w-4" : "h-5 w-5"} /> {compact ? "" : "Share"}
       </button>
       {note && <p role="status" className="mt-1 text-center text-xs text-muted-foreground">{note}</p>}

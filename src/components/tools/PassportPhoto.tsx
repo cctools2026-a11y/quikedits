@@ -9,7 +9,7 @@ import { PassportExample, PassportSizeSelect } from "@/components/PassportExampl
 
 
 type SizeId = (typeof PASSPORT_SIZES)[number]["id"];
-const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: "Light grey" }] as const;
+const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: t("Light grey") }] as const;
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
   const [sizeId, setSizeId] = useState<SizeId>((preset.sizeId as SizeId | undefined) ?? "uk");
@@ -24,17 +24,17 @@ export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?
       page={page}
       example={<PassportExample sizeId={sizeId} onSizeChange={setSizeId} />}
       below={<ToolLanding path={page} />}
-      crop={[{ id: "photo", label: "Photo shape", ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
-      title={preset.title ?? <>Passport &amp; ID photos, <span className="text-primary">done at home</span>.</>}
-      intro={preset.intro ?? "Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card."}
+      crop={[{ id: "photo", label: t("Photo shape"), ratio: size.w / size.h }, { id: "free", label: "Free", ratio: null }]}
+      title={preset.title ?? <>Passport &amp; ID photos, <span className="text-primary">{t("done at home")}</span>.</>}
+      intro={preset.intro ?? t("Upload a well-lit photo facing the camera. We replace the background and size it for your passport, visa or ID card.")}
     >
       {(items, reset) => <PassportResult cut={items[0]?.cutout ?? null} name={items[0] ? baseName(items[0].file) : "photo"} {...{ size, bg, zoom, top, reset }}
         controls={
           <>
             <PassportSizeSelect value={sizeId} onChange={setSizeId} />
-            <Field label="Background"><Choice value={bg} onChange={setBg} options={BGS} /></Field>
-            <Field label={`Size of person: ${zoom}%`}><Range label="Zoom" value={zoom} min={60} max={160} onChange={setZoom} /></Field>
-            <Field label={`Space above head: ${top}%`}><Range label="Space above head" value={top} min={0} max={30} onChange={setTop} /></Field>
+            <Field label={t("Background")}><Choice value={bg} onChange={setBg} options={BGS} /></Field>
+            <Field label={`Size of person: ${zoom}%`}><Range label={t("Zoom")} value={zoom} min={60} max={160} onChange={setZoom} /></Field>
+            <Field label={`Space above head: ${top}%`}><Range label={t("Space above head")} value={top} min={0} max={30} onChange={setTop} /></Field>
           </>
         } />}
     </ToolPage>
@@ -76,14 +76,14 @@ function PassportResult({ cut, name, size, bg, zoom, top, reset, controls }: {
       <aside className="space-y-6">{controls}</aside>
       <div>
         <div className="grid items-start gap-6 sm:grid-cols-[1fr_2fr]">
-          {single && <ZoomView><img src={single} alt="Passport photo" className="w-full rounded-lg border border-border" /></ZoomView>}
-          {sheet && <ZoomView><img src={sheet} alt="Print sheet" className="w-full rounded-lg border border-border" /></ZoomView>}
+          {single && <ZoomView><img src={single} alt={t("Passport photo")} className="w-full rounded-lg border border-border" /></ZoomView>}
+          {sheet && <ZoomView><img src={sheet} alt={t("Print sheet")} className="w-full rounded-lg border border-border" /></ZoomView>}
         </div>
         <p className="mt-3 text-xs text-muted-foreground">
           The sheet prints at 6 × 4 in (10 × 15 cm), 300 dpi. Always check your country's official photo rules before submitting.
         </p>
-        <ResultActions url={single} name={`${name}-passport.png`} label="Download photo" />
-        <ResultActions url={sheet} name={`${name}-passport-sheet.png`} label="Download print sheet" onReset={reset} />
+        <ResultActions url={single} name={`${name}-passport.png`} label={t("Download photo")} />
+        <ResultActions url={sheet} name={`${name}-passport-sheet.png`} label={t("Download print sheet")} onReset={reset} />
       </div>
     </div>
   );

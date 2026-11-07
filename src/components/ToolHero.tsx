@@ -14,7 +14,7 @@ export function ToolHero({ path, title, intro, children, example }: { path: stri
     <section className="grid items-center gap-10 overflow-x-clip pt-8 sm:pt-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
       <div className="min-w-0">
         {sub && parent && (
-          <nav aria-label="Breadcrumb" className="mb-3 flex items-center gap-1 text-sm font-semibold text-muted-foreground">
+          <nav aria-label={t("Breadcrumb")} className="mb-3 flex items-center gap-1 text-sm font-semibold text-muted-foreground">
             <Link to={parent.to} className="underline-offset-4 hover:text-foreground hover:underline">{parent.label}</Link>
             <ChevronRight className="h-4 w-4" aria-hidden /><span className="text-foreground">{sub.label}</span>
           </nav>
@@ -63,7 +63,7 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { rootMargin: "0px 0px -10% 0px" });
+    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { rootMargin: t("0px 0px -10% 0px") });
     io.observe(el);
     return () => io.disconnect();
   }, []);

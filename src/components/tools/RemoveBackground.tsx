@@ -71,10 +71,10 @@ export function RemoveBackground() {
       setStage({
         kind: "error",
         message: /memory|allocation/i.test(msg)
-          ? "Your device ran out of memory. Try the faster model or a smaller image."
+          ? t("Your device ran out of memory. Try the faster model or a smaller image.")
           : /fetch|network/i.test(msg)
-            ? "Couldn't download the AI model. Check your connection and try again."
-            : "Something went wrong while removing the background. Please try again.",
+            ? t("Couldn't download the AI model. Check your connection and try again.")
+            : t("Something went wrong while removing the background. Please try again."),
       });
     }
   }
@@ -104,7 +104,7 @@ export function RemoveBackground() {
 
       <main className="mx-auto max-w-5xl px-4">
         {stage.kind === "idle" && (
-          <ToolHero path="/" title={<>Remove any background. <span className="text-primary">Free</span>, private, instant.</>} intro="The AI runs right in your browser. No sign-up, no uploads, no limits.">
+          <ToolHero path="/" title={<>{t("Remove any background.")} <span className="text-primary">{t("Free")}</span>{t(", private, instant.")}</>} intro={t("The AI runs right in your browser. No sign-up, no uploads, no limits.")}>
             <UploadZone tool="/" onFiles={(f) => pick(f[0])} />
             {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             <label className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
@@ -119,21 +119,21 @@ export function RemoveBackground() {
 
         {stage.kind === "working" && original && (
           <section className="grid gap-8 pt-6 md:grid-cols-2 md:items-center">
-            <img src={original} alt="Your image" className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
+            <img src={original} alt={t("Your image")} className="max-h-[60vh] w-full rounded-2xl border border-border object-contain opacity-60" />
             <div>
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
               <h2 className="font-display mt-4 text-2xl font-semibold">
-                {stage.phase === "download" ? "Downloading AI model" : "Removing background"}
+                {stage.phase === "download" ? t("Downloading AI model") : t("Removing background")}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {stage.phase === "download" ? "First time only — it's cached for next time." : "Working on your device…"}
+                {stage.phase === "download" ? t("First time only — it's cached for next time.") : t("Working on your device…")}
               </p>
               <div className="mt-5 h-2 w-full overflow-hidden rounded-full bg-muted">
                 <div className="h-full rounded-full bg-primary transition-all" style={{ width: `${stage.pct}%` }} />
               </div>
               <p className="mt-2 text-sm tabular-nums text-muted-foreground">{stage.pct}% · {elapsed}s</p>
               {elapsed > 20 && (
-                <p className="mt-4 text-sm text-muted-foreground">This can take up to a minute on older devices. Please keep this tab open.</p>
+                <p className="mt-4 text-sm text-muted-foreground">{t("This can take up to a minute on older devices. Please keep this tab open.")}</p>
               )}
             </div>
           </section>
@@ -141,11 +141,11 @@ export function RemoveBackground() {
 
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
-            <h2 className="font-display text-2xl font-semibold">That didn't work</h2>
+            <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
             <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
             <div className="mt-6 flex justify-center gap-3">
-              {file && <button onClick={() => run(file)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">Try again</button>}
-              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">New image</button>
+              {file && <button onClick={() => run(file)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>}
+              <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
             </div>
             <label className="mt-5 flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <input type="checkbox" checked={fast} onChange={(e) => setFast(e.target.checked)} className="h-4 w-4 accent-primary" />
@@ -170,7 +170,7 @@ export function RemoveBackground() {
                 <RotateCcw className="h-4 w-4" /> New image
               </button>
             </div>
-            <p className="mt-3 text-center text-xs text-muted-foreground">Drag the handle to compare. Processed entirely in your browser.</p>
+            <p className="mt-3 text-center text-xs text-muted-foreground">{t("Drag the handle to compare. Processed entirely in your browser.")}</p>
           </section>
         )}
       </main>

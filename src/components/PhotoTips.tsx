@@ -12,13 +12,13 @@ function TipsBody({ tool }: { tool: string }) {
       <p className="font-medium leading-relaxed text-foreground">{r.best}</p>
       <div className="mt-4 grid gap-4 sm:grid-cols-2">
         <div>
-          <p className="mb-2 text-xs font-semibold text-foreground">Works well</p>
+          <p className="mb-2 text-xs font-semibold text-foreground">{t("Works well")}</p>
           <ul className="space-y-2 text-muted-foreground">
             {r.good.map((g) => <li key={g} className="flex items-start gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />{g}</li>)}
           </ul>
         </div>
         <div>
-          <p className="mb-2 text-xs font-semibold text-foreground">Avoid</p>
+          <p className="mb-2 text-xs font-semibold text-foreground">{t("Avoid")}</p>
           <ul className="space-y-2 text-muted-foreground">
             {r.avoid.map((g) => <li key={g} className="flex items-start gap-2"><X className="mt-0.5 h-4 w-4 shrink-0 text-destructive" aria-hidden />{g}</li>)}
           </ul>
@@ -35,7 +35,7 @@ export function PhotoTips({ tool }: { tool: string }) {
   const trigger = (
     <button
       type="button"
-      aria-label="Show photo tips"
+      aria-label={t("Show photo tips")}
       className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-full px-1 text-sm font-medium text-muted-foreground underline-offset-4 transition-colors hover:text-foreground hover:underline focus-visible:outline-2 focus-visible:outline-ring"
     >
       <Info className="h-4 w-4 shrink-0" aria-hidden />
@@ -48,7 +48,7 @@ export function PhotoTips({ tool }: { tool: string }) {
       <Sheet>
         <SheetTrigger asChild>{trigger}</SheetTrigger>
         <SheetContent side="bottom" className="bg-mat rounded-t-2xl px-5 pb-8">
-          <SheetTitle className="mt-2 font-display text-3xl">Photo tips</SheetTitle>
+          <SheetTitle className="mt-2 font-display text-3xl">{t("Photo tips")}</SheetTitle>
           <div className="mt-3"><TipsBody tool={tool} /></div>
         </SheetContent>
       </Sheet>
@@ -59,7 +59,7 @@ export function PhotoTips({ tool }: { tool: string }) {
     <Popover>
       <PopoverTrigger asChild>{trigger}</PopoverTrigger>
       <PopoverContent side="bottom" align="start" sideOffset={8} className="w-[28rem] max-w-[90vw] rounded-2xl p-5 shadow-xl">
-        <p className="mb-3 font-display text-2xl">Photo tips</p>
+        <p className="mb-3 font-display text-2xl">{t("Photo tips")}</p>
         <TipsBody tool={tool} />
       </PopoverContent>
     </Popover>
