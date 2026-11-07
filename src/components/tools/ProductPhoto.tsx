@@ -88,7 +88,7 @@ function ProductResult({ item, name, colour, w, h, pad, shadow, onUrl }: { item:
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
         <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground">
-          <Download className="h-4 w-4" /> {t("PNG")}
+          <Download className="h-4 w-4" /> PNG
         </a>
         <ShareButton compact url={url} name={name} />
       </figcaption>

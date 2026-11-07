@@ -72,7 +72,7 @@ function One({ item, name, preset, onUrl, reset, compact }: { item: Item; name: 
       <div className="checkerboard rounded-xl p-2">{url ? <img src={url} alt={item.file.name} className="mx-auto max-h-64" /> : <div className="aspect-square animate-pulse rounded-xl bg-muted" />}</div>
       <figcaption className="mt-3 flex items-center justify-between gap-2 text-sm">
         <span className="truncate text-muted-foreground">{item.file.name}</span>
-        <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground"><Download className="h-4 w-4" /> {t("PNG")}</a>
+        <a href={url ?? undefined} download={name} className="flex shrink-0 items-center gap-1.5 rounded-full bg-primary px-4 py-2 font-medium text-primary-foreground"><Download className="h-4 w-4" /> PNG</a>
         <ShareButton compact url={url} name={name} />
       </figcaption>
     </figure>

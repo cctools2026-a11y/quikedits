@@ -113,7 +113,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
       {preset.brand && (
         <label className="mb-4 flex items-center gap-3 text-sm font-semibold">
           {t("Brand colour")}
-          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={t("#1A73E8")} maxLength={7} spellCheck={false}
+          <input value={hex} onChange={(e) => applyHex(e.target.value)} placeholder={"#1A73E8"} maxLength={7} spellCheck={false}
             className="w-32 rounded-full border-2 border-foreground bg-card px-3 py-2 font-mono text-sm uppercase" aria-label={t("Brand colour hex code")} />
           <span aria-hidden className="h-8 w-8 rounded-full border-2 border-foreground" style={{ backgroundColor: colour }} />
         </label>
