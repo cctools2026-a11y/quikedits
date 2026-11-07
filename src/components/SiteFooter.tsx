@@ -29,14 +29,13 @@ export function SiteFooter() {
       <div className="border-t-4 border-foreground bg-foreground text-background/70">
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
           <p>
-            Free software under{" "}
-            <Link to="/license" className="underline underline-offset-2 hover:text-background">AGPL-3.0</Link>. Uses{" "}
-            <a href={IMGLY_URL} className="underline underline-offset-2 hover:text-background" target="_blank" rel="noreferrer">{"@imgly/background-removal"}</a> by IMG.LY.
+            {t("Free software under")}{" "}
+            <Link to={lp("/license")} className="underline underline-offset-2 hover:text-background">AGPL-3.0</Link>. {t("Uses")}{" "}
+            <a href={IMGLY_URL} className="underline underline-offset-2 hover:text-background" target="_blank" rel="noreferrer">@imgly/background-removal</a> {t("by IMG.LY.")}
           </p>
           <div className="flex gap-4">
             <a href={SOURCE_URL} className="font-semibold text-background underline underline-offset-2" target="_blank" rel="noreferrer">{t("Source code")}</a>
-            <Link to={lp("/license")} className="hover:text-background">
-{t("License")}</Link>
+            <Link to={lp("/license")} className="hover:text-background">{t("License")}</Link>
           </div>
         </div>
       </div>
