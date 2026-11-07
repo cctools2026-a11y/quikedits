@@ -113,7 +113,7 @@ export function ToolPage({
           <>
             <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
               <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
-              {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+              {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
             </ToolHero>
             <TrustStrip />
             {below}
@@ -159,7 +159,7 @@ export function ToolPage({
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
             <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
-            <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
+            <p className="mt-2 text-muted-foreground" role="alert">{t(stage.message)}</p>
             <div className="mt-6 flex justify-center gap-3">
               <button onClick={() => run(items)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>
               <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>

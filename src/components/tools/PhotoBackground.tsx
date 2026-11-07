@@ -156,7 +156,7 @@ function Composer({ cut, name, reset, preset }: { cut: HTMLCanvasElement | null;
           <ImagePlus className="h-4 w-4" /> {backdrop ? t("Change background photo") : t("Choose background photo")}
         </Button>
         <input ref={ref} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={(e) => { void pickBackdrop(e.target.files?.[0]); e.target.value = ""; }} />
-        {err && <p role="alert" className="text-sm text-destructive">{err}</p>}
+        {err && <p role="alert" className="text-sm text-destructive">{t(err)}</p>}
         {loading && <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground"><Loader2 className="h-4 w-4 animate-spin" /> {t("Opening background…")}</p>}
         <Field label={t("Size: {n}%", { n: scale })}><Range label={t("Size")} value={scale} min={10} max={120} onChange={setScale} /></Field>
         <Field label={t("Left / right")}><Range label={t("Horizontal position")} value={x} min={0} max={100} onChange={setX} /></Field>

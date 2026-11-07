@@ -149,7 +149,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         {stage.kind === "idle" && (
           <ToolHero path={page} title={preset.title ?? <>{t("Put any photo on a")} <span className="text-primary">{"solid colour"}</span>.</>} intro={preset.intro ?? t("Upload a photo, pick a colour. We remove the background and fill it with your colour, right in your browser.")}>
             <UploadZone tool="/colour-background" onFiles={(f) => pick(f[0])} />
-            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
+            {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
           </ToolHero>
         )}
         {stage.kind === "idle" && <TrustStrip />}
@@ -189,7 +189,7 @@ export function ColourTool({ page = "/colour-background", preset = {} }: { page?
         {stage.kind === "error" && (
           <section className="mx-auto max-w-md pt-16 text-center">
             <h2 className="font-display text-2xl font-semibold">{t("That didn't work")}</h2>
-            <p className="mt-2 text-muted-foreground" role="alert">{stage.message}</p>
+            <p className="mt-2 text-muted-foreground" role="alert">{t(stage.message)}</p>
             <div className="mt-6 flex justify-center gap-3">
               {file && <button onClick={() => apply(colour)} className="rounded-full bg-primary px-5 py-2.5 font-medium text-primary-foreground">{t("Try again")}</button>}
               <button onClick={reset} className="rounded-full border border-border px-5 py-2.5 font-medium">{t("New image")}</button>
