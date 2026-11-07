@@ -45,3 +45,4 @@ use the editor.
 - Background recommendations rank preset colour contrast against alpha-masked dominant foreground colour in src/lib/background-recommendations.ts; no remote analysis or semantic subject-identification claims.
 - Passport example and processed export share PASSPORT_SIZES; ToolPage/ToolHero accept an optional example view so document cropping stays passport-specific, with pure crop geometry in passport-crop.ts.
 - Sub-tools (specific jobs) are registered in SUBTOOLS (src/lib/tools.ts) as flat routes that render a parent tool component from src/components/tools/ with a `page` and `preset`; media falls back to the parent, content/SEO is their own — keeps one implementation per tool.
+- Signature drawing uses signature_pad client-side and feeds a PNG into ToolPage's existing raw-image workflow; signature-tools defines eligible jobs so logo-only pages do not offer irrelevant input.

@@ -10,6 +10,7 @@ import { friendlyError, removeBg, type Phase } from "@/lib/remove";
 import { blobToCanvas, canvasToBlob, canvasUnder, refinedFull, trim } from "@/lib/compose";
 import { CutoutCues } from "@/components/CutoutCues";
 import { CropRotate, type CropAspect } from "@/components/CropRotate";
+import { SignatureDraw } from "@/components/SignatureDraw";
 
 export type Item = { file: File; original: string; cutout: HTMLCanvasElement | null; error?: string | undefined; full?: HTMLCanvasElement | undefined; source?: HTMLCanvasElement | undefined };
 
@@ -23,10 +24,11 @@ type Stage =
 export const MAX_BATCH = 20;
 
 export function ToolPage({
-  title, intro, multiple = false, raw = false, children, below, crop, tool, example, page,
+  title, intro, multiple = false, raw = false, children, below, crop, tool, example, page, drawSignature = false,
 }: {
   /** Page path for hero media and breadcrumb (defaults to tool). */
   page?: string;
+  drawSignature?: boolean;
   /** Tool path, used for photo tips and result checks. */
   tool?: string;
   /** Show crop & rotate before processing, with these crop shapes. */
@@ -110,6 +112,7 @@ export function ToolPage({
           <>
             <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
               <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
+              {drawSignature && <SignatureDraw onFiles={pick} />}
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{fileError}</p>}
             </ToolHero>
             <TrustStrip />
