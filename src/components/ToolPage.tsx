@@ -112,7 +112,7 @@ export function ToolPage({
         {stage.kind === "idle" && (
           <>
             <ToolHero path={page ?? tool ?? "/"} title={title} intro={intro} example={example}>
-              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? `up to ${MAX_BATCH} at once` : undefined} />
+              <UploadZone tool={tool ?? "/"} multiple={multiple} onFiles={pick} drawSignature={drawSignature} maxNote={multiple ? t("up to {n} at once", { n: MAX_BATCH }) : undefined} />
               {fileError && <p role="alert" className="mt-4 rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">{t(fileError)}</p>}
             </ToolHero>
             <TrustStrip />

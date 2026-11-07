@@ -29,7 +29,7 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote, drawSigna
           <ImagePlus className="h-8 w-8" />
         </span>
         <span className="font-display text-xl font-semibold">{multiple ? t("Drop photos here or tap to upload") : t("Drop a photo here or tap to upload")}</span>
-        <span className="text-sm text-muted-foreground">JPG, PNG or WebP · up to 25 MB{maxNote ? ` · ${maxNote}` : ""}</span>
+        <span className="text-sm text-muted-foreground">{t("JPG, PNG or WebP · up to 25 MB")}{maxNote ? ` · ${maxNote}` : ""}</span>
       </button>
       <input ref={input} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden"
         onChange={(e) => { onFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />

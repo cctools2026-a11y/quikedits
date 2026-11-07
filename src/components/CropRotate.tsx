@@ -95,7 +95,7 @@ export function CropRotate({ file, aspects, heading, onDone, onSkip, onSkipAll }
       </div>
       <aside className="space-y-6">
         <div>
-          <h2 className="font-display text-2xl font-semibold">Crop &amp; straighten</h2>
+          <h2 className="font-display text-2xl font-semibold">{t("Crop & straighten")}</h2>
           <p className="mt-1 text-sm text-muted-foreground">{heading ?? t("Drag the box to frame your photo.")}</p>
         </div>
         <Field label={t("Rotate")}>
