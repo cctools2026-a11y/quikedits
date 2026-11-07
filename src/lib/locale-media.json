@@ -94,8 +94,8 @@
     "after": "/__l5e/assets-v1/e4d500a7-2bdb-4596-9899-f457134d87f2/pt-brand-colour-background-after.webp"
    },
    "/gradient-background": {
-    "before": "/__l5e/assets-v1/7da585be-d109-4efc-bb5f-87b2b0637332/pt-gradient-background-before.webp",
-    "after": "/__l5e/assets-v1/84ddfda8-9f86-4775-ad8a-2048c56b08ac/pt-gradient-background-after.webp"
+    "before": "/__l5e/assets-v1/abb06c90-921d-4a66-a5bd-ddeb064691d5/pt-gradient-background-before-v2.webp",
+    "after": "/__l5e/assets-v1/e7fab912-f732-4944-9b7d-f9003eeaa1df/pt-gradient-background-after-v2.webp"
    },
    "/virtual-background": {
     "before": "/__l5e/assets-v1/5caec715-ce17-4a17-8cb3-ef0167361e40/pt-virtual-background-before.webp",
@@ -154,8 +154,8 @@
     "after": "/__l5e/assets-v1/36677bd7-a753-45aa-8a67-3a9f927a2f59/pt-instagram-profile-picture-after.webp"
    },
    "/discord-avatar": {
-    "before": "/__l5e/assets-v1/fb2aab2f-0825-4ece-ae0d-471e0c101317/pt-discord-avatar-before.webp",
-    "after": "/__l5e/assets-v1/2d60d55a-d365-415d-83d7-0c77924bd716/pt-discord-avatar-after.webp"
+    "before": "/__l5e/assets-v1/d1a73851-45b9-44aa-b64c-3617f04cdd53/pt-discord-avatar-before-v2.webp",
+    "after": "/__l5e/assets-v1/705136fd-3f6d-4c66-8b93-a875df7788f5/pt-discord-avatar-after-v2.webp"
    },
    "/team-headshots": {
     "before": "/__l5e/assets-v1/499e148b-2272-4c1e-997d-aaeb9a928ec0/pt-team-headshots-before.webp",
@@ -190,8 +190,8 @@
     "after": "/__l5e/assets-v1/1bd11632-b927-46c7-87ed-deb04a84dddc/pt-recolour-logo-after.webp"
    },
    "/stamp-cleaner": {
-    "before": "/__l5e/assets-v1/da84300e-871f-4237-b74f-513c291cfdf7/pt-stamp-cleaner-before.webp",
-    "after": "/__l5e/assets-v1/77b0b3a4-28b0-49c9-a8e8-13e0bd585c99/pt-stamp-cleaner-after.webp"
+    "before": "/__l5e/assets-v1/51c9cdd3-efef-41e0-bd66-4c1fae9d9a0f/pt-stamp-cleaner-before-v2.webp",
+    "after": "/__l5e/assets-v1/416dcd23-06cf-41ac-9b93-44c13395640b/pt-stamp-cleaner-after-v2.webp"
    }
   },
   "es": {
@@ -316,8 +316,8 @@
     "after": "/__l5e/assets-v1/135e8555-a113-4507-a885-bd79e0c9e937/es-shopify-product-photos-after.webp"
    },
    "/product-photo-shadow": {
-    "before": "/__l5e/assets-v1/0c544bd6-e1a2-4854-9df4-21359c48b4e9/es-product-photo-shadow-before.webp",
-    "after": "/__l5e/assets-v1/dddf5986-8224-4dbc-9d7c-fdab4e029b8d/es-product-photo-shadow-after.webp"
+    "before": "/__l5e/assets-v1/456b9a0e-6f4e-469d-8d24-189fc283c0ec/es-product-photo-shadow-before-v2.webp",
+    "after": "/__l5e/assets-v1/eba4e267-5d3d-49d6-b9c7-0b7602d89ac7/es-product-photo-shadow-after-v2.webp"
    },
    "/clothing-photo": {
     "before": "/__l5e/assets-v1/ce9c43e7-6b59-4eb5-9428-1892d7c9e6d4/es-clothing-photo-before.webp",
@@ -384,8 +384,8 @@
     "after": "/__l5e/assets-v1/070aeb06-5d66-4228-8482-ae9727f04796/es-recolour-logo-after.webp"
    },
    "/stamp-cleaner": {
-    "before": "/__l5e/assets-v1/ecb35495-c9f8-4774-9ade-e5269167fb73/es-stamp-cleaner-before.webp",
-    "after": "/__l5e/assets-v1/1e4ec72e-13bb-43d3-ba98-f1b654c5f553/es-stamp-cleaner-after.webp"
+    "before": "/__l5e/assets-v1/7711dd26-002a-45c4-8f95-67453956529b/es-stamp-cleaner-before-v2.webp",
+    "after": "/__l5e/assets-v1/06302b48-86c5-4062-8f21-4fbee0e0ea0e/es-stamp-cleaner-after-v2.webp"
    }
   }
  },
