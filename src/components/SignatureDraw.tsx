@@ -8,8 +8,8 @@ export function SignatureDraw({ onFiles }: { onFiles: (files: File[]) => void })
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Button variant="outline" onClick={() => setOpen(true)} className="mt-3 h-auto w-full whitespace-normal rounded-full border-4 border-foreground bg-card px-5 py-2.5 font-display text-xl hover:border-primary">
-        <PenLine /> Or draw a signature
+      <Button variant="start-option" onClick={() => setOpen(true)}>
+        <PenLine /> Draw signature
       </Button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[90dvh] w-[calc(100%-2rem)] max-w-2xl overflow-y-auto border-4 border-foreground p-4 sm:p-6">

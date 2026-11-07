@@ -2,10 +2,12 @@ import { useRef, useState } from "react";
 import { Camera, ImagePlus } from "lucide-react";
 import { CameraCapture } from "@/components/CameraCapture";
 import { PhotoTips } from "@/components/PhotoTips";
+import { SignatureDraw } from "@/components/SignatureDraw";
+import { Button } from "@/components/ui/button";
 
 /** Large photo upload and drop zone. */
-export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
-  onFiles: (files: File[]) => void; multiple?: boolean; tool: string; maxNote?: string | undefined;
+export function UploadZone({ onFiles, multiple = false, tool, maxNote, drawSignature = false }: {
+  onFiles: (files: File[]) => void; multiple?: boolean; tool: string; maxNote?: string | undefined; drawSignature?: boolean;
 }) {
   const [drag, setDrag] = useState(false);
   const input = useRef<HTMLInputElement>(null);
@@ -29,10 +31,15 @@ export function UploadZone({ onFiles, multiple = false, tool, maxNote }: {
       </button>
       <input ref={input} type="file" multiple={multiple} accept="image/jpeg,image/png,image/webp" className="hidden"
         onChange={(e) => { onFiles(Array.from(e.target.files ?? [])); e.target.value = ""; }} />
-      <button type="button" onClick={() => setCamera(true)}
+      {drawSignature ? (
+        <div className="mt-3 grid grid-cols-2 gap-2">
+          <Button variant="start-option" onClick={() => setCamera(true)}><Camera /> Take a photo</Button>
+          <SignatureDraw onFiles={onFiles} />
+        </div>
+      ) : <button type="button" onClick={() => setCamera(true)}
         className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border-4 border-foreground bg-card px-5 py-2.5 font-display text-xl tracking-wide transition-colors hover:border-primary hover:bg-accent focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-primary">
         <Camera className="h-5 w-5" /> Or take a photo
-      </button>
+      </button>}
       <CameraCapture open={camera} onOpenChange={setCamera} onCapture={(f) => onFiles([f])} />
       <PhotoTips tool={tool} />
     </div>
