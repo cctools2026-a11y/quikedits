@@ -6,4 +6,4 @@
 - [x] Phase 1 extras: black background, eBay/Etsy, Shopify, Depop/Vinted, Australia/Schengen/ID, CV, Instagram, Discord, Telegram, emoji, email signature, logo to PNG, slides PNG, screenshot, pet, hair
 - [x] Phase 2: Zoom/Teams background, blur background, product shadow, gradient, recolour logo, brand colour
 - [x] Phase 3: batch ZIP, printable sticker sheet, team headshots, stamp cleaner
-- [ ] Draw a signature as a starting option on all signature tools; verify touch input and transparent exports.
+- [x] Draw a signature as a starting option on all signature tools; verify touch input and transparent exports.
