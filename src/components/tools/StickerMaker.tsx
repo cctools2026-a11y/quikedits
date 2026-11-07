@@ -9,8 +9,8 @@ import { fitContain, STICKER_SIZE } from "@/lib/tool-sizes";
 import { PAGES, gridOnPage } from "@/lib/sheets";
 
 
-const OUTLINES = [{ id: "#FFFFFF", label: t("White") }, { id: "#000000", label: t("Black") }] as const;
-const FORMATS = [{ id: "image/png", label: t("PNG") }, { id: "image/webp", label: t("WebP (WhatsApp)") }] as const;
+const OUTLINES = [{ id: "#FFFFFF", label: "White" }, { id: "#000000", label: "Black" }] as const;
+const FORMATS = [{ id: "image/png", label: "PNG" }, { id: "image/webp", label: "WebP (WhatsApp)" }] as const;
 
 export function StickerMaker({ page = "/sticker-maker", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();

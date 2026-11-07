@@ -10,7 +10,7 @@ import { PassportExample, PassportSizeSelect } from "@/components/PassportExampl
 
 
 type SizeId = (typeof PASSPORT_SIZES)[number]["id"];
-const BGS = [{ id: "#FFFFFF", label: t("White") }, { id: "#EEEEEE", label: t("Light grey") }] as const;
+const BGS = [{ id: "#FFFFFF", label: "White" }, { id: "#EEEEEE", label: "Light grey" }] as const;
 
 export function PassportPhoto({ page = "/passport-photo", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();

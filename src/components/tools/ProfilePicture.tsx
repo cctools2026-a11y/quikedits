@@ -11,8 +11,8 @@ import { ctx2d, makeCanvas } from "@/lib/compose";
 import { PROFILE_SIZE } from "@/lib/tool-sizes";
 
 
-const RINGS = [{ id: "none", label: t("None") }, { id: "#FFFFFF", label: t("White") }, { id: "#5865F2", label: t("Blurple") }, { id: "#FF4FA3", label: t("Pink") }] as const;
-const SHAPES = [{ id: "circle", label: t("Circle") }, { id: "square", label: t("Square") }] as const;
+const RINGS = [{ id: "none", label: "None" }, { id: "#FFFFFF", label: "White" }, { id: "#5865F2", label: "Blurple" }, { id: "#FF4FA3", label: "Pink" }] as const;
+const SHAPES = [{ id: "circle", label: "Circle" }, { id: "square", label: "Square" }] as const;
 
 export function ProfilePicture({ page = "/profile-picture", preset = {} }: { page?: string; preset?: Preset }) {
   const t = useT();
