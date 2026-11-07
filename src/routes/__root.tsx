@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -12,6 +13,8 @@ import { useEffect, type ReactNode } from "react";
 
 import { PaletteSwitcher } from "@/components/PaletteSwitcher";
 import { Motion } from "@/components/Motion";
+import { LanguageHint } from "@/components/LanguageHint";
+import { LOCALE_INFO, localeOf } from "@/lib/i18n";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -102,8 +105,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const lang = useRouterState({ select: (s) => LOCALE_INFO[localeOf(s.location.pathname)].htmlLang });
   return (
-    <html lang="en" data-palette="mint">
+    <html lang={lang} data-palette="mint">
       <head>
         <HeadContent />
       </head>
@@ -123,6 +127,7 @@ function RootComponent() {
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <PaletteSwitcher />
+      <LanguageHint />
       <Motion />
     </QueryClientProvider>
   );
