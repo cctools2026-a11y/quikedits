@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { OddJobs } from "@/components/game/OddJobs";
+import { TheButton } from "@/components/game/TheButton";
 
-const TITLE = "Odd Jobs — a game of edits nobody asked for";
-const DESC = "Re-season soup, edit a flock, tune a rooster. A tiny browser game of very odd edit jobs.";
+const TITLE = "The Button — please don't press it";
+const DESC = "One button, twenty rules and a narrator who wishes you would stop. A tiny browser game.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -19,5 +19,5 @@ export const Route = createFileRoute("/")({
     ],
     links: [{ rel: "canonical", href: "https://quikedits.com/" }],
   }),
-  component: OddJobs,
+  component: TheButton,
 });
