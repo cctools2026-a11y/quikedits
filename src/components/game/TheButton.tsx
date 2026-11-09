@@ -30,6 +30,7 @@ export function TheButton() {
       return () => window.clearTimeout(t);
     }
     setWaiting(false);
+    return undefined;
   }, [i, stage.kind]);
 
   const advance = () => (isLast(i) ? setI(0) : setI(nextStage(i)));
