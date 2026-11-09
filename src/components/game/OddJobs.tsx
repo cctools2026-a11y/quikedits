@@ -53,7 +53,7 @@ export function OddJobs() {
       <div className="mx-auto flex min-h-screen max-w-xl flex-col px-5 py-10">
         <header className="mb-8 text-center">
           <h1 className="font-display text-6xl leading-none sm:text-7xl">Odd Jobs</h1>
-          <p className="mt-2 text-muted-foreground">Edits nobody asked for, in places design never goes.</p>
+          <p className="mt-2 text-muted-foreground">Edits nobody asked for.</p>
         </header>
 
         <section className="flex-1">
