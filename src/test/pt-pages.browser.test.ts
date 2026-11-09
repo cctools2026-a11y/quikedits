@@ -9,7 +9,8 @@ import { ES_UI } from "@/lib/strings/es";
 import { TOOL_CONTENT } from "@/lib/tool-content";
 
 const BASE = process.env["PT_TEST_URL"] ?? "http://localhost:8080";
-const up = await fetch(BASE, { signal: AbortSignal.timeout(3000) }).then((r) => r.ok, () => false);
+// Workspace pages need the owner signed in, so this only runs when PT_TEST_SIGNED_IN=1.
+const up = process.env["PT_TEST_SIGNED_IN"] === "1" && await fetch(BASE, { signal: AbortSignal.timeout(3000) }).then((r) => r.ok, () => false);
 
 const norm = (s: string) => s.replace(/\s+/g, " ").trim().toLowerCase();
 // English strings that have a different translation; seeing one means a missed translation.

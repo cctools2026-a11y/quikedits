@@ -150,7 +150,7 @@ export function enPathOf(pathname: string): string {
 /** All language versions of a page, for hreflang tags and the sitemap. */
 export function alternates(en: string) {
   const list = LOCALES.map((l) => ({ hreflang: LOCALE_INFO[l].hreflang, href: `${SITE_URL}${localePath(en, l)}` }));
-  return [...list, { hreflang: "x-default", href: `${SITE_URL}${en}` }];
+  return [...list, { hreflang: "x-default", href: `${SITE_URL}${localePath(en, "en")}` }];
 }
 
 /** Every URL to prerender, in all locales. */
