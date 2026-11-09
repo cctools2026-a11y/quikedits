@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 type Verdicts = [string, string, string];
 type SliderJob = {
@@ -142,7 +142,7 @@ function Slider({ job, locked, onDone }: Props<SliderJob>) {
 
   const v = Math.round(value);
   const off = v - target;
-  const style: React.CSSProperties =
+  const style: CSSProperties =
     job.look === "rotate" ? { transform: `rotate(${off * 0.9}deg)` }
     : job.look === "shrink" ? { transform: `scale(${1.6 - v / 100})` }
     : job.look === "grow" ? { transform: `scale(${0.4 + v / 45})` }
