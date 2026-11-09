@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedWorkspaceIndexRouteImport } from './routes/_authenticated/workspace.index'
 import { Route as AuthenticatedWorkspaceAmazonProductPhotoRouteImport } from './routes/_authenticated/workspace.amazon-product-photo'
 import { Route as AuthenticatedWorkspaceAustraliaPassportPhotoRouteImport } from './routes/_authenticated/workspace.australia-passport-photo'
@@ -157,890 +160,907 @@ import { Route as AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRouteImport
 import { Route as AuthenticatedWorkspacePtRemoverFundoEmLoteRouteImport } from './routes/_authenticated/workspace.pt.remover-fundo-em-lote'
 import { Route as AuthenticatedWorkspacePtTrocarFundoDaFotoRouteImport } from './routes/_authenticated/workspace.pt.trocar-fundo-da-foto'
 
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedWorkspaceIndexRoute =
   AuthenticatedWorkspaceIndexRouteImport.update({
-    id: '/_authenticated/workspace/',
+    id: '/workspace/',
     path: '/workspace/',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceAmazonProductPhotoRoute =
   AuthenticatedWorkspaceAmazonProductPhotoRouteImport.update({
-    id: '/_authenticated/workspace/amazon-product-photo',
+    id: '/workspace/amazon-product-photo',
     path: '/workspace/amazon-product-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceAustraliaPassportPhotoRoute =
   AuthenticatedWorkspaceAustraliaPassportPhotoRouteImport.update({
-    id: '/_authenticated/workspace/australia-passport-photo',
+    id: '/workspace/australia-passport-photo',
     path: '/workspace/australia-passport-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceBatchRemoveBackgroundRoute =
   AuthenticatedWorkspaceBatchRemoveBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/batch-remove-background',
+    id: '/workspace/batch-remove-background',
     path: '/workspace/batch-remove-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceBlackBackgroundRoute =
   AuthenticatedWorkspaceBlackBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/black-background',
+    id: '/workspace/black-background',
     path: '/workspace/black-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceBlurBackgroundRoute =
   AuthenticatedWorkspaceBlurBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/blur-background',
+    id: '/workspace/blur-background',
     path: '/workspace/blur-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceBrandColourBackgroundRoute =
   AuthenticatedWorkspaceBrandColourBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/brand-colour-background',
+    id: '/workspace/brand-colour-background',
     path: '/workspace/brand-colour-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceClothingPhotoRoute =
   AuthenticatedWorkspaceClothingPhotoRouteImport.update({
-    id: '/_authenticated/workspace/clothing-photo',
+    id: '/workspace/clothing-photo',
     path: '/workspace/clothing-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceColourBackgroundRoute =
   AuthenticatedWorkspaceColourBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/colour-background',
+    id: '/workspace/colour-background',
     path: '/workspace/colour-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceCutOutHairRoute =
   AuthenticatedWorkspaceCutOutHairRouteImport.update({
-    id: '/_authenticated/workspace/cut-out-hair',
+    id: '/workspace/cut-out-hair',
     path: '/workspace/cut-out-hair',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceCutOutPetRoute =
   AuthenticatedWorkspaceCutOutPetRouteImport.update({
-    id: '/_authenticated/workspace/cut-out-pet',
+    id: '/workspace/cut-out-pet',
     path: '/workspace/cut-out-pet',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceCvPhotoRoute =
   AuthenticatedWorkspaceCvPhotoRouteImport.update({
-    id: '/_authenticated/workspace/cv-photo',
+    id: '/workspace/cv-photo',
     path: '/workspace/cv-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceDiscordAvatarRoute =
   AuthenticatedWorkspaceDiscordAvatarRouteImport.update({
-    id: '/_authenticated/workspace/discord-avatar',
+    id: '/workspace/discord-avatar',
     path: '/workspace/discord-avatar',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEbayEtsyProductPhotoRoute =
   AuthenticatedWorkspaceEbayEtsyProductPhotoRouteImport.update({
-    id: '/_authenticated/workspace/ebay-etsy-product-photo',
+    id: '/workspace/ebay-etsy-product-photo',
     path: '/workspace/ebay-etsy-product-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEmailSignatureRoute =
   AuthenticatedWorkspaceEmailSignatureRouteImport.update({
-    id: '/_authenticated/workspace/email-signature',
+    id: '/workspace/email-signature',
     path: '/workspace/email-signature',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceGradientBackgroundRoute =
   AuthenticatedWorkspaceGradientBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/gradient-background',
+    id: '/workspace/gradient-background',
     path: '/workspace/gradient-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceHolidayBackgroundRoute =
   AuthenticatedWorkspaceHolidayBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/holiday-background',
+    id: '/workspace/holiday-background',
     path: '/workspace/holiday-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceIdCardPhotoRoute =
   AuthenticatedWorkspaceIdCardPhotoRouteImport.update({
-    id: '/_authenticated/workspace/id-card-photo',
+    id: '/workspace/id-card-photo',
     path: '/workspace/id-card-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceIndiaPassportPhotoRoute =
   AuthenticatedWorkspaceIndiaPassportPhotoRouteImport.update({
-    id: '/_authenticated/workspace/india-passport-photo',
+    id: '/workspace/india-passport-photo',
     path: '/workspace/india-passport-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceInstagramProfilePictureRoute =
   AuthenticatedWorkspaceInstagramProfilePictureRouteImport.update({
-    id: '/_authenticated/workspace/instagram-profile-picture',
+    id: '/workspace/instagram-profile-picture',
     path: '/workspace/instagram-profile-picture',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceLicenseRoute =
   AuthenticatedWorkspaceLicenseRouteImport.update({
-    id: '/_authenticated/workspace/license',
+    id: '/workspace/license',
     path: '/workspace/license',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceLinkedinProfilePhotoRoute =
   AuthenticatedWorkspaceLinkedinProfilePhotoRouteImport.update({
-    id: '/_authenticated/workspace/linkedin-profile-photo',
+    id: '/workspace/linkedin-profile-photo',
     path: '/workspace/linkedin-profile-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceLogoCleanerRoute =
   AuthenticatedWorkspaceLogoCleanerRouteImport.update({
-    id: '/_authenticated/workspace/logo-cleaner',
+    id: '/workspace/logo-cleaner',
     path: '/workspace/logo-cleaner',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceLogoToPngRoute =
   AuthenticatedWorkspaceLogoToPngRouteImport.update({
-    id: '/_authenticated/workspace/logo-to-png',
+    id: '/workspace/logo-to-png',
     path: '/workspace/logo-to-png',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePartyBackgroundRoute =
   AuthenticatedWorkspacePartyBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/party-background',
+    id: '/workspace/party-background',
     path: '/workspace/party-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePassportPhotoRoute =
   AuthenticatedWorkspacePassportPhotoRouteImport.update({
-    id: '/_authenticated/workspace/passport-photo',
+    id: '/workspace/passport-photo',
     path: '/workspace/passport-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePassportPhotoPrintSheetRoute =
   AuthenticatedWorkspacePassportPhotoPrintSheetRouteImport.update({
-    id: '/_authenticated/workspace/passport-photo-print-sheet',
+    id: '/workspace/passport-photo-print-sheet',
     path: '/workspace/passport-photo-print-sheet',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePetStickerRoute =
   AuthenticatedWorkspacePetStickerRouteImport.update({
-    id: '/_authenticated/workspace/pet-sticker',
+    id: '/workspace/pet-sticker',
     path: '/workspace/pet-sticker',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePhotoBackgroundRoute =
   AuthenticatedWorkspacePhotoBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/photo-background',
+    id: '/workspace/photo-background',
     path: '/workspace/photo-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePrintableStickerSheetRoute =
   AuthenticatedWorkspacePrintableStickerSheetRouteImport.update({
-    id: '/_authenticated/workspace/printable-sticker-sheet',
+    id: '/workspace/printable-sticker-sheet',
     path: '/workspace/printable-sticker-sheet',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceProductPhotoRoute =
   AuthenticatedWorkspaceProductPhotoRouteImport.update({
-    id: '/_authenticated/workspace/product-photo',
+    id: '/workspace/product-photo',
     path: '/workspace/product-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceProductPhotoShadowRoute =
   AuthenticatedWorkspaceProductPhotoShadowRouteImport.update({
-    id: '/_authenticated/workspace/product-photo-shadow',
+    id: '/workspace/product-photo-shadow',
     path: '/workspace/product-photo-shadow',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceProfilePictureRoute =
   AuthenticatedWorkspaceProfilePictureRouteImport.update({
-    id: '/_authenticated/workspace/profile-picture',
+    id: '/workspace/profile-picture',
     path: '/workspace/profile-picture',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceRecolourLogoRoute =
   AuthenticatedWorkspaceRecolourLogoRouteImport.update({
-    id: '/_authenticated/workspace/recolour-logo',
+    id: '/workspace/recolour-logo',
     path: '/workspace/recolour-logo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceRemoveBackgroundFromGraphicRoute =
   AuthenticatedWorkspaceRemoveBackgroundFromGraphicRouteImport.update({
-    id: '/_authenticated/workspace/remove-background-from-graphic',
+    id: '/workspace/remove-background-from-graphic',
     path: '/workspace/remove-background-from-graphic',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceSchengenVisaPhotoRoute =
   AuthenticatedWorkspaceSchengenVisaPhotoRouteImport.update({
-    id: '/_authenticated/workspace/schengen-visa-photo',
+    id: '/workspace/schengen-visa-photo',
     path: '/workspace/schengen-visa-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceShopifyProductPhotosRoute =
   AuthenticatedWorkspaceShopifyProductPhotosRouteImport.update({
-    id: '/_authenticated/workspace/shopify-product-photos',
+    id: '/workspace/shopify-product-photos',
     path: '/workspace/shopify-product-photos',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceSlackEmojiRoute =
   AuthenticatedWorkspaceSlackEmojiRouteImport.update({
-    id: '/_authenticated/workspace/slack-emoji',
+    id: '/workspace/slack-emoji',
     path: '/workspace/slack-emoji',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceStampCleanerRoute =
   AuthenticatedWorkspaceStampCleanerRouteImport.update({
-    id: '/_authenticated/workspace/stamp-cleaner',
+    id: '/workspace/stamp-cleaner',
     path: '/workspace/stamp-cleaner',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceStickerMakerRoute =
   AuthenticatedWorkspaceStickerMakerRouteImport.update({
-    id: '/_authenticated/workspace/sticker-maker',
+    id: '/workspace/sticker-maker',
     path: '/workspace/sticker-maker',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceTeamHeadshotsRoute =
   AuthenticatedWorkspaceTeamHeadshotsRouteImport.update({
-    id: '/_authenticated/workspace/team-headshots',
+    id: '/workspace/team-headshots',
     path: '/workspace/team-headshots',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceTelegramStickerRoute =
   AuthenticatedWorkspaceTelegramStickerRouteImport.update({
-    id: '/_authenticated/workspace/telegram-sticker',
+    id: '/workspace/telegram-sticker',
     path: '/workspace/telegram-sticker',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceTransparentPngForSlidesRoute =
   AuthenticatedWorkspaceTransparentPngForSlidesRouteImport.update({
-    id: '/_authenticated/workspace/transparent-png-for-slides',
+    id: '/workspace/transparent-png-for-slides',
     path: '/workspace/transparent-png-for-slides',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceTransparentSignatureRoute =
   AuthenticatedWorkspaceTransparentSignatureRouteImport.update({
-    id: '/_authenticated/workspace/transparent-signature',
+    id: '/workspace/transparent-signature',
     path: '/workspace/transparent-signature',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceUkPassportPhotoRoute =
   AuthenticatedWorkspaceUkPassportPhotoRouteImport.update({
-    id: '/_authenticated/workspace/uk-passport-photo',
+    id: '/workspace/uk-passport-photo',
     path: '/workspace/uk-passport-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceUsPassportPhotoRoute =
   AuthenticatedWorkspaceUsPassportPhotoRouteImport.update({
-    id: '/_authenticated/workspace/us-passport-photo',
+    id: '/workspace/us-passport-photo',
     path: '/workspace/us-passport-photo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceVirtualBackgroundRoute =
   AuthenticatedWorkspaceVirtualBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/virtual-background',
+    id: '/workspace/virtual-background',
     path: '/workspace/virtual-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceWhatsappStickerRoute =
   AuthenticatedWorkspaceWhatsappStickerRouteImport.update({
-    id: '/_authenticated/workspace/whatsapp-sticker',
+    id: '/workspace/whatsapp-sticker',
     path: '/workspace/whatsapp-sticker',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceWhiteBackgroundRoute =
   AuthenticatedWorkspaceWhiteBackgroundRouteImport.update({
-    id: '/_authenticated/workspace/white-background',
+    id: '/workspace/white-background',
     path: '/workspace/white-background',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsIndexRoute =
   AuthenticatedWorkspaceEsIndexRouteImport.update({
-    id: '/_authenticated/workspace/es/',
+    id: '/workspace/es/',
     path: '/workspace/es/',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsAvatarDiscordRoute =
   AuthenticatedWorkspaceEsAvatarDiscordRouteImport.update({
-    id: '/_authenticated/workspace/es/avatar-discord',
+    id: '/workspace/es/avatar-discord',
     path: '/workspace/es/avatar-discord',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsCambiarColorDelLogoRoute =
   AuthenticatedWorkspaceEsCambiarColorDelLogoRouteImport.update({
-    id: '/_authenticated/workspace/es/cambiar-color-del-logo',
+    id: '/workspace/es/cambiar-color-del-logo',
     path: '/workspace/es/cambiar-color-del-logo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsCambiarFondoDeFotoRoute =
   AuthenticatedWorkspaceEsCambiarFondoDeFotoRouteImport.update({
-    id: '/_authenticated/workspace/es/cambiar-fondo-de-foto',
+    id: '/workspace/es/cambiar-fondo-de-foto',
     path: '/workspace/es/cambiar-fondo-de-foto',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsCrearStickersRoute =
   AuthenticatedWorkspaceEsCrearStickersRouteImport.update({
-    id: '/_authenticated/workspace/es/crear-stickers',
+    id: '/workspace/es/crear-stickers',
     path: '/workspace/es/crear-stickers',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsDesenfocarFondoRoute =
   AuthenticatedWorkspaceEsDesenfocarFondoRouteImport.update({
-    id: '/_authenticated/workspace/es/desenfocar-fondo',
+    id: '/workspace/es/desenfocar-fondo',
     path: '/workspace/es/desenfocar-fondo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsEmojiSlackDiscordRoute =
   AuthenticatedWorkspaceEsEmojiSlackDiscordRouteImport.update({
-    id: '/_authenticated/workspace/es/emoji-slack-discord',
+    id: '/workspace/es/emoji-slack-discord',
     path: '/workspace/es/emoji-slack-discord',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFirmaDeCorreoRoute =
   AuthenticatedWorkspaceEsFirmaDeCorreoRouteImport.update({
-    id: '/_authenticated/workspace/es/firma-de-correo',
+    id: '/workspace/es/firma-de-correo',
     path: '/workspace/es/firma-de-correo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFirmaTransparenteRoute =
   AuthenticatedWorkspaceEsFirmaTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/es/firma-transparente',
+    id: '/workspace/es/firma-transparente',
     path: '/workspace/es/firma-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoBlancoRoute =
   AuthenticatedWorkspaceEsFondoBlancoRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-blanco',
+    id: '/workspace/es/fondo-blanco',
     path: '/workspace/es/fondo-blanco',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoColorDeMarcaRoute =
   AuthenticatedWorkspaceEsFondoColorDeMarcaRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-color-de-marca',
+    id: '/workspace/es/fondo-color-de-marca',
     path: '/workspace/es/fondo-color-de-marca',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoDeColorRoute =
   AuthenticatedWorkspaceEsFondoDeColorRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-de-color',
+    id: '/workspace/es/fondo-de-color',
     path: '/workspace/es/fondo-de-color',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoDeFiestaRoute =
   AuthenticatedWorkspaceEsFondoDeFiestaRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-de-fiesta',
+    id: '/workspace/es/fondo-de-fiesta',
     path: '/workspace/es/fondo-de-fiesta',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoDeVacacionesRoute =
   AuthenticatedWorkspaceEsFondoDeVacacionesRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-de-vacaciones',
+    id: '/workspace/es/fondo-de-vacaciones',
     path: '/workspace/es/fondo-de-vacaciones',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoDegradadoRoute =
   AuthenticatedWorkspaceEsFondoDegradadoRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-degradado',
+    id: '/workspace/es/fondo-degradado',
     path: '/workspace/es/fondo-degradado',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoNegroRoute =
   AuthenticatedWorkspaceEsFondoNegroRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-negro',
+    id: '/workspace/es/fondo-negro',
     path: '/workspace/es/fondo-negro',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFondoVirtualZoomTeamsRoute =
   AuthenticatedWorkspaceEsFondoVirtualZoomTeamsRouteImport.update({
-    id: '/_authenticated/workspace/es/fondo-virtual-zoom-teams',
+    id: '/workspace/es/fondo-virtual-zoom-teams',
     path: '/workspace/es/fondo-virtual-zoom-teams',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDePerfilRoute =
   AuthenticatedWorkspaceEsFotoDePerfilRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-perfil',
+    id: '/workspace/es/foto-de-perfil',
     path: '/workspace/es/foto-de-perfil',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDePerfilInstagramRoute =
   AuthenticatedWorkspaceEsFotoDePerfilInstagramRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-perfil-instagram',
+    id: '/workspace/es/foto-de-perfil-instagram',
     path: '/workspace/es/foto-de-perfil-instagram',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDeProductoRoute =
   AuthenticatedWorkspaceEsFotoDeProductoRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-producto',
+    id: '/workspace/es/foto-de-producto',
     path: '/workspace/es/foto-de-producto',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDeProductoAmazonRoute =
   AuthenticatedWorkspaceEsFotoDeProductoAmazonRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-producto-amazon',
+    id: '/workspace/es/foto-de-producto-amazon',
     path: '/workspace/es/foto-de-producto-amazon',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDeProductoConSombraRoute =
   AuthenticatedWorkspaceEsFotoDeProductoConSombraRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-producto-con-sombra',
+    id: '/workspace/es/foto-de-producto-con-sombra',
     path: '/workspace/es/foto-de-producto-con-sombra',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDeProductoEbayEtsyRoute =
   AuthenticatedWorkspaceEsFotoDeProductoEbayEtsyRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-producto-ebay-etsy',
+    id: '/workspace/es/foto-de-producto-ebay-etsy',
     path: '/workspace/es/foto-de-producto-ebay-etsy',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoDeRopaParaVenderRoute =
   AuthenticatedWorkspaceEsFotoDeRopaParaVenderRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-de-ropa-para-vender',
+    id: '/workspace/es/foto-de-ropa-para-vender',
     path: '/workspace/es/foto-de-ropa-para-vender',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoParaCurriculumRoute =
   AuthenticatedWorkspaceEsFotoParaCurriculumRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-para-curriculum',
+    id: '/workspace/es/foto-para-curriculum',
     path: '/workspace/es/foto-para-curriculum',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoParaDocumentoRoute =
   AuthenticatedWorkspaceEsFotoParaDocumentoRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-para-documento',
+    id: '/workspace/es/foto-para-documento',
     path: '/workspace/es/foto-para-documento',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoParaLinkedinRoute =
   AuthenticatedWorkspaceEsFotoParaLinkedinRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-para-linkedin',
+    id: '/workspace/es/foto-para-linkedin',
     path: '/workspace/es/foto-para-linkedin',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoParaPasaporteRoute =
   AuthenticatedWorkspaceEsFotoParaPasaporteRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-para-pasaporte',
+    id: '/workspace/es/foto-para-pasaporte',
     path: '/workspace/es/foto-para-pasaporte',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoPasaporteAustraliaRoute =
   AuthenticatedWorkspaceEsFotoPasaporteAustraliaRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-pasaporte-australia',
+    id: '/workspace/es/foto-pasaporte-australia',
     path: '/workspace/es/foto-pasaporte-australia',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoPasaporteEstadosUnidosRoute =
   AuthenticatedWorkspaceEsFotoPasaporteEstadosUnidosRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-pasaporte-estados-unidos',
+    id: '/workspace/es/foto-pasaporte-estados-unidos',
     path: '/workspace/es/foto-pasaporte-estados-unidos',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoPasaporteIndiaRoute =
   AuthenticatedWorkspaceEsFotoPasaporteIndiaRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-pasaporte-india',
+    id: '/workspace/es/foto-pasaporte-india',
     path: '/workspace/es/foto-pasaporte-india',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoPasaporteReinoUnidoRoute =
   AuthenticatedWorkspaceEsFotoPasaporteReinoUnidoRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-pasaporte-reino-unido',
+    id: '/workspace/es/foto-pasaporte-reino-unido',
     path: '/workspace/es/foto-pasaporte-reino-unido',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotoVisaSchengenRoute =
   AuthenticatedWorkspaceEsFotoVisaSchengenRouteImport.update({
-    id: '/_authenticated/workspace/es/foto-visa-schengen',
+    id: '/workspace/es/foto-visa-schengen',
     path: '/workspace/es/foto-visa-schengen',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotosDeProductoShopifyRoute =
   AuthenticatedWorkspaceEsFotosDeProductoShopifyRouteImport.update({
-    id: '/_authenticated/workspace/es/fotos-de-producto-shopify',
+    id: '/workspace/es/fotos-de-producto-shopify',
     path: '/workspace/es/fotos-de-producto-shopify',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsFotosDelEquipoRoute =
   AuthenticatedWorkspaceEsFotosDelEquipoRouteImport.update({
-    id: '/_authenticated/workspace/es/fotos-del-equipo',
+    id: '/workspace/es/fotos-del-equipo',
     path: '/workspace/es/fotos-del-equipo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsHojaDeFotosPasaporteRoute =
   AuthenticatedWorkspaceEsHojaDeFotosPasaporteRouteImport.update({
-    id: '/_authenticated/workspace/es/hoja-de-fotos-pasaporte',
+    id: '/workspace/es/hoja-de-fotos-pasaporte',
     path: '/workspace/es/hoja-de-fotos-pasaporte',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsHojaDePegatinasParaImprimirRoute =
   AuthenticatedWorkspaceEsHojaDePegatinasParaImprimirRouteImport.update({
-    id: '/_authenticated/workspace/es/hoja-de-pegatinas-para-imprimir',
+    id: '/workspace/es/hoja-de-pegatinas-para-imprimir',
     path: '/workspace/es/hoja-de-pegatinas-para-imprimir',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsLicenciaRoute =
   AuthenticatedWorkspaceEsLicenciaRouteImport.update({
-    id: '/_authenticated/workspace/es/licencia',
+    id: '/workspace/es/licencia',
     path: '/workspace/es/licencia',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsLogoPngTransparenteRoute =
   AuthenticatedWorkspaceEsLogoPngTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/es/logo-png-transparente',
+    id: '/workspace/es/logo-png-transparente',
     path: '/workspace/es/logo-png-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsLogoYFirmaSinFondoRoute =
   AuthenticatedWorkspaceEsLogoYFirmaSinFondoRouteImport.update({
-    id: '/_authenticated/workspace/es/logo-y-firma-sin-fondo',
+    id: '/workspace/es/logo-y-firma-sin-fondo',
     path: '/workspace/es/logo-y-firma-sin-fondo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsPngTransparenteParaPresentacionesRoute =
   AuthenticatedWorkspaceEsPngTransparenteParaPresentacionesRouteImport.update({
-    id: '/_authenticated/workspace/es/png-transparente-para-presentaciones',
+    id: '/workspace/es/png-transparente-para-presentaciones',
     path: '/workspace/es/png-transparente-para-presentaciones',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsQuitarFondoDeGraficoRoute =
   AuthenticatedWorkspaceEsQuitarFondoDeGraficoRouteImport.update({
-    id: '/_authenticated/workspace/es/quitar-fondo-de-grafico',
+    id: '/workspace/es/quitar-fondo-de-grafico',
     path: '/workspace/es/quitar-fondo-de-grafico',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsQuitarFondoEnLoteRoute =
   AuthenticatedWorkspaceEsQuitarFondoEnLoteRouteImport.update({
-    id: '/_authenticated/workspace/es/quitar-fondo-en-lote',
+    id: '/workspace/es/quitar-fondo-en-lote',
     path: '/workspace/es/quitar-fondo-en-lote',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsRecortarCabelloRoute =
   AuthenticatedWorkspaceEsRecortarCabelloRouteImport.update({
-    id: '/_authenticated/workspace/es/recortar-cabello',
+    id: '/workspace/es/recortar-cabello',
     path: '/workspace/es/recortar-cabello',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsRecortarMascotaRoute =
   AuthenticatedWorkspaceEsRecortarMascotaRouteImport.update({
-    id: '/_authenticated/workspace/es/recortar-mascota',
+    id: '/workspace/es/recortar-mascota',
     path: '/workspace/es/recortar-mascota',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsSelloTransparenteRoute =
   AuthenticatedWorkspaceEsSelloTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/es/sello-transparente',
+    id: '/workspace/es/sello-transparente',
     path: '/workspace/es/sello-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsStickerDeMascotaRoute =
   AuthenticatedWorkspaceEsStickerDeMascotaRouteImport.update({
-    id: '/_authenticated/workspace/es/sticker-de-mascota',
+    id: '/workspace/es/sticker-de-mascota',
     path: '/workspace/es/sticker-de-mascota',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsStickerTelegramRoute =
   AuthenticatedWorkspaceEsStickerTelegramRouteImport.update({
-    id: '/_authenticated/workspace/es/sticker-telegram',
+    id: '/workspace/es/sticker-telegram',
     path: '/workspace/es/sticker-telegram',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspaceEsStickerWhatsappRoute =
   AuthenticatedWorkspaceEsStickerWhatsappRouteImport.update({
-    id: '/_authenticated/workspace/es/sticker-whatsapp',
+    id: '/workspace/es/sticker-whatsapp',
     path: '/workspace/es/sticker-whatsapp',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtIndexRoute =
   AuthenticatedWorkspacePtIndexRouteImport.update({
-    id: '/_authenticated/workspace/pt/',
+    id: '/workspace/pt/',
     path: '/workspace/pt/',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtAssinaturaDeEmailRoute =
   AuthenticatedWorkspacePtAssinaturaDeEmailRouteImport.update({
-    id: '/_authenticated/workspace/pt/assinatura-de-email',
+    id: '/workspace/pt/assinatura-de-email',
     path: '/workspace/pt/assinatura-de-email',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtAssinaturaTransparenteRoute =
   AuthenticatedWorkspacePtAssinaturaTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/pt/assinatura-transparente',
+    id: '/workspace/pt/assinatura-transparente',
     path: '/workspace/pt/assinatura-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtAvatarDiscordRoute =
   AuthenticatedWorkspacePtAvatarDiscordRouteImport.update({
-    id: '/_authenticated/workspace/pt/avatar-discord',
+    id: '/workspace/pt/avatar-discord',
     path: '/workspace/pt/avatar-discord',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtCarimboTransparenteRoute =
   AuthenticatedWorkspacePtCarimboTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/pt/carimbo-transparente',
+    id: '/workspace/pt/carimbo-transparente',
     path: '/workspace/pt/carimbo-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtCriarFigurinhasRoute =
   AuthenticatedWorkspacePtCriarFigurinhasRouteImport.update({
-    id: '/_authenticated/workspace/pt/criar-figurinhas',
+    id: '/workspace/pt/criar-figurinhas',
     path: '/workspace/pt/criar-figurinhas',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtDesfocarFundoRoute =
   AuthenticatedWorkspacePtDesfocarFundoRouteImport.update({
-    id: '/_authenticated/workspace/pt/desfocar-fundo',
+    id: '/workspace/pt/desfocar-fundo',
     path: '/workspace/pt/desfocar-fundo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtEmojiSlackDiscordRoute =
   AuthenticatedWorkspacePtEmojiSlackDiscordRouteImport.update({
-    id: '/_authenticated/workspace/pt/emoji-slack-discord',
+    id: '/workspace/pt/emoji-slack-discord',
     path: '/workspace/pt/emoji-slack-discord',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFigurinhaDePetRoute =
   AuthenticatedWorkspacePtFigurinhaDePetRouteImport.update({
-    id: '/_authenticated/workspace/pt/figurinha-de-pet',
+    id: '/workspace/pt/figurinha-de-pet',
     path: '/workspace/pt/figurinha-de-pet',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFigurinhaTelegramRoute =
   AuthenticatedWorkspacePtFigurinhaTelegramRouteImport.update({
-    id: '/_authenticated/workspace/pt/figurinha-telegram',
+    id: '/workspace/pt/figurinha-telegram',
     path: '/workspace/pt/figurinha-telegram',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFigurinhaWhatsappRoute =
   AuthenticatedWorkspacePtFigurinhaWhatsappRouteImport.update({
-    id: '/_authenticated/workspace/pt/figurinha-whatsapp',
+    id: '/workspace/pt/figurinha-whatsapp',
     path: '/workspace/pt/figurinha-whatsapp',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFolhaDeAdesivosParaImprimirRoute =
   AuthenticatedWorkspacePtFolhaDeAdesivosParaImprimirRouteImport.update({
-    id: '/_authenticated/workspace/pt/folha-de-adesivos-para-imprimir',
+    id: '/workspace/pt/folha-de-adesivos-para-imprimir',
     path: '/workspace/pt/folha-de-adesivos-para-imprimir',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFolhaDeFotosPassaporteRoute =
   AuthenticatedWorkspacePtFolhaDeFotosPassaporteRouteImport.update({
-    id: '/_authenticated/workspace/pt/folha-de-fotos-passaporte',
+    id: '/workspace/pt/folha-de-fotos-passaporte',
     path: '/workspace/pt/folha-de-fotos-passaporte',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDePerfilRoute =
   AuthenticatedWorkspacePtFotoDePerfilRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-perfil',
+    id: '/workspace/pt/foto-de-perfil',
     path: '/workspace/pt/foto-de-perfil',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDePerfilInstagramRoute =
   AuthenticatedWorkspacePtFotoDePerfilInstagramRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-perfil-instagram',
+    id: '/workspace/pt/foto-de-perfil-instagram',
     path: '/workspace/pt/foto-de-perfil-instagram',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDeProdutoRoute =
   AuthenticatedWorkspacePtFotoDeProdutoRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-produto',
+    id: '/workspace/pt/foto-de-produto',
     path: '/workspace/pt/foto-de-produto',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDeProdutoAmazonRoute =
   AuthenticatedWorkspacePtFotoDeProdutoAmazonRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-produto-amazon',
+    id: '/workspace/pt/foto-de-produto-amazon',
     path: '/workspace/pt/foto-de-produto-amazon',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDeProdutoComSombraRoute =
   AuthenticatedWorkspacePtFotoDeProdutoComSombraRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-produto-com-sombra',
+    id: '/workspace/pt/foto-de-produto-com-sombra',
     path: '/workspace/pt/foto-de-produto-com-sombra',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDeProdutoEbayEtsyRoute =
   AuthenticatedWorkspacePtFotoDeProdutoEbayEtsyRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-produto-ebay-etsy',
+    id: '/workspace/pt/foto-de-produto-ebay-etsy',
     path: '/workspace/pt/foto-de-produto-ebay-etsy',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoDeRoupaParaVenderRoute =
   AuthenticatedWorkspacePtFotoDeRoupaParaVenderRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-de-roupa-para-vender',
+    id: '/workspace/pt/foto-de-roupa-para-vender',
     path: '/workspace/pt/foto-de-roupa-para-vender',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoParaCurriculoRoute =
   AuthenticatedWorkspacePtFotoParaCurriculoRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-para-curriculo',
+    id: '/workspace/pt/foto-para-curriculo',
     path: '/workspace/pt/foto-para-curriculo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoParaDocumentoRoute =
   AuthenticatedWorkspacePtFotoParaDocumentoRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-para-documento',
+    id: '/workspace/pt/foto-para-documento',
     path: '/workspace/pt/foto-para-documento',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoParaLinkedinRoute =
   AuthenticatedWorkspacePtFotoParaLinkedinRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-para-linkedin',
+    id: '/workspace/pt/foto-para-linkedin',
     path: '/workspace/pt/foto-para-linkedin',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoParaPassaporteRoute =
   AuthenticatedWorkspacePtFotoParaPassaporteRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-para-passaporte',
+    id: '/workspace/pt/foto-para-passaporte',
     path: '/workspace/pt/foto-para-passaporte',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoPassaporteAustraliaRoute =
   AuthenticatedWorkspacePtFotoPassaporteAustraliaRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-passaporte-australia',
+    id: '/workspace/pt/foto-passaporte-australia',
     path: '/workspace/pt/foto-passaporte-australia',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoPassaporteEuaRoute =
   AuthenticatedWorkspacePtFotoPassaporteEuaRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-passaporte-eua',
+    id: '/workspace/pt/foto-passaporte-eua',
     path: '/workspace/pt/foto-passaporte-eua',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoPassaporteIndiaRoute =
   AuthenticatedWorkspacePtFotoPassaporteIndiaRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-passaporte-india',
+    id: '/workspace/pt/foto-passaporte-india',
     path: '/workspace/pt/foto-passaporte-india',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoPassaporteReinoUnidoRoute =
   AuthenticatedWorkspacePtFotoPassaporteReinoUnidoRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-passaporte-reino-unido',
+    id: '/workspace/pt/foto-passaporte-reino-unido',
     path: '/workspace/pt/foto-passaporte-reino-unido',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotoVistoSchengenRoute =
   AuthenticatedWorkspacePtFotoVistoSchengenRouteImport.update({
-    id: '/_authenticated/workspace/pt/foto-visto-schengen',
+    id: '/workspace/pt/foto-visto-schengen',
     path: '/workspace/pt/foto-visto-schengen',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotosDaEquipeRoute =
   AuthenticatedWorkspacePtFotosDaEquipeRouteImport.update({
-    id: '/_authenticated/workspace/pt/fotos-da-equipe',
+    id: '/workspace/pt/fotos-da-equipe',
     path: '/workspace/pt/fotos-da-equipe',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFotosDeProdutoShopifyRoute =
   AuthenticatedWorkspacePtFotosDeProdutoShopifyRouteImport.update({
-    id: '/_authenticated/workspace/pt/fotos-de-produto-shopify',
+    id: '/workspace/pt/fotos-de-produto-shopify',
     path: '/workspace/pt/fotos-de-produto-shopify',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoBrancoRoute =
   AuthenticatedWorkspacePtFundoBrancoRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-branco',
+    id: '/workspace/pt/fundo-branco',
     path: '/workspace/pt/fundo-branco',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoColoridoRoute =
   AuthenticatedWorkspacePtFundoColoridoRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-colorido',
+    id: '/workspace/pt/fundo-colorido',
     path: '/workspace/pt/fundo-colorido',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoCorDaMarcaRoute =
   AuthenticatedWorkspacePtFundoCorDaMarcaRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-cor-da-marca',
+    id: '/workspace/pt/fundo-cor-da-marca',
     path: '/workspace/pt/fundo-cor-da-marca',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoDeFestaRoute =
   AuthenticatedWorkspacePtFundoDeFestaRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-de-festa',
+    id: '/workspace/pt/fundo-de-festa',
     path: '/workspace/pt/fundo-de-festa',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoDeViagemRoute =
   AuthenticatedWorkspacePtFundoDeViagemRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-de-viagem',
+    id: '/workspace/pt/fundo-de-viagem',
     path: '/workspace/pt/fundo-de-viagem',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoDegradeRoute =
   AuthenticatedWorkspacePtFundoDegradeRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-degrade',
+    id: '/workspace/pt/fundo-degrade',
     path: '/workspace/pt/fundo-degrade',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoPretoRoute =
   AuthenticatedWorkspacePtFundoPretoRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-preto',
+    id: '/workspace/pt/fundo-preto',
     path: '/workspace/pt/fundo-preto',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtFundoVirtualZoomTeamsRoute =
   AuthenticatedWorkspacePtFundoVirtualZoomTeamsRouteImport.update({
-    id: '/_authenticated/workspace/pt/fundo-virtual-zoom-teams',
+    id: '/workspace/pt/fundo-virtual-zoom-teams',
     path: '/workspace/pt/fundo-virtual-zoom-teams',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtLicencaRoute =
   AuthenticatedWorkspacePtLicencaRouteImport.update({
-    id: '/_authenticated/workspace/pt/licenca',
+    id: '/workspace/pt/licenca',
     path: '/workspace/pt/licenca',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtLogoEAssinaturaSemFundoRoute =
   AuthenticatedWorkspacePtLogoEAssinaturaSemFundoRouteImport.update({
-    id: '/_authenticated/workspace/pt/logo-e-assinatura-sem-fundo',
+    id: '/workspace/pt/logo-e-assinatura-sem-fundo',
     path: '/workspace/pt/logo-e-assinatura-sem-fundo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtLogoPngTransparenteRoute =
   AuthenticatedWorkspacePtLogoPngTransparenteRouteImport.update({
-    id: '/_authenticated/workspace/pt/logo-png-transparente',
+    id: '/workspace/pt/logo-png-transparente',
     path: '/workspace/pt/logo-png-transparente',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtMudarCorDoLogoRoute =
   AuthenticatedWorkspacePtMudarCorDoLogoRouteImport.update({
-    id: '/_authenticated/workspace/pt/mudar-cor-do-logo',
+    id: '/workspace/pt/mudar-cor-do-logo',
     path: '/workspace/pt/mudar-cor-do-logo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtPngTransparenteParaSlidesRoute =
   AuthenticatedWorkspacePtPngTransparenteParaSlidesRouteImport.update({
-    id: '/_authenticated/workspace/pt/png-transparente-para-slides',
+    id: '/workspace/pt/png-transparente-para-slides',
     path: '/workspace/pt/png-transparente-para-slides',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtRecortarCabeloRoute =
   AuthenticatedWorkspacePtRecortarCabeloRouteImport.update({
-    id: '/_authenticated/workspace/pt/recortar-cabelo',
+    id: '/workspace/pt/recortar-cabelo',
     path: '/workspace/pt/recortar-cabelo',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtRecortarPetRoute =
   AuthenticatedWorkspacePtRecortarPetRouteImport.update({
-    id: '/_authenticated/workspace/pt/recortar-pet',
+    id: '/workspace/pt/recortar-pet',
     path: '/workspace/pt/recortar-pet',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRoute =
   AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRouteImport.update({
-    id: '/_authenticated/workspace/pt/remover-fundo-de-imagem-grafica',
+    id: '/workspace/pt/remover-fundo-de-imagem-grafica',
     path: '/workspace/pt/remover-fundo-de-imagem-grafica',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtRemoverFundoEmLoteRoute =
   AuthenticatedWorkspacePtRemoverFundoEmLoteRouteImport.update({
-    id: '/_authenticated/workspace/pt/remover-fundo-em-lote',
+    id: '/workspace/pt/remover-fundo-em-lote',
     path: '/workspace/pt/remover-fundo-em-lote',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedWorkspacePtTrocarFundoDaFotoRoute =
   AuthenticatedWorkspacePtTrocarFundoDaFotoRouteImport.update({
-    id: '/_authenticated/workspace/pt/trocar-fundo-da-foto',
+    id: '/workspace/pt/trocar-fundo-da-foto',
     path: '/workspace/pt/trocar-fundo-da-foto',
-    getParentRoute: () => rootRouteImport,
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof AuthenticatedRouteRouteWithChildren
+  '/$': typeof SplatRoute
+  '/auth': typeof AuthRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1190,6 +1210,9 @@ export interface FileRoutesByFullPath {
   '/workspace/pt/': typeof AuthenticatedWorkspacePtIndexRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof AuthenticatedRouteRouteWithChildren
+  '/$': typeof SplatRoute
+  '/auth': typeof AuthRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1340,6 +1363,9 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/$': typeof SplatRoute
+  '/auth': typeof AuthRoute
   '/_authenticated/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/_authenticated/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/_authenticated/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1491,6 +1517,9 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
+    | '/'
+    | '/$'
+    | '/auth'
     | '/workspace/amazon-product-photo'
     | '/workspace/australia-passport-photo'
     | '/workspace/batch-remove-background'
@@ -1640,6 +1669,9 @@ export interface FileRouteTypes {
     | '/workspace/pt/'
   fileRoutesByTo: FileRoutesByTo
   to:
+    | '/'
+    | '/$'
+    | '/auth'
     | '/workspace/amazon-product-photo'
     | '/workspace/australia-passport-photo'
     | '/workspace/batch-remove-background'
@@ -1789,6 +1821,9 @@ export interface FileRouteTypes {
     | '/workspace/pt'
   id:
     | '__root__'
+    | '/_authenticated'
+    | '/$'
+    | '/auth'
     | '/_authenticated/workspace/amazon-product-photo'
     | '/_authenticated/workspace/australia-passport-photo'
     | '/_authenticated/workspace/batch-remove-background'
@@ -1939,6 +1974,1067 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  SplatRoute: typeof SplatRoute
+  AuthRoute: typeof AuthRoute
+}
+
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/workspace/': {
+      id: '/_authenticated/workspace/'
+      path: '/workspace'
+      fullPath: '/workspace/'
+      preLoaderRoute: typeof AuthenticatedWorkspaceIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/amazon-product-photo': {
+      id: '/_authenticated/workspace/amazon-product-photo'
+      path: '/workspace/amazon-product-photo'
+      fullPath: '/workspace/amazon-product-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceAmazonProductPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/australia-passport-photo': {
+      id: '/_authenticated/workspace/australia-passport-photo'
+      path: '/workspace/australia-passport-photo'
+      fullPath: '/workspace/australia-passport-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceAustraliaPassportPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/batch-remove-background': {
+      id: '/_authenticated/workspace/batch-remove-background'
+      path: '/workspace/batch-remove-background'
+      fullPath: '/workspace/batch-remove-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceBatchRemoveBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/black-background': {
+      id: '/_authenticated/workspace/black-background'
+      path: '/workspace/black-background'
+      fullPath: '/workspace/black-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceBlackBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/blur-background': {
+      id: '/_authenticated/workspace/blur-background'
+      path: '/workspace/blur-background'
+      fullPath: '/workspace/blur-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceBlurBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/brand-colour-background': {
+      id: '/_authenticated/workspace/brand-colour-background'
+      path: '/workspace/brand-colour-background'
+      fullPath: '/workspace/brand-colour-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceBrandColourBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/clothing-photo': {
+      id: '/_authenticated/workspace/clothing-photo'
+      path: '/workspace/clothing-photo'
+      fullPath: '/workspace/clothing-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceClothingPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/colour-background': {
+      id: '/_authenticated/workspace/colour-background'
+      path: '/workspace/colour-background'
+      fullPath: '/workspace/colour-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceColourBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/cut-out-hair': {
+      id: '/_authenticated/workspace/cut-out-hair'
+      path: '/workspace/cut-out-hair'
+      fullPath: '/workspace/cut-out-hair'
+      preLoaderRoute: typeof AuthenticatedWorkspaceCutOutHairRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/cut-out-pet': {
+      id: '/_authenticated/workspace/cut-out-pet'
+      path: '/workspace/cut-out-pet'
+      fullPath: '/workspace/cut-out-pet'
+      preLoaderRoute: typeof AuthenticatedWorkspaceCutOutPetRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/cv-photo': {
+      id: '/_authenticated/workspace/cv-photo'
+      path: '/workspace/cv-photo'
+      fullPath: '/workspace/cv-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceCvPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/discord-avatar': {
+      id: '/_authenticated/workspace/discord-avatar'
+      path: '/workspace/discord-avatar'
+      fullPath: '/workspace/discord-avatar'
+      preLoaderRoute: typeof AuthenticatedWorkspaceDiscordAvatarRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/ebay-etsy-product-photo': {
+      id: '/_authenticated/workspace/ebay-etsy-product-photo'
+      path: '/workspace/ebay-etsy-product-photo'
+      fullPath: '/workspace/ebay-etsy-product-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEbayEtsyProductPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/email-signature': {
+      id: '/_authenticated/workspace/email-signature'
+      path: '/workspace/email-signature'
+      fullPath: '/workspace/email-signature'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEmailSignatureRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/gradient-background': {
+      id: '/_authenticated/workspace/gradient-background'
+      path: '/workspace/gradient-background'
+      fullPath: '/workspace/gradient-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceGradientBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/holiday-background': {
+      id: '/_authenticated/workspace/holiday-background'
+      path: '/workspace/holiday-background'
+      fullPath: '/workspace/holiday-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceHolidayBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/id-card-photo': {
+      id: '/_authenticated/workspace/id-card-photo'
+      path: '/workspace/id-card-photo'
+      fullPath: '/workspace/id-card-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceIdCardPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/india-passport-photo': {
+      id: '/_authenticated/workspace/india-passport-photo'
+      path: '/workspace/india-passport-photo'
+      fullPath: '/workspace/india-passport-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceIndiaPassportPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/instagram-profile-picture': {
+      id: '/_authenticated/workspace/instagram-profile-picture'
+      path: '/workspace/instagram-profile-picture'
+      fullPath: '/workspace/instagram-profile-picture'
+      preLoaderRoute: typeof AuthenticatedWorkspaceInstagramProfilePictureRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/license': {
+      id: '/_authenticated/workspace/license'
+      path: '/workspace/license'
+      fullPath: '/workspace/license'
+      preLoaderRoute: typeof AuthenticatedWorkspaceLicenseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/linkedin-profile-photo': {
+      id: '/_authenticated/workspace/linkedin-profile-photo'
+      path: '/workspace/linkedin-profile-photo'
+      fullPath: '/workspace/linkedin-profile-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceLinkedinProfilePhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/logo-cleaner': {
+      id: '/_authenticated/workspace/logo-cleaner'
+      path: '/workspace/logo-cleaner'
+      fullPath: '/workspace/logo-cleaner'
+      preLoaderRoute: typeof AuthenticatedWorkspaceLogoCleanerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/logo-to-png': {
+      id: '/_authenticated/workspace/logo-to-png'
+      path: '/workspace/logo-to-png'
+      fullPath: '/workspace/logo-to-png'
+      preLoaderRoute: typeof AuthenticatedWorkspaceLogoToPngRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/party-background': {
+      id: '/_authenticated/workspace/party-background'
+      path: '/workspace/party-background'
+      fullPath: '/workspace/party-background'
+      preLoaderRoute: typeof AuthenticatedWorkspacePartyBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/passport-photo': {
+      id: '/_authenticated/workspace/passport-photo'
+      path: '/workspace/passport-photo'
+      fullPath: '/workspace/passport-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePassportPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/passport-photo-print-sheet': {
+      id: '/_authenticated/workspace/passport-photo-print-sheet'
+      path: '/workspace/passport-photo-print-sheet'
+      fullPath: '/workspace/passport-photo-print-sheet'
+      preLoaderRoute: typeof AuthenticatedWorkspacePassportPhotoPrintSheetRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pet-sticker': {
+      id: '/_authenticated/workspace/pet-sticker'
+      path: '/workspace/pet-sticker'
+      fullPath: '/workspace/pet-sticker'
+      preLoaderRoute: typeof AuthenticatedWorkspacePetStickerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/photo-background': {
+      id: '/_authenticated/workspace/photo-background'
+      path: '/workspace/photo-background'
+      fullPath: '/workspace/photo-background'
+      preLoaderRoute: typeof AuthenticatedWorkspacePhotoBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/printable-sticker-sheet': {
+      id: '/_authenticated/workspace/printable-sticker-sheet'
+      path: '/workspace/printable-sticker-sheet'
+      fullPath: '/workspace/printable-sticker-sheet'
+      preLoaderRoute: typeof AuthenticatedWorkspacePrintableStickerSheetRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/product-photo': {
+      id: '/_authenticated/workspace/product-photo'
+      path: '/workspace/product-photo'
+      fullPath: '/workspace/product-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProductPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/product-photo-shadow': {
+      id: '/_authenticated/workspace/product-photo-shadow'
+      path: '/workspace/product-photo-shadow'
+      fullPath: '/workspace/product-photo-shadow'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProductPhotoShadowRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/profile-picture': {
+      id: '/_authenticated/workspace/profile-picture'
+      path: '/workspace/profile-picture'
+      fullPath: '/workspace/profile-picture'
+      preLoaderRoute: typeof AuthenticatedWorkspaceProfilePictureRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/recolour-logo': {
+      id: '/_authenticated/workspace/recolour-logo'
+      path: '/workspace/recolour-logo'
+      fullPath: '/workspace/recolour-logo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceRecolourLogoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/remove-background-from-graphic': {
+      id: '/_authenticated/workspace/remove-background-from-graphic'
+      path: '/workspace/remove-background-from-graphic'
+      fullPath: '/workspace/remove-background-from-graphic'
+      preLoaderRoute: typeof AuthenticatedWorkspaceRemoveBackgroundFromGraphicRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/schengen-visa-photo': {
+      id: '/_authenticated/workspace/schengen-visa-photo'
+      path: '/workspace/schengen-visa-photo'
+      fullPath: '/workspace/schengen-visa-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceSchengenVisaPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/shopify-product-photos': {
+      id: '/_authenticated/workspace/shopify-product-photos'
+      path: '/workspace/shopify-product-photos'
+      fullPath: '/workspace/shopify-product-photos'
+      preLoaderRoute: typeof AuthenticatedWorkspaceShopifyProductPhotosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/slack-emoji': {
+      id: '/_authenticated/workspace/slack-emoji'
+      path: '/workspace/slack-emoji'
+      fullPath: '/workspace/slack-emoji'
+      preLoaderRoute: typeof AuthenticatedWorkspaceSlackEmojiRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/stamp-cleaner': {
+      id: '/_authenticated/workspace/stamp-cleaner'
+      path: '/workspace/stamp-cleaner'
+      fullPath: '/workspace/stamp-cleaner'
+      preLoaderRoute: typeof AuthenticatedWorkspaceStampCleanerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/sticker-maker': {
+      id: '/_authenticated/workspace/sticker-maker'
+      path: '/workspace/sticker-maker'
+      fullPath: '/workspace/sticker-maker'
+      preLoaderRoute: typeof AuthenticatedWorkspaceStickerMakerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/team-headshots': {
+      id: '/_authenticated/workspace/team-headshots'
+      path: '/workspace/team-headshots'
+      fullPath: '/workspace/team-headshots'
+      preLoaderRoute: typeof AuthenticatedWorkspaceTeamHeadshotsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/telegram-sticker': {
+      id: '/_authenticated/workspace/telegram-sticker'
+      path: '/workspace/telegram-sticker'
+      fullPath: '/workspace/telegram-sticker'
+      preLoaderRoute: typeof AuthenticatedWorkspaceTelegramStickerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/transparent-png-for-slides': {
+      id: '/_authenticated/workspace/transparent-png-for-slides'
+      path: '/workspace/transparent-png-for-slides'
+      fullPath: '/workspace/transparent-png-for-slides'
+      preLoaderRoute: typeof AuthenticatedWorkspaceTransparentPngForSlidesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/transparent-signature': {
+      id: '/_authenticated/workspace/transparent-signature'
+      path: '/workspace/transparent-signature'
+      fullPath: '/workspace/transparent-signature'
+      preLoaderRoute: typeof AuthenticatedWorkspaceTransparentSignatureRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/uk-passport-photo': {
+      id: '/_authenticated/workspace/uk-passport-photo'
+      path: '/workspace/uk-passport-photo'
+      fullPath: '/workspace/uk-passport-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceUkPassportPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/us-passport-photo': {
+      id: '/_authenticated/workspace/us-passport-photo'
+      path: '/workspace/us-passport-photo'
+      fullPath: '/workspace/us-passport-photo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceUsPassportPhotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/virtual-background': {
+      id: '/_authenticated/workspace/virtual-background'
+      path: '/workspace/virtual-background'
+      fullPath: '/workspace/virtual-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceVirtualBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/whatsapp-sticker': {
+      id: '/_authenticated/workspace/whatsapp-sticker'
+      path: '/workspace/whatsapp-sticker'
+      fullPath: '/workspace/whatsapp-sticker'
+      preLoaderRoute: typeof AuthenticatedWorkspaceWhatsappStickerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/white-background': {
+      id: '/_authenticated/workspace/white-background'
+      path: '/workspace/white-background'
+      fullPath: '/workspace/white-background'
+      preLoaderRoute: typeof AuthenticatedWorkspaceWhiteBackgroundRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/': {
+      id: '/_authenticated/workspace/es/'
+      path: '/workspace/es'
+      fullPath: '/workspace/es/'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/avatar-discord': {
+      id: '/_authenticated/workspace/es/avatar-discord'
+      path: '/workspace/es/avatar-discord'
+      fullPath: '/workspace/es/avatar-discord'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsAvatarDiscordRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/cambiar-color-del-logo': {
+      id: '/_authenticated/workspace/es/cambiar-color-del-logo'
+      path: '/workspace/es/cambiar-color-del-logo'
+      fullPath: '/workspace/es/cambiar-color-del-logo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsCambiarColorDelLogoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/cambiar-fondo-de-foto': {
+      id: '/_authenticated/workspace/es/cambiar-fondo-de-foto'
+      path: '/workspace/es/cambiar-fondo-de-foto'
+      fullPath: '/workspace/es/cambiar-fondo-de-foto'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsCambiarFondoDeFotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/crear-stickers': {
+      id: '/_authenticated/workspace/es/crear-stickers'
+      path: '/workspace/es/crear-stickers'
+      fullPath: '/workspace/es/crear-stickers'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsCrearStickersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/desenfocar-fondo': {
+      id: '/_authenticated/workspace/es/desenfocar-fondo'
+      path: '/workspace/es/desenfocar-fondo'
+      fullPath: '/workspace/es/desenfocar-fondo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsDesenfocarFondoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/emoji-slack-discord': {
+      id: '/_authenticated/workspace/es/emoji-slack-discord'
+      path: '/workspace/es/emoji-slack-discord'
+      fullPath: '/workspace/es/emoji-slack-discord'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsEmojiSlackDiscordRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/firma-de-correo': {
+      id: '/_authenticated/workspace/es/firma-de-correo'
+      path: '/workspace/es/firma-de-correo'
+      fullPath: '/workspace/es/firma-de-correo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFirmaDeCorreoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/firma-transparente': {
+      id: '/_authenticated/workspace/es/firma-transparente'
+      path: '/workspace/es/firma-transparente'
+      fullPath: '/workspace/es/firma-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFirmaTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-blanco': {
+      id: '/_authenticated/workspace/es/fondo-blanco'
+      path: '/workspace/es/fondo-blanco'
+      fullPath: '/workspace/es/fondo-blanco'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoBlancoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-color-de-marca': {
+      id: '/_authenticated/workspace/es/fondo-color-de-marca'
+      path: '/workspace/es/fondo-color-de-marca'
+      fullPath: '/workspace/es/fondo-color-de-marca'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoColorDeMarcaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-de-color': {
+      id: '/_authenticated/workspace/es/fondo-de-color'
+      path: '/workspace/es/fondo-de-color'
+      fullPath: '/workspace/es/fondo-de-color'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeColorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-de-fiesta': {
+      id: '/_authenticated/workspace/es/fondo-de-fiesta'
+      path: '/workspace/es/fondo-de-fiesta'
+      fullPath: '/workspace/es/fondo-de-fiesta'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeFiestaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-de-vacaciones': {
+      id: '/_authenticated/workspace/es/fondo-de-vacaciones'
+      path: '/workspace/es/fondo-de-vacaciones'
+      fullPath: '/workspace/es/fondo-de-vacaciones'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeVacacionesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-degradado': {
+      id: '/_authenticated/workspace/es/fondo-degradado'
+      path: '/workspace/es/fondo-degradado'
+      fullPath: '/workspace/es/fondo-degradado'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDegradadoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-negro': {
+      id: '/_authenticated/workspace/es/fondo-negro'
+      path: '/workspace/es/fondo-negro'
+      fullPath: '/workspace/es/fondo-negro'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoNegroRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fondo-virtual-zoom-teams': {
+      id: '/_authenticated/workspace/es/fondo-virtual-zoom-teams'
+      path: '/workspace/es/fondo-virtual-zoom-teams'
+      fullPath: '/workspace/es/fondo-virtual-zoom-teams'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoVirtualZoomTeamsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-perfil': {
+      id: '/_authenticated/workspace/es/foto-de-perfil'
+      path: '/workspace/es/foto-de-perfil'
+      fullPath: '/workspace/es/foto-de-perfil'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDePerfilRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-perfil-instagram': {
+      id: '/_authenticated/workspace/es/foto-de-perfil-instagram'
+      path: '/workspace/es/foto-de-perfil-instagram'
+      fullPath: '/workspace/es/foto-de-perfil-instagram'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDePerfilInstagramRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-producto': {
+      id: '/_authenticated/workspace/es/foto-de-producto'
+      path: '/workspace/es/foto-de-producto'
+      fullPath: '/workspace/es/foto-de-producto'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-producto-amazon': {
+      id: '/_authenticated/workspace/es/foto-de-producto-amazon'
+      path: '/workspace/es/foto-de-producto-amazon'
+      fullPath: '/workspace/es/foto-de-producto-amazon'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoAmazonRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-producto-con-sombra': {
+      id: '/_authenticated/workspace/es/foto-de-producto-con-sombra'
+      path: '/workspace/es/foto-de-producto-con-sombra'
+      fullPath: '/workspace/es/foto-de-producto-con-sombra'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoConSombraRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-producto-ebay-etsy': {
+      id: '/_authenticated/workspace/es/foto-de-producto-ebay-etsy'
+      path: '/workspace/es/foto-de-producto-ebay-etsy'
+      fullPath: '/workspace/es/foto-de-producto-ebay-etsy'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoEbayEtsyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-de-ropa-para-vender': {
+      id: '/_authenticated/workspace/es/foto-de-ropa-para-vender'
+      path: '/workspace/es/foto-de-ropa-para-vender'
+      fullPath: '/workspace/es/foto-de-ropa-para-vender'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeRopaParaVenderRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-para-curriculum': {
+      id: '/_authenticated/workspace/es/foto-para-curriculum'
+      path: '/workspace/es/foto-para-curriculum'
+      fullPath: '/workspace/es/foto-para-curriculum'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaCurriculumRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-para-documento': {
+      id: '/_authenticated/workspace/es/foto-para-documento'
+      path: '/workspace/es/foto-para-documento'
+      fullPath: '/workspace/es/foto-para-documento'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaDocumentoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-para-linkedin': {
+      id: '/_authenticated/workspace/es/foto-para-linkedin'
+      path: '/workspace/es/foto-para-linkedin'
+      fullPath: '/workspace/es/foto-para-linkedin'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaLinkedinRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-para-pasaporte': {
+      id: '/_authenticated/workspace/es/foto-para-pasaporte'
+      path: '/workspace/es/foto-para-pasaporte'
+      fullPath: '/workspace/es/foto-para-pasaporte'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaPasaporteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-pasaporte-australia': {
+      id: '/_authenticated/workspace/es/foto-pasaporte-australia'
+      path: '/workspace/es/foto-pasaporte-australia'
+      fullPath: '/workspace/es/foto-pasaporte-australia'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteAustraliaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-pasaporte-estados-unidos': {
+      id: '/_authenticated/workspace/es/foto-pasaporte-estados-unidos'
+      path: '/workspace/es/foto-pasaporte-estados-unidos'
+      fullPath: '/workspace/es/foto-pasaporte-estados-unidos'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteEstadosUnidosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-pasaporte-india': {
+      id: '/_authenticated/workspace/es/foto-pasaporte-india'
+      path: '/workspace/es/foto-pasaporte-india'
+      fullPath: '/workspace/es/foto-pasaporte-india'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteIndiaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-pasaporte-reino-unido': {
+      id: '/_authenticated/workspace/es/foto-pasaporte-reino-unido'
+      path: '/workspace/es/foto-pasaporte-reino-unido'
+      fullPath: '/workspace/es/foto-pasaporte-reino-unido'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteReinoUnidoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/foto-visa-schengen': {
+      id: '/_authenticated/workspace/es/foto-visa-schengen'
+      path: '/workspace/es/foto-visa-schengen'
+      fullPath: '/workspace/es/foto-visa-schengen'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoVisaSchengenRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fotos-de-producto-shopify': {
+      id: '/_authenticated/workspace/es/fotos-de-producto-shopify'
+      path: '/workspace/es/fotos-de-producto-shopify'
+      fullPath: '/workspace/es/fotos-de-producto-shopify'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotosDeProductoShopifyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/fotos-del-equipo': {
+      id: '/_authenticated/workspace/es/fotos-del-equipo'
+      path: '/workspace/es/fotos-del-equipo'
+      fullPath: '/workspace/es/fotos-del-equipo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotosDelEquipoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/hoja-de-fotos-pasaporte': {
+      id: '/_authenticated/workspace/es/hoja-de-fotos-pasaporte'
+      path: '/workspace/es/hoja-de-fotos-pasaporte'
+      fullPath: '/workspace/es/hoja-de-fotos-pasaporte'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsHojaDeFotosPasaporteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/hoja-de-pegatinas-para-imprimir': {
+      id: '/_authenticated/workspace/es/hoja-de-pegatinas-para-imprimir'
+      path: '/workspace/es/hoja-de-pegatinas-para-imprimir'
+      fullPath: '/workspace/es/hoja-de-pegatinas-para-imprimir'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsHojaDePegatinasParaImprimirRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/licencia': {
+      id: '/_authenticated/workspace/es/licencia'
+      path: '/workspace/es/licencia'
+      fullPath: '/workspace/es/licencia'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsLicenciaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/logo-png-transparente': {
+      id: '/_authenticated/workspace/es/logo-png-transparente'
+      path: '/workspace/es/logo-png-transparente'
+      fullPath: '/workspace/es/logo-png-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsLogoPngTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/logo-y-firma-sin-fondo': {
+      id: '/_authenticated/workspace/es/logo-y-firma-sin-fondo'
+      path: '/workspace/es/logo-y-firma-sin-fondo'
+      fullPath: '/workspace/es/logo-y-firma-sin-fondo'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsLogoYFirmaSinFondoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/png-transparente-para-presentaciones': {
+      id: '/_authenticated/workspace/es/png-transparente-para-presentaciones'
+      path: '/workspace/es/png-transparente-para-presentaciones'
+      fullPath: '/workspace/es/png-transparente-para-presentaciones'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsPngTransparenteParaPresentacionesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/quitar-fondo-de-grafico': {
+      id: '/_authenticated/workspace/es/quitar-fondo-de-grafico'
+      path: '/workspace/es/quitar-fondo-de-grafico'
+      fullPath: '/workspace/es/quitar-fondo-de-grafico'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsQuitarFondoDeGraficoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/quitar-fondo-en-lote': {
+      id: '/_authenticated/workspace/es/quitar-fondo-en-lote'
+      path: '/workspace/es/quitar-fondo-en-lote'
+      fullPath: '/workspace/es/quitar-fondo-en-lote'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsQuitarFondoEnLoteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/recortar-cabello': {
+      id: '/_authenticated/workspace/es/recortar-cabello'
+      path: '/workspace/es/recortar-cabello'
+      fullPath: '/workspace/es/recortar-cabello'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsRecortarCabelloRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/recortar-mascota': {
+      id: '/_authenticated/workspace/es/recortar-mascota'
+      path: '/workspace/es/recortar-mascota'
+      fullPath: '/workspace/es/recortar-mascota'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsRecortarMascotaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/sello-transparente': {
+      id: '/_authenticated/workspace/es/sello-transparente'
+      path: '/workspace/es/sello-transparente'
+      fullPath: '/workspace/es/sello-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsSelloTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/sticker-de-mascota': {
+      id: '/_authenticated/workspace/es/sticker-de-mascota'
+      path: '/workspace/es/sticker-de-mascota'
+      fullPath: '/workspace/es/sticker-de-mascota'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerDeMascotaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/sticker-telegram': {
+      id: '/_authenticated/workspace/es/sticker-telegram'
+      path: '/workspace/es/sticker-telegram'
+      fullPath: '/workspace/es/sticker-telegram'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerTelegramRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/es/sticker-whatsapp': {
+      id: '/_authenticated/workspace/es/sticker-whatsapp'
+      path: '/workspace/es/sticker-whatsapp'
+      fullPath: '/workspace/es/sticker-whatsapp'
+      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerWhatsappRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/': {
+      id: '/_authenticated/workspace/pt/'
+      path: '/workspace/pt'
+      fullPath: '/workspace/pt/'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/assinatura-de-email': {
+      id: '/_authenticated/workspace/pt/assinatura-de-email'
+      path: '/workspace/pt/assinatura-de-email'
+      fullPath: '/workspace/pt/assinatura-de-email'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtAssinaturaDeEmailRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/assinatura-transparente': {
+      id: '/_authenticated/workspace/pt/assinatura-transparente'
+      path: '/workspace/pt/assinatura-transparente'
+      fullPath: '/workspace/pt/assinatura-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtAssinaturaTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/avatar-discord': {
+      id: '/_authenticated/workspace/pt/avatar-discord'
+      path: '/workspace/pt/avatar-discord'
+      fullPath: '/workspace/pt/avatar-discord'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtAvatarDiscordRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/carimbo-transparente': {
+      id: '/_authenticated/workspace/pt/carimbo-transparente'
+      path: '/workspace/pt/carimbo-transparente'
+      fullPath: '/workspace/pt/carimbo-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtCarimboTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/criar-figurinhas': {
+      id: '/_authenticated/workspace/pt/criar-figurinhas'
+      path: '/workspace/pt/criar-figurinhas'
+      fullPath: '/workspace/pt/criar-figurinhas'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtCriarFigurinhasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/desfocar-fundo': {
+      id: '/_authenticated/workspace/pt/desfocar-fundo'
+      path: '/workspace/pt/desfocar-fundo'
+      fullPath: '/workspace/pt/desfocar-fundo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtDesfocarFundoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/emoji-slack-discord': {
+      id: '/_authenticated/workspace/pt/emoji-slack-discord'
+      path: '/workspace/pt/emoji-slack-discord'
+      fullPath: '/workspace/pt/emoji-slack-discord'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtEmojiSlackDiscordRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/figurinha-de-pet': {
+      id: '/_authenticated/workspace/pt/figurinha-de-pet'
+      path: '/workspace/pt/figurinha-de-pet'
+      fullPath: '/workspace/pt/figurinha-de-pet'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaDePetRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/figurinha-telegram': {
+      id: '/_authenticated/workspace/pt/figurinha-telegram'
+      path: '/workspace/pt/figurinha-telegram'
+      fullPath: '/workspace/pt/figurinha-telegram'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaTelegramRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/figurinha-whatsapp': {
+      id: '/_authenticated/workspace/pt/figurinha-whatsapp'
+      path: '/workspace/pt/figurinha-whatsapp'
+      fullPath: '/workspace/pt/figurinha-whatsapp'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaWhatsappRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/folha-de-adesivos-para-imprimir': {
+      id: '/_authenticated/workspace/pt/folha-de-adesivos-para-imprimir'
+      path: '/workspace/pt/folha-de-adesivos-para-imprimir'
+      fullPath: '/workspace/pt/folha-de-adesivos-para-imprimir'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFolhaDeAdesivosParaImprimirRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/folha-de-fotos-passaporte': {
+      id: '/_authenticated/workspace/pt/folha-de-fotos-passaporte'
+      path: '/workspace/pt/folha-de-fotos-passaporte'
+      fullPath: '/workspace/pt/folha-de-fotos-passaporte'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFolhaDeFotosPassaporteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-perfil': {
+      id: '/_authenticated/workspace/pt/foto-de-perfil'
+      path: '/workspace/pt/foto-de-perfil'
+      fullPath: '/workspace/pt/foto-de-perfil'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDePerfilRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-perfil-instagram': {
+      id: '/_authenticated/workspace/pt/foto-de-perfil-instagram'
+      path: '/workspace/pt/foto-de-perfil-instagram'
+      fullPath: '/workspace/pt/foto-de-perfil-instagram'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDePerfilInstagramRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-produto': {
+      id: '/_authenticated/workspace/pt/foto-de-produto'
+      path: '/workspace/pt/foto-de-produto'
+      fullPath: '/workspace/pt/foto-de-produto'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-produto-amazon': {
+      id: '/_authenticated/workspace/pt/foto-de-produto-amazon'
+      path: '/workspace/pt/foto-de-produto-amazon'
+      fullPath: '/workspace/pt/foto-de-produto-amazon'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoAmazonRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-produto-com-sombra': {
+      id: '/_authenticated/workspace/pt/foto-de-produto-com-sombra'
+      path: '/workspace/pt/foto-de-produto-com-sombra'
+      fullPath: '/workspace/pt/foto-de-produto-com-sombra'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoComSombraRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-produto-ebay-etsy': {
+      id: '/_authenticated/workspace/pt/foto-de-produto-ebay-etsy'
+      path: '/workspace/pt/foto-de-produto-ebay-etsy'
+      fullPath: '/workspace/pt/foto-de-produto-ebay-etsy'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoEbayEtsyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-de-roupa-para-vender': {
+      id: '/_authenticated/workspace/pt/foto-de-roupa-para-vender'
+      path: '/workspace/pt/foto-de-roupa-para-vender'
+      fullPath: '/workspace/pt/foto-de-roupa-para-vender'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeRoupaParaVenderRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-para-curriculo': {
+      id: '/_authenticated/workspace/pt/foto-para-curriculo'
+      path: '/workspace/pt/foto-para-curriculo'
+      fullPath: '/workspace/pt/foto-para-curriculo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaCurriculoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-para-documento': {
+      id: '/_authenticated/workspace/pt/foto-para-documento'
+      path: '/workspace/pt/foto-para-documento'
+      fullPath: '/workspace/pt/foto-para-documento'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaDocumentoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-para-linkedin': {
+      id: '/_authenticated/workspace/pt/foto-para-linkedin'
+      path: '/workspace/pt/foto-para-linkedin'
+      fullPath: '/workspace/pt/foto-para-linkedin'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaLinkedinRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-para-passaporte': {
+      id: '/_authenticated/workspace/pt/foto-para-passaporte'
+      path: '/workspace/pt/foto-para-passaporte'
+      fullPath: '/workspace/pt/foto-para-passaporte'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaPassaporteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-passaporte-australia': {
+      id: '/_authenticated/workspace/pt/foto-passaporte-australia'
+      path: '/workspace/pt/foto-passaporte-australia'
+      fullPath: '/workspace/pt/foto-passaporte-australia'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteAustraliaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-passaporte-eua': {
+      id: '/_authenticated/workspace/pt/foto-passaporte-eua'
+      path: '/workspace/pt/foto-passaporte-eua'
+      fullPath: '/workspace/pt/foto-passaporte-eua'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteEuaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-passaporte-india': {
+      id: '/_authenticated/workspace/pt/foto-passaporte-india'
+      path: '/workspace/pt/foto-passaporte-india'
+      fullPath: '/workspace/pt/foto-passaporte-india'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteIndiaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-passaporte-reino-unido': {
+      id: '/_authenticated/workspace/pt/foto-passaporte-reino-unido'
+      path: '/workspace/pt/foto-passaporte-reino-unido'
+      fullPath: '/workspace/pt/foto-passaporte-reino-unido'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteReinoUnidoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/foto-visto-schengen': {
+      id: '/_authenticated/workspace/pt/foto-visto-schengen'
+      path: '/workspace/pt/foto-visto-schengen'
+      fullPath: '/workspace/pt/foto-visto-schengen'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoVistoSchengenRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fotos-da-equipe': {
+      id: '/_authenticated/workspace/pt/fotos-da-equipe'
+      path: '/workspace/pt/fotos-da-equipe'
+      fullPath: '/workspace/pt/fotos-da-equipe'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotosDaEquipeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fotos-de-produto-shopify': {
+      id: '/_authenticated/workspace/pt/fotos-de-produto-shopify'
+      path: '/workspace/pt/fotos-de-produto-shopify'
+      fullPath: '/workspace/pt/fotos-de-produto-shopify'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFotosDeProdutoShopifyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-branco': {
+      id: '/_authenticated/workspace/pt/fundo-branco'
+      path: '/workspace/pt/fundo-branco'
+      fullPath: '/workspace/pt/fundo-branco'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoBrancoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-colorido': {
+      id: '/_authenticated/workspace/pt/fundo-colorido'
+      path: '/workspace/pt/fundo-colorido'
+      fullPath: '/workspace/pt/fundo-colorido'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoColoridoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-cor-da-marca': {
+      id: '/_authenticated/workspace/pt/fundo-cor-da-marca'
+      path: '/workspace/pt/fundo-cor-da-marca'
+      fullPath: '/workspace/pt/fundo-cor-da-marca'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoCorDaMarcaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-de-festa': {
+      id: '/_authenticated/workspace/pt/fundo-de-festa'
+      path: '/workspace/pt/fundo-de-festa'
+      fullPath: '/workspace/pt/fundo-de-festa'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDeFestaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-de-viagem': {
+      id: '/_authenticated/workspace/pt/fundo-de-viagem'
+      path: '/workspace/pt/fundo-de-viagem'
+      fullPath: '/workspace/pt/fundo-de-viagem'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDeViagemRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-degrade': {
+      id: '/_authenticated/workspace/pt/fundo-degrade'
+      path: '/workspace/pt/fundo-degrade'
+      fullPath: '/workspace/pt/fundo-degrade'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDegradeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-preto': {
+      id: '/_authenticated/workspace/pt/fundo-preto'
+      path: '/workspace/pt/fundo-preto'
+      fullPath: '/workspace/pt/fundo-preto'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoPretoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/fundo-virtual-zoom-teams': {
+      id: '/_authenticated/workspace/pt/fundo-virtual-zoom-teams'
+      path: '/workspace/pt/fundo-virtual-zoom-teams'
+      fullPath: '/workspace/pt/fundo-virtual-zoom-teams'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoVirtualZoomTeamsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/licenca': {
+      id: '/_authenticated/workspace/pt/licenca'
+      path: '/workspace/pt/licenca'
+      fullPath: '/workspace/pt/licenca'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtLicencaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/logo-e-assinatura-sem-fundo': {
+      id: '/_authenticated/workspace/pt/logo-e-assinatura-sem-fundo'
+      path: '/workspace/pt/logo-e-assinatura-sem-fundo'
+      fullPath: '/workspace/pt/logo-e-assinatura-sem-fundo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtLogoEAssinaturaSemFundoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/logo-png-transparente': {
+      id: '/_authenticated/workspace/pt/logo-png-transparente'
+      path: '/workspace/pt/logo-png-transparente'
+      fullPath: '/workspace/pt/logo-png-transparente'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtLogoPngTransparenteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/mudar-cor-do-logo': {
+      id: '/_authenticated/workspace/pt/mudar-cor-do-logo'
+      path: '/workspace/pt/mudar-cor-do-logo'
+      fullPath: '/workspace/pt/mudar-cor-do-logo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtMudarCorDoLogoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/png-transparente-para-slides': {
+      id: '/_authenticated/workspace/pt/png-transparente-para-slides'
+      path: '/workspace/pt/png-transparente-para-slides'
+      fullPath: '/workspace/pt/png-transparente-para-slides'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtPngTransparenteParaSlidesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/recortar-cabelo': {
+      id: '/_authenticated/workspace/pt/recortar-cabelo'
+      path: '/workspace/pt/recortar-cabelo'
+      fullPath: '/workspace/pt/recortar-cabelo'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtRecortarCabeloRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/recortar-pet': {
+      id: '/_authenticated/workspace/pt/recortar-pet'
+      path: '/workspace/pt/recortar-pet'
+      fullPath: '/workspace/pt/recortar-pet'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtRecortarPetRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/remover-fundo-de-imagem-grafica': {
+      id: '/_authenticated/workspace/pt/remover-fundo-de-imagem-grafica'
+      path: '/workspace/pt/remover-fundo-de-imagem-grafica'
+      fullPath: '/workspace/pt/remover-fundo-de-imagem-grafica'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/remover-fundo-em-lote': {
+      id: '/_authenticated/workspace/pt/remover-fundo-em-lote'
+      path: '/workspace/pt/remover-fundo-em-lote'
+      fullPath: '/workspace/pt/remover-fundo-em-lote'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtRemoverFundoEmLoteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/workspace/pt/trocar-fundo-da-foto': {
+      id: '/_authenticated/workspace/pt/trocar-fundo-da-foto'
+      path: '/workspace/pt/trocar-fundo-da-foto'
+      fullPath: '/workspace/pt/trocar-fundo-da-foto'
+      preLoaderRoute: typeof AuthenticatedWorkspacePtTrocarFundoDaFotoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+  }
+}
+
+interface AuthenticatedRouteRouteChildren {
   AuthenticatedWorkspaceAmazonProductPhotoRoute: typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   AuthenticatedWorkspaceAustraliaPassportPhotoRoute: typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   AuthenticatedWorkspaceBatchRemoveBackgroundRoute: typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -2088,1041 +3184,7 @@ export interface RootRouteChildren {
   AuthenticatedWorkspacePtIndexRoute: typeof AuthenticatedWorkspacePtIndexRoute
 }
 
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/_authenticated/workspace/': {
-      id: '/_authenticated/workspace/'
-      path: '/workspace'
-      fullPath: '/workspace/'
-      preLoaderRoute: typeof AuthenticatedWorkspaceIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/amazon-product-photo': {
-      id: '/_authenticated/workspace/amazon-product-photo'
-      path: '/workspace/amazon-product-photo'
-      fullPath: '/workspace/amazon-product-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceAmazonProductPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/australia-passport-photo': {
-      id: '/_authenticated/workspace/australia-passport-photo'
-      path: '/workspace/australia-passport-photo'
-      fullPath: '/workspace/australia-passport-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceAustraliaPassportPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/batch-remove-background': {
-      id: '/_authenticated/workspace/batch-remove-background'
-      path: '/workspace/batch-remove-background'
-      fullPath: '/workspace/batch-remove-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceBatchRemoveBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/black-background': {
-      id: '/_authenticated/workspace/black-background'
-      path: '/workspace/black-background'
-      fullPath: '/workspace/black-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceBlackBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/blur-background': {
-      id: '/_authenticated/workspace/blur-background'
-      path: '/workspace/blur-background'
-      fullPath: '/workspace/blur-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceBlurBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/brand-colour-background': {
-      id: '/_authenticated/workspace/brand-colour-background'
-      path: '/workspace/brand-colour-background'
-      fullPath: '/workspace/brand-colour-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceBrandColourBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/clothing-photo': {
-      id: '/_authenticated/workspace/clothing-photo'
-      path: '/workspace/clothing-photo'
-      fullPath: '/workspace/clothing-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceClothingPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/colour-background': {
-      id: '/_authenticated/workspace/colour-background'
-      path: '/workspace/colour-background'
-      fullPath: '/workspace/colour-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceColourBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/cut-out-hair': {
-      id: '/_authenticated/workspace/cut-out-hair'
-      path: '/workspace/cut-out-hair'
-      fullPath: '/workspace/cut-out-hair'
-      preLoaderRoute: typeof AuthenticatedWorkspaceCutOutHairRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/cut-out-pet': {
-      id: '/_authenticated/workspace/cut-out-pet'
-      path: '/workspace/cut-out-pet'
-      fullPath: '/workspace/cut-out-pet'
-      preLoaderRoute: typeof AuthenticatedWorkspaceCutOutPetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/cv-photo': {
-      id: '/_authenticated/workspace/cv-photo'
-      path: '/workspace/cv-photo'
-      fullPath: '/workspace/cv-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceCvPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/discord-avatar': {
-      id: '/_authenticated/workspace/discord-avatar'
-      path: '/workspace/discord-avatar'
-      fullPath: '/workspace/discord-avatar'
-      preLoaderRoute: typeof AuthenticatedWorkspaceDiscordAvatarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/ebay-etsy-product-photo': {
-      id: '/_authenticated/workspace/ebay-etsy-product-photo'
-      path: '/workspace/ebay-etsy-product-photo'
-      fullPath: '/workspace/ebay-etsy-product-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEbayEtsyProductPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/email-signature': {
-      id: '/_authenticated/workspace/email-signature'
-      path: '/workspace/email-signature'
-      fullPath: '/workspace/email-signature'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEmailSignatureRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/gradient-background': {
-      id: '/_authenticated/workspace/gradient-background'
-      path: '/workspace/gradient-background'
-      fullPath: '/workspace/gradient-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceGradientBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/holiday-background': {
-      id: '/_authenticated/workspace/holiday-background'
-      path: '/workspace/holiday-background'
-      fullPath: '/workspace/holiday-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceHolidayBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/id-card-photo': {
-      id: '/_authenticated/workspace/id-card-photo'
-      path: '/workspace/id-card-photo'
-      fullPath: '/workspace/id-card-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceIdCardPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/india-passport-photo': {
-      id: '/_authenticated/workspace/india-passport-photo'
-      path: '/workspace/india-passport-photo'
-      fullPath: '/workspace/india-passport-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceIndiaPassportPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/instagram-profile-picture': {
-      id: '/_authenticated/workspace/instagram-profile-picture'
-      path: '/workspace/instagram-profile-picture'
-      fullPath: '/workspace/instagram-profile-picture'
-      preLoaderRoute: typeof AuthenticatedWorkspaceInstagramProfilePictureRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/license': {
-      id: '/_authenticated/workspace/license'
-      path: '/workspace/license'
-      fullPath: '/workspace/license'
-      preLoaderRoute: typeof AuthenticatedWorkspaceLicenseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/linkedin-profile-photo': {
-      id: '/_authenticated/workspace/linkedin-profile-photo'
-      path: '/workspace/linkedin-profile-photo'
-      fullPath: '/workspace/linkedin-profile-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceLinkedinProfilePhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/logo-cleaner': {
-      id: '/_authenticated/workspace/logo-cleaner'
-      path: '/workspace/logo-cleaner'
-      fullPath: '/workspace/logo-cleaner'
-      preLoaderRoute: typeof AuthenticatedWorkspaceLogoCleanerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/logo-to-png': {
-      id: '/_authenticated/workspace/logo-to-png'
-      path: '/workspace/logo-to-png'
-      fullPath: '/workspace/logo-to-png'
-      preLoaderRoute: typeof AuthenticatedWorkspaceLogoToPngRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/party-background': {
-      id: '/_authenticated/workspace/party-background'
-      path: '/workspace/party-background'
-      fullPath: '/workspace/party-background'
-      preLoaderRoute: typeof AuthenticatedWorkspacePartyBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/passport-photo': {
-      id: '/_authenticated/workspace/passport-photo'
-      path: '/workspace/passport-photo'
-      fullPath: '/workspace/passport-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePassportPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/passport-photo-print-sheet': {
-      id: '/_authenticated/workspace/passport-photo-print-sheet'
-      path: '/workspace/passport-photo-print-sheet'
-      fullPath: '/workspace/passport-photo-print-sheet'
-      preLoaderRoute: typeof AuthenticatedWorkspacePassportPhotoPrintSheetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pet-sticker': {
-      id: '/_authenticated/workspace/pet-sticker'
-      path: '/workspace/pet-sticker'
-      fullPath: '/workspace/pet-sticker'
-      preLoaderRoute: typeof AuthenticatedWorkspacePetStickerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/photo-background': {
-      id: '/_authenticated/workspace/photo-background'
-      path: '/workspace/photo-background'
-      fullPath: '/workspace/photo-background'
-      preLoaderRoute: typeof AuthenticatedWorkspacePhotoBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/printable-sticker-sheet': {
-      id: '/_authenticated/workspace/printable-sticker-sheet'
-      path: '/workspace/printable-sticker-sheet'
-      fullPath: '/workspace/printable-sticker-sheet'
-      preLoaderRoute: typeof AuthenticatedWorkspacePrintableStickerSheetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/product-photo': {
-      id: '/_authenticated/workspace/product-photo'
-      path: '/workspace/product-photo'
-      fullPath: '/workspace/product-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceProductPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/product-photo-shadow': {
-      id: '/_authenticated/workspace/product-photo-shadow'
-      path: '/workspace/product-photo-shadow'
-      fullPath: '/workspace/product-photo-shadow'
-      preLoaderRoute: typeof AuthenticatedWorkspaceProductPhotoShadowRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/profile-picture': {
-      id: '/_authenticated/workspace/profile-picture'
-      path: '/workspace/profile-picture'
-      fullPath: '/workspace/profile-picture'
-      preLoaderRoute: typeof AuthenticatedWorkspaceProfilePictureRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/recolour-logo': {
-      id: '/_authenticated/workspace/recolour-logo'
-      path: '/workspace/recolour-logo'
-      fullPath: '/workspace/recolour-logo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceRecolourLogoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/remove-background-from-graphic': {
-      id: '/_authenticated/workspace/remove-background-from-graphic'
-      path: '/workspace/remove-background-from-graphic'
-      fullPath: '/workspace/remove-background-from-graphic'
-      preLoaderRoute: typeof AuthenticatedWorkspaceRemoveBackgroundFromGraphicRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/schengen-visa-photo': {
-      id: '/_authenticated/workspace/schengen-visa-photo'
-      path: '/workspace/schengen-visa-photo'
-      fullPath: '/workspace/schengen-visa-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceSchengenVisaPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/shopify-product-photos': {
-      id: '/_authenticated/workspace/shopify-product-photos'
-      path: '/workspace/shopify-product-photos'
-      fullPath: '/workspace/shopify-product-photos'
-      preLoaderRoute: typeof AuthenticatedWorkspaceShopifyProductPhotosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/slack-emoji': {
-      id: '/_authenticated/workspace/slack-emoji'
-      path: '/workspace/slack-emoji'
-      fullPath: '/workspace/slack-emoji'
-      preLoaderRoute: typeof AuthenticatedWorkspaceSlackEmojiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/stamp-cleaner': {
-      id: '/_authenticated/workspace/stamp-cleaner'
-      path: '/workspace/stamp-cleaner'
-      fullPath: '/workspace/stamp-cleaner'
-      preLoaderRoute: typeof AuthenticatedWorkspaceStampCleanerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/sticker-maker': {
-      id: '/_authenticated/workspace/sticker-maker'
-      path: '/workspace/sticker-maker'
-      fullPath: '/workspace/sticker-maker'
-      preLoaderRoute: typeof AuthenticatedWorkspaceStickerMakerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/team-headshots': {
-      id: '/_authenticated/workspace/team-headshots'
-      path: '/workspace/team-headshots'
-      fullPath: '/workspace/team-headshots'
-      preLoaderRoute: typeof AuthenticatedWorkspaceTeamHeadshotsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/telegram-sticker': {
-      id: '/_authenticated/workspace/telegram-sticker'
-      path: '/workspace/telegram-sticker'
-      fullPath: '/workspace/telegram-sticker'
-      preLoaderRoute: typeof AuthenticatedWorkspaceTelegramStickerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/transparent-png-for-slides': {
-      id: '/_authenticated/workspace/transparent-png-for-slides'
-      path: '/workspace/transparent-png-for-slides'
-      fullPath: '/workspace/transparent-png-for-slides'
-      preLoaderRoute: typeof AuthenticatedWorkspaceTransparentPngForSlidesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/transparent-signature': {
-      id: '/_authenticated/workspace/transparent-signature'
-      path: '/workspace/transparent-signature'
-      fullPath: '/workspace/transparent-signature'
-      preLoaderRoute: typeof AuthenticatedWorkspaceTransparentSignatureRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/uk-passport-photo': {
-      id: '/_authenticated/workspace/uk-passport-photo'
-      path: '/workspace/uk-passport-photo'
-      fullPath: '/workspace/uk-passport-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceUkPassportPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/us-passport-photo': {
-      id: '/_authenticated/workspace/us-passport-photo'
-      path: '/workspace/us-passport-photo'
-      fullPath: '/workspace/us-passport-photo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceUsPassportPhotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/virtual-background': {
-      id: '/_authenticated/workspace/virtual-background'
-      path: '/workspace/virtual-background'
-      fullPath: '/workspace/virtual-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceVirtualBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/whatsapp-sticker': {
-      id: '/_authenticated/workspace/whatsapp-sticker'
-      path: '/workspace/whatsapp-sticker'
-      fullPath: '/workspace/whatsapp-sticker'
-      preLoaderRoute: typeof AuthenticatedWorkspaceWhatsappStickerRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/white-background': {
-      id: '/_authenticated/workspace/white-background'
-      path: '/workspace/white-background'
-      fullPath: '/workspace/white-background'
-      preLoaderRoute: typeof AuthenticatedWorkspaceWhiteBackgroundRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/': {
-      id: '/_authenticated/workspace/es/'
-      path: '/workspace/es'
-      fullPath: '/workspace/es/'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/avatar-discord': {
-      id: '/_authenticated/workspace/es/avatar-discord'
-      path: '/workspace/es/avatar-discord'
-      fullPath: '/workspace/es/avatar-discord'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsAvatarDiscordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/cambiar-color-del-logo': {
-      id: '/_authenticated/workspace/es/cambiar-color-del-logo'
-      path: '/workspace/es/cambiar-color-del-logo'
-      fullPath: '/workspace/es/cambiar-color-del-logo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsCambiarColorDelLogoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/cambiar-fondo-de-foto': {
-      id: '/_authenticated/workspace/es/cambiar-fondo-de-foto'
-      path: '/workspace/es/cambiar-fondo-de-foto'
-      fullPath: '/workspace/es/cambiar-fondo-de-foto'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsCambiarFondoDeFotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/crear-stickers': {
-      id: '/_authenticated/workspace/es/crear-stickers'
-      path: '/workspace/es/crear-stickers'
-      fullPath: '/workspace/es/crear-stickers'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsCrearStickersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/desenfocar-fondo': {
-      id: '/_authenticated/workspace/es/desenfocar-fondo'
-      path: '/workspace/es/desenfocar-fondo'
-      fullPath: '/workspace/es/desenfocar-fondo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsDesenfocarFondoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/emoji-slack-discord': {
-      id: '/_authenticated/workspace/es/emoji-slack-discord'
-      path: '/workspace/es/emoji-slack-discord'
-      fullPath: '/workspace/es/emoji-slack-discord'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsEmojiSlackDiscordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/firma-de-correo': {
-      id: '/_authenticated/workspace/es/firma-de-correo'
-      path: '/workspace/es/firma-de-correo'
-      fullPath: '/workspace/es/firma-de-correo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFirmaDeCorreoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/firma-transparente': {
-      id: '/_authenticated/workspace/es/firma-transparente'
-      path: '/workspace/es/firma-transparente'
-      fullPath: '/workspace/es/firma-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFirmaTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-blanco': {
-      id: '/_authenticated/workspace/es/fondo-blanco'
-      path: '/workspace/es/fondo-blanco'
-      fullPath: '/workspace/es/fondo-blanco'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoBlancoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-color-de-marca': {
-      id: '/_authenticated/workspace/es/fondo-color-de-marca'
-      path: '/workspace/es/fondo-color-de-marca'
-      fullPath: '/workspace/es/fondo-color-de-marca'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoColorDeMarcaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-de-color': {
-      id: '/_authenticated/workspace/es/fondo-de-color'
-      path: '/workspace/es/fondo-de-color'
-      fullPath: '/workspace/es/fondo-de-color'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeColorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-de-fiesta': {
-      id: '/_authenticated/workspace/es/fondo-de-fiesta'
-      path: '/workspace/es/fondo-de-fiesta'
-      fullPath: '/workspace/es/fondo-de-fiesta'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeFiestaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-de-vacaciones': {
-      id: '/_authenticated/workspace/es/fondo-de-vacaciones'
-      path: '/workspace/es/fondo-de-vacaciones'
-      fullPath: '/workspace/es/fondo-de-vacaciones'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDeVacacionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-degradado': {
-      id: '/_authenticated/workspace/es/fondo-degradado'
-      path: '/workspace/es/fondo-degradado'
-      fullPath: '/workspace/es/fondo-degradado'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoDegradadoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-negro': {
-      id: '/_authenticated/workspace/es/fondo-negro'
-      path: '/workspace/es/fondo-negro'
-      fullPath: '/workspace/es/fondo-negro'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoNegroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fondo-virtual-zoom-teams': {
-      id: '/_authenticated/workspace/es/fondo-virtual-zoom-teams'
-      path: '/workspace/es/fondo-virtual-zoom-teams'
-      fullPath: '/workspace/es/fondo-virtual-zoom-teams'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFondoVirtualZoomTeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-perfil': {
-      id: '/_authenticated/workspace/es/foto-de-perfil'
-      path: '/workspace/es/foto-de-perfil'
-      fullPath: '/workspace/es/foto-de-perfil'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDePerfilRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-perfil-instagram': {
-      id: '/_authenticated/workspace/es/foto-de-perfil-instagram'
-      path: '/workspace/es/foto-de-perfil-instagram'
-      fullPath: '/workspace/es/foto-de-perfil-instagram'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDePerfilInstagramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-producto': {
-      id: '/_authenticated/workspace/es/foto-de-producto'
-      path: '/workspace/es/foto-de-producto'
-      fullPath: '/workspace/es/foto-de-producto'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-producto-amazon': {
-      id: '/_authenticated/workspace/es/foto-de-producto-amazon'
-      path: '/workspace/es/foto-de-producto-amazon'
-      fullPath: '/workspace/es/foto-de-producto-amazon'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoAmazonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-producto-con-sombra': {
-      id: '/_authenticated/workspace/es/foto-de-producto-con-sombra'
-      path: '/workspace/es/foto-de-producto-con-sombra'
-      fullPath: '/workspace/es/foto-de-producto-con-sombra'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoConSombraRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-producto-ebay-etsy': {
-      id: '/_authenticated/workspace/es/foto-de-producto-ebay-etsy'
-      path: '/workspace/es/foto-de-producto-ebay-etsy'
-      fullPath: '/workspace/es/foto-de-producto-ebay-etsy'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeProductoEbayEtsyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-de-ropa-para-vender': {
-      id: '/_authenticated/workspace/es/foto-de-ropa-para-vender'
-      path: '/workspace/es/foto-de-ropa-para-vender'
-      fullPath: '/workspace/es/foto-de-ropa-para-vender'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoDeRopaParaVenderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-para-curriculum': {
-      id: '/_authenticated/workspace/es/foto-para-curriculum'
-      path: '/workspace/es/foto-para-curriculum'
-      fullPath: '/workspace/es/foto-para-curriculum'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaCurriculumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-para-documento': {
-      id: '/_authenticated/workspace/es/foto-para-documento'
-      path: '/workspace/es/foto-para-documento'
-      fullPath: '/workspace/es/foto-para-documento'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaDocumentoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-para-linkedin': {
-      id: '/_authenticated/workspace/es/foto-para-linkedin'
-      path: '/workspace/es/foto-para-linkedin'
-      fullPath: '/workspace/es/foto-para-linkedin'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaLinkedinRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-para-pasaporte': {
-      id: '/_authenticated/workspace/es/foto-para-pasaporte'
-      path: '/workspace/es/foto-para-pasaporte'
-      fullPath: '/workspace/es/foto-para-pasaporte'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoParaPasaporteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-pasaporte-australia': {
-      id: '/_authenticated/workspace/es/foto-pasaporte-australia'
-      path: '/workspace/es/foto-pasaporte-australia'
-      fullPath: '/workspace/es/foto-pasaporte-australia'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteAustraliaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-pasaporte-estados-unidos': {
-      id: '/_authenticated/workspace/es/foto-pasaporte-estados-unidos'
-      path: '/workspace/es/foto-pasaporte-estados-unidos'
-      fullPath: '/workspace/es/foto-pasaporte-estados-unidos'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteEstadosUnidosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-pasaporte-india': {
-      id: '/_authenticated/workspace/es/foto-pasaporte-india'
-      path: '/workspace/es/foto-pasaporte-india'
-      fullPath: '/workspace/es/foto-pasaporte-india'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteIndiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-pasaporte-reino-unido': {
-      id: '/_authenticated/workspace/es/foto-pasaporte-reino-unido'
-      path: '/workspace/es/foto-pasaporte-reino-unido'
-      fullPath: '/workspace/es/foto-pasaporte-reino-unido'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoPasaporteReinoUnidoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/foto-visa-schengen': {
-      id: '/_authenticated/workspace/es/foto-visa-schengen'
-      path: '/workspace/es/foto-visa-schengen'
-      fullPath: '/workspace/es/foto-visa-schengen'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotoVisaSchengenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fotos-de-producto-shopify': {
-      id: '/_authenticated/workspace/es/fotos-de-producto-shopify'
-      path: '/workspace/es/fotos-de-producto-shopify'
-      fullPath: '/workspace/es/fotos-de-producto-shopify'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotosDeProductoShopifyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/fotos-del-equipo': {
-      id: '/_authenticated/workspace/es/fotos-del-equipo'
-      path: '/workspace/es/fotos-del-equipo'
-      fullPath: '/workspace/es/fotos-del-equipo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsFotosDelEquipoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/hoja-de-fotos-pasaporte': {
-      id: '/_authenticated/workspace/es/hoja-de-fotos-pasaporte'
-      path: '/workspace/es/hoja-de-fotos-pasaporte'
-      fullPath: '/workspace/es/hoja-de-fotos-pasaporte'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsHojaDeFotosPasaporteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/hoja-de-pegatinas-para-imprimir': {
-      id: '/_authenticated/workspace/es/hoja-de-pegatinas-para-imprimir'
-      path: '/workspace/es/hoja-de-pegatinas-para-imprimir'
-      fullPath: '/workspace/es/hoja-de-pegatinas-para-imprimir'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsHojaDePegatinasParaImprimirRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/licencia': {
-      id: '/_authenticated/workspace/es/licencia'
-      path: '/workspace/es/licencia'
-      fullPath: '/workspace/es/licencia'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsLicenciaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/logo-png-transparente': {
-      id: '/_authenticated/workspace/es/logo-png-transparente'
-      path: '/workspace/es/logo-png-transparente'
-      fullPath: '/workspace/es/logo-png-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsLogoPngTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/logo-y-firma-sin-fondo': {
-      id: '/_authenticated/workspace/es/logo-y-firma-sin-fondo'
-      path: '/workspace/es/logo-y-firma-sin-fondo'
-      fullPath: '/workspace/es/logo-y-firma-sin-fondo'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsLogoYFirmaSinFondoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/png-transparente-para-presentaciones': {
-      id: '/_authenticated/workspace/es/png-transparente-para-presentaciones'
-      path: '/workspace/es/png-transparente-para-presentaciones'
-      fullPath: '/workspace/es/png-transparente-para-presentaciones'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsPngTransparenteParaPresentacionesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/quitar-fondo-de-grafico': {
-      id: '/_authenticated/workspace/es/quitar-fondo-de-grafico'
-      path: '/workspace/es/quitar-fondo-de-grafico'
-      fullPath: '/workspace/es/quitar-fondo-de-grafico'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsQuitarFondoDeGraficoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/quitar-fondo-en-lote': {
-      id: '/_authenticated/workspace/es/quitar-fondo-en-lote'
-      path: '/workspace/es/quitar-fondo-en-lote'
-      fullPath: '/workspace/es/quitar-fondo-en-lote'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsQuitarFondoEnLoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/recortar-cabello': {
-      id: '/_authenticated/workspace/es/recortar-cabello'
-      path: '/workspace/es/recortar-cabello'
-      fullPath: '/workspace/es/recortar-cabello'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsRecortarCabelloRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/recortar-mascota': {
-      id: '/_authenticated/workspace/es/recortar-mascota'
-      path: '/workspace/es/recortar-mascota'
-      fullPath: '/workspace/es/recortar-mascota'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsRecortarMascotaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/sello-transparente': {
-      id: '/_authenticated/workspace/es/sello-transparente'
-      path: '/workspace/es/sello-transparente'
-      fullPath: '/workspace/es/sello-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsSelloTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/sticker-de-mascota': {
-      id: '/_authenticated/workspace/es/sticker-de-mascota'
-      path: '/workspace/es/sticker-de-mascota'
-      fullPath: '/workspace/es/sticker-de-mascota'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerDeMascotaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/sticker-telegram': {
-      id: '/_authenticated/workspace/es/sticker-telegram'
-      path: '/workspace/es/sticker-telegram'
-      fullPath: '/workspace/es/sticker-telegram'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerTelegramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/es/sticker-whatsapp': {
-      id: '/_authenticated/workspace/es/sticker-whatsapp'
-      path: '/workspace/es/sticker-whatsapp'
-      fullPath: '/workspace/es/sticker-whatsapp'
-      preLoaderRoute: typeof AuthenticatedWorkspaceEsStickerWhatsappRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/': {
-      id: '/_authenticated/workspace/pt/'
-      path: '/workspace/pt'
-      fullPath: '/workspace/pt/'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/assinatura-de-email': {
-      id: '/_authenticated/workspace/pt/assinatura-de-email'
-      path: '/workspace/pt/assinatura-de-email'
-      fullPath: '/workspace/pt/assinatura-de-email'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtAssinaturaDeEmailRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/assinatura-transparente': {
-      id: '/_authenticated/workspace/pt/assinatura-transparente'
-      path: '/workspace/pt/assinatura-transparente'
-      fullPath: '/workspace/pt/assinatura-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtAssinaturaTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/avatar-discord': {
-      id: '/_authenticated/workspace/pt/avatar-discord'
-      path: '/workspace/pt/avatar-discord'
-      fullPath: '/workspace/pt/avatar-discord'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtAvatarDiscordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/carimbo-transparente': {
-      id: '/_authenticated/workspace/pt/carimbo-transparente'
-      path: '/workspace/pt/carimbo-transparente'
-      fullPath: '/workspace/pt/carimbo-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtCarimboTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/criar-figurinhas': {
-      id: '/_authenticated/workspace/pt/criar-figurinhas'
-      path: '/workspace/pt/criar-figurinhas'
-      fullPath: '/workspace/pt/criar-figurinhas'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtCriarFigurinhasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/desfocar-fundo': {
-      id: '/_authenticated/workspace/pt/desfocar-fundo'
-      path: '/workspace/pt/desfocar-fundo'
-      fullPath: '/workspace/pt/desfocar-fundo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtDesfocarFundoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/emoji-slack-discord': {
-      id: '/_authenticated/workspace/pt/emoji-slack-discord'
-      path: '/workspace/pt/emoji-slack-discord'
-      fullPath: '/workspace/pt/emoji-slack-discord'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtEmojiSlackDiscordRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/figurinha-de-pet': {
-      id: '/_authenticated/workspace/pt/figurinha-de-pet'
-      path: '/workspace/pt/figurinha-de-pet'
-      fullPath: '/workspace/pt/figurinha-de-pet'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaDePetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/figurinha-telegram': {
-      id: '/_authenticated/workspace/pt/figurinha-telegram'
-      path: '/workspace/pt/figurinha-telegram'
-      fullPath: '/workspace/pt/figurinha-telegram'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaTelegramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/figurinha-whatsapp': {
-      id: '/_authenticated/workspace/pt/figurinha-whatsapp'
-      path: '/workspace/pt/figurinha-whatsapp'
-      fullPath: '/workspace/pt/figurinha-whatsapp'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFigurinhaWhatsappRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/folha-de-adesivos-para-imprimir': {
-      id: '/_authenticated/workspace/pt/folha-de-adesivos-para-imprimir'
-      path: '/workspace/pt/folha-de-adesivos-para-imprimir'
-      fullPath: '/workspace/pt/folha-de-adesivos-para-imprimir'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFolhaDeAdesivosParaImprimirRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/folha-de-fotos-passaporte': {
-      id: '/_authenticated/workspace/pt/folha-de-fotos-passaporte'
-      path: '/workspace/pt/folha-de-fotos-passaporte'
-      fullPath: '/workspace/pt/folha-de-fotos-passaporte'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFolhaDeFotosPassaporteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-perfil': {
-      id: '/_authenticated/workspace/pt/foto-de-perfil'
-      path: '/workspace/pt/foto-de-perfil'
-      fullPath: '/workspace/pt/foto-de-perfil'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDePerfilRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-perfil-instagram': {
-      id: '/_authenticated/workspace/pt/foto-de-perfil-instagram'
-      path: '/workspace/pt/foto-de-perfil-instagram'
-      fullPath: '/workspace/pt/foto-de-perfil-instagram'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDePerfilInstagramRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-produto': {
-      id: '/_authenticated/workspace/pt/foto-de-produto'
-      path: '/workspace/pt/foto-de-produto'
-      fullPath: '/workspace/pt/foto-de-produto'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-produto-amazon': {
-      id: '/_authenticated/workspace/pt/foto-de-produto-amazon'
-      path: '/workspace/pt/foto-de-produto-amazon'
-      fullPath: '/workspace/pt/foto-de-produto-amazon'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoAmazonRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-produto-com-sombra': {
-      id: '/_authenticated/workspace/pt/foto-de-produto-com-sombra'
-      path: '/workspace/pt/foto-de-produto-com-sombra'
-      fullPath: '/workspace/pt/foto-de-produto-com-sombra'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoComSombraRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-produto-ebay-etsy': {
-      id: '/_authenticated/workspace/pt/foto-de-produto-ebay-etsy'
-      path: '/workspace/pt/foto-de-produto-ebay-etsy'
-      fullPath: '/workspace/pt/foto-de-produto-ebay-etsy'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeProdutoEbayEtsyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-de-roupa-para-vender': {
-      id: '/_authenticated/workspace/pt/foto-de-roupa-para-vender'
-      path: '/workspace/pt/foto-de-roupa-para-vender'
-      fullPath: '/workspace/pt/foto-de-roupa-para-vender'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoDeRoupaParaVenderRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-para-curriculo': {
-      id: '/_authenticated/workspace/pt/foto-para-curriculo'
-      path: '/workspace/pt/foto-para-curriculo'
-      fullPath: '/workspace/pt/foto-para-curriculo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaCurriculoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-para-documento': {
-      id: '/_authenticated/workspace/pt/foto-para-documento'
-      path: '/workspace/pt/foto-para-documento'
-      fullPath: '/workspace/pt/foto-para-documento'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaDocumentoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-para-linkedin': {
-      id: '/_authenticated/workspace/pt/foto-para-linkedin'
-      path: '/workspace/pt/foto-para-linkedin'
-      fullPath: '/workspace/pt/foto-para-linkedin'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaLinkedinRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-para-passaporte': {
-      id: '/_authenticated/workspace/pt/foto-para-passaporte'
-      path: '/workspace/pt/foto-para-passaporte'
-      fullPath: '/workspace/pt/foto-para-passaporte'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoParaPassaporteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-passaporte-australia': {
-      id: '/_authenticated/workspace/pt/foto-passaporte-australia'
-      path: '/workspace/pt/foto-passaporte-australia'
-      fullPath: '/workspace/pt/foto-passaporte-australia'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteAustraliaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-passaporte-eua': {
-      id: '/_authenticated/workspace/pt/foto-passaporte-eua'
-      path: '/workspace/pt/foto-passaporte-eua'
-      fullPath: '/workspace/pt/foto-passaporte-eua'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteEuaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-passaporte-india': {
-      id: '/_authenticated/workspace/pt/foto-passaporte-india'
-      path: '/workspace/pt/foto-passaporte-india'
-      fullPath: '/workspace/pt/foto-passaporte-india'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteIndiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-passaporte-reino-unido': {
-      id: '/_authenticated/workspace/pt/foto-passaporte-reino-unido'
-      path: '/workspace/pt/foto-passaporte-reino-unido'
-      fullPath: '/workspace/pt/foto-passaporte-reino-unido'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoPassaporteReinoUnidoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/foto-visto-schengen': {
-      id: '/_authenticated/workspace/pt/foto-visto-schengen'
-      path: '/workspace/pt/foto-visto-schengen'
-      fullPath: '/workspace/pt/foto-visto-schengen'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotoVistoSchengenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fotos-da-equipe': {
-      id: '/_authenticated/workspace/pt/fotos-da-equipe'
-      path: '/workspace/pt/fotos-da-equipe'
-      fullPath: '/workspace/pt/fotos-da-equipe'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotosDaEquipeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fotos-de-produto-shopify': {
-      id: '/_authenticated/workspace/pt/fotos-de-produto-shopify'
-      path: '/workspace/pt/fotos-de-produto-shopify'
-      fullPath: '/workspace/pt/fotos-de-produto-shopify'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFotosDeProdutoShopifyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-branco': {
-      id: '/_authenticated/workspace/pt/fundo-branco'
-      path: '/workspace/pt/fundo-branco'
-      fullPath: '/workspace/pt/fundo-branco'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoBrancoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-colorido': {
-      id: '/_authenticated/workspace/pt/fundo-colorido'
-      path: '/workspace/pt/fundo-colorido'
-      fullPath: '/workspace/pt/fundo-colorido'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoColoridoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-cor-da-marca': {
-      id: '/_authenticated/workspace/pt/fundo-cor-da-marca'
-      path: '/workspace/pt/fundo-cor-da-marca'
-      fullPath: '/workspace/pt/fundo-cor-da-marca'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoCorDaMarcaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-de-festa': {
-      id: '/_authenticated/workspace/pt/fundo-de-festa'
-      path: '/workspace/pt/fundo-de-festa'
-      fullPath: '/workspace/pt/fundo-de-festa'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDeFestaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-de-viagem': {
-      id: '/_authenticated/workspace/pt/fundo-de-viagem'
-      path: '/workspace/pt/fundo-de-viagem'
-      fullPath: '/workspace/pt/fundo-de-viagem'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDeViagemRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-degrade': {
-      id: '/_authenticated/workspace/pt/fundo-degrade'
-      path: '/workspace/pt/fundo-degrade'
-      fullPath: '/workspace/pt/fundo-degrade'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoDegradeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-preto': {
-      id: '/_authenticated/workspace/pt/fundo-preto'
-      path: '/workspace/pt/fundo-preto'
-      fullPath: '/workspace/pt/fundo-preto'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoPretoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/fundo-virtual-zoom-teams': {
-      id: '/_authenticated/workspace/pt/fundo-virtual-zoom-teams'
-      path: '/workspace/pt/fundo-virtual-zoom-teams'
-      fullPath: '/workspace/pt/fundo-virtual-zoom-teams'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtFundoVirtualZoomTeamsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/licenca': {
-      id: '/_authenticated/workspace/pt/licenca'
-      path: '/workspace/pt/licenca'
-      fullPath: '/workspace/pt/licenca'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtLicencaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/logo-e-assinatura-sem-fundo': {
-      id: '/_authenticated/workspace/pt/logo-e-assinatura-sem-fundo'
-      path: '/workspace/pt/logo-e-assinatura-sem-fundo'
-      fullPath: '/workspace/pt/logo-e-assinatura-sem-fundo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtLogoEAssinaturaSemFundoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/logo-png-transparente': {
-      id: '/_authenticated/workspace/pt/logo-png-transparente'
-      path: '/workspace/pt/logo-png-transparente'
-      fullPath: '/workspace/pt/logo-png-transparente'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtLogoPngTransparenteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/mudar-cor-do-logo': {
-      id: '/_authenticated/workspace/pt/mudar-cor-do-logo'
-      path: '/workspace/pt/mudar-cor-do-logo'
-      fullPath: '/workspace/pt/mudar-cor-do-logo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtMudarCorDoLogoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/png-transparente-para-slides': {
-      id: '/_authenticated/workspace/pt/png-transparente-para-slides'
-      path: '/workspace/pt/png-transparente-para-slides'
-      fullPath: '/workspace/pt/png-transparente-para-slides'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtPngTransparenteParaSlidesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/recortar-cabelo': {
-      id: '/_authenticated/workspace/pt/recortar-cabelo'
-      path: '/workspace/pt/recortar-cabelo'
-      fullPath: '/workspace/pt/recortar-cabelo'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtRecortarCabeloRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/recortar-pet': {
-      id: '/_authenticated/workspace/pt/recortar-pet'
-      path: '/workspace/pt/recortar-pet'
-      fullPath: '/workspace/pt/recortar-pet'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtRecortarPetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/remover-fundo-de-imagem-grafica': {
-      id: '/_authenticated/workspace/pt/remover-fundo-de-imagem-grafica'
-      path: '/workspace/pt/remover-fundo-de-imagem-grafica'
-      fullPath: '/workspace/pt/remover-fundo-de-imagem-grafica'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/remover-fundo-em-lote': {
-      id: '/_authenticated/workspace/pt/remover-fundo-em-lote'
-      path: '/workspace/pt/remover-fundo-em-lote'
-      fullPath: '/workspace/pt/remover-fundo-em-lote'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtRemoverFundoEmLoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/workspace/pt/trocar-fundo-da-foto': {
-      id: '/_authenticated/workspace/pt/trocar-fundo-da-foto'
-      path: '/workspace/pt/trocar-fundo-da-foto'
-      fullPath: '/workspace/pt/trocar-fundo-da-foto'
-      preLoaderRoute: typeof AuthenticatedWorkspacePtTrocarFundoDaFotoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-  }
-}
-
-const rootRouteChildren: RootRouteChildren = {
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedWorkspaceAmazonProductPhotoRoute:
     AuthenticatedWorkspaceAmazonProductPhotoRoute,
   AuthenticatedWorkspaceAustraliaPassportPhotoRoute:
@@ -3405,6 +3467,15 @@ const rootRouteChildren: RootRouteChildren = {
     AuthenticatedWorkspacePtTrocarFundoDaFotoRoute,
   AuthenticatedWorkspaceEsIndexRoute: AuthenticatedWorkspaceEsIndexRoute,
   AuthenticatedWorkspacePtIndexRoute: AuthenticatedWorkspacePtIndexRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
+const rootRouteChildren: RootRouteChildren = {
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  SplatRoute: SplatRoute,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
