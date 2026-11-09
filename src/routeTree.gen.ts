@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -160,6 +161,11 @@ import { Route as AuthenticatedWorkspacePtRemoverFundoDeImagemGraficaRouteImport
 import { Route as AuthenticatedWorkspacePtRemoverFundoEmLoteRouteImport } from './routes/_authenticated/workspace.pt.remover-fundo-em-lote'
 import { Route as AuthenticatedWorkspacePtTrocarFundoDaFotoRouteImport } from './routes/_authenticated/workspace.pt.trocar-fundo-da-foto'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SplatRoute = SplatRouteImport.update({
   id: '/$',
   path: '/$',
@@ -1058,7 +1064,7 @@ const AuthenticatedWorkspacePtTrocarFundoDaFotoRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof AuthenticatedRouteRouteWithChildren
+  '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
@@ -1210,7 +1216,7 @@ export interface FileRoutesByFullPath {
   '/workspace/pt/': typeof AuthenticatedWorkspacePtIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof AuthenticatedRouteRouteWithChildren
+  '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
@@ -1363,6 +1369,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
@@ -1821,6 +1828,7 @@ export interface FileRouteTypes {
     | '/workspace/pt'
   id:
     | '__root__'
+    | '/'
     | '/_authenticated'
     | '/$'
     | '/auth'
@@ -1974,6 +1982,7 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   SplatRoute: typeof SplatRoute
   AuthRoute: typeof AuthRoute
@@ -1981,6 +1990,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$': {
       id: '/$'
       path: '/$'
@@ -3473,6 +3489,7 @@ const AuthenticatedRouteRouteWithChildren =
   AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   SplatRoute: SplatRoute,
   AuthRoute: AuthRoute,

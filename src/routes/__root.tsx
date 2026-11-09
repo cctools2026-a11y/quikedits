@@ -11,9 +11,6 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
-import { PaletteSwitcher } from "@/components/PaletteSwitcher";
-import { Motion } from "@/components/Motion";
-import { LanguageHint } from "@/components/LanguageHint";
 import { LOCALE_INFO, localeOf } from "@/lib/i18n";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -83,9 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "QuikEdits — Free Photo Background Tools" },
-      { name: "description", content: "Free, private photo background tools that run in your browser." },
-      { property: "og:site_name", content: "QuikEdits" },
+      { title: "Odd Jobs" },
     ],
     links: [
       {
@@ -126,9 +121,6 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
-      <PaletteSwitcher />
-      <LanguageHint />
-      <Motion />
     </QueryClientProvider>
   );
 }
