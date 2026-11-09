@@ -16,6 +16,6 @@ describe("tool landing content", () => {
     for (const t of TOOLS) expect(TOOL_CONTENT[t.to]!.description.length, t.to).toBeLessThanOrEqual(155);
   });
   it("canonical points at the page itself on quikedits.com", () => {
-    expect(toolHead("/passport-photo").links[0]!.href).toBe("https://quikedits.com/passport-photo");
+    expect(toolHead("/passport-photo").links[0]!.href).toBe("https://quikedits.com/workspace/passport-photo");
   });
 });

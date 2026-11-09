@@ -24,7 +24,7 @@ for (const { l, og, content, license } of LANGS) describe(`every /${l}/ page`, (
     it(`${url} opens its own page`, () => {
       const match = router.matchRoutes(url).at(-1);
       expect(match?.routeId).not.toBe(rootRouteId);
-      expect(match?.routeId.startsWith(`/${l}`)).toBe(true);
+      expect(match?.routeId.startsWith(`/_authenticated/workspace/${l}`)).toBe(true);
 
       const route = (router.routesById as unknown as Record<string, { options: { head?: (c: unknown) => Head } }>)[match!.routeId]!;
       const head = route.options.head!({} as never);

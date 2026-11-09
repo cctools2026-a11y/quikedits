@@ -3,12 +3,14 @@
 export type Locale = "en" | "pt" | "es";
 export const LOCALES: readonly Locale[] = ["en", "pt", "es"];
 export const SITE_URL = "https://quikedits.com";
+/** Private owner-only area: every tool page lives under this prefix. */
+export const WORKSPACE = "/workspace";
 
 /** hreflang code and URL prefix per locale. Add "pt-BR" -> "/pt/br" here later. */
 export const LOCALE_INFO: Record<Locale, { hreflang: string; prefix: string; ogLocale: string; htmlLang: string }> = {
-  en: { hreflang: "en", prefix: "", ogLocale: "en_US", htmlLang: "en" },
-  pt: { hreflang: "pt", prefix: "/pt", ogLocale: "pt_BR", htmlLang: "pt" },
-  es: { hreflang: "es", prefix: "/es", ogLocale: "es_LA", htmlLang: "es" },
+  en: { hreflang: "en", prefix: "/workspace", ogLocale: "en_US", htmlLang: "en" },
+  pt: { hreflang: "pt", prefix: "/workspace/pt", ogLocale: "pt_BR", htmlLang: "pt" },
+  es: { hreflang: "es", prefix: "/workspace/es", ogLocale: "es_LA", htmlLang: "es" },
 };
 
 /** Every English page path and its Portuguese slug (empty string = /pt/). */
@@ -125,9 +127,9 @@ const NON_EN = LOCALES.filter((l): l is Exclude<Locale, "en"> => l !== "en");
 
 /** URL of an English page in the given locale. */
 export function localePath(en: string, locale: Locale): string {
-  if (locale === "en") return en;
+  if (locale === "en") return en === "/" ? `${WORKSPACE}/` : `${WORKSPACE}${en}`;
   const slug = SLUGS[locale][en];
-  if (slug === undefined) return en;
+  if (slug === undefined) return `${WORKSPACE}${en}`;
   const prefix = LOCALE_INFO[locale].prefix;
   return slug ? `${prefix}/${slug}` : `${prefix}/`;
 }
@@ -139,7 +141,7 @@ export function localeOf(pathname: string): Locale {
 /** English page key for any URL (any language). */
 export function enPathOf(pathname: string): string {
   const l = localeOf(pathname);
-  if (l === "en") return pathname;
+  if (l === "en") { const rest = pathname.startsWith(WORKSPACE) ? pathname.slice(WORKSPACE.length) : pathname; return rest || "/"; }
   const slug = pathname.slice(LOCALE_INFO[l].prefix.length).replace(/^\//, "").replace(/\/$/, "");
   const hit = Object.entries(SLUGS[l]).find(([, s]) => s === slug);
   return hit ? hit[0] : pathname;
@@ -148,7 +150,7 @@ export function enPathOf(pathname: string): string {
 /** All language versions of a page, for hreflang tags and the sitemap. */
 export function alternates(en: string) {
   const list = LOCALES.map((l) => ({ hreflang: LOCALE_INFO[l].hreflang, href: `${SITE_URL}${localePath(en, l)}` }));
-  return [...list, { hreflang: "x-default", href: `${SITE_URL}${en}` }];
+  return [...list, { hreflang: "x-default", href: `${SITE_URL}${localePath(en, "en")}` }];
 }
 
 /** Every URL to prerender, in all locales. */

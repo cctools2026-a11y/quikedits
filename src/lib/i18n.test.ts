@@ -18,19 +18,19 @@ describe("Portuguese pages", () => {
   it("every English page has a unique Portuguese address under /pt/", () => {
     const urls = EN_PATHS.map((p) => localePath(p, "pt"));
     expect(new Set(urls).size).toBe(EN_PATHS.length);
-    for (const u of urls) expect(u.startsWith("/pt/")).toBe(true);
-    expect(localePath("/", "pt")).toBe("/pt/");
-    expect(localePath("/passport-photo", "pt")).toBe("/pt/foto-para-passaporte");
+    for (const u of urls) expect(u.startsWith("/workspace/pt/")).toBe(true);
+    expect(localePath("/", "pt")).toBe("/workspace/pt/");
+    expect(localePath("/passport-photo", "pt")).toBe("/workspace/pt/foto-para-passaporte");
   });
 
   it("Portuguese addresses map back to their English page", () => {
     for (const p of EN_PATHS) expect(enPathOf(localePath(p, "pt"))).toBe(p);
-    expect(enPathOf("/pt")).toBe("/");
+    expect(enPathOf("/workspace/pt")).toBe("/");
   });
 
   it("every Portuguese page has a route file", () => {
-    for (const slug of Object.values(PT_SLUGS)) expect(existsSync(`src/routes/pt.${slug || "index"}.tsx`)).toBe(true);
-    const ptFiles = readdirSync("src/routes").filter((f) => f.startsWith("pt."));
+    for (const slug of Object.values(PT_SLUGS)) expect(existsSync(`src/routes/_authenticated/workspace.pt.${slug || "index"}.tsx`)).toBe(true);
+    const ptFiles = readdirSync("src/routes/_authenticated").filter((f) => f.startsWith("workspace.pt."));
     expect(ptFiles.length).toBe(EN_PATHS.length);
   });
 
@@ -43,35 +43,40 @@ describe("Portuguese pages", () => {
     }
   });
 
-  it("every page is prerendered in both languages", () => {
+  it("every page has a workspace address in all three languages", () => {
     expect(ALL_PATHS.length).toBe(EN_PATHS.length * 3);
-    expect(ALL_PATHS).toContain("/pt/fundo-branco");
+    expect(ALL_PATHS).toContain("/workspace/pt/fundo-branco");
   });
 });
 
 describe("search tags", () => {
   it("each language version lists every version plus x-default (English)", () => {
     expect(alternates("/white-background")).toEqual([
-      { hreflang: "en", href: "https://quikedits.com/white-background" },
-      { hreflang: "pt", href: "https://quikedits.com/pt/fundo-branco" },
-      { hreflang: "es", href: "https://quikedits.com/es/fondo-blanco" },
-      { hreflang: "x-default", href: "https://quikedits.com/white-background" },
+      { hreflang: "en", href: "https://quikedits.com/workspace/white-background" },
+      { hreflang: "pt", href: "https://quikedits.com/workspace/pt/fundo-branco" },
+      { hreflang: "es", href: "https://quikedits.com/workspace/es/fondo-blanco" },
+      { hreflang: "x-default", href: "https://quikedits.com/workspace/white-background" },
     ]);
   });
 
   it("Portuguese pages point canonical at themselves, never at English", () => {
     const h = toolHead("/white-background", "pt");
     const canonical = h.links.find((l) => l.rel === "canonical");
-    expect(canonical?.href).toBe("https://quikedits.com/pt/fundo-branco");
+    expect(canonical?.href).toBe("https://quikedits.com/workspace/pt/fundo-branco");
     expect(h.links.filter((l) => l.rel === "alternate").map((l) => ("hrefLang" in l ? l.hrefLang : ""))).toEqual(["en", "pt", "es", "x-default"]);
     expect(h.meta).toContainEqual({ property: "og:locale", content: "pt_BR" });
     expect(h.meta).toContainEqual({ property: "og:image", content: "https://quikedits.com/og/pt/white-background.jpg" });
   });
 
-  it("sitemap lists every page in both languages with alternates", () => {
+  it("sitemap lists only the public landing page, never the private workspace", () => {
     const xml = readFileSync("public/sitemap.xml", "utf8");
-    for (const p of ALL_PATHS) expect(xml).toContain(`<loc>https://quikedits.com${p}</loc>`);
-    expect(xml.match(/hreflang="pt"/g)?.length).toBe(ALL_PATHS.length);
+    expect(xml.match(/<loc>/g)?.length).toBe(1);
+    expect(xml).toContain("<loc>https://quikedits.com/</loc>");
+    expect(xml).not.toContain("/workspace");
+  });
+
+  it("robots.txt keeps search engines out of the workspace", () => {
+    expect(readFileSync("public/robots.txt", "utf8")).toMatch(/^Disallow: \/workspace$/m);
   });
 
   it("every Portuguese page has its own share image", () => {
@@ -117,16 +122,16 @@ describe("Spanish pages", () => {
   it("every English page has a unique Spanish address under /es/ that maps back", () => {
     const urls = EN_PATHS.map((p) => localePath(p, "es"));
     expect(new Set(urls).size).toBe(EN_PATHS.length);
-    for (const u of urls) expect(u.startsWith("/es/")).toBe(true);
-    expect(localePath("/", "es")).toBe("/es/");
-    expect(localePath("/passport-photo", "es")).toBe("/es/foto-para-pasaporte");
+    for (const u of urls) expect(u.startsWith("/workspace/es/")).toBe(true);
+    expect(localePath("/", "es")).toBe("/workspace/es/");
+    expect(localePath("/passport-photo", "es")).toBe("/workspace/es/foto-para-pasaporte");
     for (const p of EN_PATHS) expect(enPathOf(localePath(p, "es"))).toBe(p);
-    expect(enPathOf("/es")).toBe("/");
+    expect(enPathOf("/workspace/es")).toBe("/");
   });
 
   it("every Spanish page has a route file, content, headline and share image", () => {
-    for (const slug of Object.values(ES_SLUGS)) expect(existsSync(`src/routes/es.${slug || "index"}.tsx`)).toBe(true);
-    expect(readdirSync("src/routes").filter((f) => f.startsWith("es.")).length).toBe(EN_PATHS.length);
+    for (const slug of Object.values(ES_SLUGS)) expect(existsSync(`src/routes/_authenticated/workspace.es.${slug || "index"}.tsx`)).toBe(true);
+    expect(readdirSync("src/routes/_authenticated").filter((f) => f.startsWith("workspace.es.")).length).toBe(EN_PATHS.length);
     for (const p of toolPaths) {
       expect(TOOL_CONTENT_ES[p], p).toBeDefined();
       expect(ES_HERO[p], p).toBeDefined();
@@ -138,13 +143,8 @@ describe("Spanish pages", () => {
 
   it("Spanish pages point canonical at themselves with Spanish locale", () => {
     const h = toolHead("/white-background", "es");
-    expect(h.links.find((l) => l.rel === "canonical")?.href).toBe("https://quikedits.com/es/fondo-blanco");
+    expect(h.links.find((l) => l.rel === "canonical")?.href).toBe("https://quikedits.com/workspace/es/fondo-blanco");
     expect(h.meta).toContainEqual({ property: "og:locale", content: "es_LA" });
-  });
-
-  it("sitemap lists every Spanish page", () => {
-    const xml = readFileSync("public/sitemap.xml", "utf8");
-    expect(xml.match(/hreflang="es"/g)?.length).toBe(ALL_PATHS.length);
   });
 
   it("Spanish interface text covers every Portuguese key and keeps placeholders", () => {
