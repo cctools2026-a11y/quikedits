@@ -32,7 +32,7 @@ use the editor.
 ## Project rules
 - All image processing runs client-side via @imgly/background-removal, dynamically imported in handlers; Lovable Cloud is used only for owner sign-in — photos never leave the device.
 - Every tool page lives under /workspace in src/routes/_authenticated/workspace.*.tsx (ssr:false gate checks the owner email from src/lib/owner.ts); sign-in codes are only requested via the requestSignInCode server function, which silently ignores non-owner emails — keeps the tools private.
-- The public site is only the Odd Jobs game (src/routes/index.tsx) plus /auth; the `$` splat redirects every other URL to / so old tool links reveal nothing.
+- The public site is the games (src/routes/index.tsx, /handmade) plus /auth; the `$` splat redirects every other URL to / so old tool links reveal nothing.
 - Only public pages (/ and /auth) are prerendered in vite.config.ts `pages`; workspace pages render in the browser after sign-in.
 - App is AGPL-3.0 (LICENSE); keep the footer/license page attribution and source link (src/lib/site.ts) intact.
 - AI model/runtime files are self-hosted in public/imgly (publicPath in src/routes/index.tsx), copied from IMG.LY's data CDN for the installed package version and SHA-256 verified; re-download them when upgrading @imgly/background-removal.
