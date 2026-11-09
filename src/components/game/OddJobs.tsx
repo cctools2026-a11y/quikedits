@@ -28,7 +28,7 @@ export function OddJobs() {
   const [value, setValue] = useState(0);
   const [picked, setPicked] = useState<number[]>([]);
   const done = round >= order.length;
-  const job = done ? null : JOBS[order[round]];
+  const job: Job | null = done ? null : (JOBS[order[round] ?? 0] ?? null);
 
   useEffect(() => { setValue(0); setPicked([]); setResult(null); }, [round]);
 
@@ -38,10 +38,10 @@ export function OddJobs() {
     if (job.kind === "slider") g = grade(Math.abs(value - job.target), job.tol);
     else {
       const wrong = picked.filter((p) => !job.odd.includes(p)).length;
-      const missed = job.odd.filter((o) => !picked.includes(o)).length;
+      const missed = job.odd.filter((o: number) => !picked.includes(o)).length;
       g = wrong > 0 ? 2 : missed > 0 ? 1 : 0;
     }
-    const pts = [100, 40, 0][g];
+    const pts = [100, 40, 0][g] ?? 0;
     setScore((s) => s + pts);
     setResult({ g, pts });
   }
@@ -75,7 +75,7 @@ export function OddJobs() {
                 </div>
               ) : (
                 <div className="mt-6 grid grid-cols-4 gap-2">
-                  {job.items.map((it, i) => {
+                  {job.items.map((it: string, i: number) => {
                     const on = picked.includes(i);
                     return (
                       <button key={i} type="button" disabled={!!result} aria-pressed={on}

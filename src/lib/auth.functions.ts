@@ -25,7 +25,7 @@ export const requestSignInCode = createServerFn({ method: "POST" })
     });
     const { error } = await sb.auth.signInWithOtp({
       email: data.email.toLowerCase(),
-      options: { shouldCreateUser: true, emailRedirectTo: data.redirectTo || undefined },
+      options: data.redirectTo ? { shouldCreateUser: true, emailRedirectTo: data.redirectTo } : { shouldCreateUser: true },
     });
     if (error) console.error("sign-in code failed", error.status, error.message);
     return { ok: true as const };
