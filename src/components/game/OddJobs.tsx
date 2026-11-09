@@ -12,18 +12,22 @@ type SliderJob = {
 type TapJob = { kind: "tap"; title: string; brief: string; items: string[]; odd: number[]; shuffle?: boolean; verdicts: Verdicts };
 type HoldJob = { kind: "hold"; title: string; brief: string; emoji: string; button: string; target: number; tol: number; verdicts: Verdicts };
 type ChaseJob = { kind: "chase"; title: string; brief: string; emoji: string; dodges: number; verdicts: Verdicts };
-type Job = SliderJob | TapJob | HoldJob | ChaseJob;
+type CardJob = { kind: "card"; title: string; brief: string; prompt: string; verdicts: Verdicts };
+type Job = SliderJob | TapJob | HoldJob | ChaseJob | CardJob;
 
 const JOBS: Job[] = [
   { kind: "slider", look: "fade", title: "Make the ghost less obvious", brief: "He's haunting a job interview tomorrow. Tone him down, but not so much he's not there.", unit: "% ghost", emoji: "👻", target: 22, tol: 5, verdicts: ["He got the job. HR is uneasy.", "He's slightly too there. Someone screamed.", "He's either fully visible or fully gone. Both are illegal."] },
   { kind: "tap", title: "Remove the spies from the egg carton", brief: "Four of these eggs are wearing disguises. You know which.", shuffle: true, items: ["🥚", "🥚", "🥸", "🥚", "🥚", "🥚", "🕵️", "🥚", "🥚", "🥚", "🥚", "🥸", "🥚", "🥚", "🕶️", "🥚"], odd: [2, 6, 11, 14], verdicts: ["The carton is secure. The hens thank you.", "One spy remains. He's laying low.", "You threw out an innocent egg. It had a family."] },
+  { kind: "card", title: "Client feedback round", brief: "Finish the client's email. Two other contractors are also pitching.", prompt: "Love it! Could you just make it a bit more ____?", verdicts: ["The client chose you. They're weeping into a stapler.", "", "The client went with someone else. Ouch."] },
   { kind: "hold", title: "Iron the cloud", brief: "It's going to a wedding. Hold to iron. Too long and it rains on the bride.", emoji: "☁️", button: "Hold to iron", target: 2.4, tol: 0.4, verdicts: ["A crisp, flat cloud. Guests weep.", "Still a bit fluffy at the edges.", "It's raining indoors. Somehow."] },
   { kind: "slider", look: "rotate", inverted: true, title: "Straighten the lighthouse", brief: "Ships keep asking it for directions. This slider was installed backwards. Sorry.", unit: "°", emoji: "🗼", target: 50, tol: 4, verdicts: ["Ships salute. One ship proposes.", "One ship is still suspicious.", "You've invented a new kind of lighthouse."] },
   { kind: "chase", title: "Centre the moon", brief: "It's for a calendar. The moon does not want to be in the calendar.", emoji: "🌝", dodges: 6, verdicts: ["Captured. The moon signs the release form.", "Caught it, eventually. It's sulking.", ""] },
+  { kind: "card", title: "Emergency revision", brief: "The client called at 3am. Choose your excuse.", prompt: "Sorry for the delay, I was busy ____.", verdicts: ["Accepted. The client is now worried about you, in a nice way.", "", "The client believed the other excuse instead."] },
   { kind: "slider", look: "grow", drift: 0.6, changeTo: { target: 12, note: "Client: \"Actually, smaller. Much smaller. Like a sad meatball.\"" }, title: "Inflate the pufferfish", brief: "Client wants him 'more confident'. The slider keeps sliding. Hold your nerve.", unit: "puffs", emoji: "🐡", target: 80, tol: 6, verdicts: ["Exactly as confident as a fish should be.", "He's mildly over-confident now.", "The fish has left the building. Via the ceiling."] },
   { kind: "tap", title: "Shave the kiwi", brief: "It's a kiwi. The fruit. Please don't shave the bird. Pick only the fruit.", items: ["🥝", "🐦", "🥝", "🥝", "🐤", "🥝", "🐥", "🥝", "🥝", "🐦", "🥝", "🥝"], odd: [0, 2, 3, 5, 7, 8, 10, 11], verdicts: ["Eight bald kiwis. Cold, but grateful.", "Some fruit still have their winter coats.", "You shaved a bird. It's wearing a scarf now and will not discuss it."] },
   { kind: "slider", look: "wobble", title: "Tune the rooster", brief: "He's crowing a semitone flat and refuses to admit it.", unit: "Hz", emoji: "🐓", target: 37, tol: 5, verdicts: ["The sun rises right on cue.", "The sun rises… eventually.", "The sun has decided to sleep in."] },
   { kind: "hold", title: "Defrost the woolly mammoth", brief: "Museum wants him 'awake-ish'. Hold to defrost. Stop before he's fully awake and hungry.", emoji: "🦣", button: "Hold the hairdryer", target: 3.2, tol: 0.5, verdicts: ["He blinks once. Ticket sales triple.", "He's still mostly a fridge.", "He's awake. He's eaten the gift shop."] },
+  { kind: "card", title: "The final brief", brief: "Last pitch of the day. Pick the one that gets you paid.", prompt: "We'll know it's finished when it has ____.", verdicts: ["Approved. You'll be paid in exposure and one duck.", "", "Rejected. The raccoon got the contract again."] },
   { kind: "slider", look: "shrink", title: "Trim the hedge", brief: "The client asked for 'a bit less hedge, but more hedge-y'.", unit: "cm", emoji: "🌳", target: 28, tol: 5, verdicts: ["Perfect. The neighbours are furious.", "It's… a hedge-adjacent shape.", "You've made a stump. The client says it's art."] },
 ];
 
@@ -82,6 +86,7 @@ export function OddJobs() {
                 {job.kind === "tap" && <Tap job={job} locked={!!result} onDone={finish} />}
                 {job.kind === "hold" && <Hold job={job} locked={!!result} onDone={finish} />}
                 {job.kind === "chase" && <Chase job={job} locked={!!result} onDone={finish} />}
+                {job.kind === "card" && <Cards job={job} locked={!!result} onDone={finish} />}
               </div>
 
               {result && (
@@ -246,6 +251,68 @@ function Chase({ job, locked, onDone }: Props<ChaseJob>) {
         {dodged > 0 && !locked && <p className="absolute bottom-2 left-0 right-0 text-center text-sm font-semibold">🌝 “{TAUNTS[Math.min(dodged - 1, TAUNTS.length - 1)]}”</p>}
       </div>
       {!locked && <button type="button" onClick={() => onDone(1, "You gave up. The calendar now features a photo of a potato.")} className="mt-4 w-full rounded-full border-2 border-foreground px-5 py-2 text-sm font-bold">Use a potato instead</button>}
+    </div>
+  );
+}
+
+const ANSWERS = [
+  "a horse who is a lawyer", "the confidence of a medium-sized goose", "Tuesday's leftover enthusiasm", "an emotional support baguette",
+  "more beige", "a single, judgemental grape", "the energy of a jogging grandpa", "seventeen tiny hats", "a nap that never ends",
+  "a strongly worded sandwich", "my cousin's karaoke trophy", "an owl doing taxes", "a feeling, but in a box", "slightly too many llamas",
+  "a pigeon with a business plan", "the sound a fridge makes at night", "a sock that has seen things", "a motivational potato",
+  "fifty percent more spoon", "a cloud that's been ironed", "a dramatic entrance by a snail", "the moon, but contractually obliged",
+  "a polite volcano", "a wizard's lost receipt", "glitter, but emotionally",
+];
+const RIVALS = ["Gary from Accounts", "A Raccoon in a Blazer", "The Intern's Mum", "A Very Tall Pigeon", "Brenda (Freelance)"];
+const JUDGE_LINES = ["The client squints at the cards.", "The client consults a magic eight ball.", "The client asks their cat.", "The client flips a biscuit."];
+
+function pick<T>(arr: T[], n: number) { return shuffled(arr).slice(0, n).map((x) => x.v); }
+
+function Cards({ job, locked, onDone }: Props<CardJob>) {
+  const [hand] = useState(() => pick(ANSWERS, 5));
+  const [rivals] = useState(() => pick(RIVALS, 2).map((name) => ({ name, card: pick(ANSWERS.filter((a) => !hand.includes(a)), 1)[0]! })));
+  const [mine, setMine] = useState<string | null>(null);
+  const [winner, setWinner] = useState<number | null>(null);
+  const [judging, setJudging] = useState(false);
+  const fill = (a: string | null) => job.prompt.replace("____", a ? `“${a}”` : "______");
+  const play = () => {
+    if (!mine) return;
+    setJudging(true);
+    setTimeout(() => {
+      // Rigged slightly in your favour: the client likes you, mostly.
+      const w = Math.random() < 0.55 ? 0 : 1 + Math.floor(Math.random() * 2);
+      setWinner(w); setJudging(false);
+      onDone(w === 0 ? 0 : 2, w === 0 ? undefined : `${rivals[w - 1]!.name} won with “${rivals[w - 1]!.card}”. ${job.verdicts[2]}`);
+    }, 1400);
+  };
+  const entries = [{ name: "You", card: mine ?? "" }, ...rivals];
+  return (
+    <div className="mt-6">
+      <div className="rotate-[-1.5deg] rounded-2xl border-4 border-foreground bg-foreground p-5 text-background shadow-float">
+        <p className="font-display text-3xl leading-tight">{fill(mine)}</p>
+      </div>
+      {!judging && winner === null && !locked && (
+        <>
+          <div className="mt-5 grid grid-cols-2 gap-2">
+            {hand.map((a, i) => (
+              <button key={a} type="button" onClick={() => setMine(a)} aria-pressed={mine === a}
+                style={{ transform: `rotate(${(i - 2) * 1.5}deg)` }}
+                className={`min-h-24 rounded-xl border-2 p-3 text-left text-sm font-semibold transition active:scale-95 ${mine === a ? "-translate-y-1 border-primary bg-primary/15" : "border-foreground bg-background"}`}>{a}</button>
+            ))}
+          </div>
+          <SubmitBtn onClick={play}>{mine ? "Play this card" : "Pick a card"}</SubmitBtn>
+        </>
+      )}
+      {(judging || winner !== null) && (
+        <div className="mt-5 space-y-2">
+          {judging && <p className="animate-pulse text-center text-sm font-semibold">{JUDGE_LINES[Math.floor(Math.random() * JUDGE_LINES.length)]}</p>}
+          {entries.map((e, i) => (
+            <div key={e.name} className={`rounded-xl border-2 p-3 text-sm transition ${winner === i ? "scale-105 border-primary bg-primary/15" : "border-foreground bg-background"} ${winner !== null && winner !== i ? "opacity-50" : ""}`}>
+              <span className="font-bold">{e.name}:</span> {e.card} {winner === i && "🏆"}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
