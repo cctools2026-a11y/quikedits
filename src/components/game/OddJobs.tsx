@@ -48,7 +48,7 @@ function shuffled<T>(arr: T[]) {
 export function OddJobs() {
   const [round, setRound] = useState(0);
   const [score, setScore] = useState(0);
-  const [result, setResult] = useState<{ g: number; pts: number; note?: string } | null>(null);
+  const [result, setResult] = useState<{ g: number; pts: number; note?: string | undefined } | null>(null);
   const done = round >= JOBS.length;
   const job: Job | null = done ? null : (JOBS[round] ?? null);
 
