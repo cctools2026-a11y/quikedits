@@ -30,14 +30,16 @@ use the editor.
 <!-- LOVABLE:END -->
 
 ## Project rules
-- All image processing runs client-side via @imgly/background-removal, dynamically imported in handlers; no backend/database/serverless — keeps it free and static.
-- Every page is prerendered (vite.config.ts `pages`); add new static routes there so Cloudflare Pages can serve them.
+- All image processing runs client-side via @imgly/background-removal, dynamically imported in handlers; Lovable Cloud is used only for owner sign-in — photos never leave the device.
+- Every tool page lives under /workspace in src/routes/_authenticated/workspace.*.tsx (ssr:false gate checks the owner email from src/lib/owner.ts); sign-in codes are only requested via the requestSignInCode server function, which silently ignores non-owner emails — keeps the tools private.
+- The public site is only the Odd Jobs game (src/routes/index.tsx) plus /auth; the `$` splat redirects every other URL to / so old tool links reveal nothing.
+- Only public pages (/ and /auth) are prerendered in vite.config.ts `pages`; workspace pages render in the browser after sign-in.
 - App is AGPL-3.0 (LICENSE); keep the footer/license page attribution and source link (src/lib/site.ts) intact.
 - AI model/runtime files are self-hosted in public/imgly (publicPath in src/routes/index.tsx), copied from IMG.LY's data CDN for the installed package version and SHA-256 verified; re-download them when upgrading @imgly/background-removal.
 - Don't override zod to v4: @imgly/background-removal and TanStack depend on the v3 API.
 - Tool pages share src/components/ToolPage.tsx (upload, progress, errors) and src/lib/compose.ts (edge refinement, compositing); new tools should reuse them and register in src/lib/tools.ts so they appear in the header and home page.
 - Pre-processing crop/rotate lives in src/components/CropRotate.tsx, enabled per tool via ToolPage `crop` prop (list of crop shapes); math in src/lib/crop.ts is unit-tested.
-- Per-tool landing copy and search metadata live in src/lib/tool-content.ts; routes use toolHead() from src/lib/seo.ts and render <ToolLanding>; add new tools there and to public/sitemap.xml.
+- Per-tool landing copy and search metadata live in src/lib/tool-content.ts; routes use toolHead() from src/lib/seo.ts and render <ToolLanding>; add new tools there (workspace pages are noindex and never in the sitemap).
 - Photo rules live in src/lib/photo-rules.ts (pure, unit-tested); UploadZone renders shared PhotoTips for consistent upload guidance, while ToolPage `tool` enables CutoutCues/TouchUp with full-frame cutouts aligned to the source.
 - Header menu groups tools by `group` in src/lib/tools.ts (TOOL_GROUPS); new tools need a group and an icon in SiteHeader ICONS.
 - Tool pages share ToolHero (hero + example), UploadZone (drop zone + photo guidance) and ToolLanding sections; per-tool example images live in src/lib/tool-media.ts (after-images made with the site's own tools). Each locale has its own example photos (people, places and words that fit the language) in src/lib/locale-media.json, read via mediaFor() and ToolArt CARDS with English fallback; share images in public/og/<locale>/ use the same photos.
@@ -46,6 +48,6 @@ use the editor.
 - Passport example and processed export share PASSPORT_SIZES; ToolPage/ToolHero accept an optional example view so document cropping stays passport-specific, with pure crop geometry in passport-crop.ts.
 - Sub-tools (specific jobs) are registered in SUBTOOLS (src/lib/tools.ts) as flat routes that render a parent tool component from src/components/tools/ with a `page` and `preset`; media falls back to the parent, content/SEO is their own — keeps one implementation per tool.
 - Signature drawing uses signature_pad client-side and feeds a PNG into ToolPage's existing raw-image workflow; signature-tools defines eligible jobs so logo-only pages do not offer irrelevant input.
-- Languages: src/lib/i18n.ts is the single source of locale URLs (/<locale>/<translated-slug>, e.g. /pt/, /es/), hreflang alternates and prerender paths; each locale has thin `<locale>.*.tsx` route wrappers, UI text via useT() with English as the key (src/lib/strings/<locale>.ts), page copy in tool-content.<locale>.ts/hero.<locale>.ts, share images in public/og/<locale>/, and i18n.test.ts fails on any missing translation — keeps every language version complete and SEO-consistent.
+- Languages: src/lib/i18n.ts is the single source of locale URLs (/workspace/<locale>/<translated-slug>) and hreflang alternates; each locale has thin `workspace.<locale>.*.tsx` route wrappers, UI text via useT() with English as the key (src/lib/strings/<locale>.ts), page copy in tool-content.<locale>.ts/hero.<locale>.ts, share images in public/og/<locale>/, and i18n.test.ts fails on any missing translation — keeps every language version complete and SEO-consistent.
 - Never auto-redirect by browser language or location; LanguageHint only suggests — redirects would hide pages from crawlers.
-- public/sitemap.xml is generated by `bun scripts/sitemap.ts`; share images per locale are named by English slug.
+- public/sitemap.xml is generated by `bun scripts/sitemap.ts` and lists only the public landing page; robots.txt disallows /workspace; share images per locale are named by English slug.
