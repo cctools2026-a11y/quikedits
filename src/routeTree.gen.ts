@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as HandmadeRouteImport } from './routes/handmade'
 import { Route as AuthenticatedWorkspaceIndexRouteImport } from './routes/_authenticated/workspace.index'
 import { Route as AuthenticatedWorkspaceAmazonProductPhotoRouteImport } from './routes/_authenticated/workspace.amazon-product-photo'
 import { Route as AuthenticatedWorkspaceAustraliaPassportPhotoRouteImport } from './routes/_authenticated/workspace.australia-passport-photo'
@@ -178,6 +179,11 @@ const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HandmadeRoute = HandmadeRouteImport.update({
+  id: '/handmade',
+  path: '/handmade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedWorkspaceIndexRoute =
@@ -1067,6 +1073,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
+  '/handmade': typeof HandmadeRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1219,6 +1226,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
+  '/handmade': typeof HandmadeRoute
   '/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1373,6 +1381,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/$': typeof SplatRoute
   '/auth': typeof AuthRoute
+  '/handmade': typeof HandmadeRoute
   '/_authenticated/workspace/amazon-product-photo': typeof AuthenticatedWorkspaceAmazonProductPhotoRoute
   '/_authenticated/workspace/australia-passport-photo': typeof AuthenticatedWorkspaceAustraliaPassportPhotoRoute
   '/_authenticated/workspace/batch-remove-background': typeof AuthenticatedWorkspaceBatchRemoveBackgroundRoute
@@ -1527,6 +1536,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/auth'
+    | '/handmade'
     | '/workspace/amazon-product-photo'
     | '/workspace/australia-passport-photo'
     | '/workspace/batch-remove-background'
@@ -1679,6 +1689,7 @@ export interface FileRouteTypes {
     | '/'
     | '/$'
     | '/auth'
+    | '/handmade'
     | '/workspace/amazon-product-photo'
     | '/workspace/australia-passport-photo'
     | '/workspace/batch-remove-background'
@@ -1832,6 +1843,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/$'
     | '/auth'
+    | '/handmade'
     | '/_authenticated/workspace/amazon-product-photo'
     | '/_authenticated/workspace/australia-passport-photo'
     | '/_authenticated/workspace/batch-remove-background'
@@ -1986,6 +1998,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   SplatRoute: typeof SplatRoute
   AuthRoute: typeof AuthRoute
+  HandmadeRoute: typeof HandmadeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -2016,6 +2029,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/handmade': {
+      id: '/handmade'
+      path: '/handmade'
+      fullPath: '/handmade'
+      preLoaderRoute: typeof HandmadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated/workspace/': {
@@ -3493,6 +3513,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   SplatRoute: SplatRoute,
   AuthRoute: AuthRoute,
+  HandmadeRoute: HandmadeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

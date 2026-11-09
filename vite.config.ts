@@ -12,7 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
     // Only the public pages are prerendered; the owner-only /workspace pages render in the browser after sign-in.
-    pages: [{ path: "/" }, { path: "/auth" }],
+    pages: [{ path: "/" }, { path: "/auth" }, { path: "/handmade" }],
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });

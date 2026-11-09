@@ -3,5 +3,5 @@
 import { writeFileSync } from "node:fs";
 import { SITE_URL } from "../src/lib/i18n";
 
-writeFileSync("public/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE_URL}/</loc>\n  </url>\n</urlset>\n`);
-console.log("1 url");
+writeFileSync("public/sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>${SITE_URL}/</loc>\n  </url>\n  <url>\n    <loc>${SITE_URL}/handmade</loc>\n  </url>\n</urlset>\n`);
+console.log("2 urls");

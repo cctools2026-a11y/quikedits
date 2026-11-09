@@ -135,7 +135,8 @@ export function TheButton() {
           <div className="flex min-h-[12rem] items-center justify-center">{renderButton()}</div>
           <p className="min-h-[1.5rem] text-sm text-muted-foreground" aria-live="polite">{note}</p>
         </section>
-        <footer className="mt-10 text-center">
+        <footer className="mt-10 flex justify-center gap-4 text-xs text-muted-foreground">
+          <Link to="/handmade" className="underline">Another game</Link>
           <Link to="/auth" aria-label="Staff" className="text-xs text-muted-foreground/40 hover:text-muted-foreground">·</Link>
         </footer>
       </div>
